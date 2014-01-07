@@ -1,0 +1,161 @@
+<!-- BEGIN: main -->{HTML.header}
+<script src="./imageCheck_zz/tools/ajax_zz.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/JavaScript">
+<!--
+function ValidateMsg()		// 檢驗輸入是否符合規定
+{
+	var cForm = document.frmMessage;
+	if(cForm.txtTitle.value == "")
+	{
+		alert("請輸入標題");
+		cForm.txtTitle.focus();
+		return false;
+	}
+	if(cForm.edtMessage.value == "")
+	{
+		alert("請輸入欲留言內容");
+		cForm.edtMessage.focus();
+		return false;
+	}
+	check();
+}
+
+function ResetForm()
+{
+	document.frmMessage.reset();
+}
+
+function check()
+{
+	var cForm = document.frmMessage;	//form的名稱
+	var alertStr = "";
+	var ajax_url = './imageCheck_zz/tools/chucksum_xml.php';				//ajax網址
+	var ajax_data = '&checksum='+ cForm.checksum.value;	//ajax參數
+	
+	var is_checksum = sendRequest(AjaxResult,ajax_data,"GET",ajax_url,false);
+	//callback
+	function AjaxResult(oj){
+		var xmldoc = oj.responseXML;
+		var root_node = xmldoc.getElementsByTagName('root').item(0);
+		switch(root_node.firstChild.data){
+			case "0":
+				alertStr +="認證碼錯誤!";
+				break;
+			case "1":
+				break;
+			case "2":
+				//IE可自動更新認證碼
+				if(navigator.appName == "Microsoft Internet Explorer"){	
+					//imgRoll('chucksumImg','./imageCheck_zz/tools/chucksum.php');
+					window.frames["captcha"].location.reload();
+					alertStr +="已超出輸入時間，認證碼已更新，請輸入新的認證碼!";
+				}else{
+					alertStr +="已超出輸入時間，請重新載入頁面以更換新的認證碼!";
+				}
+				break;		
+		}
+	}
+	
+	if( alertStr != '' ){
+		alert( alertStr );
+		return false;
+	}else{
+		cForm.action = 'funcs.php';
+		cForm.act.value = 'POmsg';
+		cForm.submit();
+	}
+}
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+  <div id="top" class="grid_12">
+    {HTML.banner}
+  </div>
+  <div class="grid_3">
+	{HTML.menu}
+  </div>
+  <div class="grid_9">
+	<div class="right_box">
+	  <div class="right_top">發表留言</div>
+      <div style="padding:10px;">
+		<table id="___2" width="680" height="140" border="0" cellpadding="0" cellspacing="0" align="center">
+	  <form name="frmMessage" id="frmMessage" method="post">
+	  <input type="hidden" name="act" id="act" />
+	  <input type="hidden" name="Author" id="Author" value="{content_list.Author}" />
+		<tr>
+		  <td align="left" valign="top"><table width="100%" cellspacing="0" cellpadding="0" border="0">
+			<tr>
+			  <td width="680"><table width="100%" cellspacing="0" cellpadding="0" border="0">
+				<tr>
+				  <td width="28" height="34"><img src="images/messagein1.gif" width="28" height="34"></td>
+				  <td width="624" height="34" background="images/messagein1-1.gif" style="vertical-align:bottom; text-align:center;"><img src="images/messagetitle.gif" border="0"></td>
+				  <td width="28" height="34" background="images/messagein1-2.gif"></td>
+				</tr>
+				<tr>
+				  <td background="images/messagein1-3.gif">&nbsp;</td>
+				  <td><table width="100%" cellspacing="0" cellpadding="0">
+					<tr>
+					  <td><table cellSpacing="2" cellPadding="2" width="100%" bgColor="#ffffff" border="0" id="table8">
+						<tr bgColor="#f6f6f6">
+						  <td colspan="3" class="style2">&nbsp;</td>
+						  </tr>
+						<tr bgColor="#f6f6f6">
+						  <td class="style2">&nbsp;<img height="8" src="images/icon_02.gif" width="8">留言標題</td>
+						  <td colspan="2"><input id="txtTitle" style="BORDER-RIGHT: #83bdf1 1px solid; BORDER-TOP: #83bdf1 1px solid; FONT-SIZE: 8pt; BORDER-LEFT: #83bdf1 1px solid; WIDTH: 150px; COLOR: #666666; BORDER-BOTTOM: #83bdf1 1px solid; HEIGHT: 16px; BACKGROUND-COLOR: #ffffff" name="txtTitle" /></td>
+						</tr>
+						<tr bgColor="#f6f6f6">
+						  <td class="style2">&nbsp;<img height="8" src="images/icon_02.gif" width="8">內容</td>
+						  <td colspan="2"><textarea name="edtMessage" id="edtMessage" cols="50" rows="6" style="BORDER-RIGHT: #83bdf1 1px solid; BORDER-TOP: #83bdf1 1px solid; FONT-SIZE: 8pt; BORDER-LEFT: #83bdf1 1px solid; BORDER-BOTTOM: #83bdf1 1px solid;" ></textarea></td>
+						</tr>
+						<tr bgColor="#f6f6f6">
+						  <td class="style2">&nbsp;<img height="8" src="images/icon_02.gif" width="8">驗證碼</td>
+						  <td width="152"><input type="text" name="checksum" id="checksum" size="6" maxlength="6" style="font-size: 22pt; font-family: Arial; color: #0000FF;text-transform:uppercase;" onKeyPress="if((event.keyCode>96)&&(event.keyCode<123))event.keyCode-=32;" /></td>
+						  <td width="356"><iframe name=captcha align=middle src="./imageCheck_zz/tools/getpng.htm" frameborder="no" width="180" height="50" scrolling="no"></iframe></td>
+						</tr>
+						<tr bgColor="#f6f6f6">
+						  <td class="style2">&nbsp;</td>
+						  <td height="25" colspan="2" valign="middle">
+						  <span style="cursor:pointer;" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('ImageA','','images/send.gif',1)" onClick="return ValidateMsg();" /><img name="ImageA" id="ImageA" width="59" height="19" align="middle" border="0" src="images/send.gif" /></span>
+						  <span style="cursor:pointer;" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('ImageB','','images/clean.gif',1)" onClick="ResetForm();" /><img name="ImageB" id="ImageB" width="59" height="19" align="middle" border="0" src="images/clean.gif" /></span></td>
+						</tr>
+					  </table></td>
+					</tr>
+				  </table></td>
+				  <td background="images/messagein1-4.gif">&nbsp;</td>
+				</tr>
+				<tr>
+				  <td background="images/messagein1-5.gif" width="28" height="15"></td>
+				  <td background="images/messagein1-6.gif"></td>
+				  <td background="images/messagein1-7.gif" width="28" height="15"></td>
+				</tr>
+			  </table></td>
+			</tr>
+		  </table></td>
+		</tr>
+		</form>
+	  </table>
+      </div>
+    </div>
+  </div>   
+{HTML.footer}
+<!-- END: main -->

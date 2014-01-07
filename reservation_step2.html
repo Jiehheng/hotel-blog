@@ -1,0 +1,110 @@
+<!-- BEGIN: main -->{HTML.header}
+<script type="text/JavaScript">
+<!--
+function check_keydown() 	//判斷資料是否有打
+{
+	var frm = document.postPost;
+	if(frm.comefor.checked == true){
+		frm.action="?{cUrl}&reservation_step3";
+		return true;
+	}else{
+		alert("請確認勾選訂房需知");
+		return false;
+	}
+}
+//-->
+</script>
+  <div id="top" class="grid_12">
+    {HTML.banner}
+  </div>
+  <div class="grid_3">
+	{HTML.menu}
+  </div>
+<form name="postPost" method="post" onsubmit="return check_keydown();">
+<input type="hidden" name="quene" id="quene" value="{content_list.Quene}">
+  <div class="grid_9">
+    <table width="100%">
+      <tr>
+    <td rowspan="2"><img src="img/icon/step1_1.gif" width="32" height="33" alt="1" /></td>
+    <td><span class="gray2">Step 1</span></td>
+    <td rowspan="2"><img src="img/icon/step2_2.gif" width="32" height="33" alt="2" /></td>
+    <td><span class="gray2">Step 2</span></td>
+    <td rowspan="2"><img src="img/icon/step1_3.gif" width="32" height="33" /></td>
+    <td><span class="gray2">Step 3</span></td>
+    <td rowspan="2"><img src="img/icon/step1_4.gif" width="32" height="33" alt="4" /></td>
+    <td><span class="gray2">Step 4</span></td>
+    <td rowspan="2"><img src="img/icon/step1_5.gif" width="32" height="33" alt="5" /></td>
+    <td><span class="gray2">Step 5</span></td>
+    </tr>
+  <tr>
+    <td><span class="gray">選擇訂房內容</span></td>
+    <td><span class="brown">訂房明細確認</span></td>
+    <td><span class="gray">填寫聯絡資料</span></td>
+    <td><span class="gray">付款方式選擇</span></td>
+    <td><span class="gray">訂房完成</span></td>
+    </tr>
+</table>
+<div class="title1">步驟2：已選擇住房日期</div>
+<h2>》您所選的訂單內容</h2>
+<div class="reservation1">
+<table border="0" align="center" cellpadding="0" cellspacing="0" class="mytable">
+    <tr>
+      <td width="35" class="mytrbg1"><span class="brown">飯店名稱：</span></td>
+      <td width="227" class="mytd1"><label for="textfield3"><span class="brown">沐戀商旅 </span></label></td>
+    </tr>
+    <tr>
+      <td class="mytrbg1"><span class="brown">所在城市：</span></td>
+      <td class="mytd1"><span class="brown">台灣 高雄 三民區</span></td>
+    </tr>
+  </table>
+<table border="0" align="center" cellpadding="5" cellspacing="0" class="mytable">
+
+  <tr>
+	<td align="center" class="mytrbg">住宿日期	房型／促銷活動	</td>
+	<td align="center" class="mytrbg">入住日期</td>
+	<td align="center" class="mytrbg">退房日期</td>
+	<td align="center" class="mytrbg">天數 </td>
+	<td align="center" class="mytrbg">房數</td>
+	<td align="center" class="mytrbg">價格</td>
+	<td align="center" class="mytrbg">小計</td>
+	</tr>
+	{content_list.tr}
+	<tr class="mytr">
+	  <td colspan="7" valign="top" class="mytd1"><span class="brown">說明：</span>
+	    <br />
+	    ＊1人成行NT＄800，享住宿豪華雙人套房一晚、享1客中西式自助早餐！<br />
+	    ＊全館24小時無線寬頻上網（請自備NB）<br />
+	    ＊免費借用腳踏車，借完為止<br />
+	    ＊免費提供礦泉水、茶包、咖啡包..等飲品。<br />
+	    ＊備有特約停車場，可免費停車。<br />
+	    ＊本專案適用日期限週日～週四，不含春節期間、國定假日及其前夕。<br />
+	    ＊櫃臺亦有HELLO KITTY摩天輪票券可選購，原價NT＄150、房客價NT＄120。<br />
+	    ＊另提供機車租用服務。<br />
+	    ＊本專案活動不得與其他優惠併用！<br />
+	    《限制》：<br />
+	    ＊.本活動為考生住宿優惠專案。<br />
+	    ＊.限高中職以上考生，持有准考證住房者。<br />
+	    ＊.請住房者於check in時出示考生證件，一張考生證限優惠一間房間，如現場無出示考生證，則以一般訂房價住宿，現場補繳費用！<br />
+	    《備註》：</td>
+	  </tr>
+	<tr class="mytr">
+	  <td colspan="7" valign="top" class="mytd3">總計：{content_list.TotalCash} 元<br />
+	    活動折扣：0 元<br />
+	    實際金額：{content_list.TotalCash} 元</td>
+	  </tr>
+	</table>
+    </div>
+<h2>》訂房需知</h2>
+<span class="brown">訂房完成說明：</span><br />
+◎ 旅客於本網瀏覽飯店資訊後，加入會員即可使用多元訂房功能下單並完成付款，待本網回傳給旅客訂房確認單後(請旅客保留頻據入住飯店時做出示使用)，才是完成訂房，飯店並為旅客保留客房。<br />
+◎ 於入住日期3天內之訂房，只能選擇【線上即時完成付款】，訂單才成立。 於入住日期3天後之訂房付款期限可保留至當日午夜12點以前。<br />
+◎ 如超過付款時間未付款，本訂單將視同無效訂房。<br />
+<span class="brown">訂房成功通知函：</span><br />
+◎ 訂房完成後(含旅客完成付款)，憩陶系統將寄發【訂房成功通知函暨訂房明細】至您的EMAIL中，請記得列印下來，入住飯店時連同身分証（或護照）及此函給櫃檯登記，辦理入住。<br />
+◎ 於訂房填資料時若付款人和入住人為不同人須備註清楚，若不符合規定，飯店有權補收差價或當場要求全額付費，誠請注意自身的權益。<br /><div class="reservation1"><input name="comefor" type="checkbox" value="1" />我已完整閱讀訂房需知，並同意所有規定事項<br />
+<input type="button" onclick="javascript:location.href='?{cUrl}&reservation_step1-1'" value="重新選擇" />
+<input name="Sout" value="下一步" type="submit" /></div>
+  </div>   
+</form>
+{HTML.footer}
+<!-- END: main -->

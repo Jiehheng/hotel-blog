@@ -1,0 +1,423 @@
+				<html xmlns:o="urn:schemas-microsoft-com:office:office"
+				xmlns:x="urn:schemas-microsoft-com:office:excel"
+				xmlns="http://www.w3.org/TR/REC-html40">
+
+				<head>
+				<meta http-equiv=Content-Type content="text/html; charset=big5">
+				<meta name=ProgId content=Excel.Sheet>
+				<!--[if gte mso 9]><xml>
+				 <o:DocumentProperties>
+				  <o:LastAuthor>Sriram</o:LastAuthor>
+				  <o:LastSaved>2005-01-02T07:46:23Z</o:LastSaved>
+				  <o:Version>10.2625</o:Version>
+				 </o:DocumentProperties>
+				 <o:OfficeDocumentSettings>
+				  <o:DownloadComponents/>
+				 </o:OfficeDocumentSettings>
+				</xml><![endif]-->
+				<style>
+				<!--table
+					{mso-displayed-decimal-separator:"\.";
+					mso-displayed-thousand-separator:"\,";}
+				@page
+					{margin:1.0in .75in 1.0in .75in;
+					mso-header-margin:.5in;
+					mso-footer-margin:.5in;}
+				tr
+					{mso-height-source:auto;}
+				col
+					{mso-width-source:auto;}
+				br
+					{mso-data-placement:same-cell;}
+				.style0
+					{mso-number-format:General;
+					text-align:general;
+					vertical-align:bottom;
+					white-space:nowrap;
+					mso-rotate:0;
+					mso-background-source:auto;
+					mso-pattern:auto;
+					color:windowtext;
+					font-size:10.0pt;
+					font-weight:400;
+					font-style:normal;
+					text-decoration:none;
+					font-family:Arial;
+					mso-generic-font-family:auto;
+					mso-font-charset:0;
+					border:none;
+					mso-protection:locked visible;
+					mso-style-name:Normal;
+					mso-style-id:0;}
+				td
+					{mso-style-parent:style0;
+					padding-top:1px;
+					padding-right:1px;
+					padding-left:1px;
+					mso-ignore:padding;
+					color:windowtext;
+					font-size:10.0pt;
+					font-weight:400;
+					font-style:normal;
+					text-decoration:none;
+					font-family:Arial;
+					mso-generic-font-family:auto;
+					mso-font-charset:0;
+					mso-number-format:General;
+					text-align:general;
+					vertical-align:bottom;
+					border:none;
+					mso-background-source:auto;
+					mso-pattern:auto;
+					mso-protection:locked visible;
+					white-space:nowrap;
+					mso-rotate:0;}
+				.xl24
+					{mso-style-parent:style0;
+					white-space:normal;}
+				-->
+				</style>
+				<!--[if gte mso 9]><xml>
+				 <x:ExcelWorkbook>
+				  <x:ExcelWorksheets>
+				   <x:ExcelWorksheet>
+					<x:Name>srirmam</x:Name>
+					<x:WorksheetOptions>
+					 <x:Selected/>
+					 <x:ProtectContents>False</x:ProtectContents>
+					 <x:ProtectObjects>False</x:ProtectObjects>
+					 <x:ProtectScenarios>False</x:ProtectScenarios>
+					</x:WorksheetOptions>
+				   </x:ExcelWorksheet>
+				  </x:ExcelWorksheets>
+				  <x:WindowHeight>10005</x:WindowHeight>
+				  <x:WindowWidth>10005</x:WindowWidth>
+				  <x:WindowTopX>120</x:WindowTopX>
+				  <x:WindowTopY>135</x:WindowTopY>
+				  <x:ProtectStructure>False</x:ProtectStructure>
+				  <x:ProtectWindows>False</x:ProtectWindows>
+				 </x:ExcelWorkbook>
+				</xml><![endif]-->
+				</head>
+
+				<body link=blue vlink=purple>
+				<table x:str border=0 cellpadding=0 cellspacing=0 style='border-collapse: collapse;table-layout:fixed;'><tr><td class=xl24 width=64 >系統檢測報告</td></tr><tr><td class=xl24 width=64 >案件名稱：</td><td class=xl24 width=64 >212_高雄市立空中大學_全球資訊網規劃建置案</td></tr><tr><td class=xl24 width=64 >日期：</td><td class=xl24 width=64 >2009-12-07 10:05:20</td></tr><tr><td class=xl24 width=64 >編號</td><td class=xl24 width=64 >問題分類</td><td class=xl24 width=64 >問題內容</td><td class=xl24 width=64 >發問時間</td><td class=xl24 width=64 >回覆內容</td><td class=xl24 width=64 >回覆時間</td><td class=xl24 width=64 >回覆人員</td><td class=xl24 width=64 >回覆狀況</td><td class=xl24 width=64 >備註</td></tr><tr><td class=xl24 width=64 >1</td><td class=xl24 width=64 >業務問題</td><td class=xl24 width=64 >一、點選「行政單位 &gt;校長室」之相片，會出現錯誤(如下圖)，煩請修改，謝謝。<br />
+二、可否點選相片，連結至子網之網頁？謝謝。<br />
+</td><td class=xl24 width=64 >2009-11-24 17:06:00</td><td class=xl24 width=64 >一、已加入正確的連結<br />
+二、已加入圖片的連結</td><td class=xl24 width=64 >2009-11-24 17:51:40</td><td class=xl24 width=64 >黃政綸</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >2</td><td class=xl24 width=64 >業務問題</td><td class=xl24 width=64 >註冊組之「業務服務」項下4大項(減免學分費申請、選系申請、學分抵免及減修申請、畢業申請，有「請點選」部份)，未製作超連結，煩請修改，謝謝。<br />
+</td><td class=xl24 width=64 >2009-11-24 17:06:43</td><td class=xl24 width=64 >已處理完成。</td><td class=xl24 width=64 >2009-11-27 16:35:52</td><td class=xl24 width=64 >李淑卿</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >3</td><td class=xl24 width=64 >業務問題</td><td class=xl24 width=64 >子網之諮詢信箱，填寫後，點選「送出」，再點選「回首頁」會出現錯誤訊息，煩請修改，謝謝。</td><td class=xl24 width=64 >2009-11-24 17:19:45</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 >2009-11-26 09:32:36</td><td class=xl24 width=64 >沈志聰</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >4</td><td class=xl24 width=64 >業務問題</td><td class=xl24 width=64 >後台管理系統，例如：教務處-註冊組 &gt; 書表下載 &gt; 書表下載管理，點選「新增」、「上傳新版本」、「編輯此版本」，都會出現錯誤訊息(如下圖)，煩請修改，謝謝。</td><td class=xl24 width=64 >2009-11-24 17:27:34</td><td class=xl24 width=64 >剛剛測試沒有問題，請說明上傳的步驟，<br />
+請注意，依據系統預設的設定，檔案上傳最大不可超過4MB，否則會出現錯誤</td><td class=xl24 width=64 >2009-11-24 17:58:08</td><td class=xl24 width=64 >黃政綸</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >5</td><td class=xl24 width=64 >業務問題</td><td class=xl24 width=64 >為何「線上客服系統專區」，無法插入圖片、檔案，<br />
+這樣一來，無法將問題描述更清楚，<br />
+可否改善該問題？以利日後報修問題，謝謝。</td><td class=xl24 width=64 >2009-11-24 17:30:41</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >6</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >首頁 &gt; 關於本校 &gt; 空大簡介 &gt; 本校沿革，中各校長的連結（應是本頁書籤）沒有生效<br />
+<br />
+謝水南 校長 曾憲政 代理校長 莊淇銘 校長 吳明洋 校長 </td><td class=xl24 width=64 >2009-11-24 17:39:46</td><td class=xl24 width=64 >已處理完成。</td><td class=xl24 width=64 >2009-11-27 15:35:11</td><td class=xl24 width=64 >李淑卿</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >7</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >首頁 &gt; 校務專區 &gt; 行政系統(消耗品/會議室)，輸入正確的帳號、密碼後，卻出現錯誤訊息，煩請修改，謝謝。<br />
+<br />
+</td><td class=xl24 width=64 >2009-11-24 17:52:40</td><td class=xl24 width=64 >已處理此問題</td><td class=xl24 width=64 >2009-11-26 09:38:30</td><td class=xl24 width=64 >黃政綸</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >8</td><td class=xl24 width=64 >業務問題</td><td class=xl24 width=64 >首頁 &gt; 關於我們 &gt; 諮詢信箱 (例如：電算中心)，其後台管理系統，子網無「諮詢信箱」管理功能，只有主網才有「諮詢信箱」管理功能，煩請修改分別在子網就有「諮詢信箱」管理功能，謝謝。<br />
+</td><td class=xl24 width=64 >2009-11-24 18:04:11</td><td class=xl24 width=64 >這個功能是以設定各科系單位的負責人員為主，且具有刪除信件的功能，不開放在子網使用，在有人由前台輸入諮詢信箱之後，負責人會收到email通知，email中會附上回覆信箱的連結，該單位負責人只要依此連結回覆內容就可以了</td><td class=xl24 width=64 >2009-11-25 11:47:26</td><td class=xl24 width=64 >黃政綸</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >9</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >後台管理系統，點選「會議室預約申請」，會出現錯誤訊息(如下圖)，煩請修改，謝謝。</td><td class=xl24 width=64 >2009-11-24 18:17:55</td><td class=xl24 width=64 >更新完檔案，已解決此錯誤</td><td class=xl24 width=64 >2009-11-25 11:31:43</td><td class=xl24 width=64 >黃政綸</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >10</td><td class=xl24 width=64 >業務問題</td><td class=xl24 width=64 >「網頁生成管理」如何設定權限給子網使用？謝謝。<br />
+透過「後台管理系統」，設定各單位管理各自之「網頁生成管理」。<br />
+</td><td class=xl24 width=64 >2009-11-24 18:19:25</td><td class=xl24 width=64 >已加入此功能</td><td class=xl24 width=64 >2009-11-27 17:14:26</td><td class=xl24 width=64 >黃政綸</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >11</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >「網頁生成管理」如何設定權限給子網使用？謝謝。<br />
+透過「後台管理系統」，設定各單位管理各自之「網頁生成管理」。<br />
+</td><td class=xl24 width=64 >2009-11-24 18:19:30</td><td class=xl24 width=64 >已增加此功能</td><td class=xl24 width=64 >2009-11-27 17:13:43</td><td class=xl24 width=64 >黃政綸</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >12</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >子網之「最新消息」目前無「置頂消息管理」功能，煩請提供「置頂消息管理」功能，謝謝。</td><td class=xl24 width=64 >2009-11-24 18:20:56</td><td class=xl24 width=64 >此功能只有主網才有。<br />
+主網之所以有，是訪談有提及的確需要，<br />
+主網廣納各單位訊息，唯恐在這麼多課室的消息之變動快速，才需要置頂功能<br />
+而子網只有自己的訊息，並不會跟別人的搞混，及發佈訊息不至於如此多筆，<br />
+所以，建議子網無需變更規格。<br />
+如需變更規格請於驗收後填寫規格變更需求單。<br />
+</td><td class=xl24 width=64 >2009-11-27 15:32:02</td><td class=xl24 width=64 >李淑卿</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >13</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >問題一： <br />
+點選「首頁 &gt; 關於本校 &gt; 校內分機」，目前超連結至「http://220.134.230.76/oukedu/PageTemplete/DownLoadFileCount.aspx?FileID=afd43fda-408b-4b56-ae41-a3f0620e4685&amp;FileType=1」<br />
+ 應超連結至：「秘書處-事務組」之「首頁 &gt; 書表下載 &gt; 全校電話分機一覽表」<br />
+ <br />
+問題二： <br />
+點選「首頁之最後二行：<br />
+地址：812 高雄市小港區大業北路436號 (交通位置圖) / 電話：(07)801-2008　 (校內分機)　 」<br />
+ 應超連結至：「秘書處-事務組」之「首頁 &gt; 書表下載 &gt; 全校電話分機一覽表」<br />
+</td><td class=xl24 width=64 >2009-11-24 18:23:41</td><td class=xl24 width=64 >目前連去的位置是秘書處事務組的「書表下載 &gt; 全校電話分機一覽表」無誤，但因為我是直接連結到檔案,至使可能誤會,因為直接連到檔案,比較不會因為「書表下載 &gt; 全校電話分機一覽表」 的頁數變異,而找不到該筆檔案。</td><td class=xl24 width=64 >2009-11-27 15:27:38</td><td class=xl24 width=64 >李淑卿</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >14</td><td class=xl24 width=64 >頁面問題</td><td class=xl24 width=64 >::: 首頁 &gt; 成果展示 &gt; 活動照片<br />
+<br />
+由於左邊之大相片大小：365 × 274，請更改至：約640 × 480<br />
+(因為365 × 274之相片仍然太小，不夠清楚)<br />
+並將右邊之小相片，移至大相片之下面排列。<br />
+</td><td class=xl24 width=64 >2009-11-24 18:25:42</td><td class=xl24 width=64 >已修改圖片尺寸：左邊之相片若想看清楚，請再點大相片，將會另開新視窗放大至640 × 480。<br />
+<br />
+若要「將右邊之小相片，移至大相片之下面排列」 ，則會造成需要變更版面，影響至鉅：美工要重作視覺版／程式要重新套接程式碼，及處理無障礙語法。因此建議不要變動。<br />
+ 如需變更規格，請於驗收後，另填寫規格變更需求單。<br />
+</td><td class=xl24 width=64 >2009-11-27 17:46:44</td><td class=xl24 width=64 >李淑卿</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >15</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >在子網是否可有像「主網」之過期「歷史訊息」？<br />
+如無「歷史訊息」，則無法查詢過期之最新消息。<br />
+</td><td class=xl24 width=64 >2009-11-24 18:34:03</td><td class=xl24 width=64 >如果它有同時勾選PO到主網的話,<br />
+當訊息過期後 , 在主網仍有「歷史訊息」可供查詢。</td><td class=xl24 width=64 >2009-11-27 15:19:01</td><td class=xl24 width=64 >李淑卿</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >16</td><td class=xl24 width=64 >業務問題</td><td class=xl24 width=64 >後台管理系統，點選「主網之最新消息(教務公告、學系公告…5大類)之新增」，會出現錯誤訊息，煩請修改，謝謝。</td><td class=xl24 width=64 >2009-11-25 08:27:50</td><td class=xl24 width=64 >已修正此問題</td><td class=xl24 width=64 >2009-11-25 10:08:23</td><td class=xl24 width=64 >黃政綸</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >17</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >台管理系統，點選「子網最新消息之新增」，會出現錯誤訊息，煩請修改，謝謝。</td><td class=xl24 width=64 >2009-11-25 08:40:30</td><td class=xl24 width=64 >已修正此問題</td><td class=xl24 width=64 >2009-11-25 10:04:34</td><td class=xl24 width=64 >黃政綸</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >18</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >消耗品預約管理系統 &gt; 物品管理，欲刪除「已鉤選物品」，卻無法刪除物品，<br />
+煩請刪除所有的物品，以利重新輸入，以避免編號已被佔住，謝謝。<br />
+</td><td class=xl24 width=64 >2009-11-25 09:20:02</td><td class=xl24 width=64 >因資料表有相關連，所以會無法刪除，已清空所有的測試資料，除了消耗品分類</td><td class=xl24 width=64 >2009-11-25 10:03:12</td><td class=xl24 width=64 >黃政綸</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >19</td><td class=xl24 width=64 >頁面問題</td><td class=xl24 width=64 >英文版網頁，秘書處文書組第一個英文字母拼錯，C 改為 D，煩請修改，謝謝。<br />
+<br />
+英文版網頁，秘書處文書組：Cocuments Section,Secretariat<br />
+Documents Section,Secretariat<br />
+(第一個英文字母拼錯，C 改為 D) ，煩請修改，謝謝。<br />
+</td><td class=xl24 width=64 >2009-11-25 10:51:55</td><td class=xl24 width=64 >已修正為Documents</td><td class=xl24 width=64 >2009-11-25 14:04:31</td><td class=xl24 width=64 >黃政綸</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >20</td><td class=xl24 width=64 >頁面問題</td><td class=xl24 width=64 >英文版網頁，Other Link之頁面，卻出現中文字眼「相關連結」，煩請修改，謝謝。</td><td class=xl24 width=64 >2009-11-25 10:55:06</td><td class=xl24 width=64 >已修正為顯示英文</td><td class=xl24 width=64 >2009-11-25 14:02:30</td><td class=xl24 width=64 >黃政綸</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >21</td><td class=xl24 width=64 >頁面問題</td><td class=xl24 width=64 >英文版網頁，Other Link之頁面，卻出現中文字眼「相關連結」，煩請修改，謝謝。</td><td class=xl24 width=64 >2009-11-25 10:55:09</td><td class=xl24 width=64 >已修正為顯示英文</td><td class=xl24 width=64 >2009-11-25 14:01:26</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >22</td><td class=xl24 width=64 >頁面問題</td><td class=xl24 width=64 >於98年11月20日下午5點30分，本校校長交辦本中心，有關首頁修改部份，說明如下：<br />
+<br />
+請於主網首頁，增加「校務發展」之banner，取代「推廣教育」<br />
+超連結部份，俟本校校長提供資料後再e-mail給廠商，謝謝。<br />
+<br />
+排列方式，請修改為：<br />
+上面3個由左至右，分別為：「校務發展、網路選課、網路教學」<br />
+下面3個由左至右，分別為：「城市智庫、城市學堂、認證課程」<br />
+<br />
+先提供5個文件檔(如附)，煩請製作「校務發展」文案，<br />
+再提供6個圖檔(未定案，但圖檔畫素大小一樣)<br />
+等圖檔定案，會再重寄，屆時再煩請抽換，謝謝。<br />
+詳如email。<br />
+<br />
+</td><td class=xl24 width=64 >2009-11-25 11:11:50</td><td class=xl24 width=64 >已加入此連結，以連結內容</td><td class=xl24 width=64 >2009-11-27 19:33:30</td><td class=xl24 width=64 >黃政綸</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >23</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >首頁 &gt; 成果展示 &gt; 多媒體影音，點選「右邊的其中一個影片」後，左邊的畫面須再點選播放鍵後，才會開始播放。<br />
+ <br />
+可否改為點選「右邊的其中一個影片」後，左邊的畫面就立即播放？<br />
+ </td><td class=xl24 width=64 >2009-11-26 07:24:53</td><td class=xl24 width=64 >因為無障礙規範的緣故,要多作一個動作…<br />
+(要有明確的按鈕讓障礙人士知道是要按這個鈕才可以點選。)<br />
+</td><td class=xl24 width=64 >2009-11-26 14:16:38</td><td class=xl24 width=64 >黃政綸</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >24</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >由於本校各學系為因應新網站上線，<br />
+系主任對新網頁內部做部份調整，<br />
+大部份都是「網頁生成管理」，<br />
+但目前子網都無此權限修改，<br />
+只有系統管理者有此權限，<br />
+子網無法各別管理各自之「網頁生成管理」。<br />
+煩請廠商先進行修改，以利驗收，謝謝。<br />
+</td><td class=xl24 width=64 >2009-11-27 13:22:28</td><td class=xl24 width=64 >已加入此功能，設定方式請見郵件</td><td class=xl24 width=64 >2009-11-27 17:12:46</td><td class=xl24 width=64 >黃政綸</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >25</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >子網「首頁」之最新消息，請改為時間排列(較新的消息請排在上面)，謝謝。<br />
+(備註：進入子網，再點「最新消息」，已依時間排列，較新的消息已排在上面)。<br />
+例如：輔導處。</td><td class=xl24 width=64 >2009-11-27 13:23:49</td><td class=xl24 width=64 >已修改排序方式</td><td class=xl24 width=64 >2009-11-27 14:11:42</td><td class=xl24 width=64 >黃政綸</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >26</td><td class=xl24 width=64 >頁面問題</td><td class=xl24 width=64 >非常緊急，煩請於98年11年27日下午5點前修改完成，謝謝。<br />
+科技管理學系之子網首頁之圖片，英文名字有錯誤，煩請儘速修改，謝謝。<br />
+應  Department of Technology Management，<br />
+非  Department of Mass Communications 。<br />
+</td><td class=xl24 width=64 >2009-11-27 13:26:15</td><td class=xl24 width=64 >已更正，謝謝!</td><td class=xl24 width=64 >2009-11-27 13:55:37</td><td class=xl24 width=64 >王儷樺</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >27</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >會議室預約管理系統 &gt; 會議室預約管理<br />
+<br />
+由於「小會議室」目前無此間會議室，<br />
+目前無法刪除「小會議室」，<br />
+煩請刪除，謝謝。<br />
+</td><td class=xl24 width=64 >2009-11-27 15:42:58</td><td class=xl24 width=64 >已修正無法刪除的問題</td><td class=xl24 width=64 >2009-11-27 17:12:10</td><td class=xl24 width=64 >黃政綸</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >28</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >消耗品預約管理系統 &gt; 物品領用管理 &gt; 編輯<br />
+<br />
+點選「預覽列印」，並無「預覽列印」畫面，煩請修改，謝謝。<br />
+</td><td class=xl24 width=64 >2009-11-27 18:21:42</td><td class=xl24 width=64 >已修正web.config for iis7.0，解決無法列印的問題</td><td class=xl24 width=64 >2009-11-30 17:44:13</td><td class=xl24 width=64 >黃政綸</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >29</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >「消耗品預約管理系統 &gt; 物品管理」之分類項目順序，與「消耗品預約管理系統 &gt; 消耗品分類管理」之分類項目順序相同。<br />
+<br />
+但是<br />
+「消耗品預約管理系統 &gt; 庫存管理」之分類項目順序，與「消耗品預約管理系統 &gt; 消耗品分類管理」之分類項目順序不同。<br />
+<br />
+煩請修改「消耗品預約管理系統 &gt; 庫存管理」之分類，與「消耗品預約管理系統 &gt; 消耗品分類管理」之分類項目順序相同，謝謝。<br />
+</td><td class=xl24 width=64 >2009-11-27 18:47:41</td><td class=xl24 width=64 >已修正庫存管理的排序</td><td class=xl24 width=64 >2009-11-30 17:43:32</td><td class=xl24 width=64 >黃政綸</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >30</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >::: 首頁 &gt; 關於本校 &gt; 校務發展 &gt; 高雄空大2010校務發展海報<br />
+<br />
+目前點選「6張海報之任1張」，都無法開啟新視窗，使海報圖案放大。<br />
+請修改點選海報後，可開啟新視窗，使海報圖案放大，以利清楚看見海報內容，煩請修改，謝謝。<br />
+</td><td class=xl24 width=64 >2009-11-28 08:38:32</td><td class=xl24 width=64 >已加入連結，另開新視窗</td><td class=xl24 width=64 >2009-11-30 14:03:10</td><td class=xl24 width=64 >黃政綸</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >31</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >::: 首頁 &gt; 關於本校 &gt; 校務發展 &gt; 高雄空大2010校務發展海報<br />
+<br />
+目前點選「6張海報之任1張」，都無法開啟新視窗，使海報圖案放大。<br />
+請修改點選海報後，可開啟新視窗，使海報圖案放大，以利清楚看見海報內容，煩請修改，謝謝。<br />
+</td><td class=xl24 width=64 >2009-11-28 08:38:34</td><td class=xl24 width=64 >已加入此連結功能</td><td class=xl24 width=64 >2009-11-30 14:02:18</td><td class=xl24 width=64 >黃政綸</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >32</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >已請本校工程師安裝 SQL Server 2008<br />
+增加「SQL Server Agent」。<br />
+<br />
+煩請 Allen 幫本校訂定「Oukedu_db資料庫維護排程」，謝謝。<br />
+請新增3筆作業<br />
+<br />
+上午 AM 07：00備份1次<br />
+中午 PM 12：00備份1次<br />
+晚上 PM 08：00備份1次<br />
+<br />
+備份位置：「C:\0_Database_backup」<br />
+</td><td class=xl24 width=64 >2009-11-28 08:51:10</td><td class=xl24 width=64 >貴校已加入此設定</td><td class=xl24 width=64 >2009-12-02 20:07:47</td><td class=xl24 width=64 >黃政綸</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >33</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >行政單位每個子網的右上方，有一個「意見信箱」的超連結，<br />
+例如：點選「輔導處」之右上方，有一個「意見信箱」的超連結，<br />
+請連結至「首頁 &gt; 網站資訊 &gt; 意見信箱 &gt; 各單位意見信箱」之「輔導處」部份(透過書籤方式)，<br />
+以利學生快速找到輔導處的信箱，煩請修改，謝謝。<br />
+即每個子網(行政單位)須連結至「各單位意見信箱」之「子網本身」部份，非輔導處1個單位。<br />
+<br />
+ <br />
+</td><td class=xl24 width=64 >2009-11-28 14:05:51</td><td class=xl24 width=64 >已加入各單位的錨點，只要意見信箱中的單位，都有加入錨點(書籤)</td><td class=xl24 width=64 >2009-11-30 16:45:49</td><td class=xl24 width=64 >黃政綸</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >34</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >消耗品預約管理系統 &gt; 物品領用管理 &gt; 編輯，選取格式(在右下角)，有Execl 或PDE兩種格式，皆無法匯出，煩請修改，謝謝。</td><td class=xl24 width=64 >2009-11-28 14:10:23</td><td class=xl24 width=64 >已修正web.config for iis7.0，解決無法匯出的問題</td><td class=xl24 width=64 >2009-11-30 17:42:30</td><td class=xl24 width=64 >黃政綸</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >35</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >非常緊急，煩請於98年11年30日下午5點前修改完成，謝謝。<br />
+<br />
+本校新網站之後台管理系統，<br />
+系統管理 &gt; AD整合管理，<br />
+點選「設定對象」，再點選使用者(例如：工商系公用信箱)<br />
+卻出現「網頁發生錯誤」，煩請儘速修改，<br />
+以利設定「網頁生成管理」權限，謝謝。<br />
+</td><td class=xl24 width=64 >2009-11-30 12:22:09</td><td class=xl24 width=64 >大小寫的問題，問題已處理</td><td class=xl24 width=64 >2009-11-30 14:01:40</td><td class=xl24 width=64 >黃政綸</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >36</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >中文版網頁之最新消息排列方式有問題，煩請解決，謝謝。<br />
+原先橫式，卻改為直式。<br />
+</td><td class=xl24 width=64 >2009-11-30 14:30:28</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >37</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >中文版網頁之最新消息排列方式有問題，煩請解決，謝謝。<br />
+原先橫式，卻改為直式。<br />
+</td><td class=xl24 width=64 >2009-11-30 14:30:31</td><td class=xl24 width=64 >CSS的問題，已修改IIS的設定，目前測試正常</td><td class=xl24 width=64 >2009-12-04 10:38:20</td><td class=xl24 width=64 >黃政綸</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >38</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >中文版網頁之版面有問題，煩請儘速解決，謝謝。<br />
+測試環境：IE7.0、IE8.0<br />
+</td><td class=xl24 width=64 >2009-11-30 14:31:04</td><td class=xl24 width=64 >已修正IIS的設定，目前這兩天的測試正常</td><td class=xl24 width=64 >2009-12-04 10:35:57</td><td class=xl24 width=64 >黃政綸</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >39</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >系統管理 &gt; AD整合管理，已設定「網頁生成管理」權限後，點選「儲存」，卻出現錯誤訊息，煩請儘速解決，謝謝。</td><td class=xl24 width=64 >2009-11-30 14:46:50</td><td class=xl24 width=64 >已修正此錯誤</td><td class=xl24 width=64 >2009-11-30 16:40:55</td><td class=xl24 width=64 >黃政綸</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >40</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >點選「子網」底下之「校內分機」，會出現「無法顯示網頁」，煩請修改，謝謝。</td><td class=xl24 width=64 >2009-11-30 15:33:43</td><td class=xl24 width=64 >已修正找不到網頁的問題</td><td class=xl24 width=64 >2009-11-30 16:46:10</td><td class=xl24 width=64 >黃政綸</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >41</td><td class=xl24 width=64 >頁面問題</td><td class=xl24 width=64 >僅google瀏覽器瀏覽子網有此問題，上面六個選項點下去皆為此畫面(偏左)，煩請解決，謝謝。<br />
+重新整理過還是一樣，Ctrl+F5也是一樣 上面六個選項點下去皆為此畫面(偏左)<br />
+ <br />
+僅google瀏覽器瀏覽子網有此問題，IE6&amp;Firefox(版本為3.5.5)&amp;Opera(版本為10.01)皆無此情況<br />
+</td><td class=xl24 width=64 >2009-11-30 15:34:46</td><td class=xl24 width=64 >我們的程式目前只支援主流的瀏覽器，IE以及FireFox，以及無障礙所使用的專用瀏覽器，<br />
+對於市面上非主流的瀏覽器Google Chrome，Apple Safari，Opera瀏覽器…<br />
+我們無法保證這些瀏覽器都支援標準的css規範<br />
+</td><td class=xl24 width=64 >2009-11-30 16:40:17</td><td class=xl24 width=64 >黃政綸</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >42</td><td class=xl24 width=64 >頁面問題</td><td class=xl24 width=64 >中文版首頁之「認證課程」之banner，<br />
+煩請修改超連結，<br />
+目前網址：http://www.ouk.edu.tw/web/972/license/index.html<br />
+請修改網址：http://www.ouk.edu.tw/web_old/972/license/index.html<br />
+謝謝。<br />
+</td><td class=xl24 width=64 >2009-11-30 15:35:17</td><td class=xl24 width=64 >已修正為正確的網址</td><td class=xl24 width=64 >2009-11-30 16:39:08</td><td class=xl24 width=64 >黃政綸</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >43</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >在後台管理程式，點選「會議室預約申請」，<br />
+點選「我要預約」，會出現「'/' 應用程式中發生伺服器錯誤。」錯誤訊息，<br />
+，煩請儘速解決，謝謝。<br />
+</td><td class=xl24 width=64 >2009-11-30 16:21:20</td><td class=xl24 width=64 >已處理此錯誤</td><td class=xl24 width=64 >2009-11-30 17:38:48</td><td class=xl24 width=64 >黃政綸</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >44</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >在後台管理程式，點選「會議室預約申請」，<br />
+點選「我要預約」，會出現「'/' 應用程式中發生伺服器錯誤。」錯誤訊息，<br />
+，煩請儘速解決，謝謝。<br />
+</td><td class=xl24 width=64 >2009-11-30 16:21:23</td><td class=xl24 width=64 >已修正此錯誤</td><td class=xl24 width=64 >2009-11-30 17:38:28</td><td class=xl24 width=64 >黃政綸</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >45</td><td class=xl24 width=64 >頁面問題</td><td class=xl24 width=64 >首頁 &gt; 關於本校 &gt; 校務發展 &gt; <br />
+1.正面迎接「教育部2011大學校務評鑑」 ( 該文稿多增加1個海報圖案，檔名如下表，並點選該圖後，可使圖案放大)<br />
+2.2010系務校內自評  ( 該文稿多增加1個海報圖案，檔名如下表，並點選該圖後，可使圖案放大)<br />
+3.2010校園現代化發展重要專案  ( 該文稿多增加1個海報圖案，檔名如下表，並點選該圖後，可使圖案放大)<br />
+4.高雄市立空中大學2010成長目標  ( 該文稿多增加1個海報圖案，檔名如下表，並點選該圖後，可使圖案放大)<br />
+5.城市大學特色通識教育  ( 該文稿多增加1個海報圖案，檔名如下表，並點選該圖後，可使圖案放大)<br />
+6.高雄空大2010校務發展海報 (該頁面仍保留)<br />
+</td><td class=xl24 width=64 >2009-11-30 17:32:54</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >46</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >學術單位之交流討論區，每1次「發表新主題」，都必須每1次「接受此項規定」，<br />
+ <br />
+請更改為：<br />
+ <br />
+不論有幾次「發表新主題」，只須1次「接受此項規定」，煩請修改，謝謝。</td><td class=xl24 width=64 >2009-11-30 21:25:19</td><td class=xl24 width=64 >當日接受此項規定後，則當天Session的時限內不會再出現該畫面</td><td class=xl24 width=64 >2009-12-02 20:06:40</td><td class=xl24 width=64 >黃政綸</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >47</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >學術單位之交流討論區，「發表內容」如有 URL超連結，<br />
+ <br />
+點選 「該URL超連結」後，無法開啟新視窗超連結該網址，煩請修改，謝謝。</td><td class=xl24 width=64 >2009-11-30 21:25:59</td><td class=xl24 width=64 >已加入文字編輯器超連結功能，增加時需以插入超連結的方式</td><td class=xl24 width=64 >2009-12-02 20:04:31</td><td class=xl24 width=64 >黃政綸</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >48</td><td class=xl24 width=64 >業務問題</td><td class=xl24 width=64 >本校「無障礙標章」無法連結至「行政院研究發展考核委員會_政府網站營運交流台」，煩請修改，謝謝。<br />
+<br />
+例如：高雄市政府之「無障礙標章」會連結至「行政院研究發展考核委員會_政府網站營運交流台」<br />
+ <br />
+http://www.webguide.nat.gov.tw/wSite/sp?xdUrl=/wSite/enable/valid.jsp&amp;conId=20090220151601<br />
+ <br />
+<br />
+標章資訊 <br />
+無障礙網路服務-標章資訊 <br />
+標章資訊列表  機關代碼  383200200A_高雄市政府資訊中心  <br />
+標章管理權機關代碼  -- <br />
+承  辦  人  --  <br />
+網站名稱  高雄市政府全球資訊網 <br />
+網 址  http://www.kcg.gov.tw  <br />
+標章等級  A+ <br />
+最近檢測日期  2009.03.17 <br />
+修正日期  2009.03.24 <br />
+登錄日期  2009.02.20 <br />
+備 註  原高雄市政府資訊中心於98.1.1已改制一級機關高雄市政府資訊處，機關代碼為383680000A   <br />
+連結路徑  &lt; a href = &quot;http://www.webguide.nat.gov.tw/enable.jsp?category=20090220151601&quot; title = &quot;無障礙網站&quot;&gt; &lt; img src = &quot;(設定連結至您自行下載的無障礙標章圖檔位置)&quot; border = &quot;0&quot; width = &quot;88&quot; height = &quot;31&quot; alt = &quot;通過A+優先等級無障礙網頁檢測&quot;&gt;  <br />
+標章狀態  此標章啟用中 <br />
+標章檢測歷史記錄  檢測記錄  檢測日期  檢測狀態  檢測類別  <br />
+檢視報告  2009.03.17 2009.03.24修正 機器／人工 <br />
+檢視報告  2009.02.25 未符合 機器／人工 <br />
+檢視報告  2006.07.18 95年第2次實測 機器／人工／障礙人士 <br />
+檢視報告  2009.02.20 --  機器／機器  <br />
+<br />
+回頁首 <br />
+回上一頁 <br />
+lp:,cp: <br />
+</td><td class=xl24 width=64 >2009-11-30 21:44:45</td><td class=xl24 width=64 >無障礙標章要等移到正式公開的網址後，等待人工檢測，才能正式啟用</td><td class=xl24 width=64 >2009-11-30 22:50:43</td><td class=xl24 width=64 >李淑卿</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >49</td><td class=xl24 width=64 >業務問題</td><td class=xl24 width=64 >本校「無障礙標章」無法連結至「行政院研究發展考核委員會_政府網站營運交流台」，煩請修改，謝謝。<br />
+<br />
+例如：高雄市政府之「無障礙標章」會連結至「行政院研究發展考核委員會_政府網站營運交流台」<br />
+ <br />
+http://www.webguide.nat.gov.tw/wSite/sp?xdUrl=/wSite/enable/valid.jsp&amp;conId=20090220151601<br />
+ <br />
+<br />
+標章資訊 <br />
+無障礙網路服務-標章資訊 <br />
+標章資訊列表  機關代碼  383200200A_高雄市政府資訊中心  <br />
+標章管理權機關代碼  -- <br />
+承  辦  人  --  <br />
+網站名稱  高雄市政府全球資訊網 <br />
+網 址  http://www.kcg.gov.tw  <br />
+標章等級  A+ <br />
+最近檢測日期  2009.03.17 <br />
+修正日期  2009.03.24 <br />
+登錄日期  2009.02.20 <br />
+備 註  原高雄市政府資訊中心於98.1.1已改制一級機關高雄市政府資訊處，機關代碼為383680000A   <br />
+連結路徑  &lt; a href = &quot;http://www.webguide.nat.gov.tw/enable.jsp?category=20090220151601&quot; title = &quot;無障礙網站&quot;&gt; &lt; img src = &quot;(設定連結至您自行下載的無障礙標章圖檔位置)&quot; border = &quot;0&quot; width = &quot;88&quot; height = &quot;31&quot; alt = &quot;通過A+優先等級無障礙網頁檢測&quot;&gt;  <br />
+標章狀態  此標章啟用中 <br />
+標章檢測歷史記錄  檢測記錄  檢測日期  檢測狀態  檢測類別  <br />
+檢視報告  2009.03.17 2009.03.24修正 機器／人工 <br />
+檢視報告  2009.02.25 未符合 機器／人工 <br />
+檢視報告  2006.07.18 95年第2次實測 機器／人工／障礙人士 <br />
+檢視報告  2009.02.20 --  機器／機器  <br />
+<br />
+回頁首 <br />
+回上一頁 <br />
+lp:,cp: <br />
+</td><td class=xl24 width=64 >2009-11-30 21:44:48</td><td class=xl24 width=64 >無障礙標章要等移到正式公開的網址後，等待人工檢測，才能正式啟用</td><td class=xl24 width=64 >2009-11-30 22:50:23</td><td class=xl24 width=64 >李淑卿</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >50</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >會議預約系統及消耗品系統需到後台管理進行,是否合理？</td><td class=xl24 width=64 >2009-12-01 20:46:29</td><td class=xl24 width=64 >以AD登入的方式由後台控管，前台使用校務系統帳號以做區隔，而在前台已加了後台登入的快速連結</td><td class=xl24 width=64 >2009-12-02 20:02:55</td><td class=xl24 width=64 >黃政綸</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >51</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >會議預約系統頁面...第一頁點選日期及會議室後,點選&quot;我要預約&quot;出現的畫面又需再輸入一次,操作程序不合理</td><td class=xl24 width=64 >2009-12-01 20:48:29</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >52</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >消耗品預約系統--如&quot;筆類&quot;選項只有20幾筆,目前一頁只列10筆,須分頁點選,不便,應可一頁全部列出</td><td class=xl24 width=64 >2009-12-01 20:49:25</td><td class=xl24 width=64 >已取消分頁功能，一次列出所有項目</td><td class=xl24 width=64 >2009-12-02 19:59:12</td><td class=xl24 width=64 >黃政綸</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >53</td><td class=xl24 width=64 >頁面問題</td><td class=xl24 width=64 >「校務發展」有2個圖檔須更新，煩請製作，謝謝。<br />
+首頁 &gt; 關於本校 &gt; 校務發展 &gt; <br />
+高雄空大2010校務發展海報1_正面迎接2011校務評鑑(764x1080).jpg<br />
+高雄空大2010校務發展海報2_系務校內自評(764x1080).jpg<br />
+</td><td class=xl24 width=64 >2009-12-02 09:03:12</td><td class=xl24 width=64 >已更新圖檔</td><td class=xl24 width=64 >2009-12-02 19:58:38</td><td class=xl24 width=64 >黃政綸</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >54</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >本校新建網站之「最新消息」、「書表下載」及「法令規章」…等，目前要求須「兩種格式之檔案」上傳，請改為「有1個PDF格式之檔案」上傳即可。<br />
+<br />
+為避免有些重要檔案被更改，及老師提供講義，都是PDF格式之檔案，如要張貼於「最新消息」、「書表下載」，若要再轉成「Word」格式之檔案，會造成不便。<br />
+<br />
+為符合「政府網站版型與內容管理規範」-「5.6. 提供下載文件至少包含開放性檔案格式，並註明檔案格式」規定(如附件一)，須提供下載的文件至少包含開放性檔案格式(PDF)。<br />
+<br />
+5.6. 提供下載文件至少包含開放性檔案格式，並註明檔案格式<br />
+<br />
+http://www.webguide.nat.gov.tw/wSite/ct?xItem=346&amp;ctNode=194&amp;mp=1<br />
+<br />
+<br />
+</td><td class=xl24 width=64 >2009-12-02 13:22:42</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >55</td><td class=xl24 width=64 >頁面問題</td><td class=xl24 width=64 >新網站首頁之無障礙之「導盲磚」，未提供功能及說明，煩請提供，謝謝。</td><td class=xl24 width=64 >2009-12-02 14:57:25</td><td class=xl24 width=64 >目前的設定已改為這種方式，在主網及子網，英文版的sitemap中已加入功能及說明</td><td class=xl24 width=64 >2009-12-04 12:00:08</td><td class=xl24 width=64 >黃政綸</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >56</td><td class=xl24 width=64 >頁面問題</td><td class=xl24 width=64 >本校新建網站之版面於 12/02 15:30 又跑掉了(IE 7.0環境)，煩請儘速修改，謝謝。</td><td class=xl24 width=64 >2009-12-02 15:39:16</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >57</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >首頁 &gt; 關於我們 &gt; 諮詢信箱<br />
+<br />
+輸入資料後，點選「送出」後，出現下圖，有2個問題煩請修改：<br />
+一、「諮詢進度」之按鈕在哪裏？<br />
+二、該頁面有2個x，為何圖形無法顯示？<br />
+三、在後台管理系統，目前在主網才有「諮詢信箱管理 &gt; 信件管理」該功能，請改至「子網」下，由每單位自行控管是否有回覆，不須透過系統管理者查詢並稽摧，謝謝。<br />
+<br />
+有關「2.事務組-關於我們-有一&quot;諮詢信箱&quot;,剛測試發送似乎正常,惟本校是否有專人收信?另發送後顯示&quot;請至諮詢進度&quot;查詢處理情形,但找不到&quot;諮詢進度&quot;的icon 」之回應<br />
+</td><td class=xl24 width=64 >2009-12-02 17:16:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >58</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >一、主網不須「諮詢信箱管理」該功能。<br />
+<br />
+二、「諮詢信箱管理 &gt; 回覆人員管理」及「諮詢信箱管理 &gt; 信件管理」兩項功能<br />
+請改至每個子網皆有，不須保留「諮詢信箱管理 &gt; 類別管理」該功能。<br />
+<br />
+三、由每單位自行控管是否有回覆，不須透過系統管理者查詢並稽摧，謝謝。<br />
+</td><td class=xl24 width=64 >2009-12-02 17:58:54</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >59</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >會議室預約系統之會議名稱限定12個中文字，煩請修改上限值，<br />
+並依會議時間之長短，分別顯示其最多字眼，謝謝。<br />
+<br />
+會議室預約系統,會議名稱限定12個中文字...太少了<br />
+由於當初無法合併儲存格，故有限制「會議名稱限定12個中文字」，<br />
+如果會議時間：30分鐘，可顯示前幾個字(例如：14個字)，<br />
+如果會議時間：60分鐘，可顯示前幾個字(例如：20個字)，<br />
+如果會議時間：90分鐘(含以上)，可顯示全部的字(例如：上限30個字)，煩請修改，謝謝。<br />
+</td><td class=xl24 width=64 >2009-12-02 18:36:56</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >60</td><td class=xl24 width=64 >頁面問題</td><td class=xl24 width=64 >純放海報的頁面已經更新完成<br />
+http://web.ouk.edu.tw/AboutUs/About02/about02_06<br />
+<br />
+但圖文並排的單項海報未更新，煩請更新，謝謝。<br />
+http://web.ouk.edu.tw/AboutUs/About02/about02_01<br />
+http://web.ouk.edu.tw/AboutUs/About02/about02_02<br />
+<br />
+<br />
+問題： 2009-12-02 09:03:12<br />
+ <br />
+　 「校務發展」有2個圖檔須更新，煩請製作，謝謝。<br />
+首頁 &gt; 關於本校 &gt; 校務發展 &gt; <br />
+高雄空大2010校務發展海報1_正面迎接2011校務評鑑(764x1080).jpg<br />
+高雄空大2010校務發展海報2_系務校內自評(764x1080).jpg<br />
+<br />
+ <br />
+ <br />
+回覆： 2009-12-02 19:58:38<br />
+ <br />
+　 已更新圖檔<br />
+ <br />
+</td><td class=xl24 width=64 >2009-12-03 19:38:17</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >61</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >空大(鄭原平)，進入學系之「交流討論區」，可刪除別人的留言，煩請修改，謝謝。<br />
+<br />
+進入學系之「交流討論區」，輸入帳號、密碼登入後，<br />
+點選別人的留言後，竟出現「刪除本文」之按鈕，<br />
+點選「刪除本文」之按鈕，該留言會被刪除成功。<br />
+<br />
+煩請儘速修改，測試帳號：95210461，密碼：kingfor<br />
+</td><td class=xl24 width=64 >2009-12-04 14:25:53</td><td class=xl24 width=64 >已隱藏此按鈕</td><td class=xl24 width=64 >2009-12-04 15:03:52</td><td class=xl24 width=64 >黃政綸</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >62</td><td class=xl24 width=64 >頁面問題</td><td class=xl24 width=64 >在學術單位之「交流討論區」，「發表新主題」之最底下之<br />
+字元「．高雄市立空中大學網站 版權所有 &amp;copy; 2009 建議瀏覽解析度 1024 x 768…」跑掉，煩請修改，謝謝。<br />
+</td><td class=xl24 width=64 >2009-12-04 14:35:25</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >63</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >會議室預約申請、消耗品申請，兩項請改至前台操作，不須至後台操作，煩請修改，謝謝。<br />
+<br />
+一、會議室預約申請、消耗品申請，兩項請改至前台操作，類似「進入學系之「交流討論區」操作(如下圖)」有美工頁面，不須進入後台操作，看到其他那麼多權限。<br />
+<br />
+二、消耗品預約管理系統、會議室預約管理系統，管理維護部份則須進入後台操作。<br />
+<br />
+<br />
+問題：2009-12-01 20:46:29<br />
+　	會議預約系統及消耗品系統需到後台管理進行,是否合理？<br />
+<br />
+回覆：2009-12-02 20:02:55<br />
+　	以AD登入的方式由後台控管，前台使用校務系統帳號以做區隔，而在前台已加了後台登入的快速連結<br />
+</td><td class=xl24 width=64 >2009-12-04 15:43:08</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >64</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >「會議預約系統」目前已製作「每週查詢」，目前無「月查詢」功能。<br />
+「月查詢」頁面類似「校園行事曆」，如在前台顯示，其頁面更大(比後台減少左邊功能列部份)，每日下面須顯示已預約情形，以利同仁查詢及瀏覽其明細，詳細情形可洽本校校長室羅淑華小姐(聯絡電話：8012008分機：1203)。<br />
+</td><td class=xl24 width=64 >2009-12-04 16:18:10</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >65</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >在後台管理系統之「消耗品預約管理系統」下：<br />
+「物品管理」、「庫存管理」<br />
+排序欄位：「建立日期」、「品名」、「類別」，且預設以「建立日期」為排序。<br />
+排序欄位請再增加「編號」，且預設以「編號」為排序，以利使用者較易查詢，謝謝。<br />
+</td><td class=xl24 width=64 >2009-12-07 09:13:45</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >66</td><td class=xl24 width=64 >頁面問題</td><td class=xl24 width=64 >煩請下列二處更換1個圖檔：「高雄空大2010校務發展海報1_正面迎接2011校務評鑑 (內容更新)」<br />
+<br />
+一、首頁 &gt; 關於本校 &gt; 校務發展 &gt; 正面迎接「教育部2011大學校務評鑑」<br />
+二、首頁 &gt; 關於本校 &gt; 校務發展 &gt; 高雄空大2010校務發展海報<br />
+<br />
+由於校長於「正面迎接「教育部2011大學校務評鑑」指定修改了「藍海策略」的文字內容，新增三項子標題<br />
+一、發展特色：<br />
+二、資源網路：<br />
+三、品牌管理：<br />
+</td><td class=xl24 width=64 >2009-12-07 09:33:53</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr></table></body></html>

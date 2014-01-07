@@ -1,0 +1,62 @@
+<!-- BEGIN: main -->{HTML.header}
+<link rel="stylesheet" href="./kindeditor-4.1.7/themes/default/default.css" />
+<link rel="stylesheet" href="./kindeditor-4.1.7/plugins/code/prettify.css" />
+<script charset="utf-8" src="./kindeditor-4.1.7/kindeditor.js"></script>
+<script charset="utf-8" src="./kindeditor-4.1.7/lang/zh_TW.js"></script>
+<script charset="utf-8" src="./kindeditor-4.1.7/plugins/code/prettify.js"></script>
+<script type="text/JavaScript">
+<!--
+KindEditor.ready(function(K) {
+	LoadEditor('content', 'postPost');   
+});   
+function LoadEditor(TextName, FormName) {
+	var editor1 = KindEditor.create('textarea[name="' + TextName + '"]', {
+		cssPath : './kindeditor-4.1.7/plugins/code/prettify.css',
+		uploadJson : './kindeditor-4.1.7/php/upload_json.php',
+		fileManagerJson : './kindeditor-4.1.7/php/file_manager_json.php',
+		allowFileManager : true,
+		afterCreate : function() {
+			var self = this;
+			KindEditor.ctrl(document, 13, function() {
+				self.sync();
+				KindEditor('form[name=' + FormName + ']')[0].submit();
+			});
+			KindEditor.ctrl(self.edit.doc, 13, function() {
+				self.sync();
+				KindEditor('form[name=' + FormName + ']')[0].submit();
+			});
+		}
+	});
+	return editor1;
+}
+function check_keydown() 	//判斷資料是否有打
+{
+	var example = window.confirm('是否確定要修改?');
+	if(example){
+		return true;
+	}else{
+		return false;
+	}
+}
+//-->
+</script>
+<div id="top" class="grid_12">
+	{HTML.banner}
+</div>
+<div class="grid_3">
+	{HTML.menu}
+</div>
+  <div class="grid_9">
+  <form enctype="multipart/form-data" name="postPost" method="post" action="funcs.php" onsubmit="return check_keydown();">
+  <input type="hidden" name="act" id="act" value="postHelp">
+	<div class="right_box">
+	  <div class="right_top">新手上路</div>
+      <div class="right_text" style="width:662px;">
+		<textarea name="content" id="content" style="width:660px;height:400px;visibility:hidden;">{content_list}</textarea>
+    	<div style="text-align:center;padding-top:10px;"><input name="Sout" value="修改" type="submit" /></div>
+	  </div>
+    </div>
+  </form>
+  </div>   
+{HTML.footer}
+<!-- END: main -->

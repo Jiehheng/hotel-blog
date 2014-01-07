@@ -1,0 +1,20 @@
+<!-- BEGIN: main -->{HTML.header}
+<div id="top" class="grid_12">
+	{HTML.banner}
+</div>
+<div class="grid_3">
+	{HTML.menu}
+</div>
+<div class="grid_9">
+	<a href="?{cUrl}&amp;index">首頁</a> > <a href="?{cUrl}&amp;blog_list{content_list.typeurl}">{content_list.type}</a> &gt; {content_list.title}
+	<div class="right_box1">
+		<div class="right_top2"> 
+			<span class="orange2">{content_list.title}</span>&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <span class="brown">{content_list.Datetime}</span>
+		</div>	  
+		<div class="right_text">
+			{content_list.text}
+		</div>
+    </div>     
+</div>   
+{HTML.footer}
+<!-- END: main -->

@@ -1,0 +1,229 @@
+<!-- BEGIN: main -->{HTML.header}
+<link href="css/default.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript "src="Scripts/mm.js"></script>
+<script type="text/javascript" src="Scripts/AC_RunActiveContent.js"></script>
+<script type="text/javascript" src="swfupload/swfupload.js"></script>
+<script type="text/javascript" src="Scripts/swfupload.queue.js"></script>
+<script type="text/javascript" src="Scripts/fileprogress.js"></script>
+<script type="text/javascript" src="Scripts/handlers.js"></script>
+<script type="text/javascript" language="javascript">
+var upload2;
+
+window.onload = function()
+{
+	upload2 = new SWFUpload(
+	{
+		// Backend Settings
+		upload_url: "funcs.php",
+		post_params: {"PHPSESSID" : "{content_list.session_id}","act" : "postAlbum", {content_list.Newsid}},
+
+		// File Upload Settings
+		file_size_limit : "1024",	// 1024 kb
+		file_types : "*.jpg;*.gif;*.png;*.bmp",
+		file_types_description : "Image Files",
+		file_upload_limit : "10",
+		file_queue_limit : "0",
+
+		// Event Handler Settings (all my handlers are in the Handler.js file)
+		file_dialog_start_handler : fileDialogStart,
+		file_queued_handler : fileQueued,
+		file_queue_error_handler : fileQueueError,
+		file_dialog_complete_handler : fileDialogComplete,
+		upload_start_handler : uploadStart,
+		upload_progress_handler : uploadProgress,
+		upload_error_handler : uploadError,
+		upload_success_handler : uploadSuccess,
+		upload_complete_handler : uploadComplete,
+
+		// Button Settings
+		button_image_url : "XPButtonUploadText_61x22.png",
+		button_placeholder_id : "spanButtonPlaceholder2",
+		button_width: 61,
+		button_height: 22,
+		
+		// Flash Settings
+		flash_url : "swfupload/swfupload.swf",
+
+		swfupload_element_id : "flashUI2",		// Setting from graceful degradation plugin
+		degraded_element_id : "degradedUI2",	// Setting from graceful degradation plugin
+
+		custom_settings : {
+			progressTarget : "fsUploadProgress2",
+			cancelButtonId : "btnCancel2"
+		},
+
+		// Debug Settings
+		debug: false
+	});
+}
+
+function xoopsFormValidate_active()	//偵測上傳時副檔名
+{
+	if( frmNews.edtTitle.value == "" ) { window.alert("請輸入 標題"); frmNews.edtTitle.focus(); return false; }
+	var example = window.confirm('是否確認修改?');
+	if(example){KindSubmit();}else{return false;}
+	/*if(frmNews.fileUpload.value != ""){
+		var selvalue = frmNews.fileUpload.value;
+		aa1 = selvalue.slice(-3);		// 擷取副檔名
+		if (aa1 != "gif" && aa1 != "jpg" && aa1 != "bmp" && aa1 != "swf" && aa1 != "ppt" && aa1 != "doc" && aa1 != "rar" && aa1 != "zip" && aa1 != "GIF" && aa1 != "JPG" && aa1 != "BMP" && aa1 != "SWF" && aa1 != "PPT" && aa1 != "DOC" && aa1 != "RAR" && aa1 != "ZIP")
+		{
+			var aa2= "."+aa1+" 檔不是可上傳的副檔名格式";
+			window.alert(aa2);
+			frmNews.fileUpload.focus();
+			return false;
+		}
+	}*/
+	frmNews.submit();
+}
+
+// 顯示單張圖片視窗
+function ImageWindow(newsno, imgwidth, imgheight)
+{
+	if(imgwidth > 800 | imgheight > 600)
+	{
+		if(imgwidth > imgheight)
+		{
+			imgheight = 800 * imgheight / imgwidth;
+			imgwidth = 800;
+			imgheight = Math.ceil(imgheight);
+		}
+		if(imgheight > imgwidth)
+		{
+			imgwidth = 600 * imgwidth / imgheight;
+			imgheight = 600;
+			imgwidth = Math.ceil(imgwidth);
+		}
+	}
+	
+	// strFeatures = "top=150,left=150,width=460,height=400,toolbar=0,menubar=0,location=0,directories=0,status=0,scrollbars=1";
+	strFeatures = "top=150,left=150,toolbar=0,width="+(imgwidth)+",height="+(imgheight)+",menubar=0,location=0,directories=0,status=0,scrollbars=0";
+	objNewWindow = window.open("smallpic.php?pic="+newsno+"&width="+imgwidth+"&height="+imgheight, "chungun", strFeatures);
+	window.status = "chungun";
+}
+
+function moveFormPicState(x,y)	//搬動圖片程序
+{
+	frmNews.action_delpicid.value = y;
+	frmNews.action = "?{cUrl}&album&id={content_list.id}";
+	frmNews.method = "POST";
+	var example = window.confirm('確定調整圖片位置?');
+	if(example){frmNews.act.value = x;frmNews.submit();}else{return false;}
+	return true;
+}
+
+function xoopsFormDelpic_active(x)	//刪除圖片程序
+{
+	frmNews.action_delpicid.value = x;
+	var example = window.confirm('確定刪除圖片?');
+	if(example){frmNews.act.value = "action_delpic";frmNews.submit();}else{return false;}
+	return true;
+}
+
+function xoopsFormDeltext_active()	//是否刪除整篇文章
+{
+	var example = window.confirm('是否刪除此本相簿?');
+	if(example){frmNews.action_delpicid.value = frmNews.Newsid.value;frmNews.submit();}else{return false;}
+	return true;
+}
+	
+/*// 更換顯示要上傳的圖
+function change_img()
+{
+	document.frmNews.imgUpload.src = document.frmNews.fileUpload.value;
+	// document.getElementById("MyImg").src = document.frmNews.fileUpload.value;
+	document.frmNews.txtUpload.value = document.frmNews.fileUpload.value;
+}*/
+</script>
+  <div id="top" class="grid_12">
+    {HTML.banner}
+  </div>
+  <div class="grid_3">
+	{HTML.menu}
+  </div>
+<div class="grid_9">
+<h2><span class="style1"><a href="?{cUrl}&amp;index">首頁</a> ><a href="?{cUrl}&amp;album_list">沐戀商旅 的相簿</a></span> > 房間</h2>
+<div class="right_box2">
+  <table border="0" cellpadding="0" cellspacing="0" bordercolorlight="#FFFFFF" bordercolordark="#EEEEEE" width="950">
+	<form enctype="multipart/form-data" action="funcs.php" name="frmNews" method="post" onsubmit="javascript:KindSubmit();">
+	  <tr>
+		<input type="hidden" name="act" value="postAlbum">
+		<input type="hidden" name="action_delpicid">
+		{content_list.Newsid_input}
+		<td style="text-align:left; vertical-align:top">
+		<div class="fieldset flash"><span class="legend">《相簿內容》主題、說明</span>
+		<table width="620" border="0" cellspacing="0" cellpadding="0" style="position: relative;;top:-20px;">
+		  <tr>
+			<td style="text-align:left; vertical-align:top">
+			<input type="text" id="edtTitle" name="edtTitle" maxlength="100" {content_list.val_1} style="width:560px"/>&nbsp;
+			{content_list.val_2}
+			</td>
+		  </tr>
+		  <tr>
+			<td style="text-align:left; vertical-align:top">
+			<input type="hidden" id="edtNews" name="edtNews" value="">
+			<input type="hidden" id="picts_content" name="picts_content" value="{content_list.val_3}">
+			<script type="text/javascript" src="./cuedit/KindEditor.js"></script>
+			<script type="text/javascript">
+			var editor = new KindEditor("editor");
+			editor.hiddenName = "picts_content";
+			editor.skinPath = "./cuedit/skins/tiny/";
+			editor.iconPath = "./cuedit/icons/";
+			editor.imageAttachPath = "./upload_image/";
+			editor.imageUploadCgi = "./cuedit/upload_cgi/upload.php";
+			editor.cssPath = "./cuedit/demo/common.css";
+			editor.editorWidth = "100%";
+			editor.editorHeight = "100px";
+			editor.show();
+			//function KindSubmit() {
+			//	editor.data();
+			//}
+			function KindSubmit() {
+				editor.data(); ///这句话要写在后面
+				var d=document.getElementById('picts_content').value; //alert('---'+d); 
+				document.getElementById('edtNews').value=document.getElementById('picts_content').value;
+			}
+			</script>
+			</td>
+		  </tr>
+		</table>
+		</div>
+		<span style="position:relative; width:620px;top:-45px;left:280px;">
+		<input type="submit" value="&nbsp;存　檔&nbsp;" onClick="return xoopsFormValidate_active();"><br>
+		<input name="all_view" type="hidden" value="{content_list.do_pic}" size="100"></span>
+		</td>
+	  </tr>
+	  <tr>
+		<td>
+			<div class="fieldset flash">
+				<span class="legend">《相簿區》編輯已上傳照片：</span>
+			<table border="1" width="620" cellpadding="2" bordercolordark="#FFFFFF" cellspacing="0" bordercolorlight="#808080" style="position: relative;;top:-20px;">
+				{content_list.list}
+			</table>
+			</div>
+			<span style="position:relative;top:-45px;left:280px;">
+			<input type="submit" value="&nbsp;存　檔&nbsp;" onClick="return xoopsFormValidate_active();"><br>
+			<input name="all_view" type="hidden" value="{content_list.do_pic}" size="100"></span>
+		</td>
+	  </tr>
+	  <tr>
+		<td valign="top">
+		<div>
+			<div class="fieldset flash" id="fsUploadProgress2">
+				<span class="legend">《相簿區》添加新的活動相關照片</span>
+			</div>
+			<div style="padding-left: 5px;">
+				<span id="spanButtonPlaceholder2"></span>&nbsp;
+				<input id="btnCancel2" type="button" value="取消上傳" onclick="cancelQueue(upload2);" disabled="disabled" style="margin-left: 2px; width:60px; height: 24px; font-size: 10pt; vertical-align:top" />&nbsp;
+				<input type="button" value="重新整理" onclick="javascript:location.replace('{content_list.replace}');" style="margin-left: 2px; width:60px; height: 24px; font-size: 10pt;">
+				<br />
+			</div>
+		</div><br><br>
+		</td>
+	  </tr>
+	</form>
+  </table>
+</div>
+</div>
+
+{HTML.footer}
+<!-- END: main -->

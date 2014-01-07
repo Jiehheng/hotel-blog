@@ -1,0 +1,7 @@
+<!-- BEGIN: main -->{HTML.header}
+
+{HTML.banner}
+{HTML.menu}
+
+{HTML.footer}
+<!-- END: main -->

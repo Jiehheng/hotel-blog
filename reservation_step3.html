@@ -1,0 +1,288 @@
+<!-- BEGIN: main -->{HTML.header}
+<script type="text/JavaScript">
+<!--
+function check_keydown() 	//判斷資料是否有打
+{
+	err_msg = "";
+	var fm = document.postPost;
+
+	if(fm.Od_name.value==""){
+		err_msg += "姓名　未填寫!!\n";
+	}
+
+	if(fm.Od_sid.value==""){
+		err_msg += "身分證　未填寫!!\n";
+	}
+
+	if(fm.Od_email.value==""){
+		err_msg += "信箱　未填寫!!\n";
+	}
+
+	if(fm.Od_tel.value==""){
+		err_msg += "電話　未填寫!!\n";
+	}
+
+	if(fm.Od_phone.value==""){
+		err_msg += "手機　未填寫!!\n";
+	}
+
+	if(fm.Od_addr.value==""){
+		err_msg += "聯絡地址 未填寫!!\n";
+	}
+	
+	if(err_msg!="")
+	{
+		alert(err_msg);
+		return false;
+	}
+	else
+	{
+		if(confirm('確定以上資料正確？'))
+		{
+			fm.action = "?{cUrl}&reservation_step4";
+			fm.submit();
+			return true;
+		}else return false;
+	}
+}
+
+function chang_a1()
+{
+	var frm = document.postPost;
+	if(frm.a1.checked == true){
+		frm.Li_name.value = frm.Od_name.value;
+		frm.Li_sid.value = frm.Od_sid.value;
+		frm.Li_tel.value = frm.Od_tel.value;
+		frm.Li_phone.value = frm.Od_phone.value;
+		frm.Li_fax.value = frm.Od_fax.value;
+	}else{
+		frm.Li_name.value = "";
+		frm.Li_sid.value = "";
+		frm.Li_tel.value = "";
+		frm.Li_phone.value = "";
+		frm.Li_fax.value = "";
+	}
+}
+
+function chang_a2()
+{
+	var frm = document.postPost;
+	if(frm.a2.checked == true){
+		frm.a3.checked = false;
+		frm.Py_name.value = frm.Od_name.value;
+		frm.Py_sid.value = frm.Od_sid.value;
+		frm.Py_tel.value = frm.Od_tel.value;
+		frm.Py_phone.value = frm.Od_phone.value;
+		frm.Py_fax.value = frm.Od_fax.value;
+		frm.Py_address.value = frm.Od_addr.value;
+	}else{
+		frm.Py_name.value = "";
+		frm.Py_sid.value = "";
+		frm.Py_tel.value = "";
+		frm.Py_phone.value = "";
+		frm.Py_fax.value = "";
+		frm.Py_address.value = "";
+	}
+}
+
+function chang_a3()
+{
+	var frm = document.postPost;
+	if(frm.a3.checked == true){
+		frm.a2.checked = false;
+		frm.Py_name.value = frm.Li_name.value;
+		frm.Py_sid.value = frm.Li_sid.value;
+		frm.Py_tel.value = frm.Li_tel.value;
+		frm.Py_phone.value = frm.Li_phone.value;
+		frm.Py_fax.value = frm.Li_fax.value;
+		frm.Py_address.value = frm.Li_addr.value;
+	}else{
+		frm.Py_name.value = "";
+		frm.Py_sid.value = "";
+		frm.Py_tel.value = "";
+		frm.Py_phone.value = "";
+		frm.Py_fax.value = "";
+		frm.Py_address.value = "";
+	}
+}
+//-->
+</script>
+  <div id="top" class="grid_12">
+    {HTML.banner}
+  </div>
+  <div class="grid_3">
+	{HTML.menu}
+  </div>
+  <div class="grid_9">
+    <table width="100%">
+    <tr>
+    <td rowspan="2"><img src="img/icon/step1_1.gif" width="32" height="33" alt="1" /></td>
+    <td><span class="gray2">Step 1</span></td>
+    <td rowspan="2"><img src="img/icon/step1_2.gif" width="32" height="33" alt="2" /></td>
+    <td><span class="gray2">Step 2</span></td>
+    <td rowspan="2"><img src="img/icon/step2_3.gif" width="32" height="33" /></td>
+    <td><span class="gray2">Step 3</span></td>
+    <td rowspan="2"><img src="img/icon/step1_4.gif" width="32" height="33" alt="4" /></td>
+    <td><span class="gray2">Step 4</span></td>
+    <td rowspan="2"><img src="img/icon/step1_5.gif" width="32" height="33" alt="5" /></td>
+    <td><span class="gray2">Step 5</span></td>
+    </tr>
+    <tr>
+    <td><span class="gray">選擇訂房內容</span></td>
+    <td><span class="gray">訂房明細確認</span></td>
+    <td><span class="brown">填寫聯絡資料</span></td>
+    <td><span class="gray">付款方式選擇</span></td>
+    <td><span class="gray">訂房完成</span></td>
+    </tr>
+	</table>
+	<div class="title1">步驟3：填寫訂房資料</div>
+	<h2>》已選擇住房日期</h2>
+	<table border="0" align="center" cellpadding="0" cellspacing="0" class="mytable">
+	  <tr>
+		<td width="35" class="mytrbg1"><span class="brown">飯店名稱：</span></td>
+		<td width="227" class="mytd1"><label for="textfield5"><span class="brown">沐戀商旅 </span></label></td>
+	  </tr>
+	  <tr>
+		<td class="mytrbg1"><span class="brown">所在城市：</span></td>
+		<td class="mytd1"><span class="brown">台灣 高雄 三民區</span></td>
+	  </tr>
+	</table>
+	
+	<div class="reservation1">
+	  <table border="0" align="center" cellpadding="5" cellspacing="0" class="mytable">
+		<tr>
+		<td align="center" class="mytrbg">住宿日期	房型／促銷活動	</td>
+		<td align="center" class="mytrbg">入住日期</td>
+		<td align="center" class="mytrbg">退房日期</td>
+		<td align="center" class="mytrbg">天數 </td>
+		<td align="center" class="mytrbg">間數 </td>
+		<td align="center" class="mytrbg">當日價格</td>
+		<td align="center" class="mytrbg">小計</td>
+		</tr>
+		{content_list.tr}
+	  </table>
+	</div>
+	<!-- BEGIN: LoginTable -->
+	{HTML.member_login}
+	<!-- END: LoginTable -->
+	<!-- BEGIN: LogonTable -->
+	<form name="postPost" method="post" onsubmit="return check_keydown();">
+	<h2>》填寫訂房者資料</h2>
+	填寫住房者連絡資料 <br />
+	<table border="0" align="center" cellpadding="0" cellspacing="0" class="mytable">
+	  <tr>
+		<td class="mytrbg1">*姓名：</td>
+		<td width="500" class="mytd1"><label for="textfield3"></label>
+		  <input name="Od_name" type="text" id="Od_name" value="{content_list.od.name}" size="30" /></td>
+	  </tr>
+	  <tr>
+		<td class="mytrbg1">*身分證字號：</td>
+		<td class="mytd1"><input name="Od_sid" type="text" id="Od_sid" value="{content_list.od.sid}" size="30" /></td>
+	  </tr>
+	  <tr>
+		<td class="mytrbg1">*連絡e-mail：</td>
+		<td width="500" class="mytd1"><input name="Od_email" type="text" id="Od_email" value="{content_list.od.email}" size="30" /></td>
+	  </tr>
+	  <tr>
+		<td class="mytrbg1">*連絡電話：</td>
+		<td class="mytd1"><input name="Od_tel" type="text" id="Od_tel" value="{content_list.od.tel}" size="30" /></td>
+	  </tr>
+	  <tr>
+		<td class="mytrbg1">*手機號碼：</td>
+		<td class="mytd1"><input name="Od_phone" type="text" id="Od_phone" value="{content_list.od.phone}" size="30" /></td>
+	  </tr>
+	  <tr>
+		<td class="mytrbg1">傳真電話：</td>
+		<td class="mytd1"><input name="Od_fax" type="text" id="Od_fax" value="{content_list.od.fax}" size="30" /></td>
+	  </tr>
+	  <tr>
+		<td class="mytrbg1">*住址：</td>
+		<td class="mytd1"><input name="Od_addr" type="text" id="Od_addr" value="{content_list.od.addr}" size="50" /></td>
+	  </tr>
+	</table>
+	<br />
+	填寫住房者連絡資料 
+	<input name="a1" type="checkbox" value="1" onchange="javascript:chang_a1();" />
+	<label for="radio"></label>
+	同訂房者資料<br />
+	<table border="0" align="center" cellpadding="0" cellspacing="0" class="mytable">
+	  <tr>
+		<td class="mytrbg1">住房者姓名：</td>
+		<td width="500" class="mytd1"><label for="textfield2"></label>
+		  <input name="Li_name" type="text" id="Li_name" size="30" value="{content_list.li.name}" /></td>
+	  </tr>
+	  <tr>
+		<td class="mytrbg1">身分證字號：</td>
+		<td class="mytd1"><input name="Li_sid" type="text" id="Li_sid" value="{content_list.li.sid}" size="30" /></td>
+	  </tr>
+	  <tr>
+		<td class="mytrbg1">連絡電話：</td>
+		<td class="mytd1"><input name="Li_tel" type="text" id="Li_tel" size="30" value="{content_list.li.tel}" /></td>
+	  </tr>
+	  <tr>
+		<td class="mytrbg1">手機號碼：</td>
+		<td class="mytd1"><input name="Li_phone" type="text" id="Li_phone" value="{content_list.li.phone}" size="30" /></td>
+	  </tr>
+	  <tr>
+		<td class="mytrbg1">傳真電話：</td>
+		<td class="mytd1"><input name="Li_fax" type="text" id="Li_fax" size="30" value="{content_list.li.fax}" /></td>
+	  </tr>
+	</table>
+	<br />
+	填寫付款者連絡資料 
+	<input name="a2" type="checkbox" value="1" onchange="javascript:chang_a2();" />
+	<label for="radio2"></label>
+	同訂房者資料 &nbsp; &nbsp;
+	<input name="a3" type="checkbox" value="1" onchange="javascript:chang_a3();" />
+	<label for="radio2"></label>
+	同住房者資料 <br />
+	<table border="0" align="center" cellpadding="0" cellspacing="0" class="mytable">
+	  <tr>
+		<td class="mytrbg1">住房者姓名：</td>
+		<td width="500" class="mytd1"><label for="textfield2"></label>
+		  <input name="Py_name" type="text" id="Py_name" value="{content_list.py.name}" size="30" /></td>
+	  </tr>
+	  <tr>
+		<td class="mytrbg1">身分證字號：</td>
+		<td class="mytd1"><input name="Py_sid" type="text" id="Py_sid" value="{content_list.py.sid}" size="30" /></td>
+	  </tr>
+	  <tr>
+		<td class="mytrbg1">連絡電話：</td>
+		<td class="mytd1"><input name="Py_tel" type="text" id="Py_tel" size="30" value="{content_list.py.tel}" /></td>
+	  </tr>
+	  <tr>
+		<td class="mytrbg1">手機號碼：</td>
+		<td class="mytd1"><input name="Py_phone" type="text" id="Py_phone" size="30" value="{content_list.py.phone}" /></td>
+	  </tr>
+	  <tr>
+		<td class="mytrbg1">傳真電話：</td>
+		<td class="mytd1"><input name="Py_fax" type="text" id="Py_fax" size="30" value="{content_list.py.fax}" /></td>
+	  </tr>
+	  <tr>
+		<td class="mytrbg1">開立代付收據之公司名稱：</td>
+		<td class="mytd1"><input name="Py_company" type="text" id="Py_company" size="30" value="{content_list.py.company}" /></td>
+	  </tr>
+	  <tr>
+		<td class="mytrbg1">統編：</td>
+		<td class="mytd1"><input name="Py_cid" type="text" id="Py_cid" size="30" value="{content_list.py.cid}" /></td>
+	  </tr>
+	  <tr>
+		<td class="mytrbg1">寄送地址：</td>
+		<td class="mytd1"><input name="Py_address" type="text" id="Py_address" size="30" value="{content_list.py.address}" /></td>
+	  </tr>
+	</table>
+	<br />
+	<table border="0" align="center" cellpadding="0" cellspacing="0" class="mytable">
+	  <tr>
+		<td class="mytrbg1">留言給飯店：</td>
+		<td width="500" class="mytd1"><textarea name="question" id="question" cols="45" rows="5">{content_list.py.question}</textarea></td>
+	  </tr>
+	</table>
+	<br /><div class="reservation1">
+    <input type="button" onclick="javascript:location.href='?{cUrl}&reservation_step2'" value="重選房間" />
+    <input name="Sout" value="下一步" type="submit" /></div>
+	</form>
+	<!-- END: LogonTable -->
+  </div>   
+{HTML.footer}
+<!-- END: main -->

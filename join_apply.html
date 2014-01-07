@@ -1,0 +1,122 @@
+<!-- BEGIN: main -->{HTML.header}
+
+<script type="text/javascript">
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+function check_keydown(){ 	//判斷資料是否有打
+
+	fm = document.postJoin;
+	err_msg = "";
+
+	if(fm.City.value == "00"){ err_msg += "所在城市　未選取!!\n"; }
+	if(fm.Name.value==""){ err_msg += "飯店名稱　未填寫!!\n"; }
+	if(fm.Addr.value==""){ err_msg += "地址　未填寫!!\n"; }
+	if(fm.Tele.value==""){ err_msg += "電話　未填寫!!\n"; }
+	if(fm.Contacter.value==""){ err_msg += "聯絡人　未填寫!!\n"; }
+	if(fm.Email.value==""){ err_msg += "聯絡信箱　未填寫!!\n"; }
+	if(!fm.License[0].checked && !fm.License[1].checked) { err_msg += "旅館執照 未選擇\n"; }
+	if(fm.Subject.value==""){ err_msg += "主題 未填寫!!\n"; }
+	if(fm.Content.value==""){ err_msg += "內容 未輸入!!\n"; }
+	if(err_msg!="") { alert(err_msg); return false; }else{
+		if(confirm('確定以上資料正確？')){
+			fm.action = "funcs.php";
+			fm.submit();
+			return true;
+		}else return false;
+	}
+}
+</script>
+<div class="join">
+	<img src="img/wowLOGO.png" alt="玩很大" /><br><br>
+  <span class="font40px">加盟玩很大訂房網 夥伴售房計劃</span><br />
+  <span class="font24pxblue">深入全台灣各式飯店民宿，精選全台熱門地區、景點</span><br /><br /><br />
+        
+  <span class="font24pxgray">為何選擇加盟 玩很大旅遊訂房網:</span><br>
+        
+	<span class="font18px">> 免費專屬部落格式官網</span>
+	<p class="font14pxgray">
+	－可自行裝飾官網、經營編修旅館資料、開關控房、最新消息及在地季節活動!<br />
+	－即時親近旅客提供住宿聯繫及各式客服 !<br />
+	－發送電子報，提醒旅客訂房消費 !<br />
+	<img src="img/image1.jpg" width="505" height="315" alt="image1">
+	</p><br />
+	
+	<span class="font18px">> 免費提供訂房金流系統，具線上付款交易履約保證，免擔心詐騙風險!!</span>        <p class="font14pxgray">
+	－功能強大的線上金流系統，
+		<span class="font14pxblue">可接收國內外各類信用卡、大陸銀聯卡、支付寶、財付寶</span>
+	等線上支付服務。<br />
+	－金流系統由經濟部商業司輔導示範廠商-台灣里國際有限公司服務~
+		<span class="font14pxblue">線上交易履約保證，消費者確認訂房成功後才撥款，免擔心詐騙風險!
+		</span>
+	<img src="img/image2.jpg" width="505" height="350" alt="image2"><br />
+	</p><br />
+
+<span class="font24px">飯店加盟申請</span><br />
+
+    <form name="postJoin" method="post" onSubmit="return check_keydown();">
+    <input type="hidden" name="act" id="act" value="hotel_join" >
+        <p class="font14px">
+        所在城市：
+        <label>
+        	<select name="City" class="input_text" id="City"><option value="00">選擇城市</option>{content_list.area}</select>
+        </label><br />
+        飯店名稱：
+        <label>
+        	<input name="Name" type="text" class="input_text" id="Name" />
+ 		</label><br />
+        地　　址：
+        <label>
+       	  <input name="Addr" class="input_text" id="Addr" type="text" />
+        </label><br />
+        電　　話：
+        <label>	
+          <input name="Tele" class="input_text" id="Tele" type="text" />
+        </label><br />
+        聯&nbsp; 絡&nbsp; 人：
+        <label>
+       	  <input name="Contacter" class="input_text" id="Contacter" type="text" />
+        </label><br />
+		聯絡信箱：
+        <label>
+       	  <input name="Email" class="input_text" id="Email" type="text" />
+        </label><br />
+        是否有旅館執照：
+        有<label><input name="License" id="License" type="radio" value="1" /></label>  
+        無<label><input name="License" id="License" type="radio" value="0" /></label><br />
+		<hr style="border-top:1px dotted #666666; width:60%">        
+        </p>
+        <p class="font14px">
+        主　　題<br />
+        <label>
+        	<input name="Subject" class="input_text" id="Subject" type="text" />
+		</label>
+        <br />
+        內　　容<br />
+        <label>
+			<textarea name="Content" class="message" id="Content"></textarea>
+        </label><br />
+		<input type="submit" class="btn_2" value="申請加盟" style="cursor:pointer;" />        
+		</p>
+    </form>
+    
+</div>
+<!-- END: main -->

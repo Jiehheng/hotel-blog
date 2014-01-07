@@ -1,0 +1,105 @@
+				<html xmlns:o="urn:schemas-microsoft-com:office:office"
+				xmlns:x="urn:schemas-microsoft-com:office:excel"
+				xmlns="http://www.w3.org/TR/REC-html40">
+
+				<head>
+				<meta http-equiv=Content-Type content="text/html; charset=big5">
+				<meta name=ProgId content=Excel.Sheet>
+				<!--[if gte mso 9]><xml>
+				 <o:DocumentProperties>
+				  <o:LastAuthor>Sriram</o:LastAuthor>
+				  <o:LastSaved>2005-01-02T07:46:23Z</o:LastSaved>
+				  <o:Version>10.2625</o:Version>
+				 </o:DocumentProperties>
+				 <o:OfficeDocumentSettings>
+				  <o:DownloadComponents/>
+				 </o:OfficeDocumentSettings>
+				</xml><![endif]-->
+				<style>
+				<!--table
+					{mso-displayed-decimal-separator:"\.";
+					mso-displayed-thousand-separator:"\,";}
+				@page
+					{margin:1.0in .75in 1.0in .75in;
+					mso-header-margin:.5in;
+					mso-footer-margin:.5in;}
+				tr
+					{mso-height-source:auto;}
+				col
+					{mso-width-source:auto;}
+				br
+					{mso-data-placement:same-cell;}
+				.style0
+					{mso-number-format:General;
+					text-align:general;
+					vertical-align:bottom;
+					white-space:nowrap;
+					mso-rotate:0;
+					mso-background-source:auto;
+					mso-pattern:auto;
+					color:windowtext;
+					font-size:10.0pt;
+					font-weight:400;
+					font-style:normal;
+					text-decoration:none;
+					font-family:Arial;
+					mso-generic-font-family:auto;
+					mso-font-charset:0;
+					border:none;
+					mso-protection:locked visible;
+					mso-style-name:Normal;
+					mso-style-id:0;}
+				td
+					{mso-style-parent:style0;
+					padding-top:1px;
+					padding-right:1px;
+					padding-left:1px;
+					mso-ignore:padding;
+					color:windowtext;
+					font-size:10.0pt;
+					font-weight:400;
+					font-style:normal;
+					text-decoration:none;
+					font-family:Arial;
+					mso-generic-font-family:auto;
+					mso-font-charset:0;
+					mso-number-format:General;
+					text-align:general;
+					vertical-align:bottom;
+					border:none;
+					mso-background-source:auto;
+					mso-pattern:auto;
+					mso-protection:locked visible;
+					white-space:nowrap;
+					mso-rotate:0;}
+				.xl24
+					{mso-style-parent:style0;
+					white-space:normal;}
+				-->
+				</style>
+				<!--[if gte mso 9]><xml>
+				 <x:ExcelWorkbook>
+				  <x:ExcelWorksheets>
+				   <x:ExcelWorksheet>
+					<x:Name>srirmam</x:Name>
+					<x:WorksheetOptions>
+					 <x:Selected/>
+					 <x:ProtectContents>False</x:ProtectContents>
+					 <x:ProtectObjects>False</x:ProtectObjects>
+					 <x:ProtectScenarios>False</x:ProtectScenarios>
+					</x:WorksheetOptions>
+				   </x:ExcelWorksheet>
+				  </x:ExcelWorksheets>
+				  <x:WindowHeight>10005</x:WindowHeight>
+				  <x:WindowWidth>10005</x:WindowWidth>
+				  <x:WindowTopX>120</x:WindowTopX>
+				  <x:WindowTopY>135</x:WindowTopY>
+				  <x:ProtectStructure>False</x:ProtectStructure>
+				  <x:ProtectWindows>False</x:ProtectWindows>
+				 </x:ExcelWorkbook>
+				</xml><![endif]-->
+				</head>
+
+				<body link=blue vlink=purple>
+				<table x:str border=0 cellpadding=0 cellspacing=0 style='border-collapse: collapse;table-layout:fixed;'><tr><td class=xl24 width=64 >系統檢測報告</td></tr><tr><td class=xl24 width=64 >案件名稱：</td><td class=xl24 width=64 >179_海管處_機關入口網站維護案</td></tr><tr><td class=xl24 width=64 >日期：</td><td class=xl24 width=64 >2009-08-05 17:04:46</td></tr><tr><td class=xl24 width=64 >編號</td><td class=xl24 width=64 >問題分類</td><td class=xl24 width=64 >問題內容</td><td class=xl24 width=64 >發問時間</td><td class=xl24 width=64 >回覆內容</td><td class=xl24 width=64 >回覆時間</td><td class=xl24 width=64 >回覆人員</td><td class=xl24 width=64 >回覆狀況</td><td class=xl24 width=64 >備註</td></tr><tr><td class=xl24 width=64 >1</td><td class=xl24 width=64 >頁面問題</td><td class=xl24 width=64 >志工專網左方選項點入後右方頁面及上方抬頭應予配合,而非全部都是志工登入畫面,應有更細緻的設計</td><td class=xl24 width=64 >2009-07-27 10:19:17</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >2</td><td class=xl24 width=64 >業務問題</td><td class=xl24 width=64 >1.未見...網站分析管理功能?<br />
+2.多人編修之共同單元,無法查看編修記錄?</td><td class=xl24 width=64 >2009-07-27 10:29:32</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >3</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >書表下載顯示筆數不足,有些資料未顥顯示</td><td class=xl24 width=64 >2009-07-27 11:25:58</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >4</td><td class=xl24 width=64 >業務問題</td><td class=xl24 width=64 >相關連結之首頁顯示之連結仍無法更換</td><td class=xl24 width=64 >2009-07-30 08:51:16</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >5</td><td class=xl24 width=64 >頁面問題</td><td class=xl24 width=64 >應研考會要求:生態保育單元項下之所有子頁名稱及內頁標題有&quot;研究成果&quot;用字者,請改為&quot;計畫成果&quot;</td><td class=xl24 width=64 >2009-07-30 09:49:26</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr></table></body></html>

@@ -1,0 +1,86 @@
+授權人基本資料
+<table border="0" align="center" cellpadding="0" cellspacing="0" class="mytable">
+  <tr>
+    <td class="mytrbg1"><label for="radio">持卡人姓名：</label></td>
+    <td width="500" class="mytd1"><label for="textfield"></label>
+      <input type="text" name="textfield" id="textfield" /></td>
+  </tr>
+  <tr>
+    <td class="mytrbg1">身分證字號：</td>
+    <td class="mytd1"><input type="text" name="textfield2" id="textfield2" /></td>
+  </tr>
+  <tr>
+    <td class="mytrbg1">生日：</td>
+    <td class="mytd1">西元
+      <select name="bir_y" id="bir_y">
+        <option>1980</option>
+        
+			{content_list.birthday_Year}
+          
+      </select>
+年
+<label for="select3"></label>
+<select name="bir_m" id="bir_m">
+  <option>7</option>
+  
+		  {content_list.birthday_Month}
+		
+</select>
+月
+<select name="bir_d" id="bir_d">
+  <option>1</option>
+  
+		  {content_list.birthday_Day}
+		
+</select>
+日</td>
+  </tr>
+  <tr>
+    <td class="mytrbg1">連絡電話：</td>
+    <td class="mytd1"><input type="text" name="textfield3" id="textfield3" /></td>
+  </tr>
+</table>
+信用卡資料
+<table border="0" align="center" cellpadding="0" cellspacing="0" class="mytable">
+  <tr>
+    <td class="mytrbg1"><label for="radio2">卡別：</label></td>
+    <td width="500" class="mytd1"><label for="textfield"></label>
+      <input type="text" name="textfield4" id="textfield" /></td>
+  </tr>
+  <tr>
+    <td class="mytrbg1">卡號：</td>
+    <td class="mytd1"><input type="text" name="textfield4" id="textfield4" /></td>
+  </tr>
+  <tr>
+    <td class="mytrbg1">卡片檢查碼：</td>
+    <td class="mytd1"><input name="textfield5" type="text" id="textfield5" size="3" />
+      (卡片背面簽名處末三碼。)</td>
+  </tr>
+  <tr>
+    <td class="mytrbg1">有效期限：</td>
+    <td class="mytd1"><select name="bir_y2" id="bir_y2">
+      <option>2013</option>
+      
+        
+			{content_list.birthday_Year}
+          
+      
+    </select>
+年
+<label for="select3"></label>
+<select name="bir_m2" id="bir_m2">
+  <option>07</option>
+  
+  
+		  {content_list.birthday_Month}
+		
+
+</select>
+月(信用卡上為08/03，則有效期限為2003年8月)</td>
+  </tr>
+  <tr>
+    <td class="mytrbg1">金額：</td>
+    <td class="mytd1"><span class="mytd3">850元</span>(訂單編號<span class="mytrbg1">：</span>123456789)</td>
+  </tr>
+</table>
+<p><br />

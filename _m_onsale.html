@@ -1,0 +1,150 @@
+<!-- BEGIN: main -->{HTML.header}
+<script src="./JSCal2-1.9/src/js/jscal2.js"></script>
+<script src="./JSCal2-1.9/src/js/lang/cn.js"></script>
+<link rel="stylesheet" type="text/css" href="./JSCal2-1.9/src/css/jscal2.css" />
+<link rel="stylesheet" type="text/css" href="./JSCal2-1.9/src/css/border-radius.css" />
+<link rel="stylesheet" type="text/css" href="./JSCal2-1.9/src/css/steel/steel.css" />
+
+<link rel="stylesheet" href="./kindeditor-4.1.7/themes/default/default.css" />
+<link rel="stylesheet" href="./kindeditor-4.1.7/plugins/code/prettify.css" />
+<script charset="utf-8" src="./kindeditor-4.1.7/kindeditor.js"></script>
+<script charset="utf-8" src="./kindeditor-4.1.7/lang/zh_TW.js"></script>
+<script charset="utf-8" src="./kindeditor-4.1.7/plugins/code/prettify.js"></script>
+<script type="text/JavaScript">
+<!--
+KindEditor.ready(function(K) {
+	{content_list.setup1}
+});   
+function checkint(vv)   //檢查是不是數字
+{
+	var j=0;
+	if(vv.value.length>1 && vv.value.substring(0,1)==0) vv.value=vv.value.substring(1,(vv.value.length));
+	for (var i = 0; i < vv.value.length; i++)
+	{
+	 ch = vv.value.substring(i,i+1);                          
+	 if ((ch < "0" || ch > "9") && j==0) {j=i+1;} 
+	}         
+	if(j!=0){
+	 alert('請輸入半形數字');
+	 //if(j==1){vv.value=0;}else{vv.value=vv.value.substring(0,j-1);}
+	}
+}
+function LoadEditor(TextName, FormName) {
+	var editor1 = KindEditor.create('textarea[name="' + TextName + '"]', {
+		cssPath : './kindeditor-4.1.7/plugins/code/prettify.css',
+		uploadJson : './kindeditor-4.1.7/php/upload_json.php',
+		fileManagerJson : './kindeditor-4.1.7/php/file_manager_json.php',
+		allowFileManager : true,
+		afterCreate : function() {
+			var self = this;
+			KindEditor.ctrl(document, 13, function() {
+				self.sync();
+				KindEditor('form[name=' + FormName + ']')[0].submit();
+			});
+			KindEditor.ctrl(self.edit.doc, 13, function() {
+				self.sync();
+				KindEditor('form[name=' + FormName + ']')[0].submit();
+			});
+		}
+	});
+	return editor1;
+}
+function check_keydown() 	//判斷資料是否有打
+{
+	var example = window.confirm('是否確定要修改/刪除?\n\nPS:請注意,刪除專案將一併刪除該專案所有控房資料');
+	if(example){
+		return true;
+	}else{
+		return false;
+	}
+}
+//-->
+</script>
+  <div id="top" class="grid_12">
+    {HTML.banner}
+  </div>
+  <div class="grid_3">
+	{HTML.menu}
+  </div>
+<div class="grid_9">
+  <form enctype="multipart/form-data" name="postPost" method="post" action="funcs.php" onsubmit="return check_keydown();">
+  <input type="hidden" name="act" id="act" value="postOnsale">
+  <input type="hidden" name="EditVal" id="EditVal" value="{content_list.editvalue}">
+  {content_list.area1}
+  <div id="TabbedPanels1" class="TabbedPanels">
+	<ul class="TabbedPanelsTabGroup">
+	  {content_list.title}
+    </ul>
+    <div class="TabbedPanelsContentGroup">
+      <!-- BEGIN:Circle -->
+	  <div class="TabbedPanelsContent">
+		<div style="padding:5px; border-bottom:#CCCCCC 1px dotted">
+		活動主題：<input name="subject_{content_circle.auto_add}" id="subject_{content_circle.auto_add}" type="text" style="width:300px;" value="{content_circle.subject}" />　
+		副標題：<input name="subject2_{content_circle.auto_add}" id="subject2_{content_circle.auto_add}" type="text" style="width:200px;" value="{content_circle.subject2}" />
+		</div>
+		<div style="padding:5px; border-bottom:#CCCCCC 1px dotted">
+		基本定價：<input name="sprice_{content_circle.auto_add}" id="sprice_{content_circle.auto_add}" type="text" style="width:100px;" value="{content_circle.sprice}" />&nbsp;元　　
+		促銷價格：<input name="uprice_{content_circle.auto_add}" id="uprice_{content_circle.auto_add}" type="text" style="width:100px;" value="{content_circle.uprice}" />&nbsp;元　　
+		住房天數：<input name="manydays_{content_circle.auto_add}" id="manydays_{content_circle.auto_add}" type="text" style="width:50px;" value="{content_circle.manydays}" />&nbsp;天
+		<br />
+		<div style="border:1px #666666 dashed; vertical-align:middle; margin-top:5px;">
+		<table width="100%" style="margin:0px;">
+		  <tr>
+			<td width="9%" style="background-color:#003333; color:#FFFFFF; text-align:center">預設價格</td>
+			<td width="13%" style="background-color:#FF0000; color:#FFFFFF;text-align:center">星期日</td>
+			<td width="13%" style="background-color:#EEFFEE;text-align:center">星期一</td>
+			<td width="13%" style="background-color:#EEFFEE;text-align:center">星期二</td>
+			<td width="13%" style="background-color:#EEFFEE;text-align:center">星期三</td>
+			<td width="13%" style="background-color:#EEFFEE;text-align:center">星期四</td>
+			<td width="13%" style="background-color:#EEFFEE;text-align:center">星期五</td>
+			<td width="13%" style="background-color:#339900; color:#FFFFFF;text-align:center">星期六</td>
+		  </tr>
+		  <tr>
+			<td width="9%" valign="top" style="background-color:#003333; color:#FFFFFF; text-align:center">房價</td>
+			<td width="13%" valign="top" style="text-align:center"><input type="text" name="price1_{content_circle.auto_add}" size="5" value="{content_circle.price1}" onkeyup="checkint(this)" />&nbsp;元</td>
+			<td width="13%" valign="top" style="text-align:center"><input type="text" name="price2_{content_circle.auto_add}" size="5" value="{content_circle.price2}" onkeyup="checkint(this)" />&nbsp;元</td>
+			<td width="13%" valign="top" style="text-align:center"><input type="text" name="price3_{content_circle.auto_add}" size="5" value="{content_circle.price3}" onkeyup="checkint(this)" />&nbsp;元</td>
+			<td width="13%" valign="top" style="text-align:center"><input type="text" name="price4_{content_circle.auto_add}" size="5" value="{content_circle.price4}" onkeyup="checkint(this)" />&nbsp;元</td>
+			<td width="13%" valign="top" style="text-align:center"><input type="text" name="price5_{content_circle.auto_add}" size="5" value="{content_circle.price5}" onkeyup="checkint(this)" />&nbsp;元</td>
+			<td width="13%" valign="top" style="text-align:center"><input type="text" name="price6_{content_circle.auto_add}" size="5" value="{content_circle.price6}" onkeyup="checkint(this)" />&nbsp;元</td>
+			<td width="13%" valign="top" style="text-align:center"><input type="text" name="price7_{content_circle.auto_add}" size="5" value="{content_circle.price7}" onkeyup="checkint(this)" />&nbsp;元</td>
+		  </tr>
+		</table>
+		</div>
+		</div>
+		<div style="padding:5px; border-bottom:#CCCCCC 1px dotted">
+		搭配房型：<select name="room_match_{content_circle.auto_add}" id="room_match_{content_circle.auto_add}" style="width:300px;">{content_circle.room_match}</select>　　
+		開放房間數：<input name="room_open_{content_circle.auto_add}" id="room_open_{content_circle.auto_add}" type="text" style="width:30px;" value="{content_circle.room_open}" />
+		</div>
+		<div style="padding:5px; border-bottom:#CCCCCC 1px dotted">
+		開放時間：<input size="20" name="f_date1_{content_circle.auto_add}" id="f_date1_{content_circle.auto_add}" value="{content_circle.f_date1}" readonly /><button id="f_btn{content_circle.x}">...</button>　～　
+		結束時間：<input size="20" name="f_date2_{content_circle.auto_add}" id="f_date2_{content_circle.auto_add}" value="{content_circle.f_date2}" readonly /><button id="f_btn{content_circle.y}">...</button>
+		</div>
+		<textarea name="content_{content_circle.auto_add}" id="content_{content_circle.auto_add}" style="width:660px;height:400px;visibility:hidden;">{content_circle.content}</textarea>
+		<div style="padding:5px; border-bottom:#CCCCCC 1px dotted">
+		狀態：<input name="status_{content_circle.auto_add}" id="status_{content_circle.auto_add}" type="radio" value="1" {content_circle.selg}/>開啟　<input name="status_{content_circle.auto_add}" id="status_{content_circle.auto_add}" type="radio" value="0" {content_circle.selh}/>關閉　<input name="status_{content_circle.auto_add}" id="status_{content_circle.auto_add}" type="radio" value="d"/>刪除&nbsp;　│　&nbsp;
+		排列順序： <input name="order_{content_circle.auto_add}" id="order_{content_circle.auto_add}" type="text" style="width:20px;" value="{content_circle.order}" onkeyup="checkint(this)" />
+		<span style="float:right;">發表於：{content_circle.creatime}</span></div>
+	  </div>
+	  <!-- END:Circle -->
+    </div>
+	<div style="text-align:center;padding-top:10px;"><input name="Sout" value="修改" type="submit" /></div>
+  </div>
+  </form>
+</div>
+<script type="text/javascript">
+<!--
+var TabbedPanels1 = new Spry.Widget.TabbedPanels("TabbedPanels1");
+//-->
+</script>
+<script type="text/javascript">//<![CDATA[
+
+  var cal = Calendar.setup({
+	  onSelect: function(cal) { cal.hide() },
+	  showTime: false
+  });
+  {content_list.area4}
+
+//]]></script>
+{HTML.footer}
+<!-- END: main -->

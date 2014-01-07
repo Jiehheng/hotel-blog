@@ -1,0 +1,108 @@
+<!-- BEGIN: main -->{HTML.header}
+<script type="text/JavaScript">
+<!--
+function check_keydown() 	//判斷資料是否有打
+{
+	var example = window.confirm('是否確定要修改?');
+	if(example){
+		document.postPost.action="funcs.php";
+		return true;
+	}else{
+		return false;
+	}
+}
+function chk_week_day(x,y)
+{
+	var obj　=　document.getElementsByName("month[]");
+	var len = obj.length;
+	
+	var checked = false;
+
+	for (i = 0; i < len; i++)
+	{
+		if(obj[i].value.indexOf(","+y+",") >= 0 ) {
+			if (x.checked == true){ obj[i].checked = true; }else{
+				if(obj[i].disabled==false) obj[i].checked = false;
+			}
+		}
+	} 
+	//alert(checked);
+	return　true;
+}
+//-->
+</script>
+
+<div id="top" class="grid_12">
+	{HTML.banner}
+</div>
+<div class="grid_3">
+	{HTML.menu}
+</div>
+  <div class="grid_9">
+  <form enctype="multipart/form-data" name="postPost" method="post" onsubmit="return check_keydown();">
+  <input type="hidden" name="act" id="act" value="postRoomTableGroup">
+  <input type="hidden" name="year" id="year" value="{content_list.year}">
+	<div class="right_box">
+	  <div class="right_top">批次控房管理</div>
+      <div class="right_text" style="width:662px;">
+		<div style="padding:10px 0 0 0;border-bottom:#999999 1px dashed">
+		<table width="650" cellspacing="0" cellpadding="0" style="margin:0px auto; padding:0;">
+		  <tr>
+			<td>
+			  <table width="100%" border="0" cellspacing="1" cellpadding="2" style="border:1px solid #CCCCCC;line-height:160%;">
+				<tr bgcolor="#EFEFEF" style="border:1px solid #CCCCCC;">
+				  <td colspan="13" bgcolor="#D2EAF2" style="text-align:center;padding:6px;">{content_list.area0}</td>
+				</tr>
+				<tr bgcolor="#FFCC99" style="border:1px solid #CCCCCC;line-height:100%;">
+				  <td bgcolor="#A4D2E7" style="text-align:center;vertical-align:middle;border:1px solid #CCCCCC;padding:3px;">{content_list.lastyear}&nbsp;　&nbsp;{content_list.year}&nbsp;年&nbsp;　&nbsp;{content_list.nextyear}</td>
+				  <td bgcolor="#A4D2E7" style="text-align:center;border:1px solid #CCCCCC;padding:3px;">1<br /><input name="Gmont_1" type="checkbox" onclick="javascript:return chk_week_day(this,1)"></td>
+				  <td bgcolor="#A4D2E7" style="text-align:center;border:1px solid #CCCCCC;padding:3px;">2<br /><input name="Gmont_2" type="checkbox" onclick="javascript:return chk_week_day(this,2)"></td>
+				  <td bgcolor="#A4D2E7" style="text-align:center;border:1px solid #CCCCCC;padding:3px;">3<br /><input name="Gmont_3" type="checkbox" onclick="javascript:return chk_week_day(this,3)"></td>
+				  <td bgcolor="#A4D2E7" style="text-align:center;border:1px solid #CCCCCC;padding:3px;">4<br /><input name="Gmont_4" type="checkbox" onclick="javascript:return chk_week_day(this,4)"></td>
+				  <td bgcolor="#A4D2E7" style="text-align:center;border:1px solid #CCCCCC;padding:3px;">5<br /><input name="Gmont_5" type="checkbox" onclick="javascript:return chk_week_day(this,5)"></td>
+				  <td bgcolor="#A4D2E7" style="text-align:center;border:1px solid #CCCCCC;padding:3px;">6<br /><input name="Gmont_6" type="checkbox" onclick="javascript:return chk_week_day(this,6)"></td>
+				  <td bgcolor="#A4D2E7" style="text-align:center;border:1px solid #CCCCCC;padding:3px;">7<br /><input name="Gmont_7" type="checkbox" onclick="javascript:return chk_week_day(this,7)"></td>
+				  <td bgcolor="#A4D2E7" style="text-align:center;border:1px solid #CCCCCC;padding:3px;">8<br /><input name="Gmont_8" type="checkbox" onclick="javascript:return chk_week_day(this,8)"></td>
+				  <td bgcolor="#A4D2E7" style="text-align:center;border:1px solid #CCCCCC;padding:3px;">9<br /><input name="Gmont_9" type="checkbox" onclick="javascript:return chk_week_day(this,9)"></td>
+				  <td bgcolor="#A4D2E7" style="text-align:center;border:1px solid #CCCCCC;padding:3px;">10<br /><input name="Gmont_10" type="checkbox" onclick="javascript:return chk_week_day(this,10)"></td>
+				  <td bgcolor="#A4D2E7" style="text-align:center;border:1px solid #CCCCCC;padding:3px;">11<br /><input name="Gmont_11" type="checkbox" onclick="javascript:return chk_week_day(this,11)"></td>
+				  <td bgcolor="#A4D2E7" style="text-align:center;border:1px solid #CCCCCC;padding:3px;">12<br /><input name="Gmont_12" type="checkbox" onclick="javascript:return chk_week_day(this,12)"></td>
+				</tr>
+				{content_list.area}
+			  </table>
+			</td>
+		  </tr>
+		</table>
+		</div>
+		<div style="border-bottom:#999999 1px dashed">
+		<div id="underline">
+		  <div id="circle">
+		    <div>
+		      <div id="controls_room">
+		          <div style="font-size:12px; font-weight:bold">◎ 上列表有勾選的資料修改</div>
+		          <div>
+					  <div style=" font-size:9.5pt; color:#006666">
+						<ul>
+						  <li>1. 
+						  在點選所需的房型／月份確認並按下〔開啟〕鈕，將系統將開始執行，此段時間請勿關閉視窗，或點選視窗上的停止／重新整理，以防資料未建立完全。 
+						  </li>
+						  <li>2.開啟的預設值皆為您〔房間介紹〕所預設的資料(間數及星期一至星期日的預設值)，如有間數/價格需更動時，請確認以下『間數/房價』需異動之狀況：<br />
+							(1)『非常態性間數/價格異動』
+							　 如：特殊日期時的間數及房價異動，則請至『一般房型價格間數設定』更正間數/價格資料即可。<br />
+							(2)『常態性間數/價格異動』
+							　 如：間數/房價價格已全部重新調整時，則請先至『房間介紹』修改預設資料再開啟房價。</li>
+						  </ul>
+					  </div>
+				  </div>
+				  <div style="font-size:12px; font-weight:bold; text-align:center;"><input name="SOK" type="submit" value="送出" /></div>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		</div>
+      </div>
+    </div>
+  </form>
+  </div>   
+{HTML.footer}
+<!-- END: main -->

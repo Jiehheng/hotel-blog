@@ -1,0 +1,164 @@
+<!-- BEGIN: main -->{HTML.header}
+<script src="./JSCal2-1.9/src/js/jscal2.js"></script>
+<script src="./JSCal2-1.9/src/js/lang/cn.js"></script>
+<link rel="stylesheet" type="text/css" href="./JSCal2-1.9/src/css/jscal2.css" />
+<link rel="stylesheet" type="text/css" href="./JSCal2-1.9/src/css/border-radius.css" />
+<link rel="stylesheet" type="text/css" href="./JSCal2-1.9/src/css/steel/steel.css" />
+<link rel="stylesheet" href="Scripts/lightbox.css" type="text/css" media="screen" />
+<script type="text/javascript" src="Scripts/prototype.js"></script>
+<script type="text/javascript" src="Scripts/scriptaculous.js?load=effects,builder"></script>
+<script type="text/javascript" src="Scripts/lightbox.js"></script>
+
+<script type="text/JavaScript">
+<!--
+function check_keydown() 	//判斷資料是否有打
+{
+	var example = window.confirm('是否確定要修改/刪除?\n\nPS:請注意,刪除專案將一併刪除該專案所有控房資料');
+	if(example){
+		return true;
+	}else{
+		return false;
+	}
+}
+//-->
+</script>
+<div id="top" class="grid_12">
+	{HTML.banner}
+</div>
+<div class="grid_3">
+	{HTML.menu}
+</div>
+<div class="grid_9">
+	<form enctype="multipart/form-data" name="postPost" method="post" action="funcs.php" onsubmit="return check_keydown();">
+  	<input type="hidden" name="act" id="act" value="postSetup">
+	<div id="hotel_photo" style="padding:10px; line-height:30px;">
+		巨型橫幅 BANNER:&nbsp;(&nbsp;寬度請勿超過1000px&nbsp;)
+		{content_list.pic1_show}<br />
+		<input type="file" name="pic1" style="width:245pt" /><input type="hidden" name="pic1_soc" value="{content_list.pic1}">
+	</div>
+	<br />
+	<div id="hotel_photo" style="padding:10px; line-height:30px;">
+		組圖:<br />
+		<table border="1">
+		  <tr>
+			<td width="33%">{content_list.pic2_show}&nbsp;</td>
+			<td width="34%">{content_list.pic3_show}&nbsp;</td>
+			<td width="33%">{content_list.pic4_show}&nbsp;</td>
+		  </tr>
+		  <tr>
+			<td width="33%"><input type="file" name="pic2" /><input type="hidden" name="pic2_soc" value="{content_list.pic2}"></td>
+			<td width="34%"><input type="file" name="pic3" /><input type="hidden" name="pic3_soc" value="{content_list.pic3}"></td>
+			<td width="33%"><input type="file" name="pic4" /><input type="hidden" name="pic4_soc" value="{content_list.pic4}"></td>
+		  </tr>
+		</table>
+    </div>
+    <div id="hotel_introduce" class="grid_9">
+      【飯店地址】
+        <label for="textfield"></label>
+        <input name="cust_address" type="text" id="cust_address" value="{content_list.cust_address}" size="50" />
+      <br>
+      【飯店電話】 
+      <label for="textfield2"></label>
+      <input name="cust_tel" type="text" id="cust_tel" value="{content_list.cust_tel}" />
+      <br>
+      【訂房專線】 
+      <label for="textfield2"></label>
+      <input name="cust_ordertel" type="text" id="cust_ordertel" value="{content_list.cust_ordertel}" />
+      <br>
+      【飯店傳真】 
+      <label for="textfield2"></label>
+      <input name="cust_fax" type="text" id="cust_fax" value="{content_list.cust_fax}" />
+	<table class="simple_table display_table two_column">
+	  <tr>
+		<td width="80">【飯店簡介】</td>
+		<td colspan="10">
+		  <label for="textarea"></label>
+		  <textarea name="cust_intro" id="cust_intro" cols="70" rows="5">{content_list.cust_intro}</textarea>
+	    </td>
+	  </tr>
+	  <tr>
+	    <td>&nbsp;</td>
+	    <td colspan="10">&nbsp;</td>
+      </tr>
+	  <tr>
+	    <td rowspan="6">【飯店設施】</td>
+	    <td><input name="cust_facility[]" type="checkbox" value="1" {content_list.cf1}/>	      <img src="img/icon/01.gif" alt="24小時客房服務" width="69" height="73" /></td>
+	    <td><input name="cust_facility[]" type="checkbox" value="2" {content_list.cf2}/>	      <img src="img/icon/02.gif" alt="無線上網" width="69" height="73" /></td>
+	    <td><input name="cust_facility[]" type="checkbox" value="3" {content_list.cf3}/>	      <img src="img/icon/03.gif" alt="代客泊車" width="69" height="73" /></td>
+	    <td><input name="cust_facility[]" type="checkbox" value="4" {content_list.cf4}/>	      <img src="img/icon/04.gif" alt="保險箱" width="69" height="73" /></td>
+	    <td><input name="cust_facility[]" type="checkbox" value="5" {content_list.cf5}/>	      <img src="img/icon/05.gif" alt="停車場" width="69" height="73" /></td>
+	    <td><input name="cust_facility[]" type="checkbox" value="6" {content_list.cf6}/>	      <img src="img/icon/06.gif" alt="兒童看護服務" width="69" height="73" /></td>
+	    <td><input name="cust_facility[]" type="checkbox" value="7" {content_list.cf7}/>	      <img src="img/icon/07.gif" alt="可帶寵物" width="69" height="73" /></td>
+	    <td><input name="cust_facility[]" type="checkbox" value="8" {content_list.cf8}/>	      <img src="img/icon/08.gif" alt="吸煙房" width="69" height="73" /></td>
+      </tr>
+	  <tr>
+	    <td><input name="cust_facility[]" type="checkbox" value="9" {content_list.cf9}/>	      <img src="img/icon/11.gif" alt="兒童娛樂室" width="69" height="73" /></td>
+	    <td><input name="cust_facility[]" type="checkbox" value="10" {content_list.cf10}/>	      <img src="img/icon/12.gif" alt="商業中心" width="69" height="73" /></td>
+	    <td><input name="cust_facility[]" type="checkbox" value="11" {content_list.cf11}/>	      <img src="img/icon/13.gif" alt="夜總會" width="69" height="73" /></td>
+	    <td><input name="cust_facility[]" type="checkbox" value="12" {content_list.cf12}/>	      <img src="img/icon/14.gif" alt="娛樂場" width="69" height="73" /></td>
+	    <td><input name="cust_facility[]" type="checkbox" value="13" {content_list.cf13}/>	      <img src="img/icon/15.gif" alt="客房服務" width="69" height="73" /></td>
+	    <td><input name="cust_facility[]" type="checkbox" value="14" {content_list.cf14}/>	      <img src="img/icon/16.gif" alt="家庭房" width="69" height="73" /></td>
+	    <td><input name="cust_facility[]" type="checkbox" value="15" {content_list.cf15}/>	      <img src="img/icon/17.gif" alt="旅遊服務" width="69" height="73" /></td>
+	    <td><input name="cust_facility[]" type="checkbox" value="16" {content_list.cf16}/>	      <img src="img/icon/18.gif" alt="池畔吧" width="69" height="73" /></td>
+      </tr>
+	  <tr>
+	    <td><input name="cust_facility[]" type="checkbox" value="17" {content_list.cf17}/>	      <img src="img/icon/21.gif" alt="自行車接待服務" width="69" height="73" /></td>
+	    <td><input name="cust_facility[]" type="checkbox" value="18" {content_list.cf18}/>	      <img src="img/icon/22.gif" alt="室外游泳池" width="69" height="73" /></td>
+	    <td><input name="cust_facility[]" type="checkbox" value="19" {content_list.cf19}/>	      <img src="img/icon/23.gif" alt="行政樓層" width="69" height="73" /></td>
+	    <td><input name="cust_facility[]" type="checkbox" value="20" {content_list.cf20}/>	      <img src="img/icon/24.gif" alt="酒吧酒館" width="69" height="73" /></td>
+	    <td><input name="cust_facility[]" type="checkbox" value="21" {content_list.cf21}/>	      <img src="img/icon/25.gif" alt="會議設施" width="69" height="73" /></td>
+	    <td><input name="cust_facility[]" type="checkbox" value="22" {content_list.cf22}/>	      <img src="img/icon/26.gif" alt="殘障人士設施" width="69" height="73" /></td>
+	    <td><input name="cust_facility[]" type="checkbox" value="23" {content_list.cf23}/>	      <img src="img/icon/27.gif" alt="電梯" width="69" height="73" /></td>
+	    <td><input name="cust_facility[]" type="checkbox" value="24" {content_list.cf24}/>	      <img src="img/icon/28.gif" alt="飯店機場接送" width="69" height="73" /></td>
+      </tr>
+	  <tr>
+	    <td><input name="cust_facility[]" type="checkbox" value="25" {content_list.cf25}/>	      <img src="img/icon/31.gif" alt="SPA" width="69" height="73" /></td>
+	    <td><input name="cust_facility[]" type="checkbox" value="26" {content_list.cf26}/>	      <img src="img/icon/32.gif" alt="健身房健身設施" width="69" height="73" /></td>
+	    <td><input name="cust_facility[]" type="checkbox" value="27" {content_list.cf27}/>	      <img src="img/icon/33.gif" alt="按摩" width="69" height="73" /></td>
+	    <td><input name="cust_facility[]" type="checkbox" value="28" {content_list.cf28}/>	      <img src="img/icon/34.gif" alt="籃球場" width="69" height="73" /></td>
+	    <td><input name="cust_facility[]" type="checkbox" value="29" {content_list.cf29}/>	      <img src="img/icon/35.gif" alt="花園" width="69" height="73" /></td>
+	    <td><input name="cust_facility[]" type="checkbox" value="30" {content_list.cf30}/>	      <img src="img/icon/36.gif" alt="高爾夫球場" width="69" height="73" /></td>
+	    <td><input name="cust_facility[]" type="checkbox" value="31" {content_list.cf31}/>	      <img src="img/icon/37.gif" alt="室內游泳池" width="69" height="73" /></td>
+	    <td><input name="cust_facility[]" type="checkbox" value="32" {content_list.cf32}/>	      <img src="img/icon/38.gif" alt="漩渦按摩浴池" width="69" height="73" /></td>
+      </tr>
+	  <tr>
+	    <td><input name="cust_facility[]" type="checkbox" value="33" {content_list.cf33}/>	      <img src="img/icon/10.gif" alt="商店" width="69" height="73" /></td>
+	    <td><input name="cust_facility[]" type="checkbox" value="34" {content_list.cf34}/>	      <img src="img/icon/20.gif" alt="禮賓接待服務" width="69" height="73" /></td>
+	    <td><input name="cust_facility[]" type="checkbox" value="35" {content_list.cf35}/>	      <img src="img/icon/30.gif" alt="髮廊" width="69" height="73" /></td>
+	    <td><input name="cust_facility[]" type="checkbox" value="36" {content_list.cf36}/>	      <img src="img/icon/40.gif" alt="桑拿三溫暖" width="69" height="73" /></td>
+	    <td><input name="cust_facility[]" type="checkbox" value="37" {content_list.cf37}/>	      <img src="img/icon/41.gif" alt="水上運動" width="69" height="73" /></td>
+	    <td><input name="cust_facility[]" type="checkbox" value="38" {content_list.cf38}/>	      <img src="img/icon/42.gif" alt="兒童游泳池" width="69" height="73" /></td>
+	    <td><input name="cust_facility[]" type="checkbox" value="39" {content_list.cf39}/>	      <img src="img/icon/39.gif" alt="私人海灘" width="69" height="73" /></td>
+	    <td><input name="cust_facility[]" type="checkbox" value="40" {content_list.cf40}/>	      <img src="img/icon/29.gif" alt="餐廳" width="69" height="73" /></td>
+      </tr>
+	  <tr>
+	    <td><input name="cust_facility[]" type="checkbox" value="41" {content_list.cf41}/>	      <img src="img/icon/19.gif" alt="乾洗衣服務" width="69" height="73" /></td>
+	    <td><input name="cust_facility[]" type="checkbox" value="42" {content_list.cf42}/>	      <img src="img/icon/09.gif" alt="咖啡店" width="69" height="73" /></td>
+	    <td>&nbsp;</td>
+	    <td>&nbsp;</td>
+	    <td>&nbsp;</td>
+	    <td>&nbsp;</td>
+	    <td>&nbsp;</td>
+	    <td>&nbsp;</td>
+      </tr>
+	</table>
+	<center><input name="Sout" value="修改" type="submit" /></center>
+	<br />
+	<br />
+    </div>
+	</form>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+
+  var cal = Calendar.setup({
+	  onSelect: function(cal) { cal.hide() },
+	  showTime: false
+  });
+  cal.manageFields("f_btn1", "f_date1", "%Y-%m-%d");
+  cal.manageFields("f_btn2", "f_date2", "%Y-%m-%d");
+
+//]]>
+</script>
+{HTML.footer}
+<!-- END: main -->

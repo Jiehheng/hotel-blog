@@ -1,0 +1,81 @@
+<!-- BEGIN: main -->{HTML.header}
+<script type="text/JavaScript">
+<!--
+function check_keydown() 	//判斷資料是否有打
+{
+	document.postPost.action="?{cUrl}&reservation_step2";
+	return true;
+}
+//-->
+</script>
+<div id="top" class="grid_12">
+{HTML.banner}
+</div>
+<div class="grid_3">
+{HTML.menu}
+</div>
+<div class="grid_9">
+{HTML.checkin}
+<table width="100%">
+  <tr>
+<td rowspan="2"><img src="img/icon/step2_1.gif" width="32" height="33" alt="1" /></td>
+<td><span class="gray2">Step 1</span></td>
+<td rowspan="2"><img src="img/icon/step1_2.gif" width="32" height="33" alt="2" /></td>
+<td><span class="gray2">Step 2</span></td>
+<td rowspan="2"><img src="img/icon/step1_3.gif" width="32" height="33" /></td>
+<td><span class="gray2">Step 3</span></td>
+<td rowspan="2"><img src="img/icon/step1_4.gif" width="32" height="33" alt="4" /></td>
+<td><span class="gray2">Step 4</span></td>
+<td rowspan="2"><img src="img/icon/step1_5.gif" width="32" height="33" alt="5" /></td>
+<td><span class="gray2">Step 5</span></td>
+</tr>
+<tr>
+<td><span class="brown">選擇訂房內容</span></td>
+<td><span class="gray">訂房明細確認</span></td>
+<td><span class="gray">填寫聯絡資料</span></td>
+<td><span class="gray">付款方式選擇</span></td>
+<td><span class="gray">訂房完成</span></td>
+</tr>
+</table>
+<div class="title1">步驟1-1：</div>
+<div class="reservation1">
+<h2>沐戀商旅後驛館</h2>
+<span class="blue">房型或促銷活動：</span>&nbsp;{content_list.subject}{content_list.subject2}
+<form name="postPost" method="post" onsubmit="return check_keydown();">
+<input type="hidden" name="year" id="year" value="{content_list.year}">
+<input type="hidden" name="month" id="month" value="{content_list.month}">
+<input type="hidden" name="roomsid" id="roomsid" value="{content_list.roomsid}">
+<input type="hidden" name="roomstatesid" id="roomstatesid" value="{content_list.roomstatesid}">
+<input type="hidden" name="roomsubject" id="roomsubject" value="{content_list.subject}">
+<input type="hidden" name="roomsubject2" id="roomsubject2" value="{content_list.subject2}">
+<table width="650" cellspacing="0" cellpadding="0" style="margin:0px auto;">
+  <tr>
+    <td>
+	  <table width="100%" border="0" cellspacing="1" cellpadding="2" style="border:1px solid #CCCCCC;line-height:160%;">
+		<tr bgcolor="#EFEFEF" style="border:1px solid #CCCCCC;">
+		  <td colspan="7" bgcolor="#D2EAF2" style="text-align:center;padding:6px;">{content_list.area0}</td>
+		</tr>
+		<tr bgcolor="#FFCC99" style="border:1px solid #CCCCCC;">
+		  <td bgcolor="#A4D2E7" style="text-align:center;border:1px solid #CCCCCC;padding:6px;"><font color="#FF0000">日</font></td>
+		  <td bgcolor="#A4D2E7" style="text-align:center;border:1px solid #CCCCCC;padding:6px;">一</td>
+		  <td bgcolor="#A4D2E7" style="text-align:center;border:1px solid #CCCCCC;padding:6px;">二</td>
+		  <td bgcolor="#A4D2E7" style="text-align:center;border:1px solid #CCCCCC;padding:6px;">三</td>
+		  <td bgcolor="#A4D2E7" style="text-align:center;border:1px solid #CCCCCC;padding:6px;">四</td>
+		  <td bgcolor="#A4D2E7" style="text-align:center;border:1px solid #CCCCCC;padding:6px;">五</td>
+		  <td bgcolor="#A4D2E7" style="text-align:center;border:1px solid #CCCCCC;padding:6px;"><font color="#0033FF">六</font></span></td>
+		</tr>
+		<tr>
+		{content_list.area1}
+		</tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{content_list.next_msg}
+</form>
+</div>
+<span class="brown">客服訂房：</span>當您預約訂房的日期框內出現客服訂房的文字，則表示你所預訂的房間，將於您於線上下單訂房後，會由四方通行客服人員與飯店確認排房結果後主動與您聯絡，告知您排房狀況。<br />
+<span class="red">★再次提醒： 『客服訂房』並不保證飯店一定有空房，如有急迫訂房需求，請儘量選擇可『立即訂房』的房型預訂，謝謝！</span>
+</div>
+{HTML.footer}
+<!-- END: main -->

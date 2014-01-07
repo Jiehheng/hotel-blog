@@ -1,0 +1,148 @@
+<!-- BEGIN: main -->
+<!-- BEGIN: table -->
+<HTML><HEAD>
+<LINK href="../style.css" type=text/css rel=stylesheet>
+<META content="Microsoft FrontPage 5.0" name=GENERATOR>
+<TITLE></TITLE>
+<link rel="stylesheet" type="text/css" media="all" href="../jscalendar/skins/aqua/theme.css" title="aqua skins" />
+<script type="text/javascript" src="../jscalendar/calendar.js"></script>
+<script type="text/javascript" src="../jscalendar/lang/calendar-big5.js"></script>
+<script type="text/javascript" src="../jscalendar/calendar-setup.js"></script>
+    <link rel="STYLESHEET" type="text/css" href="../dhtmlxTree/css/dhtmlXTree.css">
+    <script  src="../dhtmlxTree/js/dhtmlXCommon.js"></script>
+    <script  src="../dhtmlxTree/js/dhtmlXTree.js"></script>        
+    <script>
+        function closeAllRoots(){
+            var rootsAr = tree.getSubItems(0).split(",")
+            for(var i=0;i<rootsAr.length;i++){
+                tree.closeAllItems(rootsAr[i])
+            }
+        }
+    </script>
+
+<script>
+    function ConfirmDelete(url)
+            {
+                    if(confirm("確定刪除?"))
+                    {}
+                    else
+                    {
+                        return false
+                    }
+            }           
+    </script>    
+</HEAD>
+<BODY class=small bottomMargin=0 leftMargin=0 topMargin=0 rigthmargin="0" marginheight="0" marginwidth="0">
+<TABLE cellPadding=0 width="100%" border=1 style="border-collapse: collapse" bordercolor="#01396C">
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+        <form method="POST" action="index.php">
+          <TD class=moduleName style="PADDING-LEFT: 10px" width="73%" height="40" bgcolor="#01396C">
+			<table border="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="103%">
+              <tr>
+                <td width="104%" class="moduleName">
+			<font color="#FFFFFF">客服系統 			 
+				<select size="1" name="cal_number" style="font-family: Arial" onChange="submit()">
+				<option value="">-- 全部 --</option>            	            	            	            	            	            	
+            	{CaseList}
+            	</select>
+				<select size="1" name="ser_type" style="font-family: Arial" onChange="submit()">
+				<option value="">-- 全部 --</option>            	            	            	            	            	
+				<option value="業務問題" {ser_type_selected_1}>業務問題</option>
+				<option value="頁面問題" {ser_type_selected_2}>頁面問題</option>
+				<option value="程式問題" {ser_type_selected_3}>程式問題</option>
+            	</select>
+				<select size="1" name="ser_status" style="font-family: Arial" onChange="submit()">
+				<option value="">-- 全部 --</option>            	            	            	            	            	
+				<option value="未處理" {ser_status_selected_1}>未處理</option>
+				<option value="已處理" {ser_status_selected_2}>已處理</option>
+            	</select>            	            	
+            	</td>
+              </tr>
+            </table>
+          </TD><form>
+          <TD class=moduleName style="PADDING-LEFT: 10px" width="27%" height="40" bgcolor="#01396C">
+			　</TD>
+          </TR></TBODY></TABLE></TD></TR>
+  <tr>
+								<td style="padding:10px">
+									<table border=0 cellspacing=0 cellpadding=0 width=100% class="small" height="124">
+									   <tr>
+								<td id ="autocom" valign="top">
+<table border=0 cellspacing=0 cellpadding=3 width="100%" class="lvt small" height="1" style="border-collapse: collapse" bordercolor="#111111">
+    <tr>
+    <td class="lvtCol" height="9" valign="top" width="100%" rowspan="2">
+<fieldset class="adminform">
+	<legend>狀況列表</legend>
+	<table border=0 cellspacing=0 cellpadding=0 width=100% class="small" height="1">
+	<tr>
+		<td width="100%" align=center height="64" valign="top">
+<TABLE class=small style="BACKGROUND-COLOR: #cccccc" cellSpacing=1 cellPadding=5 width="100%" border=0>
+        <TR style="BACKGROUND-COLOR: #efefef">
+          <TD class=lvtCol width="15%" align="left">
+          <p align="center">案件名稱</TD>
+          <TD class=lvtCol width="8%" align="left">問題</TD>
+          <TD class=lvtCol width="8%" align="left">回覆</TD>
+          <TD class=lvtCol width="4%" align="center">問題分類</TD>
+          <TD class=lvtCol width="4%" align="center">狀況</TD>
+          <TD class=lvtCol width="6%" align="center">最後回覆</TD>
+		  <TD class=lvtCol width="4%" align="center">寄信狀況</TD>
+          <TD class=lvtCol width="6%" align="center">執行狀況</TD>
+          </TR>
+		<!-- BEGIN: TaskList -->
+        <TR onMouseOver="this.className='lvtColDataHover'" onMouseOut="this.className='lvtColData'" bgColor=white>
+          <TD width="15%" align="left" valign="top">
+          <p>{DATA.cal_number}_{DATA.cal_name}</TD>
+          <TD width="8%" align="left" valign="top"><b><font color=red>{DATA.ser_datetime}</font></b><br>{DATA.ser_question}</TD>
+          <TD width="8%" align="left" valign="top"><b><font color=red>{DATA.ser_respondtime}</font></b><br>{DATA.ser_respond}</TD>
+          <TD width="4%" align="center">{DATA.ser_type}</TD>
+          <TD width="4%" align="center">{DATA.ser_status}</TD>
+          <TD width="6%" align="center">{DATA.acctwname}</TD>
+          <TD width="4%" align="center">{DATA.ser_mail}</TD>
+          <TD width="6%" align="center">
+          <table border="0" cellpadding="0" cellspacing="1" style="border-collapse: collapse" bordercolor="#111111" width="100%">
+            <tr>
+              <td width="50%" align="center">
+          <input class="lvtCol2" LANGUAGE=javascript onclick='return window.open("./Process.php?ser_id={DATA.ser_id}","Process","width=820,height=400,resizable=no,scrollbars=1, toolbar=no, titlebar=no, left=200, top=226, screenX=100, screenY=126");' type='button' value='處理'></td>
+          <form method="POST" action="./Delete.php" onSubmit="return ConfirmDelete()">
+          <input type="hidden" name="ser_id" value="{DATA.ser_id}">
+              <td width="50%" align="center">{DATA.DeleteButton}
+              </td></form>
+            </tr>
+          </table>
+        </TD>
+          </TR>
+		<!-- END: TaskList -->          
+          </TABLE>
+<table border="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%">
+  <tr>
+    <td width="100%" class="small">
+    <p align="right"><!-- 資料筆數：22｜頁數：1/3｜第一頁｜上一頁｜下一頁｜最末頁｜ -->
+    </td>
+  </tr>
+</table>
+        </td>
+		</tr>
+                                       </table>
+</fieldset>
+{TotalData}{FirstPage}{UpPage}{DownPage}{EndPage}</td>
+    
+    </td>
+    </tr>
+    <tr>
+</td>
+    </tr>
+    </table>
+                                </td>
+							           </tr>
+                                       </table>
+								</td>
+							   </tr>
+  </TBODY></TABLE></FORM>
+</BODY></HTML>
+<!-- END: table -->
+<!-- END: main -->

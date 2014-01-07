@@ -1,0 +1,138 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script language="javascript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+  <script language="javascript" type="text/javascript" src="js/jquery.countdown.pack.js"></script>
+  <script language="JavaScript" src="theme5/generic.js?20130723193918"></script>
+  <link rel="STYLESHEET" type="text/css" href="theme5/generic.css?20130430182434" />
+  <title>台灣里 OpenPay 線上付款 - 返回商家網站完成付款流程</title>
+</head>
+
+<body class="body" onLoad="">
+
+<table id="paytable" class="layout_table" cellpadding="0" cellspacing="0">
+<tr>
+<td colspan="2">
+  <div class="box_language">
+  Language<br />
+  <form name="language" method="post" action="https://www.twv.com.tw/openpay/pay.php?wsid=20131225122418" class="form" autocomplete="off">
+  <input type="hidden" name="step" value="100">
+  <select name="language" onchange="document.language.submit()">
+  <option value="tchinese" selected>繁體中文</option>
+  <option value="schinese">简体中文</option>
+  <option value="english">English</option>
+  </select>
+  </form>
+  </div>
+  <div class="box_banner">
+  <a href="https://www.twv.com.tw/" target="_twv"><img src="theme5/images_tchinese/title.gif" class="image"></a>
+  </div>
+</td>
+</tr>
+
+<tr><td height="13" colspan="2" valign="top"><hr size="1"></td></tr>
+
+
+
+<tr class="zone_head">
+<td colspan="2">
+  代收款項明細</td>
+</tr>
+<tr class="zone_body">
+<td class="znoe_name1">
+  代收商家名稱</td>
+<td class="znoe_value">
+  玩很大旅網-訂房系統</td>
+</tr>
+<tr class="zone_body">
+<td class="znoe_name2">
+  代收款金額</td>
+<td class="znoe_value">
+  新台幣  $100  元</td>
+</tr>
+
+
+
+
+<form id="return_form" name="process" method="post" action="http://localhost/WOW/hotel-blog/pay/pay.php" class="form" onsubmit="isCloseCheck = false;" autocomplete="off">
+<input type="hidden"  name="txid"       value="201312250001">
+<input type="hidden"  name="amount"     value="100">
+<input type="hidden"  name="pay_type"   value="1">
+<input type="hidden"  name="status"     value="1">
+<input type="hidden"  name="tid"        value="201312258328">
+<input type="hidden"  name="verify"     value="88830786dc5d0df79c8c75bea1128c8c">
+<input type="hidden"  name="cname"      value="陳玠亨">
+<input type="hidden"  name="caddress"   value="高雄市岡山區嘉興路250號">
+<input type="hidden"  name="ctel"       value="0922034573">
+<input type="hidden"  name="cemail"     value="jiehheng@yahoo.com.tw">
+<input type="hidden"  name="xname"      value="">
+<input type="hidden"  name="xaddress"   value="">
+<input type="hidden"  name="xtel"       value="">
+<input type="hidden"  name="language"   value="tchinese">
+<input type="hidden"  name="error_code" value="">
+<input type="hidden"  name="error_desc" value="">
+<input type="hidden"  name="auth_code"  value="068971">
+<input type="hidden"  name="account_no" value="-">
+<input type="hidden"  name="bill_url"   value="">
+<input type="hidden"  name="cs_bill_url" value="">
+
+<tr class="zone_submit">
+<td colspan="2" style="color: red;">
+  <br />
+  系統已確認您的付款, 請直接點選下方 [下一步] 按鈕完成交易流程.<br />如果隨後畫面出現安全性警訊視窗係屬正常現象, 請按繼續鍵進行流程.<br />(請勿直接關閉本視窗, 以免交易流程因中斷而無效)<br />
+  <br />
+  <input id="submit_button" type="submit" value="下一步" class="submit"><br /><br />
+  <span id="countdown_text"><span id="countdown_secs" class="countdown_secs"></span></span><br />
+</td>
+</tr>
+
+</form>
+
+<script language="JavaScript">
+<!--
+
+// disable submit button on form submit
+$("#return_form").submit(function(){
+  $('#submit_button').attr('disabled', 'disabled');
+
+  // re-enable after 5 secs
+  window.setTimeout( function(){
+    $('#submit_button').attr('disabled', '');
+  }, 5000 );
+});
+
+// redirect back to merchant site
+function submit_return_form() { $("#return_form").submit(); }
+
+
+// auto redirect browser back to merchant site
+var countdown_text = '頁面將於 countdown_secs 秒後自動返回商家網站完成所有交易流程.';
+$('#countdown_text').html( countdown_text.replace( /countdown_secs/, $('#countdown_text').html() ) );
+countDownInvoke( 10, 'countdown_secs', submit_return_form );
+
+
+// -->
+</script>
+
+
+<!-- custom page content ---------------------------------------->
+
+
+<!-- end page content ---------------------------------------->
+
+<tr><td height="13" colspan="2" valign="top"><hr size="1"></td></tr>
+
+<tr>
+<td colspan="2">
+  <img alt="twv logo" src="theme5/logo_twv.gif" class="image" />│<img alt="visa 3d logo" src="theme5/logo_visa_3d.gif" class="image" />│<img alt="mastercard sc logo" src="theme5/logo_master_sc.gif" class="image" />│<img alt="jcb logo" src="theme5/logo_jcb.gif" class="image" />│<img alt="webatm logo" src="theme5/logo_webatm.gif" class="image" />│<img alt="ecoin/ebill logo" src="theme5/logo_ecoin_ebill.gif" class="image" />│<img alt="paypal logo" src="theme5/logo_paypal.gif" class="image" />
+</td>
+</tr>
+<tr>
+<td colspan="2">
+  <a href="https://www.twv.com.tw/" target="_twv">台灣里網路交易中心</a> 誠信為您服務  (twe@twe.com.tw)
+</td>
+</table>
+
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+  <div id="footer" class="grid_12">
+	<?php
+	session_start();
+	if($_SESSION["cust_sid"]) $LogURL = '<span style="cursor:pointer;letter-spacing: 1.5pt;line-height:180%;" onclick="javascript:return check_logout();">飯店登出</span>'; else $LogURL = '<a href="?hotel_login">飯店登入</a>';
+	?>
+    <p><samp class="blue">
+    <?=$LogURL?></samp><br>
+    Copyright © 2013 聚思數碼科技, Inc 版權所有    &nbsp;
+</p>
+  </div>
+</div>
+<script type="text/javascript">
+
+  window.fbAsyncInit = function() {
+	FB.init({
+	  appId: '<?php echo $facebook->getAppID() ?>',
+	  cookie: true,
+	  xfbml: true,
+	  oauth: true
+	});
+	FB.Event.subscribe('auth.login', function(response) {
+	  window.location.reload();
+	});
+	FB.Event.subscribe('auth.logout', function(response) {
+	  window.location.reload();
+	});
+  };
+  (function() {
+	var e = document.createElement('script'); e.async = true;
+	e.src = document.location.protocol +
+	  '//connect.facebook.net/en_US/all.js';
+	document.getElementById('fb-root').appendChild(e);
+  }());
+  
+  function fb_logout() {
+    FB.getLoginStatus(function(response) {
+        if (response.authResponse) {
+            window.location = 'https://www.facebook.com/logout.php?access_token=' + response.authResponse.accessToken + '&next=<?php echo rawurlencode('http://'.$_SERVER['HTTP_HOST'].'/funcs.php?act=logout&fblogouturl='.urlencode('http://'.$_SERVER['HTTP_HOST'].'/?'.$_SERVER['QUERY_STRING'])); ?>';
+        }
+    });
+}
+
+</script>
+</body>
+</html>

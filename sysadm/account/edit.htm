@@ -1,0 +1,238 @@
+<!-- BEGIN: table -->
+<link rel="stylesheet" type="text/css" media="all" href="../jscalendar/skins/aqua/theme.css" title="aqua skins" />
+<script type="text/javascript" src="../jscalendar/calendar.js"></script>
+<script type="text/javascript" src="../jscalendar/lang/calendar-big5.js"></script>
+<script type="text/javascript" src="../jscalendar/calendar-setup.js"></script>
+<script type="text/javascript">
+<!--
+var $ = function(i){return document.getElementById(i)}
+function trim(s) {
+  return s.replace(/^\s*|\s*$/g,"");
+}
+
+function check_data()
+{
+	/* 帳號檢測  */
+	if (trim($("account").value)=="")
+	{
+		$("account").focus();
+		alert('請填入帳號');
+		return false;
+	}
+
+	/* 姓名檢測  */
+	if (trim($("name").value)=="")
+	{
+		alert("請輸入姓名");
+		$("name").focus();
+		return false;
+	}
+	/* 行動電話檢測  */
+	if (trim($("cellphone").value)=="")
+	{
+		alert('請填入行動電話');
+		$("cellphone").focus();
+		return false;
+	}else{
+		re=/^09(\d{2})(\d{6})/;
+		if (!re.test($("cellphone").value))
+		{
+			alert('請檢查行動電話格式');
+			$("cellphone").focus();
+			return false;
+		}
+	}
+
+	/* 電子信箱檢測  */
+	if (trim($("email").value)=="")
+	{
+		alert('請填入電子信箱');
+		$("email").focus();
+		return false;
+	}else{
+		re=/([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+		if (!re.test(trim($("email").value)))
+		{
+			alert("請檢查電子信箱格式");
+			$("email").focus();
+			return false;
+		}
+	}
+}
+window.onload=function ()
+{
+	Calendar.setup({
+			inputField     :    "take_office_day",     // id of the input field
+			ifFormat       :    "%Y-%m-%d",      // format of the input field
+			align          :    "Tl",           // alignment (defaults to "Bl")
+			singleClick    :    true
+		});
+}
+function more_job()
+{
+	var div=$("td_job").getElementsByTagName("div");
+	if (div.length > 1 )
+	{
+		var now_number=div[(div.length-1)].id;
+		var next_number=parseInt(now_number.slice((now_number.length-3),now_number.length),10)+1;;
+		if (next_number<10)
+		{
+			next_number="00"+next_number.toString();/* 1位數 */
+		}else if (next_number<100)
+			next_number="0"+next_number.toString();/* 2位數 */
+		else
+			next_number=next_number.toString(); /* 3位數 */
+	}else {
+		var next_number='002';
+	}
+	$("td_job").innerHTML = $("td_job").innerHTML + "<div id=\"a_"+ next_number +"\">" + $("copy_job").innerHTML + " <input type=\"button\" value=\"移除\" onclick=\"less_job('a_"+ next_number +"');\" ></div>";
+}
+function less_job(id)
+{
+	$("td_job").removeChild($(id));
+}
+-->
+</script>
+<table border="0" cellspacing="0" cellpadding="3" width="100%">
+	<tr>
+		<td align="left" >
+			<table border="0" cellspacing="0" cellpadding="0" width="100%">
+				<tr>
+					<td style="width:95px" >
+						<img border="0" src="../images/title_11.gif" width="95" height="80">
+					</td>
+					<td  nowrap background="../images/title01.gif" align="left"style=";background-repeat:repeat-x" >
+						<a href="index.php"><span class="blueword">帳號管理</span></a>
+						<span class="blueword">＞ 修改帳號</span>
+					</td>
+					<td style="width:100%;background-repeat:repeat-x" background="../images/title01.gif">&nbsp;
+						
+					</td>
+					<td style="width:78px;background-repeat:repeat-x" background="../images/title01.gif">
+						<input type="image" src="../images/botton_return.gif" width="70" height="27" onClick="window.location.href='index.php'">
+					</td>
+					<td style=";background-repeat:repeat-x" background="../images/title01.gif" width="36" align="right" valign="top">
+						<img border="0" src="../images/title02.gif" width="36" height="80">
+					</td>
+				</tr>
+				<tr>
+					<td align="center" colspan="5" style="padding:5px">
+						<form action="edit_proc.php" method="post" onsubmit="return check_data();">
+							<table border="0" cellspacing="1" cellpadding="3" width="100%" class="lvt small">
+								<tr>
+									<td class="lvtCol" align="right" width="30%">部門</td>
+									<td class="lvtCol" align="left" width="70%">
+										<select id="unit" name="unit">
+											{unit_list}
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="30%">身份</td>
+									<td class="lvtCol" align="left" width="70%">
+										<select id="authority" name="authority">
+											{authority_list}
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="30%">職務</td>
+									<td class="lvtCol" align="left" width="70%" id="td_job">
+										<div id="copy_job" style="float:left">
+											<select name="job[]">
+												{job_list}
+											</select>
+										</div>
+										<input type="button" value="更多" onclick="more_job();" >
+										{extra_job}
+									</td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="30%"><span style="color:#FF0000">*</span>帳號</td>
+									<td class="lvtCol" align="left" width="70%">
+										<input type="text" value="{DATA.account}" id="account" name="account" class="detailedViewTextBox" onFocus="this.className='detailedViewTextBoxOn'" onBlur="this.className='detailedViewTextBox'" >
+										<input type="hidden" value="{DATA.account}" name="orig_account">
+										<input type="hidden" value="{DATA.serial_id}" name="serial_id">
+									</td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="30%"><span style="color:#FF0000">*</span>密碼</td>
+									<td class="lvtCol" align="left" width="70%">
+										<input type="password" value="" id="password" name="password" class="detailedViewTextBox" onFocus="this.className='detailedViewTextBoxOn'" onBlur="this.className='detailedViewTextBox'" ><br />
+										<span style="color:#FF0000">(若不修改密碼請保持空白)</span>
+										<input type="hidden" value='{DATA.password}' name="orig_password">
+									</td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="30%"><span style="color:#FF0000">*</span>姓名</td>
+									<td class="lvtCol" align="left" width="70%"><input type="text" value="{DATA.name}" id="name" name="name" class="detailedViewTextBox" onFocus="this.className='detailedViewTextBoxOn'" onBlur="this.className='detailedViewTextBox'" ></td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="30%">身份証字號</td>
+									<td class="lvtCol" align="left" width="70%"><input type="text" value="{DATA.identity_id}" id="identity_id" name="identity_id" class="detailedViewTextBox" onFocus="this.className='detailedViewTextBoxOn'" onBlur="this.className='detailedViewTextBox'" ></td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="30%">生日</td>
+									<td class="lvtCol" align="left" width="70%">
+										西元<select id="year" name="year">
+											{year}
+										</select>&nbsp;
+										<select id="month" name="month">
+											{month}
+										</select>月&nbsp;
+										<select id="day" name="day">
+											{day}
+										</select>日
+									</td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="30%"><span style="color:#FF0000">*</span>行動電話</td>
+									<td class="lvtCol" align="left" width="70%"><input type="text" value="{DATA.cellphone}" id="cellphone" name="cellphone" class="detailedViewTextBox" onFocus="this.className='detailedViewTextBoxOn'" onBlur="this.className='detailedViewTextBox'" ></td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="30%"><span style="color:#FF0000">*</span>電子信箱</td>
+									<td class="lvtCol" align="left" width="70%"><input type="text" value="{DATA.email}" id="email" name="email" class="detailedViewTextBox" onFocus="this.className='detailedViewTextBoxOn'" onBlur="this.className='detailedViewTextBox'" ></td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="30%">戶藉地址</td>
+									<td class="lvtCol" align="left" width="70%"><input type="text" value="{DATA.fix_address}" id="fix_address" name="fix_address" class="detailedViewTextBox" onFocus="this.className='detailedViewTextBoxOn'" onBlur="this.className='detailedViewTextBox'" ></td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="30%">通訊地址</td>
+									<td class="lvtCol" align="left" width="70%"><input type="text" value="{DATA.com_address}" id="com_address" name="com_address" class="detailedViewTextBox" onFocus="this.className='detailedViewTextBoxOn'" onBlur="this.className='detailedViewTextBox'" ></td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="30%"><span style="color:#FF0000">*</span>聯絡人</td>
+									<td class="lvtCol" align="left" width="70%"><input type="text" value="{DATA.pay_account}" id="pay_account" name="pay_account" class="detailedViewTextBox" onFocus="this.className='detailedViewTextBoxOn'" onBlur="this.className='detailedViewTextBox'" ></td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="30%">連絡電話</td>
+									<td class="lvtCol" align="left" width="70%"><input type="text" value="{DATA.telephone}" id="telephone" name="telephone" class="detailedViewTextBox" onFocus="this.className='detailedViewTextBoxOn'" onBlur="this.className='detailedViewTextBox'" ></td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="30%">註冊日期</td>
+									<td class="lvtCol" align="left" width="70%"><input type="text" value="{DATA.take_office_day}" id="take_office_day" name="take_office_day" class="detailedViewTextBox" onFocus="this.className='detailedViewTextBoxOn'" onBlur="this.className='detailedViewTextBox'" ></td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="30%">聯絡時間</td>
+									<td class="lvtCol" align="left" width="70%"><input type="text" value="{DATA.Contact_time}" id="Contact_time" name="Contact_time" class="detailedViewTextBox" onFocus="this.className='detailedViewTextBoxOn'" onBlur="this.className='detailedViewTextBox'" ></td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="30%">備註</td>
+									<td class="lvtCol" align="left" width="70%"><input type="text" value="{DATA.PS}" id="PS" name="PS" class="detailedViewTextBox" onFocus="this.className='detailedViewTextBoxOn'" onBlur="this.className='detailedViewTextBox'" ></td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="center" width="100%" colspan="2">
+										<input type="submit" value="送出" style="padding-top:2px">&nbsp;
+										<input type="reset" value="清除" style="padding-top:2px">
+									</td>
+								</tr>
+							</table>
+						</form>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+<!-- END: table -->

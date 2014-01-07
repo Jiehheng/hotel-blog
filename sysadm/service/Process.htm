@@ -1,0 +1,136 @@
+<!-- BEGIN: main -->
+<!-- BEGIN: table -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+	<HEAD>
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+{JavaScript}	
+		<title>.::客服系統回覆::.</title>
+		<LINK href="../css/style.css" type="text/css" rel="stylesheet">
+		<style type="text/css">
+			.a1 { BACKGROUND-IMAGE: url('images/tab_bg_blue.gif'); COLOR: #2b7377 }
+			.PageNumber:link { FONT-SIZE: 12px; COLOR: #027788; TEXT-DECORATION: none }
+			.PageNumber:visited { FONT-SIZE: 12px; COLOR: #027788; TEXT-DECORATION: none }
+			.PageNumber:hover { FONT-SIZE: 12px; COLOR: #027788; TEXT-DECORATION: underline }
+			.PageNumber { FONT-SIZE: 12px; COLOR: #027788 }
+			.Page { FONT-SIZE: 12px; COLOR: #027788 }
+		</style>
+	</HEAD>
+	<body>
+			<form method="POST" action="Prcoess_proc.php" name="form1" onSubmit="return checkForm();">
+			<input type="hidden" name="ser_id" value="{DATA.ser_id}">
+            <input type="hidden" name="cal_number" value="{DATA.cal_number}">
+			<table id="AutoNumber1" style="BORDER-COLLAPSE: collapse" borderColor="#111111" cellSpacing="0"
+				cellPadding="0" width="778" align="center" border="0">
+				<tr>
+					<td style="WIDTH: 25px">
+                    <IMG alt="" src="./images/tablestyle_02_1.gif" width="25" height="45"></td>
+					<td background="./images/tablestyle_02_3.gif">
+                    <IMG alt="" src="./images/tablestyle_02_2.gif" width="85" height="45"></td>
+					<td style="WIDTH: 25px">
+                    <IMG alt="" src="./images/tablestyle_02_4.gif" width="25" height="45"></td>
+				</tr>
+				<tr>
+					<td vAlign="top" background="./images/tablestyle_02_8.gif">
+                    <IMG alt="" src="./images/tablestyle_02_5.gif" width="25" height="110"></td>
+					<td>
+						<table id="AutoNumber10" style="BORDER-COLLAPSE: collapse" borderColor="#111111" cellSpacing="0"
+							width="100%" border="0">
+							<tr>
+								<td class="font10route" align="right" width="15%">
+                                <strong><font color="#33A2AE">網站名稱</font><font color="#33a2ae">：</font></strong></td>
+								<td class="font10route" width="85%">
+                                {DATA.cal_number}_{DATA.caption}</td>
+							</tr>
+                            <tr>
+								<td class="font10route" style="HEIGHT: 9px" background="./images/line-01.gif" colSpan="2"></td>
+							</tr>
+							<tr>
+								<td class="font10route" align="right" width="15%">
+                                <strong><font color="#33A2AE">問題分類</font><font color="#33a2ae">：</font></strong></td>
+								<td class="font10route" width="85%">
+                                {DATA.ser_type}</td>
+							</tr>
+                            <tr>
+								<td class="font10route" style="HEIGHT: 9px" background="./images/line-01.gif" colSpan="2"></td>
+							</tr>
+							<tr>
+								<td class="font10route" align="right">
+                                <strong><font color="#33A2AE">問題</font><font color="#33a2ae">：</font></strong></td>
+								<td class="font10route" align="right">
+                                <p align="left">
+                                {DATA.ser_datetime}</td>
+							</tr>
+                            <tr>
+								<td class="font10route" align="right">
+                                　</td>
+								<td class="font10route"><div style="padding:0 0 0 0;word-wrap:break-word; text-align:left; width:550px;">{DATA.ser_question}</div></td>
+							</tr>
+                            <!-- BEGIN:file -->
+                            <tr>
+                                <td style="height: 8px" colSpan="2"></td>
+                            </tr>
+                            <tr>
+                                <td class="font10route" align="right">
+                                    <font color="#008080">附加檔案：</font>
+                                    </td>
+                                    <td align="left" class="font10route">
+                                    <div style="padding:0 0 0 0;">
+                                        <!-- BEGIN:row -->
+                                        <a target="_blank" title="{filedesc}_檔案下載" href="{file}">{filedesc}</a><br/>
+                                        <!-- END:row -->
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- END:file -->
+                            <tr>
+								<td class="font10route" style="HEIGHT: 9px" background="./images/line-01.gif" colSpan="2"></td>
+							</tr>
+							<tr>
+								<td class="font10route" align="right">
+                                <strong><font color="#33A2AE">回覆解決</font><font color="#33a2ae">：</font></strong></td>
+								<td class="font10route" align="right">
+                                <p align="left">
+                                {Datetime}</td>
+							</tr>
+							<tr>
+								<td class="font10route" align="right">
+                                　</td>
+								<td class="font10route" align="right">
+                                <p align="left">
+                                <textarea name="ser_respond" style="width:90%; height:100px; font-size:9.5pt;">{DATA.ser_respond}</textarea></td>
+							</tr>
+							<tr>
+								<td class="font10route" align="right"><strong><font color="#33A2AE">維護時數</font><font color="#33a2ae">：</font></strong>
+                                　</td>
+								<td class="font10route" align="right">
+                                <p align="left"><input type="text"  name="ser_hour" class="detailedViewTextBox" onFocus="this.className='detailedViewTextBoxOn'" onBlur="this.className='detailedViewTextBox'"  onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" size="20"  chk="ser_hour" err="需輸入維護時數" style="width:50px" value="{DATA.ser_hour}">時<input type="text"  name="ser_min" class="detailedViewTextBox" onFocus="this.className='detailedViewTextBoxOn'" onBlur="this.className='detailedViewTextBox'"  onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" size="20"  chk="ser_min" err="需輸入維護時數" style="width:50px" value="{DATA.ser_min}">分</td>
+							</tr>
+							<tr>
+								<td class="font10route" style="HEIGHT: 9px" background="./images/line-01.gif" colSpan="2"></td>
+							</tr>
+							<tr>
+								<td class="font10route" align="right">　</td>
+								<td class="font10route">
+                                <p align="right">
+                        		<input type="Submit" value="確定" name="B1">
+                        		</td>
+							</tr>
+						</table>
+					</td>
+					<td vAlign="top" background="./images/tablestyle_02_9.gif">
+                    <IMG src="./images/tablestyle_02_7.gif" border="0" width="25" height="110"></td>
+				</tr>
+				<tr>
+					<td><IMG alt="" src="./images/tablestyle_02_10.gif" width="25" height="25"></td>
+					<td background="./images/tablestyle_02_11.gif"></td>
+					<td><IMG alt="" src="./images/tablestyle_02_12.gif" width="25" height="25"></td>
+				</tr>
+			</table>
+		</form>
+	</body>
+</HTML>
+<!-- BEGIN: table -->
+<!-- END: main -->

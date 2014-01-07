@@ -1,0 +1,374 @@
+<!-- BEGIN: table -->
+<link href="../css/style.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" media="all" href="../jscalendar/skins/aqua/theme.css" title="aqua skins" />
+<script type="text/javascript" src="../jscalendar/calendar.js"></script>
+<script type="text/javascript" src="../jscalendar/lang/calendar-big5.js"></script>
+<script type="text/javascript" src="../jscalendar/calendar-setup.js"></script>
+<script type="text/javascript">
+<!--
+var $ = function(i){return document.getElementById(i)}
+function trim(s) {
+  return s.replace(/^\s*|\s*$/g,"");
+}
+
+function check_data()
+{
+	/* 物件名稱  */
+	if (trim($("ob_name").value)=="")
+	{
+		$("ob_name").focus();
+		alert('請填入物件名稱');
+		return false;
+	}
+	/* 求購區域  */
+	if (trim($("ob_District").value)=="")
+	{
+		$("ob_District").focus();
+		alert('請填入求購區域');
+		return false;
+	}
+	/* 物件類別  */
+	if (trim($("ob_Categories").value)=="")
+	{
+		$("ob_Categories").focus();
+		alert("請輸入物件類別");
+		return false;
+	}
+	/* 行動電話檢測  */
+	if (trim($("contacter_mphone").value)=="")
+	{
+		$("contacter_mphone").focus();
+		alert('請填入行動電話');
+		return false;
+	}else{
+		re=/^09(\d{2})(\d{6})/;
+		if (!re.test($("contacter_mphone").value))
+		{
+			alert('請檢查行動電話格式');
+			$("contacter_mphone").focus();
+			return false;
+		}
+	}
+
+	/* 電子信箱檢測  */
+	if (trim($("contacter_email").value)=="")
+	{
+		alert('請填入電子信箱');
+		$("contacter_email").focus();
+		return false;
+	}else{
+		re=/([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+		if (!re.test(trim($("email").value)))
+		{
+			alert("請檢查電子信箱格式");
+			$("email").focus();
+			return false;
+		}
+	}
+}
+-->
+</script>
+<table border="0" cellspacing="0" cellpadding="3" width="100%">
+	<tr>
+		<td align="left" >
+			<table border="0" cellspacing="0" cellpadding="0" width="100%">
+				<tr>
+					<td style="width:95px" >
+						<img border="0" src="../images/title_11.gif" width="95" height="80">
+					</td>
+					<td nowrap background="../images/title01.gif" align="left" style="background-repeat:repeat-x">
+						<a href="index.php"><span class="blueword">案件管理</span></a>
+						<span class="blueword">＞ 新增案件</span>
+					</td>
+					<td style="width:100%;background-repeat:repeat-x" background="../images/title01.gif">&nbsp;
+						
+					</td>
+					<td style="width:78px;background-repeat:repeat-x" background="../images/title01.gif">
+						<input type="image" src="../images/botton_return.gif" width="70" height="27" onClick="window.location.href='index.php'">
+					</td>
+					<td style=";background-repeat:repeat-x" background="../images/title01.gif" width="36" align="right" valign="top">
+						<img border="0" src="../images/title02.gif" width="36" height="80">
+					</td>
+				</tr>
+				<tr>
+					<td align="center" colspan="5">
+						<form action="add_proc.php" method="post" onsubmit="return check_data()">
+							<table border="0" cellspacing="1" cellpadding="3" width="99%" class="lvt small">
+								<tr>
+								  <td class="lvtCol" align="right" width="20%"><span style="color:#FF0000">*</span>求購區域</td>
+								  <td class="lvtCol" align="left" width="80%">
+								    <table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-size:9.5pt;">
+									  <tr>
+										<td valign="top" width="100%" style="border:1px dashed #CCCCCC">
+										　<input type="checkbox" name="ob_District[]" id="ob_District[]" value="a" />不　拘&nbsp;{dist_list}</td>
+									  </tr>
+									</table></td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="20%"><span style="color:#FF0000">*</span>物件類別</td>
+									<td class="lvtCol" align="left" width="80%">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-size:9.5pt;">
+									  <tr>
+										<td valign="top" width="25%" style="border:1px dashed #CCCCCC"><strong>住家類 :</strong>&nbsp;<br />
+										 　<input type="checkbox" id="ob_Categories[]" name="ob_Categories[]" value="10" />
+										大樓豪宅<br />
+										　<input type="checkbox" id="ob_Categories[]" name="ob_Categories[]" value="11" />
+										透天豪宅<br />
+										　<input type="checkbox" id="ob_Categories[]" name="ob_Categories[]" value="12" />
+										電梯大樓華廈<br />
+										　<input type="checkbox" id="ob_Categories[]" name="ob_Categories[]" value="13" />
+										公寓住家<br />
+										　<input type="checkbox" id="ob_Categories[]" name="ob_Categories[]" value="14" />
+										透天住家<br />
+										　<input type="checkbox" id="ob_Categories[]" name="ob_Categories[]" value="15" />
+										別墅<br />
+										　<input type="checkbox" id="ob_Categories[]" name="ob_Categories[]" value="16" />
+										預售屋<br />
+										　<input type="checkbox" id="ob_Categories[]" name="ob_Categories[]" value="17" />
+										樓中樓<br />
+										　<input type="checkbox" id="ob_Categories[]" name="ob_Categories[]" value="18" />
+										套房<br />
+										　<input type="checkbox" id="ob_Categories[]" name="ob_Categories[]" value="19" />
+										雅房<br />
+										　<input type="checkbox" id="ob_Categories[]" name="ob_Categories[]" value="1a" />
+										平房<br />
+										　<input type="checkbox" id="ob_Categories[]" name="ob_Categories[]" value="1b" />
+										附租約物件<br />
+										　<input type="checkbox" id="ob_Categories[]" name="ob_Categories[]" value="1c" />
+										其他</td>
+										<td valign="top" width="25%" style="border:1px dashed #CCCCCC"><strong>商用店面類:</strong><br />
+										  　<input type="checkbox" id="ob_Categories[]" name="ob_Categories[]" value="20" />
+										  店面住辦<br />
+									      　<input type="checkbox" id="ob_Categories[]" name="ob_Categories[]" value="21" />
+									      大樓店面<br />
+									      　<input type="checkbox" id="ob_Categories[]" name="ob_Categories[]" value="22" />
+									      透天店面<br />
+									      　<input type="checkbox" id="ob_Categories[]" name="ob_Categories[]" value="23" />
+									      三角窗店面&nbsp;
+									      <br />
+									      　<input type="checkbox" id="ob_Categories[]" name="ob_Categories[]" value="24" />
+									      廠房　　　&nbsp;
+									      <br />
+									      　<input type="checkbox" id="ob_Categories[]" name="ob_Categories[]" value="25" />
+									      倉庫　　&nbsp;
+									      <br />
+									      　<input type="checkbox" id="ob_Categories[]" name="ob_Categories[]" value="26" />
+									      附租約物件&nbsp;
+									      <br />
+										　<input type="checkbox" id="ob_Categories[]" name="ob_Categories[]" value="27" />
+										整棟大樓<br />
+										　<input type="checkbox" id="ob_Categories[]" name="ob_Categories[]" value="28" />
+										飯店<br />
+									      　<input type="checkbox" id="ob_Categories[]" name="ob_Categories[]" value="29" />
+									      其他&nbsp;</p>
+									    </td>
+										<td valign="top" style="border:1px dashed #CCCCCC"><strong>土地類: </strong><br />　
+                                          <input type="checkbox" id="ob_Categories[]" name="ob_Categories[]" value="30" />
+											商業區建地&nbsp;
+											<br />
+											　
+											<input type="checkbox" id="ob_Categories[]" name="ob_Categories[]" value="31" />
+											住宅區建地&nbsp;
+											<br />
+											　
+											<input type="checkbox" id="ob_Categories[]" name="ob_Categories[]" value="32" />
+											農地&nbsp;
+											<br />
+											　
+											 <input type="checkbox" id="ob_Categories[]" name="ob_Categories[]" value="33" />
+											道路用地公共設施保留地&nbsp;
+											<br />
+											　
+											<input type="checkbox" id="ob_Categories[]" name="ob_Categories[]" value="34" />
+											甲種工業用地&nbsp;
+											<br />
+											　
+											<input type="checkbox" id="ob_Categories[]" name="ob_Categories[]" value="35" />
+											乙種工業用地&nbsp;
+											<br />
+											　
+											<input type="checkbox" id="ob_Categories[]" name="ob_Categories[]" value="36" />
+											農舍&nbsp;<br /> 　
+											<input type="checkbox" id="ob_Categories[]" name="ob_Categories[]" value="37" />
+											附租約物件&nbsp;
+											<br />
+											　
+											<input type="checkbox" id="ob_Categories[]" name="ob_Categories[]" value="38" />
+										其他</td>
+																					<td valign="top" width="25%" style="border:1px dashed #CCCCCC"><strong>商用辦公類: </strong><br />
+											　
+											  <input type="checkbox" id="ob_Categories[]" name="ob_Categories[]" value="40" />
+											住辦&nbsp;<br />　
+											<input type="checkbox" id="ob_Categories[]" name="ob_Categories[]" value="41" />
+											純辦&nbsp;<br />　
+											<input type="checkbox" id="ob_Categories[]" name="ob_Categories[]" value="42" />
+											店面住辦&nbsp;<br />　
+											<input type="checkbox" id="ob_Categories[]" name="ob_Categories[]" value="43" />
+											大樓店面&nbsp;<br />　
+											<input type="checkbox" id="ob_Categories[]" name="ob_Categories[]" value="44" />
+											附租約物件&nbsp;<br />
+											　
+											<input type="checkbox" id="ob_Categories[]" name="ob_Categories[]" value="45" />
+											其他</td>
+									  </tr>
+									</table>
+								  </td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="20%">預售屋求購</td>
+								  <td class="lvtCol" align="left" width="80%"><input type="text" value="" id="presale" name="presale" class="detailedViewTextBox" onFocus="this.className='detailedViewTextBoxOn'" onBlur="this.className='detailedViewTextBox'" ></td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="20%">房屋格局</td>
+									<td class="lvtCol" align="left" width="80%" style="font-weight:normal;">
+									<input type="checkbox" id="house_patterns[]" name="house_patterns[]" value="1" /> 1房 &nbsp;
+									<input type="checkbox" id="house_patterns[]" name="house_patterns[]" value="2" /> 2房 &nbsp;
+									<input type="checkbox" id="house_patterns[]" name="house_patterns[]" value="3" /> 3房 &nbsp;
+									<input type="checkbox" id="house_patterns[]" name="house_patterns[]" value="4" /> 4房 &nbsp;
+									<input type="checkbox" id="house_patterns[]" name="house_patterns[]" value="5" /> 5房以上  &nbsp;
+									<input type="checkbox" id="house_patterns[]" name="house_patterns[]" value="a" /> 不拘&nbsp;
+									</td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="20%">座向</td>
+									<td class="lvtCol" align="left" width="80%" style="font-weight:normal;">
+									<input name="house_Blockto" type="radio" value="a" checked /> 不拘 &nbsp;
+									<input name="house_Blockto" type="radio" value="1" /> 坐北朝南 &nbsp;
+									<input name="house_Blockto" type="radio" value="2" /> 坐南朝北 &nbsp;
+									<input name="house_Blockto" type="radio" value="3" /> 坐東朝西 &nbsp;
+									<input name="house_Blockto" type="radio" value="4" /> 坐西朝東 &nbsp;   
+									</td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="20%">求購預算</td>
+								  <td class="lvtCol" align="left" width="80%"><input type="text" value="" id="budget" name="budget" class="detailedViewTextBox" onFocus="this.className='detailedViewTextBoxOn'" onBlur="this.className='detailedViewTextBox'" ></td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="20%">地段要求</td>
+									<td class="lvtCol" align="left" width="80%" style="font-weight:normal;">
+									<input type="checkbox" id="lot_requirements[]" name="lot_requirements[]" value="1" />便利店　
+									<input type="checkbox" id="lot_requirements[]" name="lot_requirements[]" value="2" />傳統市場　
+									<input type="checkbox" id="lot_requirements[]" name="lot_requirements[]" value="3" />近醫療機構　
+									<input type="checkbox" id="lot_requirements[]" name="lot_requirements[]" value="4" />近國小　
+									<input type="checkbox" id="lot_requirements[]" name="lot_requirements[]" value="5" />近國中　
+									<input type="checkbox" id="lot_requirements[]" name="lot_requirements[]" value="6" />近公園　
+									<input type="checkbox" id="lot_requirements[]" name="lot_requirements[]" value="7" />近夜市　
+									<input type="checkbox" id="lot_requirements[]" name="lot_requirements[]" value="8" />近百貨大型賣場　
+									<input type="checkbox" id="lot_requirements[]" name="lot_requirements[]" value="9" />近捷運　
+									<input type="checkbox" id="lot_requirements[]" name="lot_requirements[]" value="10" />近公車　
+									<input type="checkbox" id="lot_requirements[]" name="lot_requirements[]" value="11" />有景觀
+									</td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="20%">其他要求</td>
+									<td class="lvtCol" align="left" width="80%" style="font-weight:normal;">
+									<input type="checkbox" id="other_equirements[]" name="other_equirements[]" value="1" />露臺　
+									<input type="checkbox" id="other_equirements[]" name="other_equirements[]" value="2" />單車位　
+									<input type="checkbox" id="other_equirements[]" name="other_equirements[]" value="3" />雙車位　
+									<input type="checkbox" id="other_equirements[]" name="other_equirements[]" value="4" />高樓層　
+									<input type="checkbox" id="other_equirements[]" name="other_equirements[]" value="5" />毛坯屋　
+									<input type="checkbox" id="other_equirements[]" name="other_equirements[]" value="6" />精裝修　
+									<input type="checkbox" id="other_equirements[]" name="other_equirements[]" value="7" />一般裝修　
+									<input type="checkbox" id="other_equirements[]" name="other_equirements[]" value="8" />附家電　
+									<input type="checkbox" id="other_equirements[]" name="other_equirements[]" value="9" />公寓頂樓加蓋　
+									<input type="checkbox" id="other_equirements[]" name="other_equirements[]" value="10" />高額貸款
+									</td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="20%">購屋目的</td>
+									<td class="lvtCol" align="left" width="80%" style="font-weight:normal;">
+									<input type="checkbox" id="purpose[]" name="purpose[]" value="1" />投資　
+									<input type="checkbox" id="purpose[]" name="purpose[]" value="2" />首購　
+									<input type="checkbox" id="purpose[]" name="purpose[]" value="3" />自住　
+									<input type="checkbox" id="purpose[]" name="purpose[]" value="4" />均可　
+									<input type="checkbox" id="purpose[]" name="purpose[]" value="5" />贈與　
+									<input type="checkbox" id="purpose[]" name="purpose[]" value="6" />自營
+									</td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="20%">屋齡</td>
+								  <td class="lvtCol" align="left" width="80%">
+								  <input type="text" value="" id="building_age" name="building_age" onFocus="this.className='detailedViewTextBoxOn'" onBlur="this.className='detailedViewTextBox'" > 年內
+								  </td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="20%">入住時間</td>
+								  	<td class="lvtCol" align="left" width="80%" style="font-weight:normal;">
+									<input name="move_in_date" type="radio" value="a" checked />不急　
+								  	<input name="move_in_date" type="radio" value="1" />3個月內
+								  	<input name="move_in_date" type="radio" value="2" />6個月內　
+								  	</td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="20%">求購建物坪數</td>
+								  <td class="lvtCol" align="left" width="80%" style="font-weight:normal;">
+								  <input name="building_evel_round" type="radio" value="1" checked />不拘　
+								  <input name="building_evel_round" type="radio" value="2" />20坪以下　
+								  <input name="building_evel_round" type="radio" value="3" />20-30坪　
+								  <input name="building_evel_round" type="radio" value="4" />30-40坪　
+								  <input name="building_evel_round" type="radio" value="5" />40-60坪　
+								  <input name="building_evel_round" type="radio" value="6" />60-100坪　
+								  <input name="building_evel_round" type="radio" value="7" />100坪以上
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="20%">求購土地坪數</td>
+								  <td class="lvtCol" align="left" width="80%" style="font-weight:normal;">
+								  <input name="land_level_round" type="radio" value="1" checked />不拘　
+								  <input name="land_level_round" type="radio" value="2" />20坪以下　
+								  <input name="land_level_round" type="radio" value="3" />20-30坪　
+								  <input name="land_level_round" type="radio" value="4" />30-40坪　
+								  <input name="land_level_round" type="radio" value="5" />40-60坪　
+								  <input name="land_level_round" type="radio" value="6" />60-100坪　
+								  <input name="land_level_round" type="radio" value="7" />100坪以上
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="20%">聯絡人</td>
+								  <td class="lvtCol" align="left" width="80%"><input type="text" value="" id="contacter" name="contacter" class="detailedViewTextBox" onFocus="this.className='detailedViewTextBoxOn'" onBlur="this.className='detailedViewTextBox'" ></td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="20%"><span style="color:#FF0000">*</span>聯絡人行動電話</td>
+								  <td class="lvtCol" align="left" width="80%"><input type="text" value="" id="contacter_mphone" name="contacter_mphone" class="detailedViewTextBox" onFocus="this.className='detailedViewTextBoxOn'" onBlur="this.className='detailedViewTextBox'" ></td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="20%"><span style="color:#FF0000">*</span>聯絡人住家電話</td>
+								  <td class="lvtCol" align="left" width="80%"><input type="text" value="" id="contacter_fphone" name="contacter_fphone" class="detailedViewTextBox" onFocus="this.className='detailedViewTextBoxOn'" onBlur="this.className='detailedViewTextBox'" ></td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="20%"><span style="color:#FF0000">*</span>聯絡人電子信箱</td>
+								  <td class="lvtCol" align="left" width="80%"><input type="text" value="" id="contacter_email" name="contacter_email" class="detailedViewTextBox" onFocus="this.className='detailedViewTextBoxOn'" onBlur="this.className='detailedViewTextBox'" ></td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="20%">聯絡時間</td>
+								  <td class="lvtCol" align="left" width="80%">
+								    <input type="radio" name="contact_time" id="contact_time" value="1" checked="checked" />
+									<input name="contact_time_s" type="text" id="contact_time_s" value="9" size="2" />&nbsp;點&nbsp;~&nbsp;
+									<input name="contact_time_e" type="text" id="contact_time_e" value="21" size="2" />&nbsp;點
+									<br />
+									<input type="radio" name="contact_time" id="contact_time" value="a" />&nbsp;隨時</td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="20%">備註補充說明</td>
+								  <td class="lvtCol" align="left" width="80%"><input type="text" value="" id="ps" name="ps" class="detailedViewTextBox" onFocus="this.className='detailedViewTextBoxOn'" onBlur="this.className='detailedViewTextBox'" ></td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="20%">案件狀況</td>
+								  <td class="lvtCol" align="left" width="80%"><input type="text" value="" id="status" name="status" class="detailedViewTextBox" onFocus="this.className='detailedViewTextBoxOn'" onBlur="this.className='detailedViewTextBox'" ></td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="20%">被配對的仲介人員</td>
+								  <td class="lvtCol" align="left" width="80%"><input type="text" value="" id="service_staff" name="service_staff" class="detailedViewTextBox" onFocus="this.className='detailedViewTextBoxOn'" onBlur="this.className='detailedViewTextBox'" ></td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="center" colspan="2">
+										<input type="submit" value="送出" style="padding-top:2px">&nbsp;
+								  <input type="reset" value="清除" style="padding-top:2px">									</td>
+								</tr>
+							</table>
+						</form>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+<!-- END: table -->

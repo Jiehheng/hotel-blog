@@ -1,0 +1,30 @@
+首頁 index
+
+促銷活動 onsale
+線上訂房 reservation_step1 > reservation_step1-1 > reservation_step1-2 > reservation_step2 > reservation_step3 > reservation_step4 > reservation_step5
+房型介紹 room
+飯店設施&餐廳介紹 plant
+交通指南 traffic
+鄰近景點 views
+訂房需知 orderknow
+新手上路 help
+
+相簿 album_list > album > album_photo
+留言 guestbook
+文章&最新活動 blog_list > blog > blog_article
+回首頁 index
+
+飯店登入 hotel_login
+會員登入 member_login
+會員註冊 member_register
+
+會員中心/登入 member
+修改會員資料 modify
+修改密碼 modify_password
+訂單管理 hotel_order > 訂房明細 hotel_order_data 
+                     > 問與答 hotel_order_fqa
+					 > 收據明細 hotel_order_receipt
+                     > 更改訂單 modify_order > 加訂房間
+					                         > 更改訂房
+
+錯誤頁 error

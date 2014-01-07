@@ -1,0 +1,151 @@
+				<html xmlns:o="urn:schemas-microsoft-com:office:office"
+				xmlns:x="urn:schemas-microsoft-com:office:excel"
+				xmlns="http://www.w3.org/TR/REC-html40">
+
+				<head>
+				<meta http-equiv=Content-Type content="text/html; charset=big5">
+				<meta name=ProgId content=Excel.Sheet>
+				<!--[if gte mso 9]><xml>
+				 <o:DocumentProperties>
+				  <o:LastAuthor>Sriram</o:LastAuthor>
+				  <o:LastSaved>2005-01-02T07:46:23Z</o:LastSaved>
+				  <o:Version>10.2625</o:Version>
+				 </o:DocumentProperties>
+				 <o:OfficeDocumentSettings>
+				  <o:DownloadComponents/>
+				 </o:OfficeDocumentSettings>
+				</xml><![endif]-->
+				<style>
+				<!--table
+					{mso-displayed-decimal-separator:"\.";
+					mso-displayed-thousand-separator:"\,";}
+				@page
+					{margin:1.0in .75in 1.0in .75in;
+					mso-header-margin:.5in;
+					mso-footer-margin:.5in;}
+				tr
+					{mso-height-source:auto;}
+				col
+					{mso-width-source:auto;}
+				br
+					{mso-data-placement:same-cell;}
+				.style0
+					{mso-number-format:General;
+					text-align:general;
+					vertical-align:bottom;
+					white-space:nowrap;
+					mso-rotate:0;
+					mso-background-source:auto;
+					mso-pattern:auto;
+					color:windowtext;
+					font-size:10.0pt;
+					font-weight:400;
+					font-style:normal;
+					text-decoration:none;
+					font-family:Arial;
+					mso-generic-font-family:auto;
+					mso-font-charset:0;
+					border:none;
+					mso-protection:locked visible;
+					mso-style-name:Normal;
+					mso-style-id:0;}
+				td
+					{mso-style-parent:style0;
+					padding-top:1px;
+					padding-right:1px;
+					padding-left:1px;
+					mso-ignore:padding;
+					color:windowtext;
+					font-size:10.0pt;
+					font-weight:400;
+					font-style:normal;
+					text-decoration:none;
+					font-family:Arial;
+					mso-generic-font-family:auto;
+					mso-font-charset:0;
+					mso-number-format:General;
+					text-align:general;
+					vertical-align:bottom;
+					border:none;
+					mso-background-source:auto;
+					mso-pattern:auto;
+					mso-protection:locked visible;
+					white-space:nowrap;
+					mso-rotate:0;}
+				.xl24
+					{mso-style-parent:style0;
+					white-space:normal;}
+				-->
+				</style>
+				<!--[if gte mso 9]><xml>
+				 <x:ExcelWorkbook>
+				  <x:ExcelWorksheets>
+				   <x:ExcelWorksheet>
+					<x:Name>srirmam</x:Name>
+					<x:WorksheetOptions>
+					 <x:Selected/>
+					 <x:ProtectContents>False</x:ProtectContents>
+					 <x:ProtectObjects>False</x:ProtectObjects>
+					 <x:ProtectScenarios>False</x:ProtectScenarios>
+					</x:WorksheetOptions>
+				   </x:ExcelWorksheet>
+				  </x:ExcelWorksheets>
+				  <x:WindowHeight>10005</x:WindowHeight>
+				  <x:WindowWidth>10005</x:WindowWidth>
+				  <x:WindowTopX>120</x:WindowTopX>
+				  <x:WindowTopY>135</x:WindowTopY>
+				  <x:ProtectStructure>False</x:ProtectStructure>
+				  <x:ProtectWindows>False</x:ProtectWindows>
+				 </x:ExcelWorkbook>
+				</xml><![endif]-->
+				</head>
+
+				<body link=blue vlink=purple>
+				<table x:str border=0 cellpadding=0 cellspacing=0 style='border-collapse: collapse;table-layout:fixed;'><tr><td class=xl24 width=64 >系統檢測報告</td></tr><tr><td class=xl24 width=64 >案件名稱：</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >日期：</td><td class=xl24 width=64 >2009-09-29 13:53:57</td></tr><tr><td class=xl24 width=64 >編號</td><td class=xl24 width=64 >問題分類</td><td class=xl24 width=64 >問題內容</td><td class=xl24 width=64 >發問時間</td><td class=xl24 width=64 >回覆內容</td><td class=xl24 width=64 >回覆時間</td><td class=xl24 width=64 >回覆人員</td><td class=xl24 width=64 >回覆狀況</td><td class=xl24 width=64 >備註</td></tr><tr><td class=xl24 width=64 >1</td><td class=xl24 width=64 >業務問題</td><td class=xl24 width=64 >請傳送如何利用本委員會後台之功能製作新網頁之操作流程至minka@kcg.gov.tw</td><td class=xl24 width=64 >2009-06-22 17:05:06</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >2</td><td class=xl24 width=64 >業務問題</td><td class=xl24 width=64 >敬啟者,您好!<br />
+       我是南方客觀的承辦人,我在操作時遇到一些問題,敘述如下,煩請協助解決:<br />
+<br />
+       我把每一版的jpg檔上傳至&quot;圖示&quot;的地方(有8版所以有8的檔),之後我又把每的版面的pdf檔上傳至&quot;附加檔案&quot;的地方,但只能上傳2個不夠,若只上傳2個版面的pdf,也無法上傳,煩請儘速協助解決,謝謝!<br />
+<br />
+客委會<br />
+陳桂平</td><td class=xl24 width=64 >2009-06-26 14:03:43</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >3</td><td class=xl24 width=64 >頁面問題</td><td class=xl24 width=64 >本會同仁更新 Internet Explorer 瀏覽器後,本會網頁首頁之最新消息等四個圖示失真,請修正</td><td class=xl24 width=64 >2009-07-01 09:30:24</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >4</td><td class=xl24 width=64 >業務問題</td><td class=xl24 width=64 >公所網頁靜態網頁的內容若要修改，要怎麼修改<br />
+麻煩將操作步驟媚兒給我，謝謝~<br />
+因為我每個月都要修改--認識小港--小港簡介--人文面積的人口數<br />
+<br />
+雅卿</td><td class=xl24 width=64 >2009-07-10 09:16:10</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >5</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >新網站之文件下載(文件下載/產業訊息/可移轉技術/法規服務)要有置頂功能</td><td class=xl24 width=64 >2009-07-22 12:36:03</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >6</td><td class=xl24 width=64 >業務問題</td><td class=xl24 width=64 >1.置頂的文件是只要置頂一段時間，還是標示置頂後就永久的放在列表第一筆? <br />
+   回覆如下<br />
+    後台設定兩種條件勾選，一個是永久置頂，一個是可設定日期<br />
+  <br />
+2.罝頂的文件有多筆時，是依文件的發佈日期遞減排序?還是要再另訂排序方式?<br />
+   回覆如下<br />
+   置頂文件有多筆時，以文件發佈日期遞減排序<br />
+<br />
+ 3.置頂的文件在列表頁中有需要在標題後面加一個註記嗎? EX： 98年6月止之核准進駐之廠商名單 [重要] <br />
+   回覆如下<br />
+    要加註註記，<br />
+    (1)前頭要標示&quot;置頂文件&quot;  <br />
+   (2)後頭要有標示<br />
+    </td><td class=xl24 width=64 >2009-07-27 09:54:25</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >7</td><td class=xl24 width=64 >頁面問題</td><td class=xl24 width=64 >志工專網左方選項點入後右方頁面及上方抬頭應予配合,而非全部都是志工登入畫面,應有更細緻的設計</td><td class=xl24 width=64 >2009-07-27 10:19:17</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >8</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >法人申請時有問題，相關錯誤碼已經mail寄送</td><td class=xl24 width=64 >2009-08-04 10:25:42</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >9</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >日文版首頁最新消息應該是與英文版同步，但是現在看起來卻是有問題的，請修復！</td><td class=xl24 width=64 >2009-08-21 10:12:17</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >10</td><td class=xl24 width=64 >頁面問題</td><td class=xl24 width=64 >請問一下~ 人員招募是否可依日期排序 ! 謝謝</td><td class=xl24 width=64 >2009-08-26 17:03:42</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >11</td><td class=xl24 width=64 >頁面問題</td><td class=xl24 width=64 >請問一下~ 人員招募是否可依日期排序 ! 謝謝</td><td class=xl24 width=64 >2009-08-26 17:03:45</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >12</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >在http://www.mirdc.org.tw/RssOrder.aspx?sty=13所提供的RSS資料, 利用RSS Reader是無法讀取的<br />
+會發生錯誤(產生的RSS XML資料有問題), </td><td class=xl24 width=64 >2009-08-28 12:27:59</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >13</td><td class=xl24 width=64 >頁面問題</td><td class=xl24 width=64 >請更新9月份門診表，已將門診表資料放於ftp://59.127.67.92/門診表資料夾，2009_09sinlau-p2、2009_09sinlau-p3、2009_09sinlau-p4、2009_09madou02、2009_09madou03<br />
+</td><td class=xl24 width=64 >2009-09-01 10:44:14</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >14</td><td class=xl24 width=64 >頁面問題</td><td class=xl24 width=64 >1.因政府相關規定修改,請於線上申辦之-土地使用分區證明申請頁面最下方&quot;注意事項&quot;再增加註以下文字：”為便利辦理本項業務、落實謄本減量使用及E化政府服務，本項申請除可上網申辦，並可免檢附地籍圖謄本及土地登記謄本，本處將至內政部「地政資訊網際網路服務─查詢系統」查核本並據以開立證明書，若地籍資料有任何異動，則請重新申請辦理。”<br />
+2.首長信箱回信時需順便進行滿意度調查(本處吳怡慧已與Julia反應過,處理結果不詳)<br />
+3.各類線上申辦業務請加入申請者可中途取消申辦之功能</td><td class=xl24 width=64 >2009-09-02 19:15:05</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >15</td><td class=xl24 width=64 >業務問題</td><td class=xl24 width=64 >1.後台的網站流量統計-網頁流量統計會出現應用程式錯誤<br />
+2.後台的網站流量統計-訪客流量分析中之圖形旁之英文與數字無法辨識</td><td class=xl24 width=64 >2009-09-02 19:26:50</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >16</td><td class=xl24 width=64 >頁面問題</td><td class=xl24 width=64 >您好~<br />
+在首頁最下方的網站錯誤電子信箱應為以下，slh01的&quot;01&quot;是數字&quot;零壹&quot;，不是英文字&quot;o&quot;<br />
+懇請拜託您儘快為我們修正! 謝謝~~<br />
+slh01@sinlau.org.tw</td><td class=xl24 width=64 >2009-09-09 09:22:25</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >17</td><td class=xl24 width=64 >頁面問題</td><td class=xl24 width=64 >您好,麻煩貴公司再次協助本所網站首頁進行下述banner更新：<br />
+請將現行的「2009世運在高雄」的banner移除，<br />
+改為「內政部志願服務資訊網」，並連結到http://vol.moi.gov.tw/vol/index.jsp<br />
+<br />
+該「內政部志願服務資訊網」banner的圖示電子檔已mail給貴公司潘亞君小姐,<br />
+以上網頁banner修改事宜麻煩貴公司幫忙處理,謝謝。</td><td class=xl24 width=64 >2009-09-14 11:46:34</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >18</td><td class=xl24 width=64 >業務問題</td><td class=xl24 width=64 >1. 產品驗證機構資料未連結<br />
+<br />
+2.動力衝剪機械部份資料修改<br />
+    資料已寄給vivian</td><td class=xl24 width=64 >2009-09-16 12:58:03</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >19</td><td class=xl24 width=64 >頁面問題</td><td class=xl24 width=64 >目前網站是將我們服務的時間放置在交通位置頁面中<br />
+<br />
+但是有民眾反應找不到<br />
+<br />
+因此希望能夠放在網頁的下方(蒞臨本站人數後方)<br />
+<br />
+因為已經有民眾反應這個問題了，希望能夠盡快處理，謝謝</td><td class=xl24 width=64 >2009-09-21 16:19:40</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >20</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >英文版首頁video無法撥放<br />
+</td><td class=xl24 width=64 >2009-09-24 15:51:26</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >21</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >1.兒童版首頁之&quot;認識海洋國家公園&quot;icon點入失效<br />
+2.兒童版遊戲中的問答-珊瑚是動物還是植物?這題答對時顯示的答案有誤(顯示東沙沙環礁國家公園為台灣第七座國家公園)</td><td class=xl24 width=64 >2009-09-24 16:48:56</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >22</td><td class=xl24 width=64 >頁面問題</td><td class=xl24 width=64 >總局的組織編制圖請依照網頁下方文字說明的順序(直屬隊、課、室、中心)由左至右排列</td><td class=xl24 width=64 >2009-09-28 17:06:04</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >23</td><td class=xl24 width=64 >頁面問題</td><td class=xl24 width=64 >請將直屬隊的主官簡歷，改回主管簡歷，謝謝。</td><td class=xl24 width=64 >2009-09-28 17:06:57</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >24</td><td class=xl24 width=64 >業務問題</td><td class=xl24 width=64 >上星期五貴公司更新之資將首頁換回舊的,我先將舊檔回復,因為我一個月不在辦公室,於10月5日上班,屆時再聯絡原更新檔案處理,謝謝</td><td class=xl24 width=64 >2009-09-28 19:45:30</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr></table></body></html>

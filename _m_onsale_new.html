@@ -1,0 +1,142 @@
+<!-- BEGIN: main -->{HTML.header}
+<script src="./JSCal2-1.9/src/js/jscal2.js"></script>
+<script src="./JSCal2-1.9/src/js/lang/cn.js"></script>
+<link rel="stylesheet" type="text/css" href="./JSCal2-1.9/src/css/jscal2.css" />
+<link rel="stylesheet" type="text/css" href="./JSCal2-1.9/src/css/border-radius.css" />
+<link rel="stylesheet" type="text/css" href="./JSCal2-1.9/src/css/steel/steel.css" />
+
+<link rel="stylesheet" href="./kindeditor-4.1.7/themes/default/default.css" />
+<link rel="stylesheet" href="./kindeditor-4.1.7/plugins/code/prettify.css" />
+<script charset="utf-8" src="./kindeditor-4.1.7/kindeditor.js"></script>
+<script charset="utf-8" src="./kindeditor-4.1.7/lang/zh_TW.js"></script>
+<script charset="utf-8" src="./kindeditor-4.1.7/plugins/code/prettify.js"></script>
+<script type="text/JavaScript">
+<!--
+KindEditor.ready(function(K) {
+	LoadEditor('content', 'postPost');   
+});    
+function checkint(vv)   //檢查是不是數字
+{
+	var j=0;
+	if(vv.value.length>1 && vv.value.substring(0,1)==0) vv.value=vv.value.substring(1,(vv.value.length));
+	for (var i = 0; i < vv.value.length; i++)
+	{
+	 ch = vv.value.substring(i,i+1);                          
+	 if ((ch < "0" || ch > "9") && j==0) {j=i+1;} 
+	}         
+	if(j!=0){
+	 alert('請輸入半形數字');
+	 //if(j==1){vv.value=0;}else{vv.value=vv.value.substring(0,j-1);}
+	}
+}
+function LoadEditor(TextName, FormName) {
+	var editor1 = KindEditor.create('textarea[name="' + TextName + '"]', {
+		cssPath : './kindeditor-4.1.7/plugins/code/prettify.css',
+		uploadJson : './kindeditor-4.1.7/php/upload_json.php',
+		fileManagerJson : './kindeditor-4.1.7/php/file_manager_json.php',
+		allowFileManager : true,
+		afterCreate : function() {
+			var self = this;
+			KindEditor.ctrl(document, 13, function() {
+				self.sync();
+				KindEditor('form[name=' + FormName + ']')[0].submit();
+			});
+			KindEditor.ctrl(self.edit.doc, 13, function() {
+				self.sync();
+				KindEditor('form[name=' + FormName + ']')[0].submit();
+			});
+		}
+	});
+	return editor1;
+}
+function check_keydown() 	//判斷資料是否有打
+{
+	var example = window.confirm('是否確定要新增?');
+	if(example){
+		if ( postPost.subject.value == "" ) {
+			window.alert("必須填入專案主題");
+			return false;
+		}
+		return true;
+	}else{
+		return false;
+	}
+}
+//-->
+</script>
+  <div id="top" class="grid_12">
+    {HTML.banner}
+  </div>
+  <div class="grid_3">
+	{HTML.menu}
+  </div>
+  <div class="grid_9">
+  <form enctype="multipart/form-data" name="postPost" method="post" action="funcs.php" onsubmit="return check_keydown();">
+  <input type="hidden" name="act" id="act" value="postOnsale">
+  <input type="hidden" name="action" id="action" value="new">
+	<div class="right_box">
+	  <div class="right_top">新增促銷專案</div>
+      <div class="right_text" style="width:662px;">
+		<div style="padding:5px; border-bottom:#CCCCCC 1px dotted">
+		活動主題：<input name="subject" id="subject" type="text" style="width:300px;" />　
+		副標題：<input name="subject2" id="subject2" type="text" style="width:200px;" />
+		</div>
+		<div style="padding:5px; border-bottom:#CCCCCC 1px dotted">
+		基本定價：<input name="sprice" id="sprice" type="text" style="width:100px;" />&nbsp;元　　
+		促銷價格：<input name="uprice" id="uprice" type="text" style="width:100px;" />&nbsp;元　　
+		住房天數：<input name="manydays" id="manydays" type="text" style="width:50px;" />&nbsp;天
+		<br />
+		<div style="border:1px #666666 dashed; vertical-align:middle; margin-top:5px;">
+		<table width="100%" style="margin:0px;">
+		  <tr>
+			<td width="9%" style="background-color:#003333; color:#FFFFFF; text-align:center">預設價格</td>
+			<td width="13%" style="background-color:#FF0000; color:#FFFFFF;text-align:center">星期日</td>
+			<td width="13%" style="background-color:#EEFFEE;text-align:center">星期一</td>
+			<td width="13%" style="background-color:#EEFFEE;text-align:center">星期二</td>
+			<td width="13%" style="background-color:#EEFFEE;text-align:center">星期三</td>
+			<td width="13%" style="background-color:#EEFFEE;text-align:center">星期四</td>
+			<td width="13%" style="background-color:#EEFFEE;text-align:center">星期五</td>
+			<td width="13%" style="background-color:#339900; color:#FFFFFF;text-align:center">星期六</td>
+		  </tr>
+		  <tr>
+			<td width="9%" valign="top" style="background-color:#003333; color:#FFFFFF; text-align:center">房價</td>
+			<td width="13%" valign="top" style="text-align:center"><input type="text" name="price1" size="5" onkeyup="checkint(this)" />&nbsp;元</td>
+			<td width="13%" valign="top" style="text-align:center"><input type="text" name="price2" size="5" onkeyup="checkint(this)" />&nbsp;元</td>
+			<td width="13%" valign="top" style="text-align:center"><input type="text" name="price3" size="5" onkeyup="checkint(this)" />&nbsp;元</td>
+			<td width="13%" valign="top" style="text-align:center"><input type="text" name="price4" size="5" onkeyup="checkint(this)" />&nbsp;元</td>
+			<td width="13%" valign="top" style="text-align:center"><input type="text" name="price5" size="5" onkeyup="checkint(this)" />&nbsp;元</td>
+			<td width="13%" valign="top" style="text-align:center"><input type="text" name="price6" size="5" onkeyup="checkint(this)" />&nbsp;元</td>
+			<td width="13%" valign="top" style="text-align:center"><input type="text" name="price7" size="5" onkeyup="checkint(this)" />&nbsp;元</td>
+		  </tr>
+		</table>
+		</div>
+		</div>
+		<div style="padding:5px; border-bottom:#CCCCCC 1px dotted">
+		搭配房型：<select name="room_match" id="room_match" style="width:300px;">{content_list.room_match}</select>　　
+		開放房間數：<input name="room_open" id="room_open" type="text" style="width:30px;" />
+		</div>
+		<div style="padding:5px; border-bottom:#CCCCCC 1px dotted">
+		開放時間：<input size="20" name="f_date1" id="f_date1" readonly /><button id="f_btn1">...</button>　～　
+		結束時間：<input size="20" name="f_date2" id="f_date2" readonly /><button id="f_btn2">...</button>
+		</div>
+		<textarea name="content" id="content" style="width:660px;height:400px;visibility:hidden;"></textarea>
+		<div style="padding:5px; border-bottom:#CCCCCC 1px dotted">
+		排列順序： <input name="order" id="order" type="text" style="width:20px;" value="0" />
+		</div>
+    	<div style="text-align:center;padding-top:10px;"><input name="Sout" value="新增" type="submit" /></div>
+	  </div>
+    </div>
+  </form>
+  </div>
+<script type="text/javascript">//<![CDATA[
+
+  var cal = Calendar.setup({
+	  onSelect: function(cal) { cal.hide() },
+	  showTime: false
+  });
+  cal.manageFields("f_btn1", "f_date1", "%Y-%m-%d");
+  cal.manageFields("f_btn2", "f_date2", "%Y-%m-%d");
+
+//]]></script>
+{HTML.footer}
+<!-- END: main -->

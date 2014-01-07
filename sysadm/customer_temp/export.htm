@@ -1,0 +1,76 @@
+<!-- BEGIN: table -->
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+	<tr>
+		<td>
+			<table border="0" cellspacing="0" cellpadding="3" width="100%" class="small">
+				<tr>
+					<td class="dvtTabCache" style="width:100%">&nbsp;</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td valign="top" align="left">
+			<table border="0" cellspacing="0" cellpadding="3" width="100%" class="dvtContentSpace">
+				<tr>
+					<td align="left">
+						<table border="0" cellspacing="0" cellpadding="0" width="100%">
+							<tr>
+								<td width="95">
+									<img border="0" src="../images/title_11.gif" width="95" height="80">
+								</td>
+								<td nowrap background="../images/title01.gif" align="left"style=";background-repeat:repeat-x" >
+									<a href="index.php"><span style="font-family:Arial; font-size: 15px; color: #003399; font-weight: bold">帳號管理</span></a>
+									<span style="font-family:Arial; font-size: 15px; color: #003399; font-weight: bold">＞ 匯出帳號</span>
+								</td>
+								<td style="width:100%" background="../images/title01.gif" style="background-repeat:repeat-x">
+									&nbsp;
+								</td>
+								<td style="width:78px;background-repeat:repeat-x" background="../images/title01.gif">
+									<!--input type="image" src="../images/botton_return.gif" width="70" height="27" onClick="window.location.href='index.php'"-->
+								</td>
+								<td style="background-repeat:no-repeat" background="../images/title01.gif" width="36" align="right" valign="top">
+									<img border="0" src="../images/title02.gif" width="36" height="80">
+								</td>
+							</tr>
+							<tr>
+								<td align="center" style="padding:10px" colspan="5">
+									<form method="POST" action="export_proc.php">
+										<table border="0" cellspacing="1" cellpadding="3" width="99%" class="lvt small" >
+											<tr>
+												<td class="lvtCol" align="center">匯出欄位</td>
+											</tr>
+											<tr bgcolor="white" class="lvtColData" >
+												<td align="center" >
+													<input type="checkbox" id="account" name="account" checked value="帳號" disabled>帳號&nbsp;
+													<input type="checkbox" id="name" name="name" checked value="姓名" disabled>姓名&nbsp;
+													<input type="checkbox" id="unit" name="unit" checked value="部門" disabled>部門&nbsp;
+													<input type="checkbox" id="authority" name="authority" checked value="身份" disabled>身份&nbsp;
+													<input type="checkbox" id="identity_id" name="identity_id" checked value="身份証字號">身份証字號
+													<input type="checkbox" id="birthday" name="birthday" checked value="生日">生日&nbsp;
+													<input type="checkbox" id="telephone" name="telephone" checked value="連絡電話">連絡電話&nbsp;
+													<input type="checkbox" id="cellphone" name="cellphone" checked value="行動電話">行動電話&nbsp;<br />
+													<input type="checkbox" id="email" name="email" checked value="電子信箱">電子信箱&nbsp;
+													<input type="checkbox" id="fix_address" name="fix_address" checked value="戶藉地址">戶藉地址
+													<input type="checkbox" id="com_address" name="com_address" checked value="通訊地址">通訊地址&nbsp;
+													<input type="checkbox" id="pay_account" name="pay_account" checked value="資帳戶">薪資帳戶&nbsp;
+													<input type="checkbox" id="take_office_day" name="take_office_day" checked value="到職日">到職日&nbsp;
+													<input type="checkbox" id="employee_id" name="employee_id" checked value="員工編號">員工編號&nbsp;
+													<input type="checkbox" id="door_number" name="door_number" checked value="門禁卡號">門禁卡號&nbsp;
+												</td>
+											</tr>
+											<tr>
+												<td align="center" class="lvtCol"><input type="submit" value="匯出" style="padding-top:2px"></td>
+											</tr>
+										</table>
+									</form>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>	
+<!-- END: table -->

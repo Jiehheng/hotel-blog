@@ -1,0 +1,74 @@
+<!-- BEGIN: main -->{HTML.header}
+<script type="text/JavaScript">
+<!--
+function check_keydown() 	//判斷資料是否有打
+{
+	document.postPost.action="?{cUrl}&reservation_step2";
+	return true;
+}
+//-->
+</script>
+  <div id="top" class="grid_12">
+    {HTML.banner}
+  </div>
+  <div class="grid_3">
+	{HTML.menu}
+  </div>
+  <div class="grid_9">
+    <table width="100%">
+      <tr>
+    <td rowspan="2"><img src="img/icon/step2_1.gif" width="32" height="33" alt="1" /></td>
+    <td><span class="gray2">Step 1</span></td>
+    <td rowspan="2"><img src="img/icon/step1_2.gif" width="32" height="33" alt="2" /></td>
+    <td><span class="gray2">Step 2</span></td>
+    <td rowspan="2"><img src="img/icon/step1_3.gif" width="32" height="33" /></td>
+    <td><span class="gray2">Step 3</span></td>
+    <td rowspan="2"><img src="img/icon/step1_4.gif" width="32" height="33" alt="4" /></td>
+    <td><span class="gray2">Step 4</span></td>
+    <td rowspan="2"><img src="img/icon/step1_5.gif" width="32" height="33" alt="5" /></td>
+    <td><span class="gray2">Step 5</span></td>
+  </tr>
+  <tr>
+    <td><span class="brown">選擇訂房內容</span></td>
+    <td><span class="gray">訂房明細確認</span></td>
+    <td><span class="gray">填寫聯絡資料</span></td>
+    <td><span class="gray">付款方式選擇</span></td>
+    <td><span class="gray">訂房完成</span></td>
+  </tr>
+</table>
+<div class="title1">步驟1-2：請選擇您要查詢的 房間型態 及 房間數量</div>
+<form name="postPost" method="post" onsubmit="return check_keydown();">
+<div class="reservation1">
+您所選擇的住房日由：<span class="red"><strong>{content_list.f_date}</strong></span> 開始 ，共計 <span class="red"><strong>{content_list.total_days}</strong></span> 晚<br />
+<h2>促銷活動訂房</h2>
+<table border="0" align="center" cellpadding="5" cellspacing="0" class="mytable">
+  <tr>
+    <td align="center" class="mytrbg">專案名稱</td>
+    <td align="center" class="mytrbg">價格</td>
+    <td align="center" class="mytrbg">訂房狀態</td>
+    <td align="center" class="mytrbg">訂購間數</td>
+  </tr>
+  {content_list.room_search1}
+</table>
+<h2>一般訂房<br />
+</h2>
+<table border="0" align="center" cellpadding="5" cellspacing="0" class="mytable">
+  <tr>
+    <td width="326" align="center" class="mytrbg">房型</td>
+    <td align="center" class="mytrbg">價格</td>
+    <td align="center" class="mytrbg">訂房狀態</td>
+    <td align="center" class="mytrbg">訂購間數</td>
+    <td align="center" class="mytrbg">人數</td>
+  </tr>
+  {content_list.room_search2}
+</table>
+<h2>&nbsp; </h2>
+<input type="button" onclick="javascript:location.href='?{cUrl}&reservation_step1-1'" value="重選日期" />
+<input name="Sout" value="下一步" type="submit" />
+</div>
+</form>
+<span class="brown">客服訂房：</span>當您預約訂房的日期框內出現客服訂房的文字，則表示你所預訂的房間，將於您於線上下單訂房後，會由四方通行客服人員與飯店確認排房結果後主動與您聯絡，告知您排房狀況。<br />
+<span class="red">★再次提醒： 『客服訂房』並不保證飯店一定有空房，如有急迫訂房需求，請儘量選擇可『立即訂房』的房型預訂，謝謝！</span>
+  </div>   
+{HTML.footer}
+<!-- END: main -->

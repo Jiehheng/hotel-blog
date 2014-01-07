@@ -1,0 +1,142 @@
+				<html xmlns:o="urn:schemas-microsoft-com:office:office"
+				xmlns:x="urn:schemas-microsoft-com:office:excel"
+				xmlns="http://www.w3.org/TR/REC-html40">
+
+				<head>
+				<meta http-equiv=Content-Type content="text/html; charset=big5">
+				<meta name=ProgId content=Excel.Sheet>
+				<!--[if gte mso 9]><xml>
+				 <o:DocumentProperties>
+				  <o:LastAuthor>Sriram</o:LastAuthor>
+				  <o:LastSaved>2005-01-02T07:46:23Z</o:LastSaved>
+				  <o:Version>10.2625</o:Version>
+				 </o:DocumentProperties>
+				 <o:OfficeDocumentSettings>
+				  <o:DownloadComponents/>
+				 </o:OfficeDocumentSettings>
+				</xml><![endif]-->
+				<style>
+				<!--table
+					{mso-displayed-decimal-separator:"\.";
+					mso-displayed-thousand-separator:"\,";}
+				@page
+					{margin:1.0in .75in 1.0in .75in;
+					mso-header-margin:.5in;
+					mso-footer-margin:.5in;}
+				tr
+					{mso-height-source:auto;}
+				col
+					{mso-width-source:auto;}
+				br
+					{mso-data-placement:same-cell;}
+				.style0
+					{mso-number-format:General;
+					text-align:general;
+					vertical-align:bottom;
+					white-space:nowrap;
+					mso-rotate:0;
+					mso-background-source:auto;
+					mso-pattern:auto;
+					color:windowtext;
+					font-size:10.0pt;
+					font-weight:400;
+					font-style:normal;
+					text-decoration:none;
+					font-family:Arial;
+					mso-generic-font-family:auto;
+					mso-font-charset:0;
+					border:none;
+					mso-protection:locked visible;
+					mso-style-name:Normal;
+					mso-style-id:0;}
+				td
+					{mso-style-parent:style0;
+					padding-top:1px;
+					padding-right:1px;
+					padding-left:1px;
+					mso-ignore:padding;
+					color:windowtext;
+					font-size:10.0pt;
+					font-weight:400;
+					font-style:normal;
+					text-decoration:none;
+					font-family:Arial;
+					mso-generic-font-family:auto;
+					mso-font-charset:0;
+					mso-number-format:General;
+					text-align:general;
+					vertical-align:bottom;
+					border:none;
+					mso-background-source:auto;
+					mso-pattern:auto;
+					mso-protection:locked visible;
+					white-space:nowrap;
+					mso-rotate:0;}
+				.xl24
+					{mso-style-parent:style0;
+					white-space:normal;}
+				-->
+				</style>
+				<!--[if gte mso 9]><xml>
+				 <x:ExcelWorkbook>
+				  <x:ExcelWorksheets>
+				   <x:ExcelWorksheet>
+					<x:Name>srirmam</x:Name>
+					<x:WorksheetOptions>
+					 <x:Selected/>
+					 <x:ProtectContents>False</x:ProtectContents>
+					 <x:ProtectObjects>False</x:ProtectObjects>
+					 <x:ProtectScenarios>False</x:ProtectScenarios>
+					</x:WorksheetOptions>
+				   </x:ExcelWorksheet>
+				  </x:ExcelWorksheets>
+				  <x:WindowHeight>10005</x:WindowHeight>
+				  <x:WindowWidth>10005</x:WindowWidth>
+				  <x:WindowTopX>120</x:WindowTopX>
+				  <x:WindowTopY>135</x:WindowTopY>
+				  <x:ProtectStructure>False</x:ProtectStructure>
+				  <x:ProtectWindows>False</x:ProtectWindows>
+				 </x:ExcelWorkbook>
+				</xml><![endif]-->
+				</head>
+
+				<body link=blue vlink=purple>
+				<table x:str border=0 cellpadding=0 cellspacing=0 style='border-collapse: collapse;table-layout:fixed;'><tr><td class=xl24 width=64 >系統檢測報告</td></tr><tr><td class=xl24 width=64 >案件名稱：</td><td class=xl24 width=64 >154_衛武營_全球資訊入口網第二階段擴充案</td></tr><tr><td class=xl24 width=64 >日期：</td><td class=xl24 width=64 >2009-11-03 12:08:57</td></tr><tr><td class=xl24 width=64 >編號</td><td class=xl24 width=64 >問題分類</td><td class=xl24 width=64 >問題內容</td><td class=xl24 width=64 >發問時間</td><td class=xl24 width=64 >回覆內容</td><td class=xl24 width=64 >回覆時間</td><td class=xl24 width=64 >回覆人員</td><td class=xl24 width=64 >回覆狀況</td><td class=xl24 width=64 >備註</td></tr><tr><td class=xl24 width=64 >1</td><td class=xl24 width=64 >頁面問題</td><td class=xl24 width=64 >前台 → 藝文空間 → 場地租借<br />
+日期只要顯示「2010年」「3月/4月」即可<br />
+因企劃組的說要改變原方式(原方式是顯示已經租借場地出去的時間)<br />
+只要顯示2010年3月和4月可以租借場地的日期<br />
+<br />
+後台 → 預約申辦<br />
+年度需要加入「2010年」</td><td class=xl24 width=64 >2009-10-26 14:28:23</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >2</td><td class=xl24 width=64 >頁面問題</td><td class=xl24 width=64 >後台 → 預約申辦 → 「場地名稱管理」<br />
+1.場所無法刪除成功<br />
+2.後台的場地名稱 及 前台的場地租借的場地下拉選單<br />
+排序好像是以數字再注音符號<br />
+因需在場地部份新增「榕園」和「其它」<br />
+可否「其它」放在最下面<br />
+以目前的排序法，「其它」在「榕園」的上面</td><td class=xl24 width=64 >2009-10-26 14:57:19</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >3</td><td class=xl24 width=64 >頁面問題</td><td class=xl24 width=64 >後台 → 預約申辦<br />
+新增的預約申辦其內容部份<br />
+可否加入工具列(粗體.底線.超連結.HTML語法等)<br />
+謝謝</td><td class=xl24 width=64 >2009-10-27 11:35:21</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >4</td><td class=xl24 width=64 >頁面問題</td><td class=xl24 width=64 >前台首頁 -&gt; 最新消息 -&gt; 歷史資訊<br />
+<br />
+1.以『2009年09月』/類別『全部』為例<br />
+搜尋出來的『類別』只有『中心公告.當月活動.新聞訊息』三種<br />
+少了『類別』為『藝文活動』這一種<br />
+『2009年09月』/類別『中心公告』資料筆數5<br />
+『2009年09月』/類別『藝文活動』資料筆數8<br />
+『2009年09月』/類別『新聞訊息』資料筆數2<br />
+『2009年09月』/類別『當月活動』資料筆數17<br />
+『2009年09月』/類別『全部』資料筆數24<br />
+<br />
+2.以『2009年09月』/類別『藝文活動』為例<br />
+搜尋出來的結果是8筆<br />
+但衛武營這邊有辦的活動<br />
+其實在藝文活動和當月活動都是會同時發佈一樣的內容<br />
+照理說搜尋出來的資料筆數應該要相同才對<br />
+故類別『藝文活動』搜尋出來的『資料筆數』有問題<br />
+<br />
+3.以『2009年09月』/類別『藝文活動』為例<br />
+搜尋出來的結果是8筆<br />
+隨便點一筆藝文活動的連結進去<br />
+其顯示的『歷史資訊內容頁』非該筆藝文活動內容<br />
+而是一長串數個的內容<br />
+故類別『藝文活動』搜尋出來的『歷史資訊內容頁』有問題</td><td class=xl24 width=64 >2009-11-02 09:28:49</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr></table></body></html>

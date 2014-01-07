@@ -1,0 +1,135 @@
+<!-- BEGIN: main -->
+<html>
+<head>
+<meta http-equiv="Content-Language" content="zh-tw">
+<meta http-equiv="Cache-control" content="private">
+<title>{web_title} 後台管理中心</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+<!--
+function checkFirefoxOrIE()
+{
+    if ((navigator.userAgent.indexOf('MSIE') >= 0) && (navigator.userAgent.indexOf('Opera') < 0))
+    {
+        document.getElementById('menuContext').style.width='130px';
+        document.getElementById('mainContext').style.width='';
+    }
+	else if (navigator.userAgent.indexOf('Firefox') >= 0)
+    {
+        document.getElementById('menuContext').style.width='12%';
+        document.getElementById('mainContext').style.width='87%';
+    }
+	else if (navigator.userAgent.indexOf('Opera') >= 0)
+    {
+        document.getElementById('menuContext').style.width='12%';
+        document.getElementById('mainContext').style.width='87%';
+    }
+    else
+    {
+        document.getElementById('menuContext').style.width='12%';
+        document.getElementById('mainContext').style.width='87%';
+    }
+}
+-->
+</script>
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" >
+<div align="center">
+	<table width="100%" id="table1" border="0" cellspacing="0" cellpadding="0" >
+		<tr>
+			<td background="images/index_02.gif">
+			<span style="float:left"><img src="images/index_01.gif" border="0"></span>
+			<span style="float:right"><img src="images/index_03.gif" border="0"></span>
+			</td>
+		</tr>
+		<tr>
+			<td background="images/index_04_05.gif">
+			<span style="float:left"><img src="images/index_04_04.gif" height="35" border="0"></span>
+			<span style="float:right"><img src="images/index_04_06.gif" height="35" border="0"></span>
+			<font color="#FFFFFF" size="5" face="Arial"><b>{web_title} 飯店總管理後台</b></font>
+			</td>
+		</tr>
+		<tr>
+			<td background="images/index_04_08.gif">
+			<span style="float:left"><img src="images/index_04_07.gif" height="7" border="0"></span>
+			<span style="float:right"><img src="images/index_04_09.gif" height="7" border="0"></span>
+			</td>
+		</tr>
+		<tr>
+			<td background="images/index_05_02.gif">
+			<span style="float:left"><img src="images/index_05_01.gif" height="12" border="0"></span>
+			<span style="float:right"><img src="images/index_05_03.gif" height="12" border="0"></span>
+			</td>
+		</tr>
+		<tr>
+			<td align="center">
+			 <div style="width:99%;margin:5px 0 5px 0;padding:0;border:0;">
+				<div id="menuContext" style="float:left;border:0;margin:0;padding:0;">
+					<table border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse;" width="130">
+						<tr>
+							<td colspan="2" style="height: 45px" class="font09route" width="100%" align="center">
+								<strong>Hi！<font color="#FF0000">{name}</font><br />
+								歡迎使用{web_title}<br /> 
+								後臺管理中心</strong>
+								<hr style="border:1px #ECECEC solid;">
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2" style="height: 26px" class="font09" align="center">
+								<strong><a href="main.php">回首頁</a> │&nbsp; <a href="logout.php">登 出</a></strong>
+							</td>
+						</tr>
+						<tr>										
+							<td style="padding-top:10px" class="font09route">
+								<ul>
+									<li style="list-style-type:square;padding:2 0 2 0px;vertical-align: middle">主選單</li>
+									<ul>
+										{menu}
+									</ul>
+								</ul>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div id="mainContext" style="border:0;padding:0;margin:0;border:solid #CCCCCC 1px; float:right;">
+					<div style="float:right; margin:5px;">
+					<table border="1"  cellspacing="0" cellpadding="0" style="border-collapse: collapse;word-break:break-all;width:180px" bordercolor="#1860AF">
+						<tr>
+							<td bgcolor="#01396C" style="height: 25px" class="font10white"><p align="center"><b>公告欄</b></td>
+						</tr>
+						<tr>
+							<td style="height: 25px" class="font09route" bgcolor="#E3F1F9"><p align="center"><font color="#01396C">公告主題</font></td>
+						</tr>
+						<!-- BEGIN: notice -->
+						<tr>
+							<td style="padding-left: 3px" class="font09route"><p align="left">{DATA.notdatetime} {DATA.nottitle}</td>
+						</tr>
+						<!-- END: notice --> 
+					</table></div>
+					<div style="float:left;margin:5px;">
+					<table border="1"  cellspacing="0" cellpadding="0" style="border-collapse: collapse;word-break:break-all;width:250px" bordercolor="#1860AF">
+						<tr>
+							<td bgcolor="#01396C" style="height: 25px; text-align:center;" class="font10white">待處理工作</td>
+						</tr>
+						<tr>
+							<td style="padding-left: 3px" class="font09route">
+							新刊登求購物件 待安排業務聯繫者  2   件	<br />								
+							新申請仲介服務商者  3   件<br />
+							聯絡我們 待回覆信件  3  件<br />
+							服務商提出取消服務申請  1  件<br />
+							會員提出取消服務申請   2  件<br />
+							本月份至今成交  3  件<br />
+							</td>
+						</tr>
+					</table>
+					</div>
+				</div>
+			  </div>	
+			</td>
+		</tr>
+	</table>
+</div>
+<script type="text/javascript">checkFirefoxOrIE();</script>
+</html>
+<!-- END: main -->

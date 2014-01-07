@@ -1,0 +1,80 @@
+<!-- BEGIN: main -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>{web_title} 後台管理中心</title>
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<script type="text/JavaScript">
+<!--
+	function MM_preloadImages() { //v3.0
+	  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+		var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+		if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+	}
+	var $ = function(i){return document.getElementById(i)}
+	function trim(s) {   
+	  return s.replace(/^\s*|\s*$/g,"");
+	}  
+	function check_data()
+	{
+		if (trim($("account").value)=="")
+		{
+			alert("請輸入帳號");
+			$("account").focus();
+			return false;
+		}
+		if (trim($("password").value)=="")
+		{
+			alert("請輸入密碼");
+			$("password").focus();
+			return false;
+		}
+	}
+	window.onload=function ()
+	{
+		var $ = function(i){return document.getElementById(i)}
+		$("account").focus();
+	}
+
+//-->
+</script>
+</head>
+
+<body bgcolor="#C0C0C0" leftmargin="0" topmargin="0">
+<form method="POST" action="login_proc.php" onSubmit="return check_data();">
+	<div align="center">
+		<table border="0" width="1002" id="table1" cellspacing="0" cellpadding="0" height="768">
+			<tr>
+				<td bgcolor="#FFFFFF">
+					<table id="table2" width="746" height="249" border="0" cellpadding="0" cellspacing="0">
+						<tr>
+							<td rowspan="3" valign="top"><img src="images/index_01.jpg" width="377" height="249" border="0" alt=""></td>
+							<td colspan="3" valign="top"><img src="images/index_02_1.gif" width="369" height="92" border="0" alt=""></td>
+						</tr>
+						<tr>
+							<td colspan="2" background="images/index_03_1.gif" class="font10white" style="width: 257px; height:62px;">
+							<table border="0" cellpadding="0" cellspacing="0" style="width:257px;height:62px;">
+                              <tr>
+                                <td background="images/index_03_1.gif" class="font10white" valign="top">帳號：<input type="text" name="account" id="account" size="20" style="border: 1px solid #FFFFFF; font-family:Arial" tabindex="1"></td>
+                                <td rowspan="2"><input type=image src="images/but_01.gif" name="but01" width="51" height="26" border="0" align="right" id="but01" tabindex="3"></td>
+                              </tr>
+                              <tr>
+                                <td background="images/index_03_1.gif" class="font10white" valign="bottom">密碼：<input type="password" name="password" id="password" size="20" style="border: 1px solid #FFFFFF; font-family:Arial" tabindex="2"></td>
+                              </tr>
+                            </table></td>
+							<td valign="top"><img src="images/index_04_1.gif" width="112" height="62" border="0" alt=""></td>
+						</tr>
+						
+						<tr>
+							<td colspan="3" valign="top"><img src="images/index_05_1.gif" width="369" height="95" border="0" alt=""></td>
+						</tr>
+					</table>				
+				</td>
+			</tr>
+		</table>
+	</div>
+</form>
+</body>
+
+</html>
+<!-- END: main -->

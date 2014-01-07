@@ -1,0 +1,293 @@
+<!-- BEGIN: main -->{HTML.header}
+<script type="text/JavaScript">
+<!--
+function check_keydown() 	//判斷資料是否有打
+{
+	var example = window.confirm('是否確定要修改?');
+	if(example){
+		document.postPost.action="funcs.php";
+		return true;
+	}else{
+		return false;
+	}
+}
+function oc()
+{
+	if (document.postPost.Product.value!='0'){
+		location.replace("?{cUrl}&roomctrl&Product="+postPost.Product.value);
+	}
+}
+function create()
+{
+	var example = window.confirm('是否確認新增本月份控房資料?');
+	if(example){
+		document.postPost.dowhat.value="create";
+		document.postPost.submit();
+		return true;
+	}else{
+		return false;
+	}
+}
+//-->
+</script>
+<div id="top" class="grid_12">
+	{HTML.banner}
+</div>
+<div class="grid_3">
+	{HTML.menu}
+</div>
+  <div class="grid_9">
+  <form enctype="multipart/form-data" name="postPost" method="post" onsubmit="return check_keydown();">
+  <input type="hidden" name="act" id="act" value="postRoomTable">
+  <input type="hidden" name="year" id="year" value="{content_list.year}">
+  <input type="hidden" name="month" id="month" value="{content_list.month}">
+  <input type="hidden" name="dowhat" id="dowhat">
+  <input type="hidden" name="roomstatesid" id="roomstatesid" value="{content_list.roomstatesid}">
+	<div class="right_box">
+	  <div class="right_top">控房管理</div>
+      <div class="right_text" style="width:662px;">
+		<div class="blue" style="border-bottom:#666666 1px dashed;padding-bottom:10px;">房型或促銷活動：&nbsp;
+		<select name="Product" id="Product" onChange="oc();"><option value="0">請選取專案或房型</option> {content_list.room_match} </select>
+		</div>
+		<div style="padding:10px 0 0 0;border-bottom:#999999 1px dashed">
+		<table width="650" cellspacing="0" cellpadding="0" style="margin:0px auto; padding:0;">
+		  <tr>
+			<td>
+			  <table width="100%" border="0" cellspacing="1" cellpadding="2" style="border:1px solid #CCCCCC;line-height:160%;">
+				<tr bgcolor="#EFEFEF" style="border:1px solid #CCCCCC;">
+				  <td colspan="7" bgcolor="#D2EAF2" style="text-align:center;padding:6px;">{content_list.area0}</td>
+				</tr>
+				<tr bgcolor="#FFCC99" style="border:1px solid #CCCCCC;">
+				  <td bgcolor="#A4D2E7" style="text-align:center;border:1px solid #CCCCCC;padding:6px; margin:"><font color="#FF0000">日</font></td>
+				  <td bgcolor="#A4D2E7" style="text-align:center;border:1px solid #CCCCCC;padding:6px;">一</td>
+				  <td bgcolor="#A4D2E7" style="text-align:center;border:1px solid #CCCCCC;padding:6px;">二</td>
+				  <td bgcolor="#A4D2E7" style="text-align:center;border:1px solid #CCCCCC;padding:6px;">三</td>
+				  <td bgcolor="#A4D2E7" style="text-align:center;border:1px solid #CCCCCC;padding:6px;">四</td>
+				  <td bgcolor="#A4D2E7" style="text-align:center;border:1px solid #CCCCCC;padding:6px;">五</td>
+				  <td bgcolor="#A4D2E7" style="text-align:center;border:1px solid #CCCCCC;padding:6px;"><font color="#0033FF">六</font></span></td>
+				</tr>
+				<tr>
+				{content_list.area1}
+				</tr>
+			  </table>
+			</td>
+		  </tr>
+		</table>
+		</div>
+		<div style="border-bottom:#999999 1px dashed">
+		<div id="underline">
+		  <div id="circle">
+		    <div>
+		      <div id="controls_room">
+		          <div style="font-size:12px; font-weight:bold">◎ 上列表有勾選的資料修改</div>
+		          <div>
+		            <div>
+		              <!--<input type="checkbox" name="selectroom" onclick="callchange();" />
+		              我要一次改多間房型</div>-->
+		            間數：
+		            <input type="text" name="changeamount" value="" size="1" onkeyup="checkint(this)" />
+		            間， 房價：
+		            <input type="text" name="changecash" value="" size="4" onkeyup="checkint(this)" />
+		            元，訂房狀態：
+		            <select name="rstate" size="1">
+		              <option value="9" selected="selected">---不更動狀態---</option>
+		              <option value="2">客滿</option>
+		              <option value="1">即時訂房</option>
+		              <option value="0">客服訂房</option>
+		              <option value="3">客服訂房－未開放</option>
+		              <option value="5">不開放純訂房預訂</option>
+		              <option value="4">不開放預訂</option>
+		              <option value="6">房價維護中</option>
+		              </select>
+		            <input name="Sout" value="修改" type="submit" />
+		          </div>
+		          <div style=" font-size:9.5pt; color:#006666">
+		            <ul>
+		              <li>1.訂房狀態設定說明：</li>
+		              <li>
+		                <table width="100%" border="0" cellpadding="0" cellspacing="0">
+		                  <tbody>
+		                    <tr>
+		                      <td>訂房狀態</td>
+		                      <td>說明</td>
+		                      </tr>
+		                    <tr>
+		                      <td>客滿</td>
+		                      <td>房型已客滿時，請選擇訂房狀態：設定為『客滿』即可。</td>
+		                      </tr>
+		                    <tr>
+		                      <td>即時訂房</td>
+		                      <td>房型可開放間數，直接提供訂房者線上下單訂房服務。 <br />
+		                          <div>當原預設之間數已被預訂至『０』間時，系統將自動轉換為『客服訂房』服務模式。</div></td>
+		                      </tr>
+		                    <tr>
+		                      <td>客服訂房</td>
+		                      <td>房型不能開放線上間數預訂，但可以由四方通行客服人員代為確認飯店可接單狀況。 <br />
+		                          <div>設定方式：間數：設定為『０』；訂房狀態：設定為『客服訂房』即可。</div></td>
+		                      </tr>
+		                    <tr>
+		                      <td>客服訂房－未開放</td>
+		                      <td>將已開放的日期重新設定為未開放的狀態，即訂房網頁畫面無法看到『間數』及『價格』。</td>
+		                      </tr>
+		                    <tr>
+		                      <td>不開放純訂房預訂</td>
+		                      <td>飯店只開放『促銷專案』訂房。</td>
+		                      </tr>
+		                    <tr>
+		                      <td>不開放預訂</td>
+		                      <td>飯店不接受預訂服務，亦不能下客服單詢問排房狀況。</td>
+		                      </tr>
+		                    <tr>
+		                      <td>房價維護中</td>
+		                      <td>房價維護時，前端訂房畫面則不出現相關價格/間數資料。</td>
+		                      </tr>
+		                    </tbody>
+		                  </table>
+		                </li>
+		              <li>2.不更改目前的訂房狀態（客服／即時／客滿），則保留”請選擇...”的選項。</li>
+		              <li>3.請輸入”半形”的數字，如該間數或房價不做更改，則可不輸入任何資料，請依您需更改的項目做更改即可。</li>
+		              </ul>
+		          </div>
+		      </div>
+		      <div style="display:none">
+		        <div style="font-size:12px; font-weight:bold">快速異動服務：(適用於價格不分平假日、統一修改房間數量及統一修改訂房狀態)</div>
+		        <div>依日期做間數更動： 
+		              <select name="y1">
+		                <option value="2013">2013</option>
+		                <option value="2014">2014</option>
+		                <option value="2015">2015</option>
+	                  </select>
+		            年
+		            <select name="m1">
+		              <option value="1">1</option>
+		              <option value="2">2</option>
+		              <option value="3">3</option>
+		              <option value="4">4</option>
+		              <option value="5">5</option>
+		              <option value="6">6</option>
+		              <option value="7">7</option>
+		              <option value="8">8</option>
+		              <option value="9">9</option>
+		              <option value="10">10</option>
+		              <option value="11">11</option>
+		              <option value="12">12</option>
+		              </select>
+		            月
+		            <select name="d1">
+		              <option value="1">1</option>
+		              <option value="2">2</option>
+		              <option value="3">3</option>
+		              <option value="4">4</option>
+		              <option value="5">5</option>
+		              <option value="6">6</option>
+		              <option value="7">7</option>
+		              <option value="8">8</option>
+		              <option value="9">9</option>
+		              <option value="10">10</option>
+		              <option value="11">11</option>
+		              <option value="12">12</option>
+		              <option value="13">13</option>
+		              <option value="14">14</option>
+		              <option value="15">15</option>
+		              <option value="16">16</option>
+		              <option value="17">17</option>
+		              <option value="18">18</option>
+		              <option value="19">19</option>
+		              <option value="20">20</option>
+		              <option value="21">21</option>
+		              <option value="22">22</option>
+		              <option value="23">23</option>
+		              <option value="24">24</option>
+		              <option value="25">25</option>
+		              <option value="26">26</option>
+		              <option value="27">27</option>
+		              <option value="28">28</option>
+		              <option value="29">29</option>
+		              <option value="30">30</option>
+		              <option value="31">31</option>
+		              </select>
+		            日至 
+		            <select name="y2">
+		              <option value="2013">2013</option>
+		              <option value="2014">2014</option>
+		              <option value="2015">2015</option>
+		              </select>
+		            年
+		            <select name="m2">
+		              <option value="1">1</option>
+		              <option value="2">2</option>
+		              <option value="3">3</option>
+		              <option value="4">4</option>
+		              <option value="5">5</option>
+		              <option value="6">6</option>
+		              <option value="7">7</option>
+		              <option value="8">8</option>
+		              <option value="9">9</option>
+		              <option value="10">10</option>
+		              <option value="11">11</option>
+		              <option value="12">12</option>
+		              </select>
+		            月
+		            <select name="d2">
+		              <option value="1">1</option>
+		              <option value="2">2</option>
+		              <option value="3">3</option>
+		              <option value="4">4</option>
+		              <option value="5">5</option>
+		              <option value="6">6</option>
+		              <option value="7">7</option>
+		              <option value="8">8</option>
+		              <option value="9">9</option>
+		              <option value="10">10</option>
+		              <option value="11">11</option>
+		              <option value="12">12</option>
+		              <option value="13">13</option>
+		              <option value="14">14</option>
+		              <option value="15">15</option>
+		              <option value="16">16</option>
+		              <option value="17">17</option>
+		              <option value="18">18</option>
+		              <option value="19">19</option>
+		              <option value="20">20</option>
+		              <option value="21">21</option>
+		              <option value="22">22</option>
+		              <option value="23">23</option>
+		              <option value="24">24</option>
+		              <option value="25">25</option>
+		              <option value="26">26</option>
+		              <option value="27">27</option>
+		              <option value="28">28</option>
+		              <option value="29">29</option>
+		              <option value="30">30</option>
+		              <option value="31">31</option>
+		              </select>
+		            </div>
+		        <div>間數： 
+		              <input type="text" name="Ochangeamount" value="" size="2" onkeyup="checkint(this)" />
+		            間，房價：
+		            <input type="text" name="Ochangecash" value="" size="4" onkeyup="checkint(this)" />
+		            元， 訂房狀態：
+		            <select size="1" name="Orstate">
+		              <option value="9" selected="selected">---不更動狀態---</option>
+		              <option value="2">客滿</option>
+		              <option value="1">即時訂房</option>
+		              <option value="0">客服訂房</option>
+		              <option value="3">客服訂房－未開放</option>
+		              <option value="5">不開放純訂房預訂</option>
+		              <option value="4">不開放預訂</option>
+		              <option value="6">房價維護中</option>
+		              </select>
+		            <!--<input type="submit" name="submit" value="修改" />-->
+		            </div>
+		       </div>
+		    </div>
+		  </div>
+		</div>
+		</div>
+		</div>
+      </div>
+    </div>
+  </form>
+  </div>   
+{HTML.footer}
+<!-- END: main -->

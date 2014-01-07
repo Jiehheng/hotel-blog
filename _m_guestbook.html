@@ -1,0 +1,34 @@
+<!-- BEGIN: main -->{HTML.header}
+<script language="JavaScript">
+<!--
+// 確認修改
+function ConfirmOK(){
+	if(confirm('確定回覆此筆留言？')){	document.frmReply.submit();	}else return false;
+}
+// 確認刪除
+function ConfirmDel(msgcode){
+	if(confirm('確定刪除此筆留言？')){
+		document.frmReply.act.value = 'delmessage';
+		// cAct = document.frmReply.act.value;
+		// alert(cAct);
+		document.frmReply.submit();
+	}else{ return false;}
+}
+//-->
+</script>
+  <div id="top" class="grid_12">
+    {HTML.banner}
+  </div>
+  <div class="grid_3">
+	{HTML.menu}
+  </div>
+  <div class="grid_9">
+	<div class="right_box">
+	  <div class="right_top">留言</div>
+      <div style="padding:10px;">
+		
+      </div>
+    </div>
+  </div>   
+{HTML.footer}
+<!-- END: main -->

@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>imageCheck_zz</title>
+<!----- 1 ----->
+<script src="tools/ajax_zz.js" type="text/javascript" charset="utf-8"></script>
+<!----- 2 ----->
+<script>
+<!-- 
+function check(){
+	var cForm = document.postForm;	//form的名稱
+	var alertStr="";
+	var ajax_url ='tools/chucksum_xml.php';				//ajax網址
+	var ajax_data='&checksum='+ cForm.checksum.value;	//ajax參數
+	
+	var is_checksum = sendRequest(AjaxResult,ajax_data,"GET",ajax_url,false);
+	//callback
+	function AjaxResult(oj){
+		var xmldoc = oj.responseXML;
+		var root_node = xmldoc.getElementsByTagName('root').item(0);
+		switch(root_node.firstChild.data){
+			case "0":
+				alertStr +="認證碼錯誤!";
+				break;
+			case "1":
+				break;
+			case "2":
+				//IE可自動更新認證碼
+				if(navigator.appName == "Microsoft Internet Explorer"){	
+					imgRoll('chucksumImg','tools/chucksum.php');
+					alertStr +="已超出輸入時間，認證碼已更新，請輸入新的認證碼!";
+				}else{
+					alertStr +="已超出輸入時間，請重新載入頁面以更換新的認證碼!";
+				}
+				break;		
+		}
+	}
+	
+	if( alertStr != '' ){
+		alert( alertStr );
+		return false;
+	}else{
+		return true;
+	}
+}
+
+//=====變換圖片=====
+function imgRoll(imgName,imgSrc) {
+	imgOn = eval("imgSrc");
+	document[imgName].src = imgOn;
+}
+
+//===== 定時讀取,避免逾時 =====
+var time_num=0;
+var this_time='0:0:0';
+var time_retry_flag='';
+function time_retry(){
+	var cForm = document.postForm;						//form的名稱
+	var alertStr="";
+	var ajax_url ='tools/chucksum_xml.php';				//ajax網址
+	var ajax_data='&checksum='+ cForm.checksum.value;	//ajax參數	
+	if(time_num % 60 == 0){
+		var is_checksum = sendRequest(AjaxResult,ajax_data,"GET",ajax_url,false);
+	}
+	if(time_num % 60 == 5){
+		time_retry_flag ='';
+	}
+	time_num ++;
+	seconds = time_num % 60;
+	seconds =(seconds < 10)?"0"+ seconds:seconds;
+	minutes = Math.round((time_num-30) / 60) % 60;
+	minutes = (minutes < 10)?"0"+ minutes:minutes;
+	hours = Math.round((time_num-1800) / 3600);
+	hours = (hours < 10)?"0"+ hours:hours;
+	this_time = hours+":"+minutes+":"+seconds +"　"+ time_retry_flag;
+	clock.innerHTML = this_time;
+	setTimeout('time_retry()', 1000);
+	
+	function AjaxResult(oj){
+		var xmldoc = oj.responseXML;
+		var root_node = xmldoc.getElementsByTagName('root').item(0);
+		switch(root_node.firstChild.data){
+			case "0":
+			case "1":
+				time_retry_flag = ((time_num / 60) + 1) + "次網路確認連線:正常";
+				break;
+			case "2":
+				time_retry_flag = ((time_num / 60) + 1) + "次網路確認連線:異常";
+				//IE可自動更新認證碼
+				if(navigator.appName == "Microsoft Internet Explorer"){	
+					imgRoll('chucksumImg','tools/chucksum.php');
+					alertStr +="已超出輸入時間，認證碼已更新，請輸入新的認證碼!";
+				}else{
+					alertStr +="已超出輸入時間，請重新載入頁面以更換新的認證碼!";
+				}
+				break;		
+		}
+		return true;
+	}
+
+}
+setTimeout('time_retry()', 1000);
+// -->
+</script>
+</head>
+
+<body>
+<pre>
+// ABOUT
+// =======================================================
+// AJAX&PHP 影像確認碼範例 imageCheck_zz ver:0.7
+// made by zenon blue,December 2006
+// last modify 2007/07/25
+// http://bluezz.tw/c.php?id=458
+// service@bluezz.com.tw
+// =======================================================
+</pre>
+<!----- 3 ----->
+<form name="postForm" action="http://bluezz.tw/c.php?id=458" method="post" onSubmit="return check();">
+<input name="checksum" type="text" onKeyPress="if((event.keyCode>96)&&(event.keyCode<123))event.keyCode-=32;" size="10" maxlength="6" />
+停留時間：<span id='clock'></span><br />
+<img src="tools/chucksum.php" alt="更換一組認證碼" name="chucksumImg" border="1" style="cursor:hand" onclick="imgRoll('chucksumImg','tools/chucksum.php')" ><br />
+
+<input type="submit" value="送出" />
+</form>
+</body>
+</html>

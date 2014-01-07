@@ -1,0 +1,52 @@
+	<script src="./JSCal2-1.9/src/js/jscal2.js"></script>
+	<script src="./JSCal2-1.9/src/js/lang/cn.js"></script>
+	<link rel="stylesheet" type="text/css" href="./JSCal2-1.9/src/css/jscal2.css" />
+	<link rel="stylesheet" type="text/css" href="./JSCal2-1.9/src/css/border-radius.css" />
+	<link rel="stylesheet" type="text/css" href="./JSCal2-1.9/src/css/steel/steel.css" />	<script type="text/JavaScript">
+	<!--
+	function oc()
+	{
+		if (document.postOC.Product.value!='0'){
+			document.postOC.action="?<?=$cUrl?>&reservation_step1-1";
+			document.postOC.submit();
+		}
+	}
+	function od()
+	{
+		document.postOD.action="?<?=$cUrl?>&reservation_step1-2";
+		return true;
+	}
+	</script>
+	<table width="100%" class="simple_table display_table two_column">
+	<tr>
+	<form name="postOD" method="post" onsubmit="return od();">
+	<td width="215"><img src="img/title/r_title1.gif" alt="從住宿期間選房型或專案：" width="209" height="18"></td>
+	<td align="left">
+	  入住日期：&nbsp;<input size="10" name="f_date1" id="f_date1" readonly />      
+	  <img id="f_btn1" src="img/icon/icon_date.jpg" alt="icon_date" name="icon_date" width="23" height="20" border="0" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('icon_date','','img/icon/icon_date_t.jpg',1)" style="cursor:pointer;">&nbsp; &nbsp;
+	  天數：&nbsp;<select name="f_date2" id="f_date2"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select>
+	  <!--退房日期：&nbsp;<input size="10" name="f_date2" id="f_date2" readonly />
+	  <img id="f_btn2" src="img/icon/icon_date.jpg" alt="icon_date" name="icon_date" width="23" height="20" border="0" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('icon_date','','img/icon/icon_date_t.jpg',1)" style="cursor:pointer;">-->
+	  &nbsp; &nbsp;<input name="Sout" value="查詢" type="submit" />
+	</form>
+	</tr>
+	<tr>
+	<form name="postOC" method="post">
+	<td><img src="img/title/r_title2.gif" alt="從房型或專案選可訂日期：" width="209" height="17"></td>
+	<td><select name="Product" id="Product" onChange="oc();"><option value="0">請選取專案或房型</option><?php echo $list["room_match"]?></select></td>
+	</form>
+	</tr>
+	</table>
+	<div style="height:10px;"></div>
+	<script type="text/javascript">
+	//<![CDATA[
+	
+	  var cal = Calendar.setup({
+		  onSelect: function(cal) { cal.hide() },
+		  showTime: false
+	  });
+	  cal.manageFields("f_btn1", "f_date1", "%Y-%m-%d");
+	  /*cal.manageFields("f_btn2", "f_date2", "%Y-%m-%d");*/
+	
+	//]]>
+	</script>

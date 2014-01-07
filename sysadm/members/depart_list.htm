@@ -1,0 +1,94 @@
+<script type="text/javascript">
+<!--
+	var $ = function(i){return document.getElementById(i)}
+	function del()
+	{
+		var fm=document.getElementById("del_depart");
+		var checkbox=document.getElementsByTagName("input");
+		var del_which=document.getElementById("del_which");
+		var del="";
+		for (var i=0;i<checkbox.length;i++)
+		{
+			if (checkbox[i].type=="checkbox" && checkbox[i].checked==true)
+			{
+				del += checkbox[i].value + ",";
+			}
+		}
+		if (del=="")
+		{
+			alert("請選取欲刪除的身分");
+			return false;
+		}else{
+			if (confirm("確定刪除?"))
+			{
+				del_which.value=del;
+				fm.submit();
+			}
+		}
+	}
+	function edit(value)
+	{
+		$("edit_which").value = value;
+		$("edit_depart").submit();
+	}
+
+	function change_page(value)
+	{
+		$("change_page_form").now_page.value=value;
+		$("change_page_form").submit();
+	}
+
+-->
+</script>
+<!-- BEGIN: table -->
+<table border="0" cellspacing="0" cellpadding="3" width="100%">
+	<tr>
+		<td align="left">
+			<table border="0" cellspacing="0" cellpadding="0" width="100%">
+				<tr>
+					<td style="width:95px" >
+						<img border="0" src="../images/title_11.gif" width="95" height="80">
+					</td>
+					<td  nowrap background="../images/title01.gif" align="left"style=";background-repeat:repeat-x" >
+						<a href="index.php"><span style="font-family:Arial; font-size: 15px; color: #003399; font-weight: bold">帳號管理</span></a>
+						<span style="font-family:Arial; font-size: 15px; color: #003399; font-weight: bold">＞ 類別管理</span>
+					</td>
+					<td style="background-repeat:repeat-x;" background="../images/title01.gif">&nbsp;
+						
+					</td>
+					<td style="width:160px;text-align:right;background-repeat:repeat-x" background="../images/title01.gif">
+						<input type="image" src="../images/botton_return.gif" width="70" height="27" onClick="window.location.href='index.php'">
+						<input type="image" src="../images/button_add.gif" width="70" height="27" onClick="window.location.href='index.php?action=action&which=depart_add'" {add}>
+					</td>
+					<td style="background-repeat:repeat-x" background="../images/title01.gif" width="36" align="right" valign="top">
+						<img border="0" src="../images/title02.gif" width="36" height="80">
+					</td>
+				</tr>
+				<tr>
+					<td align="center" colspan="5" style="padding:1px">
+						<table border="0" cellspacing="1" cellpadding="3" width="99%" class="lvt small">
+							<tr>
+								<td class="lvtCol" align="center">刪除</td>
+								<td class="lvtCol" align="center" style="width:30px;">排序</td>
+								<td class="lvtCol" align="center" style="width:50px;">代號</td>
+								<td class="lvtCol" align="center">類別名稱</td>
+								<td class="lvtCol" align="center" width="15%">執行動作</td>
+							</tr>
+							{depart_list}
+						</table>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+<!-- END: table -->
+<form action="depart_delete.php" method="post" style="display:none" id="del_depart">
+	<input type="hidden" value="" id="del_which" name="del_which">
+</form>
+<form action="index.php?action=action&which=depart_edit" method="post" style="display:none" id="edit_depart">
+	<input type="hidden" value="" id="edit_which" name="edit_which">
+</form>
+<form action="depart_list.php" method="post" style="display:none" id="change_page_form">
+	<input type="hidden" value="" id="now_page" name="now_page">
+</form>

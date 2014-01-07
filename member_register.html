@@ -1,0 +1,203 @@
+<!-- BEGIN: main -->{HTML.header}
+<script type="text/JavaScript">
+<!--
+//XMLHttpRequest 
+var xmlhttp = false;
+try {
+	xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
+} catch (e) {
+	try {
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	} catch (e2) {
+		xmlhttp = false;
+	}
+}
+if (!xmlhttp && typeof XMLHttpRequest != 'undefined') {
+	xmlhttp = new XMLHttpRequest();
+}
+function Ajax(data){    
+	xmlhttp.open("GET","?{cUrl}&member_register&login_id="+escape(document.getElementById("login_id").value),true);
+	xmlhttp.send(null);
+
+	xmlhttp.onreadystatechange=function(){
+		if (4==xmlhttp.readyState){
+			if (200==xmlhttp.status){
+				document.getElementById("acc").value=xmlhttp.responseText;
+				if(xmlhttp.responseText=="1"){
+					document.getElementById("tip").innerHTML = "帳號重複申請";
+				}else{
+					document.getElementById("tip").innerHTML = "帳號可用";
+				}
+			}else{
+				alert("錯誤!");
+			}
+		}
+	}
+}
+function chkUserID(obj){
+	if(obj.value.length<1){
+		obj.style.backgroundColor="#efefef";
+		alert("請輸入帳號!");
+		obj.focus();
+	}else{
+		//调用Ajax函数,向服务器端发送查询
+		Ajax(obj.value);
+	}            
+
+}
+
+function check(){
+	fm = document.frm;
+	err_msg = "";
+
+	if(fm.login_id.value==""){
+		err_msg += "帳號　未填寫!!\n";
+	}
+
+	if(fm.acc.value=="1"){
+		err_msg += "帳號 重複申請!!\n";
+	}
+
+	if(fm.pwd.value==""){
+		err_msg += "密碼　未填寫!!\n";
+	}
+	else{
+		if(fm.login_id.value==fm.pwd.value){
+			err_msg += "密碼 和 帳號　不可相同!!\n";
+		}
+	}
+
+	if(fm.pwd_cue.value==""){
+		err_msg += "確認密碼　未填寫!!\n";
+	}
+
+	if(fm.pwd_cue.value!=fm.pwd.value){
+		err_msg += "密碼 和 確認密碼　需相同!!\n";
+	}
+	
+	if(fm.name.value==""){
+		err_msg += "姓名　未填寫!!\n";
+	}
+	
+	if(fm.bir_y.value == "" || fm.bir_m.value == "" || fm.bir_d.value == ""){
+		err_msg += "出生日期　未填寫!!\n";
+	}
+	
+	if(fm.tel.value==""){
+		err_msg += "連絡電話　未填寫!!\n";
+	}
+
+	if(fm.mobile.value==""){
+		err_msg += "行動電話　未填寫!!\n";
+	}
+
+	if(fm.email.value==""){
+		err_msg += "E-Mail　未填寫!!\n";
+	}
+
+	if(fm.address.value==""){
+		err_msg += "聯絡地址 : 地址 未填寫!!\n";
+	}
+	
+	if(err_msg!="")
+	{
+		alert(err_msg);
+		return false;
+	}
+	else
+	{
+		if(confirm('確定以上資料正確？'))
+		{
+			fm.action = "funcs.php";
+			fm.submit();
+			return true;
+		}else return false;
+	}
+}
+//-->
+</script>
+<div id="top" class="grid_12">
+	{HTML.banner}
+</div>
+<div class="grid_3">
+	{HTML.menu}
+</div>
+<div class="grid_9">
+<a href="?{cUrl}&amp;index">首頁</a> > <a href="?{cUrl}&amp;member">會員中心</a> > 會員註冊
+  <div class="title1">會員中心</div>
+<h2>》會員註冊</h2>
+    <form name="frm" method="post" onsubmit="return check();">
+	<input type="hidden" name="act" id="act" value="regist">
+	<input type="hidden" name="acc" id="acc" value="">
+	<table border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td>帳　　號：</td>
+        <td><input name="login_id" type="text" id="login_id" onblur="chkUserID(this)" />&nbsp;<label id="tip"></td>
+      </tr>
+      <tr>
+        <td>密　　碼： </td>
+        <td><input name="pwd" type="password" id="pwd" />
+        <br />
+        <span class="gray">請輸入5至16個字元的小寫英文字母或數字，但不含空白鍵及特殊符號。</span></td>
+      </tr>
+      <tr>
+        <td>確認密碼：</td>
+        <td><input name="pwd_cue" type="password" id="pwd_cue" /></td>
+      </tr>
+	</table>
+	<div style="border-top:1px #999999 dashed; width:70%; margin:10px 0 10px 0;"></div>
+	<table>
+      <tr>
+        <td>姓　　名：</td>
+        <td><input name="name" type="type" id="name" />
+          <label for="select"></label>
+          <select name="sex" id="sex">
+            <option value="1" selected="selected">先生</option>
+            <option value="0">小姐</option>
+        </select></td>
+      </tr>
+      <tr>
+        <td>出生日期：</td>
+        <td>西元
+          <select name="bir_y" id="bir_y">
+            <option selected="selected"></option>
+			{content_list.birthday_Year}
+          </select>
+		年
+		<label for="select3"></label>
+		<select name="bir_m" id="bir_m">
+		  <option selected="selected"></option>
+		  {content_list.birthday_Month}
+		</select>
+		月
+		<select name="bir_d" id="bir_d">
+		  <option selected="selected"></option>
+		  {content_list.birthday_Day}
+		</select>
+		日</td>
+      </tr>
+      <tr>
+        <td>聯絡電話：</td>
+        <td><input name="tel" id="tel" type="text" /></td>
+      </tr>
+      <tr>
+        <td>行動電話：</td>
+        <td><input name="mobile" id="mobile" type="text" /></td>
+      </tr>
+      <tr>
+        <td>E m a i l ：</td>
+        <td><input name="email" id="email" type="text" size="45" /></td>
+      </tr>
+      <tr>
+        <td>聯絡地址：</td>
+        <td><input name="address" id="address" type="text" size="45" /></td>
+      </tr>
+  </table>
+  <div style="border-top:1px #999999 dashed; width:70%; margin:10px 0 10px 0;"></div>
+  <input name="SendReg" id="SendReg" type="submit" value="確認註冊" />
+  </form>
+    <br />
+<div class="login_box1"></div>
+</div>
+{HTML.footer}
+<!-- END: main -->

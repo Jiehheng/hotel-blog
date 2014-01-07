@@ -1,0 +1,31 @@
+<!-- BEGIN: main -->{HTML.header}
+  <div id="top" class="grid_12">
+    {HTML.banner}
+  </div>
+  <div class="grid_3">
+	{HTML.menu}
+  </div>
+<div class="grid_9">
+  {HTML.checkin}
+  <div id="TabbedPanels1" class="TabbedPanels">
+  <ul class="TabbedPanelsTabGroup">
+    <li class="TabbedPanelsTab" tabindex="0" onfocus="if(this.blur)this.blur()">飯店設施</li>
+    <li class="TabbedPanelsTab" tabindex="0" onfocus="if(this.blur)this.blur()">餐廳介紹</li>      
+</ul>
+  <div class="TabbedPanelsContentGroup">
+    <div class="TabbedPanelsContent">
+       {content_list.text1}
+    </div>
+    <div class="TabbedPanelsContent">
+       {content_list.text2}
+    </div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+<!--
+var TabbedPanels1 = new Spry.Widget.TabbedPanels("TabbedPanels1");
+//-->
+</script>
+{HTML.footer}
+<!-- END: main -->

@@ -1,0 +1,89 @@
+<script type="text/javascript">
+	var $ = function(i){return document.getElementById(i)}
+	<!--
+	function edit(value)
+	{
+		$("edit_which").value=value;
+		$("edit_form").submit();
+	}
+	function del()
+	{
+		var fm=document.getElementById("delete_form");
+		var checkbox=document.getElementsByTagName("input");
+		var delete_which=document.getElementById("delete_which");
+		var del="";
+		for (var i=0;i<checkbox.length;i++)
+		{
+			if (checkbox[i].type=="checkbox" && checkbox[i].checked==true)
+			{
+				del += checkbox[i].value + ",";
+			}
+		}
+		if (del=="")
+		{
+			alert("請選取欲刪除的群組");
+			return false;
+		}else{
+			if (confirm("確定刪除?"))
+			{
+				delete_which.value=del;
+				fm.submit();
+			}
+		}
+	}
+	function change_page(value)
+	{
+		$("change_page_form").now_page.value=value;
+		$("change_page_form").submit();
+	}
+	-->
+</script>
+<!-- BEGIN: table -->
+<table border="0" cellspacing="0" cellpadding="3" width="100%">
+	<tr>
+		<td>
+			<table border="0" cellspacing="0" cellpadding="0" width="100%">
+				<tr>
+					<td style="width:95px" >
+						<img border="0" src="../images/title_11.gif" width="95" height="80">
+					</td>
+					<td  nowrap background="../images/title01.gif" align="left"style=";background-repeat:repeat-x" >
+						<a href="../account/index.php"><span style="font-family:Arial; font-size: 15px; color: #003399; font-weight: bold">帳號管理</span></a>
+						<span style="font-family:Arial; font-size: 15px; color: #003399; font-weight: bold">＞ 權限管理</span>
+					</td>
+					<td style="background-repeat:repeat-x" background="../images/title01.gif">&nbsp;</td>
+					<td style="width:160px;text-align:right;background-repeat:repeat-x" background="../images/title01.gif">
+						<input type="image" src="../images/botton_return.gif" width="70" height="27" onClick="window.location.href='../account/index.php'">
+						<input type="image" src="../images/button_add.gif" width="70" height="27" onClick="window.location.href='index.php?action=action&which=add'" {add}>
+					</td>
+					<td style=";background-repeat:no-repeat" background="../images/title01.gif" width="36" align="right" valign="top">
+						<img border="0" src="../images/title02.gif" width="36" height="80"></td>
+				</tr>							
+				<tr>
+					<td align="center" colspan="5" style="padding:5px">
+						<table border="0" cellspacing="1" cellpadding="3" width="100%" class="lvt small">
+							<tr>
+								<td class="lvtCol" align="center" style="width:80px;">刪除</td>
+								<td class="lvtCol" align="center"style="width:80px;">群組名稱</td>
+								<td class="lvtCol" align="center" >權限</td>
+								<td class="lvtCol" align="center"style="width:90px;">執行動作</td>
+							</tr>
+							{authority_list}
+						</table>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+<!-- END: table -->
+<form method="POST" action="index.php?action=action&which=edit" style="display:none" id="edit_form" name="edit_form">
+	<input type="hidden" value="" id="edit_which" name="edit_which">
+</form>
+<form method="POST" action="delete.php" style="display:none" id="delete_form" name="delete_form">
+	<input type="hidden" value="" id="delete_which" name="delete_which">
+</form>
+<form action="index.php" method="post" style="display:none" id="change_page_form">
+	<input type="hidden" value="" id="now_page" name="now_page">
+</form>
+</html>

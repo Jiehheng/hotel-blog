@@ -1,0 +1,110 @@
+<!-- BEGIN: main -->{HTML.header}
+
+<script type="text/javascript">
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+function check_keydown(){ 	//判斷資料是否有打
+
+	fm = document.postJoin;
+	err_msg = "";
+
+	if(fm.City.value == "00"){ err_msg += "所在城市　未選取!!\n"; }
+	if(fm.Name.value==""){ err_msg += "飯店名稱　未填寫!!\n"; }
+	if(fm.Addr.value==""){ err_msg += "地址　未填寫!!\n"; }
+	if(fm.Tele.value==""){ err_msg += "電話　未填寫!!\n"; }
+	if(fm.Contacter.value==""){ err_msg += "聯絡人　未填寫!!\n"; }
+	if(fm.Email.value==""){ err_msg += "聯絡信箱　未填寫!!\n"; }
+	if(!fm.License[0].checked && !fm.License[1].checked) { err_msg += "旅館執照 未選擇\n"; }
+	if(fm.Subject.value==""){ err_msg += "主題 未填寫!!\n"; }
+	if(fm.Content.value==""){ err_msg += "內容 未輸入!!\n"; }
+	if(err_msg!="") { alert(err_msg); return false; }else{
+		if(confirm('確定以上資料正確？')){
+			fm.action = "funcs.php";
+			fm.submit();
+			return true;
+		}else return false;
+	}
+}
+</script>
+<div class="join">
+	<img src="img/wowLOGO.png" alt="玩很大" /><br><br>
+    <img src="img/title/title_wow.png" alt="我的旅遊我決定" /><br><br>
+
+    <a href="?{cUrl}" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image1','','img/button/map_2.jpg',1)"><img src="img/button/map_1.jpg" alt="map" name="Image1" border="0" id="Image1" /></a>
+        <div class="join_text">
+        	<span class="font18pxblue">玩很大旅遊網</span>
+        	<span class="font14px">以為旅客提供『專業之旅遊資訊平台、全方位線上訂房』為定位，以最新web3.0網路技術為本位，規劃出較傳統旅網更具客製化、直覺化、簡便化的網路訂房流程，追求讓旅客『一指搞定旅遊事』的目標！玩很大旅遊網並將持續開發一條龍式的旅遊廣性及深度，緊貼著當代旅遊潮流及需要，開發更多在地旅遊、商旅、展覽、演唱會、交通服務、地區性文化盛會相關資訊與門票...等組合性旅遊商品及服務，滿足團體、個性化、體驗式旅遊的多重需要！旅遊追求的就是歡樂的回憶，玩很大旅遊網將旅遊的隨意自性和合理消費還給旅客，唯有符合便利安全、隨性自主的旅遊模式，才能期待帶給旅客真正享受的CheerTour！
+            </span>
+	</div>
+        
+        
+        <span class="font30px">訂購到付款 一指搞定旅遊事！</span><br>
+        
+        <span class="font18px">1. 全台鄉縣市，多元旅館分類、完整訂房網絡</span>
+        <p class="font14pxgray">包含台北、桃園、新竹、台中、南投、台南、高雄、屏東、台東、花蓮、宜蘭及澎湖外島..等地，飯店旅館民宿介紹與行程建議！
+        國內飯店、酒店、汽車旅館、精品商旅、民宿、日租屋住宿訂房，各類住宿、遊樂園票券（獨家開發 演唱會門票），並提供各類交通、氣象、購票資訊！
+        </p>
+        
+        <span class="font18px">2. 即時豐富的促銷活動、會員回饋，旅遊不一定花大錢</span>
+        <p class="font14pxgray">幫助您快速找到適合的差旅、渡假、展覽、主題飯店、景點遊程！ 
+		給您時下最熱門、最低價、即時訂房、庫存房..等，超多優惠訂房專案，並同時完成即時比價！ 
+            <span class="font14pxblue">強大豐富超值的會員福利，讓旅遊不一定有花費！累積消費越多、折扣越多！
+            </span>
+        </p>
+        
+        <span class="font18px">3. 專屬客服管家-專問專答，提供協助</span>
+        <p class="font14pxgray">玩很大旅遊網的訂房服務到付費完成，全程即時並以簡訊通知交易狀況及電郵交付您收據、訂單、入住證明。
+			<span class="font14pxblue">玩很大旅遊網更重視您的問題諮詢，收到您來信詢問，我們將立即指派專屬您的客服管家，3小時以內就能回覆您的問題，並協助您完成後續作業！
+            </span>
+        </p>
+        
+        <span class="font18px">4. 國際標準之線上付費安全系統，金流個資不外流</span>
+        <p class="font14pxgray">玩很大旅遊網提供多樣化且安全的跨國性線上付費方式，我們接受各種普遍性國際信用卡、大陸地區的銀聯卡、信用卡及支付寶於線上即時付費，讓旅客以自己方便的方式完成付款！
+		所有本網站上之交易傳輸資料均經過加密保護。金流個資則是透過電子系統交付銀行端審核並完成付款，玩很大旅遊網並不保留旅客之金流個資，讓旅客享有最安全的線上付費方式。
+        </p><br>
+
+    <span class="font24px">飯店加盟申請</span><br />
+    
+    <form name="postJoin" method="post" onSubmit="return check_keydown();">
+    <input type="hidden" name="act" id="act" value="hotel_join" >
+        <p class="font14px">
+        所在城市：<select name="City" id="City">
+          <option value="00">選擇城市</option>
+          {content_list.area}
+        </select><br />
+        飯店名稱：<input name="Name" id="Name" type="text" size="30" /><br />
+        地　　址：<input name="Addr" id="Addr" type="text" size="30" /><br />
+        電　　話：<input name="Tele" id="Tele" type="text" size="30" /><br />
+        聯&nbsp; 絡&nbsp; 人：<input name="Contacter" id="Contacter" type="text" size="30" />
+		聯絡信箱：<input name="Email" id="Email" type="text" size="30" />
+		<hr style="border-top:1px dotted #666666; width:60%">
+        是否有旅館執照： 有<input name="License" id="License" type="radio" value="1" />  
+        無<input name="License" id="License" type="radio" value="0" /><br />
+        主　　題：<input name="Subject" id="Subject" type="text" size="30" />
+        <br />
+        內　　容：<textarea name="Content" id="Content" cols="35" rows="5"></textarea><br />
+		<input type="submit" class="btn_2" value="申請加盟" style="cursor:pointer;" />
+        </p>
+    </form>
+    
+</div>
+<!-- END: main -->

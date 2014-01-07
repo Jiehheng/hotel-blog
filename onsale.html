@@ -1,0 +1,48 @@
+<!-- BEGIN: main -->{HTML.header}
+<div id="top" class="grid_12">
+	{HTML.banner}
+</div>
+<div class="grid_3">
+	{HTML.menu}
+</div>
+<div class="grid_9">
+	{HTML.checkin}
+	<!-- BEGIN:Circle -->
+	<table border="0" align="center" cellpadding="5" cellspacing="0" class="mytable">
+	<tr>
+	<td align="center" class="mytrbg"><h3>{content_circle.subject}</a></h3>
+	{content_circle.subject2}</td>
+	<td align="center" class="mytrbg"><span class="red2">促銷價{content_circle.uprice}元</span>&nbsp; 定價：{content_circle.sprice}</td>
+	<td align="center" class="mytrbg"><samp class="style2"><a href="?{cUrl}&amp;reservation">查詢房價與空房</a></samp></td>
+	</tr>
+	<tr class="mytr">
+	<td valign="top" class="mytd1">
+	<div class="photo5">
+	<div class="photo2"><img src="img/hotel_photo.jpg" width="225" height="155" alt="hotel_photo"></div>
+	<img src="img/hotel_photo.jpg" width="70" height="50" alt="hotel_photo">
+	<img src="img/hotel_photo.jpg" width="70" height="50" alt="hotel_photo">
+	<img src="img/hotel_photo.jpg" width="70" height="50" alt="hotel_photo">	</div>	</td>
+	<td valign="top" class="mytd1">
+	<label for="textarea"></label>
+	{content_circle.c1}
+	</td>
+	<td class="mytd2">訂購：
+		  <label for="select4"></label>
+		  <select name="select" id="select4">
+			<option selected>0</option>
+			<option>1</option>
+			<option>2</option>
+			<option>3</option>
+			<option>4</option>
+			<option>5</option>
+		  </select>
+	間房間</td>
+	</tr>
+	<tr class="mytr">
+	  <td colspan="3" valign="top" class="mytd1" style=" padding:3px;text-align:center">{content_circle.area2}</td>
+	  </tr>
+	</table>
+	<!-- END:Circle -->
+</div>
+{HTML.footer}
+<!-- END: main -->

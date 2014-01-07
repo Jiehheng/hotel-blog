@@ -1,0 +1,156 @@
+				<html xmlns:o="urn:schemas-microsoft-com:office:office"
+				xmlns:x="urn:schemas-microsoft-com:office:excel"
+				xmlns="http://www.w3.org/TR/REC-html40">
+
+				<head>
+				<meta http-equiv=Content-Type content="text/html; charset=big5">
+				<meta name=ProgId content=Excel.Sheet>
+				<!--[if gte mso 9]><xml>
+				 <o:DocumentProperties>
+				  <o:LastAuthor>Sriram</o:LastAuthor>
+				  <o:LastSaved>2005-01-02T07:46:23Z</o:LastSaved>
+				  <o:Version>10.2625</o:Version>
+				 </o:DocumentProperties>
+				 <o:OfficeDocumentSettings>
+				  <o:DownloadComponents/>
+				 </o:OfficeDocumentSettings>
+				</xml><![endif]-->
+				<style>
+				<!--table
+					{mso-displayed-decimal-separator:"\.";
+					mso-displayed-thousand-separator:"\,";}
+				@page
+					{margin:1.0in .75in 1.0in .75in;
+					mso-header-margin:.5in;
+					mso-footer-margin:.5in;}
+				tr
+					{mso-height-source:auto;}
+				col
+					{mso-width-source:auto;}
+				br
+					{mso-data-placement:same-cell;}
+				.style0
+					{mso-number-format:General;
+					text-align:general;
+					vertical-align:bottom;
+					white-space:nowrap;
+					mso-rotate:0;
+					mso-background-source:auto;
+					mso-pattern:auto;
+					color:windowtext;
+					font-size:10.0pt;
+					font-weight:400;
+					font-style:normal;
+					text-decoration:none;
+					font-family:Arial;
+					mso-generic-font-family:auto;
+					mso-font-charset:0;
+					border:none;
+					mso-protection:locked visible;
+					mso-style-name:Normal;
+					mso-style-id:0;}
+				td
+					{mso-style-parent:style0;
+					padding-top:1px;
+					padding-right:1px;
+					padding-left:1px;
+					mso-ignore:padding;
+					color:windowtext;
+					font-size:10.0pt;
+					font-weight:400;
+					font-style:normal;
+					text-decoration:none;
+					font-family:Arial;
+					mso-generic-font-family:auto;
+					mso-font-charset:0;
+					mso-number-format:General;
+					text-align:general;
+					vertical-align:bottom;
+					border:none;
+					mso-background-source:auto;
+					mso-pattern:auto;
+					mso-protection:locked visible;
+					white-space:nowrap;
+					mso-rotate:0;}
+				.xl24
+					{mso-style-parent:style0;
+					white-space:normal;}
+				-->
+				</style>
+				<!--[if gte mso 9]><xml>
+				 <x:ExcelWorkbook>
+				  <x:ExcelWorksheets>
+				   <x:ExcelWorksheet>
+					<x:Name>srirmam</x:Name>
+					<x:WorksheetOptions>
+					 <x:Selected/>
+					 <x:ProtectContents>False</x:ProtectContents>
+					 <x:ProtectObjects>False</x:ProtectObjects>
+					 <x:ProtectScenarios>False</x:ProtectScenarios>
+					</x:WorksheetOptions>
+				   </x:ExcelWorksheet>
+				  </x:ExcelWorksheets>
+				  <x:WindowHeight>10005</x:WindowHeight>
+				  <x:WindowWidth>10005</x:WindowWidth>
+				  <x:WindowTopX>120</x:WindowTopX>
+				  <x:WindowTopY>135</x:WindowTopY>
+				  <x:ProtectStructure>False</x:ProtectStructure>
+				  <x:ProtectWindows>False</x:ProtectWindows>
+				 </x:ExcelWorkbook>
+				</xml><![endif]-->
+				</head>
+
+				<body link=blue vlink=purple>
+				<table x:str border=0 cellpadding=0 cellspacing=0 style='border-collapse: collapse;table-layout:fixed;'><tr><td class=xl24 width=64 >系統檢測報告</td></tr><tr><td class=xl24 width=64 >案件名稱：</td><td class=xl24 width=64 >212_高雄市立空中大學_全球資訊網規劃建置案</td></tr><tr><td class=xl24 width=64 >日期：</td><td class=xl24 width=64 >2009-12-29 14:36:46</td></tr><tr><td class=xl24 width=64 >編號</td><td class=xl24 width=64 >問題分類</td><td class=xl24 width=64 >問題內容</td><td class=xl24 width=64 >發問時間</td><td class=xl24 width=64 >回覆內容</td><td class=xl24 width=64 >回覆時間</td><td class=xl24 width=64 >回覆人員</td><td class=xl24 width=64 >回覆狀況</td><td class=xl24 width=64 >備註</td></tr><tr><td class=xl24 width=64 >1</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >在學術單位之討論區，「設定暱稱」目前只能設定1組暱稱，<br />
+煩請修改為可設定多組暱稱，謝謝。<br />
+</td><td class=xl24 width=64 >2009-12-09 17:35:18</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >2</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >目前「網頁生成權限」只能設定1個單位之權限，無法設定多個單位之之權限。<br />
+1個人之「網頁生成權限」可設定多個單位之之權限，煩請修改，謝謝。<br />
+</td><td class=xl24 width=64 >2009-12-10 19:06:32</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >3</td><td class=xl24 width=64 >頁面問題</td><td class=xl24 width=64 >外文系「歷屆課程，補充舊網站資料」，煩請廠商再編輯補充，謝謝。<br />
+<br />
+問題一：目前外文系網站之「首頁 &gt; 課程規劃 &gt; 歷屆課程」只列出「英文組課程」6科，舊網站之英文組有20科，煩請廠商再編輯補充14科。<br />
+<br />
+問題二：目前外文系網站之「首頁 &gt; 課程規劃 &gt; 歷屆課程」未列出「日文組課程」，舊網站之英文組約有6科，煩請廠商再編輯補充6科。<br />
+<br />
+問題三：已完成更新。<br />
+</td><td class=xl24 width=64 >2009-12-11 11:08:29</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >4</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >中文版 &gt; 電子報管理 &gt; 城市智庫電子報發行管理 &gt; 編輯<br />
+<br />
+兩旁超鏈結的功能(設定高市府最新頭條(最多 6 筆)，目前已設定3筆)，但在預覽時卻沒有看見兩旁超鏈結的部份(目前已設定3筆)，煩請修改，謝謝。<br />
+</td><td class=xl24 width=64 >2009-12-23 18:02:23</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >5</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >中文版 &gt; 電子報管理 &gt; 城市智庫電子報發行管理 &gt; 編輯<br />
+<br />
+煩請增加可顯示或關閉「兩旁超鏈結的功能(設定高市府最新頭條(最多 6 筆)，目前已設定3筆) 」，謝謝。<br />
+</td><td class=xl24 width=64 >2009-12-24 16:07:23</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >6</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >中文版 &gt; 電子報管理 &gt; 城市智庫電子報發行管理 &gt; 編輯 <br />
+<br />
+兩旁超鏈結的部份也要有多個類別，目前只有「設定高市府最新頭條(最多 6 筆)」一種類別，還要有其他類別，因為未來類別數量不定，煩請可自訂增加類別，謝謝。<br />
+<br />
+<br />
+電子報<br />
+2.兩旁超鏈結的部份也要有多個項目，目前只有高市府最新頭條一種類別，還要有其他項目，因為未來項目數不定，另外就是各項目的的內容要能修改不能是固定的，因為有可能會有變動。<br />
+</td><td class=xl24 width=64 >2009-12-28 11:10:13</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >7</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >電子報之發送內容(例如：第32期)，只有「我要訂閱」的功能，卻沒有「取消訂閱」的功能(但中文版首頁有「我要取消」之功能)。<br />
+煩請在電子報之發送內容上，增加「我要取消」之功能，謝謝。<br />
+</td><td class=xl24 width=64 >2009-12-28 11:39:31</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >8</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >子網之最新消息(新增)，<br />
+<br />
+電算中心 &gt; 最新消息 &gt; 新增<br />
+<br />
+發佈日期：請設定今日(含)以後，不可點選昨天(含)以前之日期，避免有人逾期後再張貼「最新消息」，謝謝。<br />
+</td><td class=xl24 width=64 >2009-12-28 17:33:54</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >9</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >子網之最新消息(新增)，<br />
+<br />
+電算中心 &gt; 最新消息 &gt; 新增<br />
+<br />
+「發佈日期」後，「預設：1個月」前，請增加：「發佈後有效期限」字眼，以利瞭解，謝謝。<br />
+</td><td class=xl24 width=64 >2009-12-28 17:38:04</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >10</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >高雄市立空中大學 諮詢信件委派處理通知函<br />
+點選「回覆此諮詢」，出現以下畫面，其中最後一行，<br />
+煩請增加1個按鈕，變成3個按鈕，<br />
+第1個按鈕之文字請修改為：儲存後不回覆。<br />
+其餘2個按鈕照舊，<br />
+並刪除「儲存後立即發送回覆信件(未勾選則只儲存不回信)」，避免忘記打勾，謝謝。<br />
+<br />
+</td><td class=xl24 width=64 >2009-12-28 18:03:07</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >11</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >中文版 &gt; 電子報管理 &gt; 電子報訂閱管理 <br />
+點選「匯入CSV」，出現錯誤訊息，煩請修改，謝謝。<br />
+</td><td class=xl24 width=64 >2009-12-29 10:12:21</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >12</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >消耗品預約管理系統 &gt; 物品領用管理 &gt; 編輯<br />
+<br />
+本校秘書處嚴處長提出需求：<br />
+「如果消耗品預約申請人，上網預約太多東西的話，秘書處承辦人先列印出「消耗品領用單」，<br />
+承辦人如發現數量、項目較多時，陳 秘書處嚴處長核示，秘書處嚴處長於「消耗品領用單」上修改數量後，<br />
+再交由秘書處承辦人上網修改「核可數量」(如刪除該項，可修改數量為：0，如數量太多，可修改較少的數量)，<br />
+煩請  廠商增加「核可數量」欄位，並可修改「核可數量」，謝謝。<br />
+</td><td class=xl24 width=64 >2009-12-29 11:21:53</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr></table></body></html>

@@ -1,0 +1,177 @@
+<!-- BEGIN: main -->{HTML.header}
+  <div id="top" class="grid_12">
+    {HTML.banner}
+  </div>
+  <div class="grid_3">
+	{HTML.menu}
+  </div>
+  <div class="grid_9">
+    <table width="100%">
+      <tr>
+    <td rowspan="2"><img src="img/icon/step1_1.gif" width="32" height="33" alt="1" /></td>
+    <td><span class="gray2">Step 1</span></td>
+    <td rowspan="2"><img src="img/icon/step1_2.gif" width="32" height="33" alt="2" /></td>
+    <td><span class="gray2">Step 2</span></td>
+    <td rowspan="2"><img src="img/icon/step1_3.gif" width="32" height="33" /></td>
+    <td><span class="gray2">Step 3</span></td>
+    <td rowspan="2"><img src="img/icon/step2_4.gif" width="32" height="33" alt="4" /></td>
+    <td><span class="gray2">Step 4</span></td>
+    <td rowspan="2"><img src="img/icon/step1_5.gif" width="32" height="33" alt="5" /></td>
+    <td><span class="gray2">Step 5</span></td>
+    </tr>
+  <tr>
+    <td><span class="gray">選擇訂房內容</span></td>
+    <td><span class="gray">訂房明細確認</span></td>
+    <td><span class="gray">填寫聯絡資料</span></td>
+    <td><span class="brown">付款方式選擇</span></td>
+    <td><span class="gray">訂房完成</span></td>
+    </tr>
+</table>
+<div class="title1">步驟4：訂房資料確認</div>
+<h2>》已選擇住房日期</h2>
+<table border="0" align="center" cellpadding="0" cellspacing="0" class="mytable">
+  <tr>
+    <td width="35" class="mytrbg1"><span class="brown">飯店名稱：</span></td>
+    <td width="227" class="mytd1"><label for="textfield5"><span class="brown">沐戀商旅 </span></label></td>
+  </tr>
+  <tr>
+    <td class="mytrbg1"><span class="brown">所在城市：</span></td>
+    <td class="mytd1"><span class="brown">台灣 高雄 三民區</span></td>
+  </tr>
+</table>
+<div class="reservation1">
+  <table border="0" align="center" class="mytable">
+	<tr>
+	<td class="mytrbg" style="padding:0px; margin:0px; text-align:center">住宿日期	房型／促銷活動	</td>
+	<td class="mytrbg" style="padding:0px; margin:0px; text-align:center">入住日期</td>
+	<td class="mytrbg" style="padding:0px; margin:0px; text-align:center">退房日期</td>
+	<td class="mytrbg" style="padding:0px; margin:0px; text-align:center">天數 </td>
+	<td class="mytrbg" style="padding:0px; margin:0px; text-align:center">間數 </td>
+	<td class="mytrbg" style="padding-right:8px; margin:0px; text-align:right">當日價格</td>
+	<td class="mytrbg" style="padding-right:8px; margin:0px; text-align:right">小計</td>
+	</tr>
+	{content_list.tr}
+  </table>
+</div>
+<h2>》訂房者聯絡資料</h2>
+<table border="0" align="center" cellpadding="0" cellspacing="0" class="mytable">
+  <tr>
+    <td class="mytrbg1">*姓名：</td>
+    <td width="500" class="mytd1"><label for="textfield3">{content_list.Order.name}</label></td>
+  </tr>
+  <tr>
+    <td class="mytrbg1">*身分證字號：</td>
+    <td class="mytd1">{content_list.Order.sid}</td>
+  </tr>
+  <tr>
+    <td class="mytrbg1">*連絡e-mail：</td>
+    <td width="500" class="mytd1">{content_list.Order.email}</td>
+  </tr>
+  <tr>
+    <td class="mytrbg1">*連絡電話：</td>
+    <td class="mytd1">{content_list.Order.tel}</td>
+  </tr>
+  <tr>
+    <td class="mytrbg1">*手機號碼：</td>
+    <td class="mytd1">{content_list.Order.phone}</td>
+  </tr>
+  <tr>
+    <td class="mytrbg1">傳真電話：</td>
+    <td class="mytd1">{content_list.Order.fax}</td>
+  </tr>
+  <tr>
+    <td class="mytrbg1">*住址：</td>
+    <td class="mytd1">{content_list.Order.addr}</td>
+  </tr>
+</table>
+住房者連絡資料
+<table border="0" align="center" cellpadding="0" cellspacing="0" class="mytable">
+  <tr>
+    <td class="mytrbg1">住房者姓名：</td>
+    <td width="500" class="mytd1"><label for="textfield2">{content_list.Liver.name}</label></td>
+  </tr>
+  <tr>
+    <td class="mytrbg1">身分證字號：</td>
+    <td class="mytd1">{content_list.Liver.sid}</td>
+  </tr>
+  <tr>
+    <td class="mytrbg1">連絡電話：</td>
+    <td class="mytd1">{content_list.Liver.tel}</td>
+  </tr>
+  <tr>
+    <td class="mytrbg1">手機號碼：</td>
+    <td class="mytd1">{content_list.Liver.phone}</td>
+  </tr>
+  <tr>
+    <td class="mytrbg1">傳真電話：</td>
+    <td class="mytd1">{content_list.Liver.fax}</td>
+  </tr>
+</table>
+付款者連絡資料
+<br />
+<table border="0" align="center" cellpadding="0" cellspacing="0" class="mytable">
+  <tr>
+    <td class="mytrbg1">付款者姓名：</td>
+    <td width="500" class="mytd1"><label for="textfield4">{content_list.Payer.name}</label></td>
+  </tr>
+  <tr>
+    <td class="mytrbg1">身分證字號：</td>
+    <td class="mytd1">{content_list.Payer.sid}</td>
+  </tr>
+  <tr>
+    <td class="mytrbg1">聯絡電話：</td>
+    <td class="mytd1">{content_list.Payer.tel}</td>
+  </tr>
+  <tr>
+    <td class="mytrbg1">傳真電話：</td>
+    <td class="mytd1">{content_list.Payer.fax}</td>
+  </tr>
+  <tr>
+    <td class="mytrbg1">開立代付收據之公司名稱：</td>
+    <td class="mytd1">{content_list.Payer.company}</td>
+  </tr>
+  <tr>
+    <td class="mytrbg1">統編：</td>
+    <td class="mytd1">{content_list.Payer.cid}</td>
+  </tr>
+  <tr>
+    <td class="mytrbg1">寄送地址：</td>
+    <td class="mytd1">{content_list.Payer.address}</td>
+  </tr>
+</table>
+<table border="0" align="center" cellpadding="0" cellspacing="0" class="mytable">
+  <tr>
+    <td class="mytrbg1">留言給飯店：</td>
+    <td width="500" class="mytd1"><label for="textarea">{content_list.Payer.question}</label></td>
+  </tr>
+</table>
+<h2>》進行線上刷卡</h2>
+  
+</p>
+<div class="reservation1">
+  <form name="pay" method="post" action="{content_list.submit}">
+  <input type="hidden" name="version" value="2.1">
+  <input type="hidden" name="mid" value="{content_list.Credit.mid}">
+  <input type="hidden" name="txid" value="{content_list.Credit.txid}">
+  <input type="hidden" name="mode" value="{content_list.Credit.mode}">
+  <input type="hidden" name="select_paymethod" value="{content_list.Credit.select_paymethod}">
+  <!--<input type="hidden" name="prefer_paymethod" value="1">-->
+  <input type="hidden" name="iid" value="{content_list.Credit.iid}">
+  <input type="hidden" name="amount" value="{content_list.Credit.amount}">
+  <input type="hidden" name="verify" value="{content_list.Credit.verify}">
+  <input type="hidden" name="return_url" value="{content_list.Credit.return_url}">
+  <input type="hidden" name="cname" value="{content_list.Credit.cname}">
+  <input type="hidden" name="caddress" value="{content_list.Credit.caddress}">
+  <input type="hidden" name="ctel" value="{content_list.Credit.ctel}">
+  <input type="hidden" name="cemail" value="{content_list.Credit.cemail}">
+  <input type="hidden" name="language" value="tchinese">
+  <input type="hidden" name="encoding" value="utf-8">
+  <input type="hidden" name="charset" value="utf-8">
+  <input type="button" onclick="javascript:location.href='?{cUrl}&reservation_step3'" value="重填聯絡資料" />
+  <input type="submit" value="信用卡結帳" />
+  </form>
+  <br /><br />
+本系統利用第三方金融平台進行支付！<br />絕不讓您在本網站保留任何個人信用卡相關情資.</div>
+  </div>   
+{HTML.footer}
+<!-- END: main -->

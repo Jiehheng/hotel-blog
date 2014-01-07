@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+<meta charset="utf-8" />
+<title><?=$cUrl_Name?> - 旅網Blog</title>
+<link rel="stylesheet" href="css/reset.css" />
+<link rel="stylesheet" href="css/text.css" />
+<link rel="stylesheet" href="css/960_12_col.css" />
+<link rel="stylesheet" href="css/style.css" />
+<script src="Scripts/mm.js" type="text/javascript"></script>
+<script src="SpryAssets/SpryTabbedPanels.js" type="text/javascript"></script>
+<link href="SpryAssets/SpryTabbedPanels.css" rel="stylesheet" type="text/css">
+<script src="SpryAssets/SpryCollapsiblePanel.js" type="text/javascript"></script>
+<link href="SpryAssets/SpryCollapsiblePanel.css" rel="stylesheet" type="text/css" />
+<?php if($_SESSION["cust_sid"]){?>
+<script type="text/javascript">
+function check_logout()
+{
+	fm = document.frm;
+	var example = window.confirm('是否確定要登出飯店管理後台?');
+	if(example){
+		window.open('funcs.php?act=fdlogout','_self');
+	}else{
+		return false;
+	}
+	return false;
+}
+</script>
+<?php }?>
+</head>
+<body onLoad="MM_preloadImages('img/button/lbt1_2t.gif','img/button/lbt1_3t.gif','img/button/lbt1_4t.gif','img/button/lbt1_5t.gif','img/button/lbt1_6t.gif','img/button/lbt1_7t.gif','img/button/lbt1_8t.gif','img/button/lbt1_9t.gif','img/button/lbt2_1t.gif','img/button/lbt2_2t.gif','img/button/lbt2_3t.gif','img/button/lbt2_4t.gif','img/icon/icon_date_t.jpg')">
+<div class="container_12">
+<div id="login" class="grid_12"><span class="style3" style="color:#666666"><?php echo $logtable;?></span></div>

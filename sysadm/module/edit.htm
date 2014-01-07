@@ -1,0 +1,58 @@
+<!-- BEGIN: table -->
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+  <tr>
+		<td style="width:95px" >
+			<img border="0" src="../images/title_11.gif" width="95" height="80">
+		</td>
+		<td nowrap background="../images/title01.gif" align="left" style="background-repeat:repeat-x" ><a href="index.php"><span class="blueword">模組管理</span></a>
+			<span class="blueword">＞ 修改模組</span></td>
+		<td style="width:100%;background-repeat:repeat-x" background="../images/title01.gif">&nbsp;</td>
+		<td style="width:78px;background-repeat:repeat-x" background="../images/title01.gif">
+			<input type="image" src="../images/botton_return.gif" width="70" height="27" onClick="window.location.href='index.php'" {add}></td>
+		<td style="background-repeat:no-repeat" background="../images/title01.gif" width="36" align="right" valign="top"><img border="0" src="../images/title02.gif" width="36" height="80"></td>
+	</tr>
+  <tr>
+	<td colspan="5" style="padding:5px">
+		<form method="post" action="edit_proc.php">
+		<table border="0" cellspacing="0" cellpadding="0" width="100%">
+		  <tr>
+			<td align="center" style="padding-bottom:10px">
+			  <table border="0" cellspacing="1" cellpadding="3" width="100%" class="lvt small">
+				<tr>
+					<td class="lvtCol" align="right" width="30%">名稱</td>
+					<td class="lvtCol" align="left" width="70%">
+						<input type="text" value="{DATA.caption}" id="caption" name="caption" class="detailedViewTextBox" onFocus="this.className='detailedViewTextBoxOn'" onBlur="this.className='detailedViewTextBox'">
+						<input type="hidden" name="serial_id" value="{DATA.serial_id}">
+					</td>
+				</tr>
+				<tr>
+					<td class="lvtCol" align="right" width="30%">資料夾名稱</td>
+					<td class="lvtCol" align="left" width="70%"><input type="text" value="{DATA.directory}" id="directory" name="directory" class="detailedViewTextBox" onFocus="this.className='detailedViewTextBoxOn'" onBlur="this.className='detailedViewTextBox'"></td>
+				</tr>
+				<tr>
+					<td class="lvtCol" align="right" width="30%">排序</td>
+					<td class="lvtCol" align="left" width="70%"><input type="text" value="{DATA.sort}" id="sort" name="sort" class="detailedViewTextBox" onFocus="this.className='detailedViewTextBoxOn'" onBlur="this.className='detailedViewTextBox'"></td>
+				</tr>
+				<tr>
+					<td class="lvtCol" align="right">狀態</td>
+					<td class="lvtCol" align="left"><input type="radio" name="display" id="display" value="y" {display1}>顯示&nbsp;&nbsp;<input type="radio" name="display" id="display" value="n" {display2}>隱藏</td>
+				</tr>
+				<tr>
+					<td class="lvtCol" align="right" width="30%">選單上層</td>
+					<td class="lvtCol" align="left" width="70%"><input type="text" value="{DATA.up_layer}" id="up_layer" name="up_layer" class="detailedViewTextBox" onFocus="this.className='detailedViewTextBoxOn'" onBlur="this.className='detailedViewTextBox'"></td>
+				</tr>
+				<tr>
+					<td colspan="2" class="lvtCol" align="center">
+						<input type="submit" value="送出" style="padding-top:2px">&nbsp;
+						<input type="reset" value="清除" style="padding-top:2px">
+					</td>
+				</tr>
+			  </table>
+			</td>
+		  </tr>
+		</table>
+		</form>
+	</td>
+  </tr>
+</table>
+<!-- END: table -->

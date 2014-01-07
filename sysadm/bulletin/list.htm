@@ -1,0 +1,135 @@
+<script type="text/JavaScript">
+<!--
+function check_keydown() 	//判斷資料是否有打
+{
+	KindSubmit();
+	var example = window.confirm('是否確定要修改?');
+	if(example){
+		if ( postNews.news_time.value != "" ) {
+			re = /^((((((0[48])|([13579][26])|([2468][048]))00)|([0-9][0-9]((0[48])|([13579][26])|([2468][048]))))-02-29)|(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9][0-9])|([1-9][0-9][0-9][0-9]))-((((0[13578])|(1[02]))-31)|(((0[1,3-9])|(1[0-2]))-(29|30))|(((0[1-9])|(1[0-2]))-((0[1-9])|(1[0-9])|(2[0-8]))))))$/i;
+			var sDay = postNews.news_time.value;
+			if (!re.test(sDay))
+			{
+				 alert('日期應按如下格式填寫\n yyyy-MM-DD 比如: 2010-12-30 ！');
+				 return false;
+			}
+		}
+		
+		if ( postNews.t_cht_n.value != "" ) {
+			if ( postNews.Adv.value == "" ) {
+				window.alert("新公告必須有內容存在");
+				return false;
+			}
+		}
+		postNews.submit();
+	}else{
+		return false;
+	}
+	return false;
+}
+function go_lnk(x)
+{
+	if(x.value==0) return false;
+	else
+		javascript:location.href=x.value;
+	return true;
+}
+function change()
+{
+	var xxx = document.getElementById("hyplnk_switch");
+	var aaa = document.getElementById("aaa");
+	if(xxx.checked == true)
+	{
+		aaa.style.display='';
+	}else {
+		aaa.style.display='none';
+	}
+}
+//-->
+</script>
+<script type="text/javascript" src="../3party/cuedit/KindEditor.js"></script>
+<!-- BEGIN: table -->
+<table border="0" cellspacing="0" cellpadding="3" width="100%">
+	<tr>
+		<td>
+			<form enctype="multipart/form-data" name="postNews" method="post" action="funcs.php" onsubmit="javascript:KindSubmit();">
+			<input type="hidden" name="act" value="postNews">
+			<input type="hidden" name="Type" value="{type_listid}">
+			<input type="hidden" name="RecCount" value="{RecCount}">
+			<input type="hidden" name="delNewsid" id="delNewsid">
+			{input_EditID}
+			<table border="0" cellspacing="0" cellpadding="0" width="100%" style="display:">
+				<tr>
+					<td style="width:95px">
+						<img border="0" src="../images/title_35.gif" width="95" height="80">
+					</td>
+					<td  nowrap background="../images/title01.gif" align="left"style=";background-repeat:repeat-x" >
+						<span style="font-family:Arial; font-size: 15px; color: #003399; font-weight: bold">文章管理</span>
+					</td>
+					<td style="width:100%;background-repeat:repeat-x;" background="../images/title01.gif">&nbsp;</td>
+					<td style=";background-repeat:no-repeat" background="../images/title01.gif" width="36" align="right" valign="top">
+						<img border="0" src="../images/title02.gif" width="36" height="80"></td>
+				</tr>							
+				<tr>
+					<td align="center" colspan="4" style="padding:5px;font-size:12px;">
+						<table border="0" cellspacing="1" cellpadding="3" width="100%" class="lvt small" style="font-size:12px;">
+							<tr>
+							  <td class="lvtCol" colspan="5">
+							  &nbsp;{type_list}
+							  <span style="float:right;"><input name="button" type="button" onclick="window.location.href='index.php?action=action&which=type_list'" value="分類管理" {type} />&nbsp;</span></td>
+							</tr>
+							<tr>
+								<td class="lvtCol" align="center" style="width:30px;">序</td>
+								<td class="lvtCol" align="center" width="*%">文章標題</td>
+								<td class="lvtCol" align="center" style="width:100px;">發文者</td>
+								<td class="lvtCol" align="center" style="width:40px;">點閱</td>
+								<td class="lvtCol" align="center" style="width:130px;">狀態</td>
+							</tr>
+							{authority_list}
+						</table>
+					</td>
+				</tr>
+			</table>
+			<table cellspacing="5" cellpadding="0" style="width:99%;border:solid 1px #CCCCCC; margin-left:6px;">
+			{content_list}
+			<!-- BEGIN: editarea -->
+			<tr><td>
+			
+				<script type="text/javascript">
+				var editor = new KindEditor("editor");
+				editor.hiddenName = "Adv";
+				editor.skinPath = "../3party/cuedit/skins/tiny/";
+				editor.iconPath = "../3party/cuedit/icons/";
+				editor.imageAttachPath = "../upload_image/";
+				editor.imageUploadCgi = "../3party/cuedit/upload_cgi/upload.php";
+				editor.cssPath = "../css/style.css";
+				editor.editorType = "full";
+				editor.editorWidth = "100%";
+				editor.editorHeight = "200px";
+				editor.menuBorderColor = "#696969";
+				editor.menuBgColor = "#F8F8F8";
+				editor.menuTextColor = "#000000";
+				editor.menuSelectedColor = "#C7C78F";
+				editor.toolbarBorderColor = "#FFFFFF";
+				editor.toolbarBgColor = "#F8F8F8";
+				editor.formBorderColor = "#FFFFFF";
+				editor.buttonColor = "#C7C78F";
+				editor.show();
+				function KindSubmit() {
+					editor.data();
+				}
+				</script>
+			</td></tr>
+			<tr>
+			  <td><div align="center" style="border-top:#666666 ridge 1px; padding-top:5px;"><span style="cursor:pointer;" onClick="return check_keydown();">
+			  <input type="button" value="送出" style="padding-top:2px">
+			  </span></div></td>
+			</tr>
+			<!-- END: editarea -->
+			</table>
+			</form>
+		</td>
+	</tr>
+</table>
+<!-- END: table -->
+</html>

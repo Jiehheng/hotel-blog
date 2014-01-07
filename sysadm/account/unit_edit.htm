@@ -1,0 +1,77 @@
+<script type="text/javascript">
+	var $ = function(i){return document.getElementById(i)}
+	function trim(s) {
+	  return s.replace(/^\s*|\s*$/g,"");
+	}
+	function check_data()
+	{
+		if (trim($("caption").value)=="")
+		{
+			alert("請填入部門名稱");
+			$("caption").focus();
+			return false;
+		}
+		if (trim($("sort").value)!="")
+		{
+			if (isNaN(parseInt($("sort").value, 10)))
+			{
+				alert("順序請輸入數字");
+				$("sort").focus();
+				return false;
+			}
+		}
+		return true;
+	}
+</script>
+<!-- BEGIN: table -->	
+<table border="0" cellspacing="0" cellpadding="3" width="100%">
+	<tr>
+		<td align="left">
+			<table border="0" cellspacing="0" cellpadding="0" width="100%">
+				<tr>
+					<td style="width:95px" >
+						<img border="0" src="../images/title_11.gif" width="95" height="80">
+					</td>
+					<td  nowrap background="../images/title01.gif" align="left"style=";background-repeat:repeat-x" >
+						<a href="index.php"><span class="blueword">帳號管理</span></a><span class="blueword"> ＞ </span><a href="index.php?action=action&which=unit_list"><span class="blueword">部門管理</span></a><span class="blueword"> ＞ 新增部門</span>
+					</td>
+					<td style="width:100%;background-repeat:repeat-x" background="../images/title01.gif">&nbsp;
+					</td>
+					<td style="width:78px;background-repeat:repeat-x" background="../images/title01.gif">
+						<input type="image" src="../images/botton_return.gif" width="70" height="27" onClick="window.location.href='index.php?action=action&which=unit_list'">
+					</td>
+					<td style=";background-repeat:repeat-x" background="../images/title01.gif" width="36" align="right" valign="top">
+						<img border="0" src="../images/title02.gif" width="36" height="80">
+					</td>
+				</tr>
+				<tr>
+					<td align="center" colspan="5" style="padding:2px">
+						<form method="POST" action="unit_edit_proc.php" style="margin:0;padding:0px;" onsubmit="return check_data();">
+							<table border="0" cellspacing="1" cellpadding="3" width="99%" class="lvt small">
+								<tr>
+									<td class="lvtCol" align="right" width="30%"><span style="color:#FF0000">*</span>部門名稱</td>
+									<td class="lvtCol" align="left" width="70%"><input type="text" value="{DATA.caption}" id="caption" name="caption" class="detailedViewTextBox" onFocus="this.className='detailedViewTextBoxOn'" onBlur="this.className='detailedViewTextBox'" ></td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="30%">門市</td>
+									<td class="lvtCol" align="left" width="70%"><select name="depart_id" id="depart_id">{depart_list}</select></td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="30%">排序</td>
+									<td class="lvtCol" align="left" width="70%"><input type="text" value="{DATA.sort}" id="sort" name="sort" class="detailedViewTextBox" onFocus="this.className='detailedViewTextBoxOn'" onBlur="this.className='detailedViewTextBox'" ></td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="center" width="100%" colspan="2">
+										<input type="hidden" value="{DATA.serial_id}" name="serial_id" id="serial_id">
+										<input type="submit" value="更新" style="padding-top:2px">&nbsp;
+									</td>
+								</tr>
+							</table>
+						</form>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+<!-- END: table -->

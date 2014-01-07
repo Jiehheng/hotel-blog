@@ -1,0 +1,30 @@
+<!-- BEGIN: main -->{HTML.header}
+<script type="text/JavaScript">
+<!--
+function go_lnk(x)
+{
+	if(x.value==0) return false;
+	else
+		javascript:location.href=x.value;
+	return true;
+}
+//-->
+</script>
+  <div id="top" class="grid_12">
+    {HTML.banner}
+  </div>
+  <div class="grid_3">
+	{HTML.menu}
+  </div>
+  <div class="grid_9">
+  <a href="?{cUrl}&amp;index">首頁</a> > {content_list.type}
+  <span style="float:right;">{content_list.menu}</span>
+	<div class="right_box1">	  
+
+    {content_list.list}
+
+    </div>    
+    {content_list.pg}
+</div>   
+{HTML.footer}
+<!-- END: main -->

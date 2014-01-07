@@ -1,0 +1,142 @@
+				<html xmlns:o="urn:schemas-microsoft-com:office:office"
+				xmlns:x="urn:schemas-microsoft-com:office:excel"
+				xmlns="http://www.w3.org/TR/REC-html40">
+
+				<head>
+				<meta http-equiv=Content-Type content="text/html; charset=big5">
+				<meta name=ProgId content=Excel.Sheet>
+				<!--[if gte mso 9]><xml>
+				 <o:DocumentProperties>
+				  <o:LastAuthor>Sriram</o:LastAuthor>
+				  <o:LastSaved>2005-01-02T07:46:23Z</o:LastSaved>
+				  <o:Version>10.2625</o:Version>
+				 </o:DocumentProperties>
+				 <o:OfficeDocumentSettings>
+				  <o:DownloadComponents/>
+				 </o:OfficeDocumentSettings>
+				</xml><![endif]-->
+				<style>
+				<!--table
+					{mso-displayed-decimal-separator:"\.";
+					mso-displayed-thousand-separator:"\,";}
+				@page
+					{margin:1.0in .75in 1.0in .75in;
+					mso-header-margin:.5in;
+					mso-footer-margin:.5in;}
+				tr
+					{mso-height-source:auto;}
+				col
+					{mso-width-source:auto;}
+				br
+					{mso-data-placement:same-cell;}
+				.style0
+					{mso-number-format:General;
+					text-align:general;
+					vertical-align:bottom;
+					white-space:nowrap;
+					mso-rotate:0;
+					mso-background-source:auto;
+					mso-pattern:auto;
+					color:windowtext;
+					font-size:10.0pt;
+					font-weight:400;
+					font-style:normal;
+					text-decoration:none;
+					font-family:Arial;
+					mso-generic-font-family:auto;
+					mso-font-charset:0;
+					border:none;
+					mso-protection:locked visible;
+					mso-style-name:Normal;
+					mso-style-id:0;}
+				td
+					{mso-style-parent:style0;
+					padding-top:1px;
+					padding-right:1px;
+					padding-left:1px;
+					mso-ignore:padding;
+					color:windowtext;
+					font-size:10.0pt;
+					font-weight:400;
+					font-style:normal;
+					text-decoration:none;
+					font-family:Arial;
+					mso-generic-font-family:auto;
+					mso-font-charset:0;
+					mso-number-format:General;
+					text-align:general;
+					vertical-align:bottom;
+					border:none;
+					mso-background-source:auto;
+					mso-pattern:auto;
+					mso-protection:locked visible;
+					white-space:nowrap;
+					mso-rotate:0;}
+				.xl24
+					{mso-style-parent:style0;
+					white-space:normal;}
+				-->
+				</style>
+				<!--[if gte mso 9]><xml>
+				 <x:ExcelWorkbook>
+				  <x:ExcelWorksheets>
+				   <x:ExcelWorksheet>
+					<x:Name>srirmam</x:Name>
+					<x:WorksheetOptions>
+					 <x:Selected/>
+					 <x:ProtectContents>False</x:ProtectContents>
+					 <x:ProtectObjects>False</x:ProtectObjects>
+					 <x:ProtectScenarios>False</x:ProtectScenarios>
+					</x:WorksheetOptions>
+				   </x:ExcelWorksheet>
+				  </x:ExcelWorksheets>
+				  <x:WindowHeight>10005</x:WindowHeight>
+				  <x:WindowWidth>10005</x:WindowWidth>
+				  <x:WindowTopX>120</x:WindowTopX>
+				  <x:WindowTopY>135</x:WindowTopY>
+				  <x:ProtectStructure>False</x:ProtectStructure>
+				  <x:ProtectWindows>False</x:ProtectWindows>
+				 </x:ExcelWorkbook>
+				</xml><![endif]-->
+				</head>
+
+				<body link=blue vlink=purple>
+				<table x:str border=0 cellpadding=0 cellspacing=0 style='border-collapse: collapse;table-layout:fixed;'><tr><td class=xl24 width=64 >系統檢測報告</td></tr><tr><td class=xl24 width=64 >案件名稱：</td><td class=xl24 width=64 >149_金屬中心_光電網站功能新增</td></tr><tr><td class=xl24 width=64 >日期：</td><td class=xl24 width=64 >2009-12-22 11:49:04</td></tr><tr><td class=xl24 width=64 >編號</td><td class=xl24 width=64 >問題分類</td><td class=xl24 width=64 >問題內容</td><td class=xl24 width=64 >發問時間</td><td class=xl24 width=64 >回覆內容</td><td class=xl24 width=64 >回覆時間</td><td class=xl24 width=64 >回覆人員</td><td class=xl24 width=64 >回覆狀況</td><td class=xl24 width=64 >備註</td></tr><tr><td class=xl24 width=64 >1</td><td class=xl24 width=64 >業務問題</td><td class=xl24 width=64 >已登錄法人平台，<br />
+並收到帳號審核通過信件(一次收到三封)<br />
+但前台登入時會出現錯誤<br />
+'/' 應用程式中發生伺服器錯誤。<br />
+--------------------------------------------------------------------------------<br />
+<br />
+連接已經開啟 (狀態=Open)。 <br />
+描述: 在執行目前 Web 要求的過程中發生未處理的例外情形。請檢閱堆疊追蹤以取得錯誤的詳細資訊，以及在程式碼中產生的位置。 <br />
+<br />
+例外詳細資訊: System.InvalidOperationException: 連接已經開啟 (狀態=Open)。<br />
+<br />
+原始程式錯誤: <br />
+<br />
+在執行目前 Web 要求期間，產生無法處理的例外狀況。如需有關例外狀況來源與位置的資訊，可以使用下列的例外狀況堆疊追蹤取得。  <br />
+<br />
+堆疊追蹤: <br />
+<br />
+<br />
+[InvalidOperationException: 連接已經開啟 (狀態=Open)。]<br />
+   System.Data.SqlClient.SqlConnection.Open() +420<br />
+   fpdei.memberDB.ArtificialPersonMemberLogin(String mb_id) in g:\inetpub\wwwroot\osec\Component\memberDB.vb:691<br />
+   fpdei.Functions.SetLoginSession(HttpSessionState&amp; Session, Int32 pMA_id) in g:\inetpub\wwwroot\osec\Component\Functions.vb:783<br />
+   fpdei.APLogin.imgOK_Click(Object sender, ImageClickEventArgs e) in g:\inetpub\wwwroot\osec\APLogin.aspx.vb:90<br />
+   System.Web.UI.WebControls.ImageButton.OnClick(ImageClickEventArgs e) +109<br />
+   System.Web.UI.WebControls.ImageButton.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument) +69<br />
+   System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument) +18<br />
+   System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData) +33<br />
+   System.Web.UI.Page.ProcessRequestMain() +1292<br />
+<br />
+ <br />
+<br />
+</td><td class=xl24 width=64 >2008-11-03 10:58:58</td><td class=xl24 width=64 >已於11月3日處理完畢</td><td class=xl24 width=64 >2008-11-05 09:19:11</td><td class=xl24 width=64 >黃政綸</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >2</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >後台檔案上傳功能<br />
+新增檔案資料夾分類出現錯誤，請速修正</td><td class=xl24 width=64 >2009-07-27 16:37:21</td><td class=xl24 width=64 >已修正錯誤訊息</td><td class=xl24 width=64 >2009-07-28 09:43:12</td><td class=xl24 width=64 >黃政綸</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >3</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >加入法人專區的email申請通知有問題，請修正<br />
+<br />
+請修正如下<br />
+主旨 :  光電及半導體設備產業網法人加入通知<br />
+<br />
+email 收件者 wjmars@mail.mirdc.org.tw 及 chin2927@mail.mirdc.org.tw</td><td class=xl24 width=64 >2009-07-27 16:49:55</td><td class=xl24 width=64 >1.已修正主旨，<br />
+2. 法人會員註冊會員通知改設為通知wjmars@mail.mirdc.org.tw 及 chin2927@mail.mirdc.org.tw</td><td class=xl24 width=64 >2009-07-28 10:02:17</td><td class=xl24 width=64 >黃政綸</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >4</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >法人申請時有問題，相關錯誤碼已經mail寄送</td><td class=xl24 width=64 >2009-08-04 10:25:42</td><td class=xl24 width=64 >已處理法人申請註冊問題</td><td class=xl24 width=64 >2009-12-22 11:41:05</td><td class=xl24 width=64 >黃政綸</td><td class=xl24 width=64 >已處理</td><td class=xl24 width=64 ></td></tr></table></body></html>

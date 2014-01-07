@@ -1,0 +1,2614 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>台灣里 OpenPay 付款技術手冊</title>
+<style type="text/css"><!--
+.new {
+  color: #ff0000;
+}
+
+.param_table {
+  margin: 0 auto;
+  border: black 1px solid;
+  padding: 1px;
+  border-spacing: 2px;
+}
+
+.param_table td {
+  border: black 1px solid;
+  padding: 5px;
+  border-spacing: 2px;
+  text-align: left;
+}
+
+.param_table .section {
+  background-color: rgb(163, 163, 163);
+  text-align: center;
+}
+
+.param_table .fieldname {
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.param_table .paramhead {
+  background-color: rgb(192, 192, 192);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.param_table .paramsymbol {
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.param_table .paramdesc {
+  text-align: left;
+  white-space: normal;
+}
+
+.desc_head {
+  font-weight: bold;
+}
+
+
+--></style>
+</head>
+<body>
+<br />
+<div style="margin: 5%; text-align: center;">
+台灣里 OpenPay 線上付款技術手冊 (v2.1.15)
+</div>
+<ol style="margin: 5%;">
+  <li><a href="#1">簡介</a>
+    <ol>
+      <li><a href="#1.1">版本更新記錄</a></li>
+    </ol>
+  </li>
+  <li><a href="#2">支援及整合方式</a>
+    <ol>
+      <li><a href="#direct">簡易機動付款</a>
+        <ol>
+          <li><a href="#direct.1">說明</a></li>
+          <li><a href="#direct.2">流程循序圖</a></li>
+          <li><a href="#direct.3">付款要求介面及參數</a></li>
+        </ol>
+	    </li>
+      <li><a href="#cart">系統整合付款</a>
+        <ol>
+          <li><a href="#cart.1">說明</a></li>
+          <li><a href="#cart.2">流程循序圖</a></li>
+          <li><a href="#cart.3">付款要求回傳介面及參數</a></li>
+          <li><a href="#cart.4">傳遞參數檢查機制說明</a></li>
+          <li><a href="#cart.5">回傳付款結果表</a></li>
+        </ol>
+      </li>
+      <li><a href="#svr2svr">系統取單付款</a>
+        <ol>
+          <li><a href="#svr2svr.1">說明</a></li>
+          <li><a href="#svr2svr.2">介面及參數</a></li>
+        </ol>
+	    </li>
+      <li><a href="#success_notify">付款成功通知</a>
+        <ol>
+          <li><a href="#success_notify.1">說明</a></li>
+          <li><a href="#success_notify.2">流程循序圖</a></li>
+          <li><a href="#success_notify.3">付款要求介面及參數</a></li>
+        </ol>
+	    </li>
+    </ol>
+  </li>
+  <li><a href="#3">付款範例</a>
+    <ol>
+      <li><a href="#3.1">簡易機動付款</a></li>
+      <li><a href="#3.2">系統整合付款</a></li>
+    </ol>
+  </li>
+  <li><a href="#A">附錄A: MD5 範例程式</a></li>
+  <li><a href="#B">附錄B: 自訂回傳商家網站參數範例程式</a></li>
+</ol>
+
+<hr>
+
+<div style="margin: 5%; text-align: left;"><a name="1"></a><br />
+<br />
+1. 簡介<br />
+&nbsp;&nbsp;&nbsp; 台灣里 OpenPay 付款服務整合
+信用卡 / WebATM / PayPal / 7-11 ibon / 全家 FamiPort / 五大超商 / 虛擬帳號 等多種付款方式,
+簡單的整合方式, 提供商家多元化的付款服務. 以下各節將介紹 OpenPay 的使用方法及介面參數.<br />
+<br />
+<a name="1.1"></a>
+&nbsp;&nbsp;&nbsp; 1.1 版本更新記錄<br />
+<br />
+<div class="new">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [2.1.15] 1. 新增支付寶和財付通線上付款.<br />
+</div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [2.1.14] 1. [系統整合付款]和[系統取單付款]的離線付款方式, 支援於付款要求中指定繳款期限的日期, 其中 ibon 付款支援至時分秒.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [2.1.13] 1. 回傳付款結果表新增 [10,取消付款] 狀態值, 在付款成功後至入帳通知發動前, 若付款被取消會回傳此狀態值.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [2.1.12] 1. 新增 全家FamiPort 收款服務, 移除 玉山 eCoin 收款服務.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [2.1.11] 1. 新增 PayPal/中國銀聯卡 收款服務.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [2.1.10] 1. 新增付款成功通知商家端程式功能. (<a href="#success_notify">ref</a>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [2.1.9a] 1. 修改系統取單付款的商家訂單編號欄位限制. (<a href="#txid_new">ref</a>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [2.1.9a] 2. 新增系統取單付款回傳狀態. (<a href="#svr2svr.status_table">ref</a>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [2.1.9] 1. 新增系統取單付款.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [2.1.8] 1. 新增簡易機動付款.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [2.1.8] 2. 新增付款模式(mode)及限制付款方式參數(select_paymethod).<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [2.1.7] 1. 新增 ibon 付款相關參數.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [2.1.7] 2. 修改回傳付款結果表, 玉山WebATM 改為 WebATM, 移除 [網路郵局/全國繳費網WebATM/全國繳費網活期帳戶] 相關回傳項目.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [2.1.6] 1. 新增商家傳入配送型態參數.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [2.1.5] 1. 新增商家傳入備註欄參數.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [2.1.4] 1. 新增回傳商家網站攜帶參數.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [2.1.3] 1. 新增便利商店付款.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [2.1.1] 1. 新增全國網費網線上付款.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [2.1.1] 2. 新增商家網頁編碼介面參數.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [2.1.1] 3. 新增簡體中文付款網頁語系.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [2.1.1] 4. 新增不同語言介面的代收項目簡介設定.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [2.1.1] 5. 新增商家自訂回傳參數範例.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [2.1] 1. 新增網路郵局線上付款.<br />
+</div>
+
+<hr>
+
+<div style="margin: 5%; text-align: left;">
+<a name="2"></a><br />
+<br />
+2. 支援及整合方式<br />
+<div style="margin-left: 40px; text-align: justify;">
+台灣里 OpenPay 線上付款目前支援以下兩種付款方式.
+<ol>
+<li><a href="#direct">簡易機動付款</a>: 在商家端系統無購物車或無訂單交易系統時使用.</li>
+<li><a href="#cart">系統整合付款</a>: 在商家端系統有購物車或由訂單交易系統送出付款要求時使用.</li>
+<li><a href="#svr2svr">系統取單付款</a>: 在商家端系統直接對台灣里取得離線付款繳費資訊.</li>
+</ol>
+</div>
+
+<br />
+
+<a name="direct"></a><br />
+2.1. 簡易機動付款<br />
+
+<a name="direct.1"></a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.1.1. 說明<br />
+<div style="margin-left: 40px; text-align: justify;">
+機動簡易付款方式的使用時機是
+商家所使用的網站系統僅具備個別商品定價功能,
+沒有訂單交易系統或資料庫以及付款失敗後重新執行付款功能時使用.<br /><br />
+
+使用簡易機動付款的商家, 在商家端系統不需要更動網站架構或程式.
+商家只要在網頁或郵件中指定付款的金額及使用模式,
+後續的付款及交易資料(付款人,配送資訊) 的填寫和收集動作均可由台灣里端系統完成.
+台灣里系統於付款流程完成後, 會即時發送內含交易資料的通知郵件給商家指定的 email 帳戶.<br /><br />
+
+商家端可透過 mode 參數的指定, 使用簡易機動付款的簡易模式或一般模式.<br />
+簡易模式透過商家指定的付款要求參數可以立即產生繳款單或繳款說明, 簡化用戶操作.<br />
+一般模式則提供完整的付款資訊收集功能, 可以透過付款流程替商家收集付款人消費資訊,
+以及彈性選擇希望使用的付款方式.<br /><br />
+</div>
+
+<br />
+
+<a name="direct.2"></a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.1.2. 流程循序圖<br />
+<div style="text-align: center;">
+<img alt="簡易機動付款循序圖" src="images/pay_direct.jpg">
+</div>
+
+<br />
+
+<a name="direct.3"></a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.1.3. 付款要求介面及參數<br />
+<br />
+
+<div style="text-align: center;">
+
+<table class="param_table">
+<tbody>
+<tr>
+  <td colspan="5" class="section">
+    付款介面
+  </td>
+</tr>
+<tr>
+  <td class="fieldname">名稱</td>
+  <td colspan="4">簡易機動付款介面</td>
+</tr>
+<tr>
+  <td class="fieldname">位址</td>
+  <td colspan="4">https://www.twv.com.tw/openpay/pay_direct.php</td>
+</tr>
+<tr>
+  <td class="fieldname">版本</td>
+  <td colspan="4">2.1</td>
+</tr>
+<tr>
+  <td class="fieldname">說明</td>
+  <td colspan="4">
+  消費者於商家端系統確定交易金額後,
+  商家端系統將消費者瀏灠器導向台灣里付款閘道處執行付款授權,
+  台灣里付款閘道於消費者執行付款後,
+  發送通知郵件給商家指定的 E-mail account.
+  </td>
+</tr>
+<tr align="center">
+  <td colspan="5" class="section">傳入參數說明</td>
+</tr>
+<tr>
+  <td class="fieldname">運作<br />方式</td>
+  <td colspan="4">
+    商家交易系統經消費者瀏灠器以 GET 或 POST 方式, 將參數傳至台灣里付款閘道端執行付款功能.
+  </td>
+</tr>
+<tr>
+  <td rowspan="29" class="fieldname">參數 </td>
+  <td class="paramhead">參數名稱</td>
+  <td class="paramhead">格式</td>
+  <td class="paramhead">必要性</td>
+  <td class="paramhead">參數說明</td>
+</tr>
+<tr>
+  <td class="paramsymbol">mid</td>
+  <td class="paramsymbol">varchar(15)</td>
+  <td class="paramsymbol">是</td>
+  <td class="paramdesc">
+    <span class="desc_head">台灣里商家編號</span><br />
+    台灣里給定的商家編號.<br />
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">amount</td>
+  <td class="paramsymbol">integer</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">付款金額</span><br />
+    指定此參數, OpenPay 將會依傳入金額向消費者收取同額新台幣款項.<br />
+    若不指定此參數, 系統將會顯示付款金額輸入頁面, 提供付款人自行填入付款金額.<br />
+    <br />
+    註1: 金額須為大於 0 元之整數值.<br />
+    註2: 信用卡付款金額最低 100 元.<br />
+    註3: 超商 / 7-11 ibon / 全家 FamiPort 付款金額最低 30 元, 最高 20000 元.<br />
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">txid</td>
+  <td class="paramsymbol">varchar(31)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">商家訂單編號</span><br />
+    商家端產生的交易序號.<br />
+    交易序號可以是商家端的訂單編號或付款人的識別編號,
+    用來區分不同付款.<br />
+    若不傳入系統會自動指定隨機數字為序號.<br />
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">mode</td>
+  <td class="paramsymbol">integer</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">付款模式</span><br />
+    指定此參數, 系統將依參數內容套用簡易模式及一般模式流程.<br />
+    允許值 [1,2], 預設值[1].<br />
+    1:一般模式, 2:簡易模式.<br />
+    <br />
+    註1: 使用簡易模式需同時指定 select_paymethod 參數.<br />
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">select_paymethod</td>
+  <td class="paramsymbol">integer</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">限定使用付款方式</span><br />
+    指定此參數, 則消費者於 OpenPay 的付款僅可使用此付款方式完成.<br />
+    允許值 [1,2,4,8,9,10,11,12,<span class="new">13,14</span>], 無預設值.<br />
+    1:信用卡, 2:虛擬帳號, 4:WebATM, 8:便利超商, 9:7-11 ibon, 10:中國銀聯卡, 11:PayPal, 12:全家 FamiPort, <span class="new">13:支付寶, 14:財富通</span>.<br />
+    <br />
+    註1: 使用簡易模式 mode=2 參數後, 僅可使用 [2,8,9,12] 付款方式.<br />
+    註2: 同時使用 select_paymethod 參數後, prefer_paymethod 參數功能無效.<br />
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">prefer_paymethod</td>
+  <td class="paramsymbol">integer</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">建議付款方式</span><br />
+    指定此參數, 則消費者於 OpenPay 的選擇付款方式步驟,
+    瀏灠器將預先選擇指定付款方式, 省去消費者再次選擇付款方式的麻煩.<br />
+    允許值 [1,2,4,8,9,10,11,12,<span class="new">13,14</span>], 無預設值.<br />
+    1:信用卡, 2:虛擬帳號, 4:WebATM, 8:便利超商, 9:7-11 ibon, 10:中國銀聯卡, 11:PayPal, 12:全家 FamiPort, <span class="new">13:支付寶, 14:財富通</span>.<br />
+    <br />
+    註1: 本參數僅預設頁面付款方式功能, 並非限制消費者只可使用某方式付款.<br />
+    註2: 同時使用 select_paymethod 參數後, 本參數功能無效.</td>
+</tr>
+<tr>
+  <td class="paramsymbol">iid</td>
+  <td class="paramsymbol">integer</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">分期付款期數</span><br />
+    指定信用卡付款分期期數,<br />
+    允許值 [0, 3, 6, 12, 24], 0 為不使用分期付款功能, 預設值 [0].<br />
+    註1: 此參數僅對信用卡付款有效.<br />
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">charset</td>
+  <td class="paramsymbol">varchar(15)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">參數傳送編碼</span><br />
+    指定付款要求參數所使用編碼, OpenPay 將使用此編碼來解讀商家傳送的資料.<br />
+    允許值 [BIG5,UTF-8,GB2312], 預設值 [BIG5].<br />
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">language</td>
+  <td class="paramsymbol">varchar(15)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">付款網頁建議語系</span><br />
+    指定 OpenPay 付款時使用的語系,<br />
+    允許值 [tchinese,schinese,english], 預設值 [tchinese] .<br />
+    tchinese:繁體中文, schinese:簡體中文, english:英文.<br />
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">description</td>
+  <td class="paramsymbol">varchar(255)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">代收項目簡介</span><br />
+    商家端如帶入此參數, OpenPay 將會在付款頁面中顯示此簡介參數,
+    提供消費者核對該次付款項目及其內容.<br />
+    若不帶入此參數, 則付款頁面將不顯示代收項目資訊.
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">description_tchinese</td>
+  <td class="paramsymbol">varchar(255)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">繁體中文介面代收項目簡介</span><br />
+    商家端如帶入此參數, OpenPay 將會在繁體中文付款頁面中顯示此參數,
+    提供消費者核對該次付款項目及其內容.<br />
+    若不帶入此參數, 則以 description 參數方式處理.<br />
+    ( 註: 以 charset=GB2312 傳遞參數者, 為避免出現亂碼, 請勿設定此參數. )
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">description_schinese</td>
+  <td class="paramsymbol">varchar(255)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">簡體中文介面代收項目簡介</span><br />
+    商家端如帶入此參數, OpenPay 將會在簡體中文付款頁面中顯示此參數,
+    提供消費者核對該次付款項目及其內容.<br />
+    若不帶入此參數, 則以 description 參數方式處理.<br />
+    ( 註: 以 charset=BIG5 傳遞參數者, 為避免出現亂碼, 請勿設定此參數. )
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">description_english</td>
+  <td class="paramsymbol">varchar(255)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">英文介面代收項目簡介</span><br />
+    商家端如帶入此參數, OpenPay 將會在英文付款頁面中顯示此參數,
+    提供消費者核對該次付款項目及其內容.<br />
+    若不帶入此參數, 則以 description 參數方式處理.
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">cid</td>
+  <td class="paramsymbol">varchar(255)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">消費者身分証號</span><br />
+    OpenPay 使用身分証號做為台灣地區人士帳號, 如果商家的系統有能力,
+    可以帶入 OpenPay 方便於登入或註冊會員時避免消費者手動輸入.
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">cname</td>
+  <td class="paramsymbol">varchar(255)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">消費者姓名</span><br />
+    檢核付款資訊或會員註冊時均需要消費者姓名資料,
+    商家可帶入消費者資料避免消費者手動輸入.<br />
+    建議帶入, 提供 OpenPay 比對黑名單.
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">caddress</td>
+  <td class="paramsymbol">varchar(255)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">消費者地址</span><br />
+    檢核付款資訊或會員註冊時均需要消費者地址資料,
+    商家可帶入資料避免消費者手動輸入.<br />
+    建議帶入, 提供 OpenPay 比對黑名單.
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">ctel</td>
+  <td class="paramsymbol">varchar(255)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">消費者電話</span><br />
+    檢核付款資訊或會員註冊時均需要消費者電話資料,
+    商家可帶入資料避免消費者手動輸入.<br />
+    建議帶入, 提供 OpenPay 比對黑名單.
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">cemail</td>
+  <td class="paramsymbol">varchar(255)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">消費者電子郵件</span><br />
+    檢核付款資訊或會員註冊時均需要消費者電子郵件資料,
+    商家可帶入資料避免消費者手動輸入.<br />
+    建議帶入, 提供 OpenPay 比對黑名單.
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">xtype</td>
+  <td class="paramsymbol">integer</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">配送型態</span><br />
+    指定此參數可選擇是否讓消費者留存付款交易相關配送資料.
+    允許值 [1, 2], 無預設值.<br />
+    1: 不需配送商品付款, 2: 需配送商品付款.<br />
+    若不傳入本參數, 且 xname/xaddress/xtel 不傳入或皆傳入空值則視為 [1:不需配送商品付款],
+    否則視為 [2:需配送商品付款].<br />
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">xname</td>
+  <td class="paramsymbol">varchar(255)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">收貨人姓名</span><br />
+    檢核付款資訊需要收貨人姓名資料,
+    商家可帶入資料避免消費者手動輸入.<br />
+    建議帶入, 提供 OpenPay 比對黑名單.
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">xaddress</td>
+  <td class="paramsymbol">varchar(255)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">收貨人地址</span><br />
+    檢核付款資訊需要收貨人地址資料,
+    商家可帶入資料避免消費者手動輸入.<br />
+    建議帶入, 提供 OpenPay 比對黑名單.
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">xtel</td>
+  <td class="paramsymbol">varchar(255)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">收貨人電話</span><br />
+    檢核付款資訊需要收貨人電話資料,
+    商家可帶入資料避免消費者手動輸入.<br />
+    建議帶入, 提供 OpenPay 比對黑名單.
+  </td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<br />
+
+
+<a name="cart"></a><br />
+2.2. 系統整合付款<br />
+
+<a name="cart.1"></a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.2.1. 說明<br />
+<br />
+<div style="margin-left: 40px; text-align: justify;">
+如果商家所使用的網站系統或購物車具備了訂單管理功能,
+建議使用系統整合付款方式.
+系統整合付款透過付款要求檢查及結果檢查的機制,
+可以確保商家送出的付款金額和訂單單號資訊在傳輸中不會遺失或遭到修改.
+台灣里系統於付款流程完成後, 會依據付款要求將結果頁導回商家指定網址,
+同時系統也會即時發送內含交易資料的通知郵件給商家指定的 email 帳戶.
+<br />
+<br />
+如果商家需要在付款流程中傳遞自訂參數的話,
+可在傳入 return_url 網址參數中以 CGI-GET 方式, 將參數夾帶於回傳位址 return_url 之後
+( 例 http://www.merchant.com/payback.php?name1=value1&amp;name2=value2,
+附加 name1=value1 和 name2=value2 參數 ),
+台灣里將於回傳商家網頁的 FORM-POST 中,
+直接以原傳入 return_url 做為 FORM ACTION 參數,
+商家購物車端即可於回傳資料中的 GET 參數區取得自訂參數 ( 前例中的 name1=value1 和 name2=value2 參數 ).<br />
+( <a href="#appendix_custom_vars">參閱附錄中各語言範例</a> )
+</div>
+
+<br />
+
+<a name="cart.2"></a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.2.2. 循序圖<br />
+<br />
+<div style="text-align: center;">
+<img alt="系統整合付款循序圖" src="images/pay_cart.jpg">
+</div>
+
+<br />
+
+<a name="cart.3"></a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.2.3. 付款要求回傳介面及參數<br />
+<br />
+
+<div style="text-align: center;">
+
+<table class="param_table">
+<tbody>
+<tr align="center">
+  <td colspan="5" class="section">
+    付款介面
+  </td>
+</tr>
+<tr>
+  <td class="fieldname">名稱</td>
+  <td colspan="4">系統整合付款介面</td>
+</tr>
+<tr>
+  <td class="fieldname">位址</td>
+  <td colspan="4">https://www.twv.com.tw/openpay/pay.php</td>
+</tr>
+<tr>
+  <td class="fieldname">版本</td>
+  <td colspan="4">2.1</td>
+</tr>
+<tr>
+  <td class="fieldname">說明</td>
+  <td colspan="4">
+  消費者於商家端系統確定交易金額後,
+  商家端系統將消費者瀏灠器導向台灣里付款閘道處執行付款授權,
+  台灣里付款閘道於消費者執行付款後,
+  可將直接顯示付款結果或經消費者瀏灠器導向商家指定付款結果頁.
+  </td>
+</tr>
+<tr align="center">
+  <td colspan="5" class="section">傳入參數說明</td>
+</tr>
+<tr>
+  <td class="fieldname">運作<br />方式</td>
+  <td colspan="4">
+    商家交易系統經消費者瀏灠器以 GET 或 POST 方式, 將參數傳至台灣里付款閘道端執行付款功能.
+  </td>
+</tr>
+<tr>
+  <td rowspan="32" class="fieldname">參數 </td>
+  <td class="paramhead">參數名稱</td>
+  <td class="paramhead">格式</td>
+  <td class="paramhead">必要性</td>
+  <td class="paramhead">參數說明</td>
+</tr>
+<tr>
+  <td class="paramsymbol">version</td>
+  <td class="paramsymbol">varchar(15)</td>
+  <td class="paramsymbol">是</td>
+  <td class="paramdesc">
+    <span class="desc_head">付款介面版本</span><br />
+    本付款介面的版本編號 [2.1].<br />
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">mid</td>
+  <td class="paramsymbol">varchar(15)</td>
+  <td class="paramsymbol">是</td>
+  <td class="paramdesc">
+    <span class="desc_head">台灣里商家編號</span><br />
+    台灣里給定的商家編號.<br />
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">amount</td>
+  <td class="paramsymbol">integer</td>
+  <td class="paramsymbol">是</td>
+  <td class="paramdesc">
+    <span class="desc_head">付款金額</span><br />
+    金額須為大於 0 之整數.
+    OpenPay 將會依傳入金額向消費者收取同額新台幣款項.<br />
+    <br />
+    註1: 金額須為大於 0 元之整數值.<br />
+    註2: 信用卡付款金額最低 100 元.<br />
+    註3: 超商 / 7-11 ibon / 全家 FamiPort 付款金額最低 30 元, 最高 20000 元.<br />
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">txid</td>
+  <td class="paramsymbol">varchar(31)</td>
+  <td class="paramsymbol">是</td>
+  <td class="paramdesc">
+    <span class="desc_head">商家訂單編號</span><br />
+    商家端產生的交易序號.<br />
+    交易序號可以是商家端的訂單編號,
+    或是欲進行付款時產生的識別序號,
+    用來區分不同筆送出至 OpenPay 的付款交易,
+    若商家於付款時傳入 OpenPay 給定 return_url,
+    則 OpenPay 將於付款後回傳此序號,
+    供商家辨識回傳結果屬於何筆交易.<br />
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">verify</td>
+  <td class="paramsymbol">varchar(32)</td>
+  <td class="paramsymbol">是</td>
+  <td class="paramdesc">
+    <span class="desc_head">傳入參數檢查碼</span><br />
+    依傳入參數檢查碼運算公式所計算出的傳入參數檢查碼.<br />
+    用來驗証商家傳入 OpenPay 參數的正確性.<br />
+    (請參考<a href="#param_verify">傳遞參數檢查機制說明</a>)</td>
+</tr>
+<tr>
+  <td class="paramsymbol">mode</td>
+  <td class="paramsymbol">integer</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">付款模式</span><br />
+    指定此參數, 系統將依參數內容套用簡易模式及一般模式流程.<br />
+    允許值 [1,2], 預設值[1].<br />
+    1:一般模式, 2:簡易模式.<br />
+    <br />
+    註1: 使用簡易模式需同時指定 select_paymethod 參數.<br />
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">select_paymethod</td>
+  <td class="paramsymbol">integer</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">限定使用付款方式</span><br />
+    指定此參數, 則消費者於 OpenPay 的付款僅可使用此付款方式完成.<br />
+    允許值 [1,2,4,8,9,10,11,12,<span class="new">13,14</span>], 無預設值.<br />
+    1:信用卡, 2:虛擬帳號, 4:WebATM, 8:便利超商, 9:7-11 ibon, 10:中國銀聯卡, 11:PayPal, 12:全家 FamiPort, <span class="new">13:支付寶, 14:財富通</span>.<br />
+    <br />
+    註1: 使用簡易模式 mode=2 參數後, 僅可使用 [2,8,9,12] 付款方式.<br />
+    註2: 同時使用 select_paymethod 參數後, prefer_paymethod 參數功能無效.<br />
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">prefer_paymethod</td>
+  <td class="paramsymbol">integer</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">建議付款方式</span><br />
+    指定此參數, 則消費者於 OpenPay 的選擇付款方式步驟,
+    瀏灠器將預先選擇指定付款方式, 省去消費者再次選擇付款方式的麻煩.<br />
+    允許值 [1,2,4,8,9,10,11,12,<span class="new">13,14</span>], 無預設值.<br />
+    1:信用卡, 2:虛擬帳號, 4:WebATM, 8:便利超商, 9:7-11 ibon, 10:中國銀聯卡, 11:PayPal, 12:全家 FamiPort, <span class="new">13:支付寶, 14:財富通</span>.<br />
+    <br />
+    註1: 本參數僅預設頁面付款方式功能, 並非限制消費者只可使用某方式付款.<br />
+    註2: 同時使用 select_paymethod 參數後, 本參數功能無效.</td>
+</tr>
+<tr>
+  <td class="paramsymbol">iid</td>
+  <td class="paramsymbol">integer</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">分期付款期數</span><br />
+    指定信用卡付款分期期數,<br />
+    允許值 [0, 3, 6, 12, 24], 0 為不使用分期付款功能, 預設值 [0].<br />
+    註1: 此參數僅對信用卡付款有效.<br />
+  </td>
+</tr>
+<tr class="new">
+  <td class="paramsymbol">expire_date</td>
+  <td class="paramsymbol">varchar(20)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">離線付款繳款期限</span><br />
+    指定離線付款繳款期限, 支援下列 3 種用法.<br />
+	1. 不指定或指定內容為空值, 使用商家後台指定的繳款天數設定.<br />
+    2. 指定日期, 於該日期前皆可繳款, 格式 YYYY-MM-DD (例: 2000-11-22).<br />
+	3. 指定日期時間, ibon 於該日期該時間前可繳款, FamiPort/虛擬帳號/超商繳款 於該日期前皆可繳款, 格式 YYYY-MM-DD HH:II:SS (例: 2000-11-22 11:22:33).<br />
+    註1: 此參數僅對離線付款方式有效 (ibon/FamiPort/虛擬帳號/超商繳款) 有效.<br />
+  </td>
+</tr>
+
+<tr>
+  <td class="paramsymbol">return_url</td>
+  <td class="paramsymbol">varchar(255)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">回傳網址</span><br />
+    指定 OpenPay 付款完成後瀏灠器回傳的網址,<br />
+    若帶入此參數, 消費者於 OpenPay 付款後,
+    會藉由瀏灠器以 FORM-POST 方式, 將付款結果回傳至此網址.
+    商家自訂參數可以在 URL Encode 處理後附加於此參數之後,
+    例: payback.php?name1=value1&amp;name2=value2<br />
+    若不帶入此參數,&nbsp; OpenPay 將由內定的網頁來顯示付款結果.</td>
+</tr>
+<tr>
+  <td class="paramsymbol">charset</td>
+  <td class="paramsymbol">varchar(15)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">參數傳送編碼</span><br />
+    指定商家網頁所使用編碼, OpenPay 將使用此編碼來解讀商家傳送的資料.<br />
+    允許值 [BIG5,UTF-8,GB2312], 預設值 [BIG5].<br />
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">language</td>
+  <td class="paramsymbol">varchar(15)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">付款網頁建議語系</span><br />
+    指定 OpenPay 付款時使用的語系,<br />
+    允許值 [tchinese,schinese,english], 預設值 [tchinese] .<br />
+    tchinese:繁體中文, schinese:簡體中文, english:英文,<br />
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">description</td>
+  <td class="paramsymbol">varchar(255)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">代收項目簡介</span><br />
+    商家端如帶入此參數, OpenPay 將會在付款頁面中顯示此參數,
+    提供消費者核對該次付款項目及其內容.<br />
+    若不帶入此參數, 則付款頁面將不顯示代收項目資訊.
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">description_tchinese</td>
+  <td class="paramsymbol">varchar(255)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">繁體中文介面代收項目簡介</span><br />
+    商家端如帶入此參數, OpenPay 將會在繁體中文付款頁面中顯示此參數,
+    提供消費者核對該次付款項目及其內容.<br />
+    若不帶入此參數, 則以 description 參數方式處理.<br />
+    ( 註: 以 charset=GB2312 傳遞參數者, 為避免出現亂碼, 請勿設定此參數. )
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">description_schinese</td>
+  <td class="paramsymbol">varchar(255)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">簡體中文介面代收項目簡介</span><br />
+    商家端如帶入此參數, OpenPay 將會在簡體中文付款頁面中顯示此參數,
+    提供消費者核對該次付款項目及其內容.<br />
+    若不帶入此參數, 則以 description 參數方式處理.<br />
+    ( 註: 以 charset=BIG5 傳遞參數者, 為避免出現亂碼, 請勿設定此參數. )
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">description_english</td>
+  <td class="paramsymbol">varchar(255)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">英文介面代收項目簡介</span><br />
+    商家端如帶入此參數, OpenPay 將會在英文付款頁面中顯示此參數,
+    提供消費者核對該次付款項目及其內容.<br />
+    若不帶入此參數, 則以 description 參數方式處理.
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">note</td>
+  <td class="paramsymbol">varchar(255)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">一般備註欄資訊</span><br />
+    商家端如帶入此參數, OpenPay 將自動將此欄資訊指定給未指定備註資訊的各語系付款頁面.
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">note_tchinese</td>
+  <td class="paramsymbol">varchar(255)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">繁體中文介面備註資訊</span><br />
+    商家端如帶入此參數, OpenPay 將會在繁體中文付款頁面中顯示此預設備註欄資訊,
+    若不帶入此參數, 則以 note 參數方式處理.<br />
+    ( 註: 以 charset=GB2312 傳遞參數者, 為避免出現亂碼, 請勿設定此參數. )
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">note_schinese</td>
+  <td class="paramsymbol">varchar(255)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">簡體中文介面備註資訊</span><br />
+    商家端如帶入此參數, OpenPay 將會在簡體中文付款頁面中顯示此預設備註欄資訊,
+    若不帶入此參數, 則以 note 參數方式處理.<br />
+    ( 註: 以 charset=BIG5 傳遞參數者, 為避免出現亂碼, 請勿設定此參數. )
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">note_english</td>
+  <td class="paramsymbol">varchar(255)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">英文介面備註資訊</span><br />
+    商家端如帶入此參數, OpenPay 將會在英文付款頁面中顯示此預設備註欄資訊,
+    若不帶入此參數, 則以 note 參數方式處理.<br />
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">cart_type</td>
+  <td class="paramsymbol">varchar(15)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">購物車型號</span><br />
+    填入您的購物車軟體名稱及其版本編號.
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">cid</td>
+  <td class="paramsymbol">varchar(255)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">消費者身分証號</span><br />
+    OpenPay 使用身分証號做為台灣地區人士帳號, 如果商家的系統有能力,
+    可以帶入 OpenPay 方便於登入或註冊會員時避免消費者手動輸入.
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">cname</td>
+  <td class="paramsymbol">varchar(255)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">消費者姓名</span><br />
+    檢核付款資訊或會員註冊時均需要消費者姓名資料,
+    商家可帶入消費者資料避免消費者手動輸入.<br />
+    建議帶入, 提供 OpenPay 比對黑名單.
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">caddress</td>
+  <td class="paramsymbol">varchar(255)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">消費者地址</span><br />
+    檢核付款資訊或會員註冊時均需要消費者地址資料,
+    商家可帶入資料避免消費者手動輸入.<br />
+    建議帶入, 提供 OpenPay 比對黑名單.
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">ctel</td>
+  <td class="paramsymbol">varchar(255)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">消費者電話</span><br />
+    檢核付款資訊或會員註冊時均需要消費者電話資料,
+    商家可帶入資料避免消費者手動輸入.<br />
+    建議帶入, 提供 OpenPay 比對黑名單.
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">cemail</td>
+  <td class="paramsymbol">varchar(255)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">消費者電子郵件</span><br />
+    檢核付款資訊或會員註冊時均需要消費者電子郵件資料,
+    商家可帶入資料避免消費者手動輸入.<br />
+    建議帶入, 提供 OpenPay 比對黑名單.
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">xtype</td>
+  <td class="paramsymbol">integer</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">配送型態</span><br />
+    指定此參數可選擇是否讓消費者留存付款交易相關配送資料.
+    允許值 [1, 2], 無預設值.<br />
+    1: 不需配送商品付款, 2: 需配送商品付款.<br />
+    若不傳入本參數, 且 xname/xaddress/xtel 不傳入或皆傳入空值則視為 [1:不需配送商品付款],
+    否則視為 [2:需配送商品付款].<br />
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">xname</td>
+  <td class="paramsymbol">varchar(255)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">收貨人姓名</span><br />
+    檢核付款資訊需要收貨人姓名資料,
+    商家可帶入資料避免消費者手動輸入.<br />
+    建議帶入, 提供 OpenPay 比對黑名單.
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">xaddress</td>
+  <td class="paramsymbol">varchar(255)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">收貨人地址</span><br />
+    檢核付款資訊需要收貨人地址資料,
+    商家可帶入資料避免消費者手動輸入.<br />
+    建議帶入, 提供 OpenPay 比對黑名單.
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">xtel</td>
+  <td class="paramsymbol">varchar(255)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">收貨人電話</span><br />
+    檢核付款資訊需要收貨人電話資料,
+    商家可帶入資料避免消費者手動輸入.<br />
+    建議帶入, 提供 OpenPay 比對黑名單.
+  </td>
+</tr>
+<tr align="center">
+  <td colspan="5" class="section">回傳參數說明</td>
+</tr>
+<tr>
+  <td style="white-space: nowrap; vertical-align: middle; text-align: center;">
+    運作<br />
+    方式</td>
+  <td colspan="4" style="vertical-align: middle;">
+    若付款界面傳入參數中指定回傳網址 (return_url),
+    則 OpenPay 將以 FORM-POST 方式, 將付款結果以下列參數方式,
+    透過消費者瀏灠器帶至回傳網址.<br />
+  </td>
+</tr>
+<tr>
+  <td rowspan="21" style="white-space: nowrap; vertical-align: middle; text-align: center;">參數</td>
+  <td style="background-color: rgb(204, 204, 204); text-align: center; vertical-align: middle;">參數名稱</td>
+  <td style="background-color: rgb(192, 192, 192); text-align: center; vertical-align: middle;">格式</td>
+  <td style="background-color: rgb(192, 192, 192); text-align: center; vertical-align: middle;">必要性</td>
+  <td style="background-color: rgb(192, 192, 192); text-align: center; vertical-align: middle;">參數說明</td>
+</tr>
+<tr>
+  <td class="paramsymbol">txid</td>
+  <td class="paramsymbol">varchar(31)</td>
+  <td class="paramsymbol">是</td>
+  <td class="paramdesc">
+    <span class="desc_head">商家訂單編號</span><br />
+    傳入 OpenPay 時的交易序號參數(txid).</td>
+</tr>
+<tr>
+  <td class="paramsymbol">amount</td>
+  <td class="paramsymbol">integer</td>
+  <td class="paramsymbol">是</td>
+  <td class="paramdesc">
+    <span class="desc_head">付款金額</span><br />
+    傳入 OpenPay 時的付款金額參數(amount).<br />
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">pay_type</td>
+  <td class="paramsymbol">integer</td>
+  <td class="paramsymbol">是</td>
+  <td class="paramdesc">
+    <span class="desc_head">付款種類代碼</span><br />
+    消費者選擇的付款種類.
+    (請參考<a href="#pay_result">回傳付款結果表</a>)</td>
+</tr>
+<tr>
+  <td class="paramsymbol">status</td>
+  <td class="paramsymbol">integer</td>
+  <td class="paramsymbol">是</td>
+  <td class="paramdesc">
+    <span class="desc_head">付款狀態</span><br />
+    消費者執行付款後的狀態.
+    (請參考<a href="#pay_result">回傳付款結果表</a>)</td>
+</tr>
+<tr>
+  <td class="paramsymbol">tid</td>
+  <td class="paramsymbol">varchar(15)</td>
+  <td class="paramsymbol">是</td>
+  <td class="paramdesc">
+    <span class="desc_head">付款交易單號</span><br />
+    本次付款的交易單號.</td>
+</tr>
+<tr>
+  <td class="paramsymbol">verify</td>
+  <td class="paramsymbol">varchar(32)</td>
+  <td class="paramsymbol">是 </td>
+  <td class="paramdesc">
+    <span class="desc_head">回傳參數檢查碼</span><br />
+    依回傳參數檢查碼運算公式所計算出的回傳參數檢查碼.<br />
+    用來驗証 OpenPay 回傳商家參數的正確性.<br />
+    <span class="desc_head"></span>
+    (請參考<a href="#param_verify">傳遞參數檢查機制說明</a>)</td>
+</tr>
+<tr>
+  <td class="paramsymbol">cname</td>
+  <td class="paramsymbol">varchar(255)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">消費者姓名</span><br />
+    檢核修正後的消費者姓名.</td>
+</tr>
+<tr>
+  <td class="paramsymbol">caddress</td>
+  <td class="paramsymbol">varchar(255)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">消費者地址</span><br />
+    檢核修正後的消費者地址.</td>
+</tr>
+<tr>
+  <td class="paramsymbol">ctel</td>
+  <td class="paramsymbol">varchar(255)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">消費者電話</span><br />
+    檢核修正後的消費者電話.</td>
+</tr>
+<tr>
+  <td class="paramsymbol">cemail</td>
+  <td class="paramsymbol">varchar(255)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">消費者電子郵件</span><br />
+    檢核修正後的消費者電子郵件.</td>
+</tr>
+<tr>
+  <td class="paramsymbol">xname</td>
+  <td class="paramsymbol">varchar(255)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">收貨人姓名</span><br />
+    檢核修正後的收貨人姓名.</td>
+</tr>
+<tr>
+  <td class="paramsymbol">xaddress</td>
+  <td class="paramsymbol">varchar(255)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">收貨人地址</span><br />
+    檢核修正後的收貨人地址.</td>
+</tr>
+<tr>
+  <td class="paramsymbol">xtel</td>
+  <td class="paramsymbol">varchar(255)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">收貨人電話</span><br />
+    檢核修正後的收貨人電話.</td>
+</tr>
+<tr>
+  <td class="paramsymbol">error_code</td>
+  <td class="paramsymbol">integer</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">付款授權失敗代碼</span><br />
+    付款失敗代碼 (保留將來使用)</td>
+</tr>
+<tr>
+  <td class="paramsymbol">error_desc</td>
+  <td class="paramsymbol">varchar(255)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">付款授權失敗原因</span><br />
+    付款失敗原因(UTF-8 編碼) (請參考<a href="#pay_result">回傳付款結果表</a>)</td>
+</tr>
+<tr>
+  <td class="paramsymbol">auth_code</td>
+  <td class="paramsymbol">varchar(7)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">信用卡授權成功授權碼</span><br />
+    信用卡付款授權成功交易之授權碼.</td>
+</tr>
+<tr>
+  <td class="paramsymbol">xid</td>
+  <td class="paramsymbol">varchar(31)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">信用卡授權成功 XID</span><br />
+    信用卡付款授權成功交易之 XID.</td>
+</tr>
+<tr>
+  <td class="paramsymbol">ref_no</td>
+  <td class="paramsymbol">varchar(31)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">信用卡授權成功參考碼</span><br />
+    信用卡付款授權成功交易之參考碼.</td>
+</tr>
+<tr>
+  <td class="paramsymbol">account_no</td>
+  <td class="paramsymbol">varchar(31)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">虛擬帳號付款轉帳帳號</span><br />
+    選擇虛擬帳號付款時, 消費者的銷帳轉帳帳號 (例: 808-12345678901234).</td>
+</tr>
+<tr>
+  <td class="paramsymbol">bill_no</td>
+  <td class="paramsymbol">varchar(14)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">全家 FamiPort 收款繳費單號</span><br />
+    選擇全家 FamiPort 收款時, 消費者需輸入代碼繳費的繳費單號.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<br />
+
+<a name="cart.4"></a><a name="param_verify"></a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.2.4. 傳遞參數檢查機制說明<br />
+<br />
+
+<div style="text-align: left; margin: auto 10px;">
+&nbsp;&nbsp;&nbsp; 商家網站與 OpenPay 間的付款參數傳遞動作(傳入/回傳), 由於資料是經由瀏灠器轉送,
+不是直接互連傳遞, 所以有可能在傳遞過程中被修改, 造成資訊失真的問題. 為解決此問題, OpenPay 在傳遞的參數中加入檢查碼機制,
+透過對資料欄位的訊息摘要(message digest), 確保資料欄位的正確性.<br />
+<br />
+&nbsp;&nbsp;&nbsp; OpanPay 目前採用的訊息摘要演算法為 MD5 (<a
+ href="http://www.faqs.org/rfcs/rfc1321.html">rfc1321</a>), MD5
+演算法會對被摘要訊息產生 128-bits 的摘要值, 為了避免 Web CGI 方式傳遞出現問題, 請先將摘要值以 16
+進位轉碼[0-9,a-f] 處理後, 即可得到 OpenPay 用來驗証參數的檢查碼. 舉例來說, 如果被摘要訊息是 "ABCD" (長度為 4 字元的字串), 則應得到摘要值 "cb08ca4a7bb5f9683c19133a84872ca7" (長度為 32 個字元的字串).
+(不同程式語言範例, 請參考<a href="#appendix_md5">附錄</a>).<br />
+<br />
+&nbsp;&nbsp;&nbsp; 在被摘要訊息的決定方面, 因為傳入 OpenPay 和回傳商家網站的參數不同, 所以各有不同的決定方式.
+在傳入 OpenPay 時, 被摘要訊息將是 (參數檢查碼1,mid,txid,amount,參數檢查碼2) 此 5 個參數依順序以 "|'
+為分隔字元相連接所組成. 在回傳商家網站時, 被摘要訊息將是
+(參數檢查碼1,txid,amount,pay_type,status,tid,參數檢查碼2) 此 7 個參數依順序以 "|'
+為分隔字元相連接所組成. (參數檢查碼1,2 可登入特店管理系統查詢). 舉例來說, 若傳入參數為<br />
+<br />
+<table>
+<tbody>
+<tr><td>參數檢查碼1</td><td>=</td><td>2efdd6e617bc0114866c89e911a4e3de</td></tr>
+<tr><td>mid</td><td>=</td><td>TEST</td></tr>
+<tr><td>txid</td><td>=</td><td>222222</td></tr>
+<tr><td>amount</td><td>=</td><td>3</td></tr>
+<tr><td>參數檢查碼2</td><td>=</td><td>6d4b111610073f9c1105d3f852a3d039</td></tr>
+</tbody>
+</table>
+<br />
+被摘要訊息(message)應為<br />
+<br />
+&nbsp; message = &nbsp; 2efdd6e617bc0114866c89e911a4e3de|TEST|222222|3|6d4b111610073f9c1105d3f852a3d039<br />
+<br />
+(長度為 79 字元的字串), 而摘要值(verify)應為長度為 32 個字元的字串<br />
+<br />
+&nbsp; verify = &nbsp; 2724e27fa576dcff1ef047018c6f2ccd<br />
+<br />
+<br />
+&nbsp; 若傳入 OpenPay 的參數經檢查機制驗証後發現不符, OpenPay 將拒絕付款繼續進行,
+在回傳商家網站時, OpenPay 會檢附回傳參數檢查碼, 若商家網站經檢查機制驗証後發現不符, 也應視為不合法交易.<br />
+<br />
+&nbsp; 參數檢查機制僅是排除參數錯誤和參數遭修改的保障機制, 實際付款金額及狀態, 得以特店管理系統資料為準.<br />
+<br />
+<br />
+
+<div style="text-align: center;">
+
+傳入參數檢查明細表<br />
+<table class="param_table">
+<tbody>
+<tr>
+  <td colspan="3" class="section">傳入參數檢查明細表</td>
+</tr>
+<tr>
+  <td rowspan="6" class="paramhead">傳入參數</td>
+  <td class="paramhead">參數名稱</td>
+  <td class="paramhead">參數值</td>
+</tr>
+<tr>
+  <td class="paramsymbol">參數檢查碼1</td>
+  <td class="paramdesc">
+    2efdd6e617bc0114866c89e911a4e3de<br />
+    (請進入特店管理系統->商家資料處取得)
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">商家編號(mid)</td>
+  <td class="paramdesc">TEST</td>
+</tr>
+<tr>
+  <td class="paramsymbol">商家訂單編號(txid)</td>
+  <td class="paramdesc">222222</td>
+</tr>
+<tr>
+  <td class="paramsymbol">付款金額(amount) </td>
+  <td class="paramdesc">3</td>
+</tr>
+<tr>
+  <td class="paramsymbol">參數檢查碼2</td>
+  <td class="paramdesc">
+    6d4b111610073f9c1105d3f852a3d039<br />
+    (請進入特店管理系統->商家資料處取得)
+  </td>
+</tr>
+<tr>
+  <td class="paramhead">
+    被摘要<br />訊息<br />(message)
+  </td>
+  <td colspan="2" class="paramdesc">
+    2efdd6e617bc0114866c89e911a4e3de|TEST|222222|3|6d4b111610073f9c1105d3f852a3d039<br />
+    (請注意需加入 | 號分隔字元)
+  </td>
+</tr>
+<tr>
+  <td class="paramhead">
+    摘要值<br />(verify)
+  </td>
+  <td colspan="2" class="paramdesc">
+    2724e27fa576dcff1ef047018c6f2ccd
+  </td>
+</tr>
+<tr>
+  <td colspan="3" class="section">回傳參數檢查明細表</td>
+</tr>
+<tr>
+  <td rowspan="8" class="paramhead">回傳參數 </td>
+  <td class="paramhead">參數名稱</td>
+  <td class="paramhead">參數值</td>
+</tr>
+<tr>
+  <td class="paramsymbol">參數檢查碼1</td>
+  <td class="paramdesc">
+    2efdd6e617bc0114866c89e911a4e3de<br />
+    (請進入特店管理系統->商家資料處取得)
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">商家訂單編號(txid)</td>
+  <td class="paramdesc">222222</td>
+</tr>
+<tr>
+  <td class="paramsymbol">付款金額(amount)</td>
+  <td class="paramdesc">3</td>
+</tr>
+<tr>
+  <td class="paramsymbol">付款方式(pay_type)</td>
+  <td class="paramdesc">1</td>
+</tr>
+<tr>
+  <td class="paramsymbol">付款狀態(status)</td>
+  <td class="paramdesc">1</td>
+</tr>
+<tr>
+  <td class="paramsymbol">交易單號(tid)</td>
+  <td class="paramdesc">200501011234</td>
+</tr>
+<tr>
+  <td class="paramsymbol">參數檢查碼2</td>
+  <td class="paramdesc">
+    6d4b111610073f9c1105d3f852a3d039<br />
+    (請進入特店管理系統->商家資料處取得)
+  </td>
+</tr>
+<tr>
+  <td class="paramhead">
+    被摘要<br />訊息<br />(message)
+  </td>
+  <td colspan="2" class="paramdesc">
+    2efdd6e617bc0114866c89e911a4e3de|222222|3|1|1|200501011234|6d4b111610073f9c1105d3f852a3d039<br />
+    (請注意需加入 | 號分隔字元)
+  </td>
+</tr>
+<tr>
+  <td class="paramhead">
+    摘要值<br />(verify)
+  </td>
+  <td colspan="2" class="paramdesc">
+    0e2965539eedf17e058594eae141b50c
+  </td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+
+<br />
+
+<a name="cart.5"></a><a name="pay_result"></a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.2.5. 回傳付款結果表<br />
+<br />
+<div style="text-align: center;">
+
+<table class="param_table">
+<tbody>
+<tr>
+  <td colspan="6" class="section">回傳付款結果表</td>
+</tr>
+<tr>
+  <td class="paramhead">付款種類</td>
+  <td class="paramhead">付款結果</td>
+  <td class="paramhead">付款種類<br />(pay_type)</td>
+  <td class="paramhead">付款狀態<br />(status)</td>
+  <td class="paramhead">付款失敗代碼<br />(error_code)</td>
+  <td class="paramhead">付款失敗原因<br />(error_desc)</td>
+</tr>
+<tr>
+  <td class="paramsymbol">信用卡</td>
+  <td class="paramsymbol">付款成功</td>
+  <td class="paramsymbol">1</td>
+  <td class="paramsymbol">1</td>
+  <td class="paramsymbol"><br /></td>
+  <td class="paramsymbol"><br /></td>
+</tr>
+<tr>
+  <td class="paramsymbol">信用卡</td>
+  <td class="paramsymbol">付款失敗</td>
+  <td class="paramsymbol">1</td>
+  <td class="paramsymbol">2</td>
+  <td class="paramsymbol"><br /></td>
+  <td class="paramsymbol">[失敗原因]</td>
+</tr>
+<tr>
+  <td class="paramsymbol">信用卡</td>
+  <td class="paramsymbol">取消付款</td>
+  <td class="paramsymbol">1</td>
+  <td class="paramsymbol">10</td>
+  <td class="paramsymbol"><br /></td>
+  <td class="paramsymbol"><br /></td>
+</tr>
+<tr>
+  <td class="paramsymbol">虛擬帳號轉帳</td>
+  <td class="paramsymbol">等待付款</td>
+  <td class="paramsymbol">2</td>
+  <td class="paramsymbol">3</td>
+  <td class="paramsymbol"><br /></td>
+  <td class="paramsymbol"><br /></td>
+</tr>
+<tr>
+  <td class="paramsymbol">虛擬帳號轉帳</td>
+  <td class="paramsymbol">取消付款</td>
+  <td class="paramsymbol">2</td>
+  <td class="paramsymbol">10</td>
+  <td class="paramsymbol"><br /></td>
+  <td class="paramsymbol"><br /></td>
+</tr>
+<tr>
+  <td class="paramsymbol">WebATM</td>
+  <td class="paramsymbol">付款成功</td>
+  <td class="paramsymbol">4</td>
+  <td class="paramsymbol">1</td>
+  <td class="paramsymbol"><br /></td>
+  <td class="paramsymbol"><br /></td>
+</tr>
+<tr>
+  <td class="paramsymbol">WebATM</td>
+  <td class="paramsymbol">付款失敗</td>
+  <td class="paramsymbol">4</td>
+  <td class="paramsymbol">2</td>
+  <td class="paramsymbol"><br /></td>
+  <td class="paramsymbol">[失敗原因]</td>
+</tr>
+<tr>
+  <td class="paramsymbol">WebATM</td>
+  <td class="paramsymbol">取消付款</td>
+  <td class="paramsymbol">4</td>
+  <td class="paramsymbol">10</td>
+  <td class="paramsymbol"><br /></td>
+  <td class="paramsymbol"><br /></td>
+</tr>
+<tr>
+  <td class="paramsymbol">便利商店</td>
+  <td class="paramsymbol">等待付款</td>
+  <td class="paramsymbol">8</td>
+  <td class="paramsymbol">3</td>
+  <td class="paramsymbol"><br /></td>
+  <td class="paramsymbol"><br /></td>
+</tr>
+<tr>
+  <td class="paramsymbol">便利商店</td>
+  <td class="paramsymbol">取消付款</td>
+  <td class="paramsymbol">8</td>
+  <td class="paramsymbol">10</td>
+  <td class="paramsymbol"><br /></td>
+  <td class="paramsymbol"><br /></td>
+</tr>
+<tr>
+  <td class="paramsymbol">7-11 ibon付款</td>
+  <td class="paramsymbol">等待付款</td>
+  <td class="paramsymbol">9</td>
+  <td class="paramsymbol">3</td>
+  <td class="paramsymbol"><br /></td>
+  <td class="paramsymbol"><br /></td>
+</tr>
+<tr>
+  <td class="paramsymbol">7-11 ibon付款</td>
+  <td class="paramsymbol">取消付款</td>
+  <td class="paramsymbol">9</td>
+  <td class="paramsymbol">10</td>
+  <td class="paramsymbol"><br /></td>
+  <td class="paramsymbol"><br /></td>
+</tr>
+<tr>
+  <td class="paramsymbol">中國銀聯卡</td>
+  <td class="paramsymbol">付款成功</td>
+  <td class="paramsymbol">10</td>
+  <td class="paramsymbol">1</td>
+  <td class="paramsymbol"><br /></td>
+  <td class="paramsymbol"><br /></td>
+</tr>
+<tr>
+  <td class="paramsymbol">中國銀聯卡</td>
+  <td class="paramsymbol">付款失敗</td>
+  <td class="paramsymbol">10</td>
+  <td class="paramsymbol">2</td>
+  <td class="paramsymbol"><br /></td>
+  <td class="paramsymbol">[失敗原因]</td>
+</tr>
+<tr>
+  <td class="paramsymbol">中國銀聯卡</td>
+  <td class="paramsymbol">取消付款</td>
+  <td class="paramsymbol">10</td>
+  <td class="paramsymbol">10</td>
+  <td class="paramsymbol"><br /></td>
+  <td class="paramsymbol"><br /></td>
+</tr>
+<tr>
+  <td class="paramsymbol">PayPal</td>
+  <td class="paramsymbol">付款成功</td>
+  <td class="paramsymbol">11</td>
+  <td class="paramsymbol">1</td>
+  <td class="paramsymbol"><br /></td>
+  <td class="paramsymbol"><br /></td>
+</tr>
+<tr>
+  <td class="paramsymbol">PayPal</td>
+  <td class="paramsymbol">付款失敗</td>
+  <td class="paramsymbol">11</td>
+  <td class="paramsymbol">2</td>
+  <td class="paramsymbol"><br /></td>
+  <td class="paramsymbol">[失敗原因]</td>
+</tr>
+<tr>
+  <td class="paramsymbol">全家 FamiPort</td>
+  <td class="paramsymbol">等待付款</td>
+  <td class="paramsymbol">12</td>
+  <td class="paramsymbol">3</td>
+  <td class="paramsymbol"><br /></td>
+  <td class="paramsymbol"><br /></td>
+</tr>
+<tr>
+  <td class="paramsymbol">全家 FamiPort</td>
+  <td class="paramsymbol">取消付款</td>
+  <td class="paramsymbol">12</td>
+  <td class="paramsymbol">10</td>
+  <td class="paramsymbol"><br /></td>
+  <td class="paramsymbol"><br /></td>
+</tr>
+<tr class="new">
+  <td class="paramsymbol">支付寶</td>
+  <td class="paramsymbol">付款成功</td>
+  <td class="paramsymbol">13</td>
+  <td class="paramsymbol">1</td>
+  <td class="paramsymbol"><br /></td>
+  <td class="paramsymbol"><br /></td>
+</tr>
+<tr class="new">
+  <td class="paramsymbol">支付寶</td>
+  <td class="paramsymbol">付款失敗</td>
+  <td class="paramsymbol">13</td>
+  <td class="paramsymbol">2</td>
+  <td class="paramsymbol"><br /></td>
+  <td class="paramsymbol">[失敗原因]</td>
+</tr>
+<tr class="new">
+  <td class="paramsymbol">支付寶</td>
+  <td class="paramsymbol">取消付款</td>
+  <td class="paramsymbol">13</td>
+  <td class="paramsymbol">10</td>
+  <td class="paramsymbol"><br /></td>
+  <td class="paramsymbol"><br /></td>
+</tr>
+<tr class="new">
+  <td class="paramsymbol">財付通</td>
+  <td class="paramsymbol">付款成功</td>
+  <td class="paramsymbol">14</td>
+  <td class="paramsymbol">1</td>
+  <td class="paramsymbol"><br /></td>
+  <td class="paramsymbol"><br /></td>
+</tr>
+<tr class="new">
+  <td class="paramsymbol">財付通</td>
+  <td class="paramsymbol">付款失敗</td>
+  <td class="paramsymbol">14</td>
+  <td class="paramsymbol">2</td>
+  <td class="paramsymbol"><br /></td>
+  <td class="paramsymbol">[失敗原因]</td>
+</tr>
+<tr class="new">
+  <td class="paramsymbol">財付通</td>
+  <td class="paramsymbol">取消付款</td>
+  <td class="paramsymbol">14</td>
+  <td class="paramsymbol">10</td>
+  <td class="paramsymbol"><br /></td>
+  <td class="paramsymbol"><br /></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<br />
+
+<a name="svr2svr"></a><br />
+2.3. 系統取單付款<br />
+
+<a name="svr2svr.1"></a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.3.1. 說明<br />
+<div style="margin-left: 40px; text-align: justify;">
+商家網站在有離線付款 (7-11 ibon,超商,虛擬帳號) 需求時,
+可使用系統取單付款功能, 直接由商家伺服器連線台灣里付款閘道,
+送出付款要求取得離線繳款資料.<br />
+
+台灣里於消費者繳款入帳後, 將直接通知商家款項已到帳.
+</span>
+</div>
+
+<br />
+
+<a name="svr2svr.2"></a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.3.2. 流程循序圖<br />
+<div style="text-align: center;">
+<img alt="系統取單付款循序圖" src="images/pay_svr2svr.jpg">
+</div>
+
+<br />
+
+<a name="svr2svr.3"></a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.3.3. 付款要求介面及參數<br />
+<br />
+
+<div style="text-align: center;">
+
+<table class="param_table">
+<tbody>
+<tr>
+  <td colspan="5" class="section">
+    付款介面
+  </td>
+</tr>
+<tr>
+  <td class="fieldname">名稱</td>
+  <td colspan="4">系統取單付款介面</td>
+</tr>
+<tr>
+  <td class="fieldname">位址</td>
+  <td colspan="4">https://www.twv.com.tw/openpay/m/pay_srv2srv_cgi101.php</td>
+</tr>
+<tr>
+  <td class="fieldname">說明</td>
+  <td colspan="4">
+  商家端系統確定付款金額後, 透過 CGI / GET 取得向台灣里付款閘道取得離線繳款資料.<br />
+  台灣里於入帳後後, 傳送入帳通知至商家指定網址, 且發送通知郵件給商家指定的 E-mail account.
+  </td>
+</tr>
+<tr align="center">
+  <td colspan="5" class="section">傳入參數說明</td>
+</tr>
+<tr>
+  <td class="fieldname">運作<br />方式</td>
+  <td colspan="4">
+    商家交易系統直接以 GET 或 POST 方式, 將參數傳至台灣里付款閘道端執行付款功能.
+  </td>
+</tr>
+<tr>
+  <td rowspan="15" class="fieldname">參數 </td>
+  <td class="paramhead">參數名稱</td>
+  <td class="paramhead">格式</td>
+  <td class="paramhead">必要性</td>
+  <td class="paramhead">參數說明</td>
+</tr>
+<tr>
+  <td class="paramsymbol">mid</td>
+  <td class="paramsymbol">varchar(15)</td>
+  <td class="paramsymbol">是</td>
+  <td class="paramdesc">
+    <span class="desc_head">商家編號</span><br />
+    台灣里給定的商家編號.<br />
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">access_key</td>
+  <td class="paramsymbol">varchar(15)</td>
+  <td class="paramsymbol">是</td>
+  <td class="paramdesc">
+    <span class="desc_head">存取通行碼</span><br />
+    台灣里給定的網路程式存取通行碼.<br />
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">txid</td>
+  <td class="paramsymbol">varchar(31)</td>
+  <td class="paramsymbol">是</td>
+  <td class="paramdesc">
+    <span class="desc_head">商家訂單編號</span><br />
+    商家端的交易序號, 必填欄位, 用來識別商家送出的不同付款要求.<br />
+    此欄位值在 100 天內不得重覆.<br />
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">amount</td>
+  <td class="paramsymbol">integer</td>
+  <td class="paramsymbol">是</td>
+  <td class="paramdesc">
+    <span class="desc_head">付款金額</span><br />
+    OpenPay 將會依傳入金額向消費者收取同額新台幣款項.<br />
+    使用不同付款方式將會扣除不同數額之交易手續費用.
+    <br />
+    註1: 金額須為大於 0 元之整數值.<br />
+  </td>
+</tr>
+<tr class="new">
+  <td class="paramsymbol">expire_date</td>
+  <td class="paramsymbol">varchar(20)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">離線付款繳款期限</span><br />
+    指定離線付款繳款期限, 支援下列 3 種用法.<br />
+	1. 不指定或指定內容為空值, 使用商家後台指定的繳款天數設定.<br />
+    2. 指定日期, 於該日期前皆可繳款, 格式 YYYY-MM-DD (例: 2000-11-22).<br />
+	3. 指定日期時間, ibon 於該日期該時間前可繳款, FamiPort/虛擬帳號/超商繳款 於該日期前皆可繳款, 格式 YYYY-MM-DD HH:II:SS (例: 2000-11-22 11:22:33).<br />
+    註1: 此參數僅對離線付款方式有效 (ibon/FamiPort/虛擬帳號/超商繳款) 有效.<br />
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">is_ibon</td>
+  <td class="paramsymbol">integer</td>
+  <td class="paramsymbol">是</td>
+  <td class="paramdesc">
+    <span class="desc_head">本筆付款單是否啟用 7-11 ibon 繳款</span><br />
+    傳入 1 時, OpenPay 系統將會對此筆付款啟用 7-11 ibon 繳款功能.<br />
+    傳入 0 時, OpenPay 系統將不會對此筆付款提供 7-11 ibon 繳款功能.<br />
+    <br />
+    註1: 7-11 ibon 繳款金額最低 30 元, 最高 20000 元.<br />
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">is_fami</td>
+  <td class="paramsymbol">integer</td>
+  <td class="paramsymbol">是</td>
+  <td class="paramdesc">
+    <span class="desc_head">本筆付款單是否啟用全家 FamiPort 繳款</span><br />
+    傳入 1 時, OpenPay 系統將會對此筆付款啟用全家 FamiPort 繳款功能.<br />
+    傳入 0 時, OpenPay 系統將不會對此筆付款提供全家 FamiPort 繳款功能.<br />
+    <br />
+    註1: 全家 FamiPort 繳款金額最低 30 元, 最高 20000 元.<br />
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">is_vaccount</td>
+  <td class="paramsymbol">integer</td>
+  <td class="paramsymbol">是</td>
+  <td class="paramdesc">
+    <span class="desc_head">本筆付款單是否啟用虛擬帳號繳款</span><br />
+    傳入 1 時, OpenPay 系統將會對此筆付款啟用虛擬帳號繳款功能.<br />
+    傳入 0 時, OpenPay 系統將不會對此筆付款提供虛擬帳號繳款功能.<br />
+    註1: 虛擬帳號繳款金額最低 10 元, 最高 30000 元.<br />
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">is_cstore</td>
+  <td class="paramsymbol">integer</td>
+  <td class="paramsymbol">是</td>
+  <td class="paramdesc">
+    <span class="desc_head">本筆付款單是否啟用超商繳款</span><br />
+    傳入 1 時, OpenPay 系統將會對此筆付款啟用超商繳款功能.<br />
+    傳入 0 時, OpenPay 系統將不會對此筆付款提供超商繳款功能.<br />
+    <br />
+    註1: 超商繳款金額最低 30 元, 最高 20000 元.<br />
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">encoding</td>
+  <td class="paramsymbol">varchar(15)</td>
+  <td class="paramsymbol">是</td>
+  <td class="paramdesc">
+    <span class="desc_head">參數傳送編碼</span><br />
+    指定付款要求參數所使用編碼, OpenPay 將使用此編碼來解讀商家傳送的資料.<br />
+    允許值 [BIG5,UTF-8], 預設值 [BIG5].<br />
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">description</td>
+  <td class="paramsymbol">varchar(255)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">代收項目簡介</span><br />
+    若帶入此參數, OpenPay 將會在付款時顯示欄位內容供繳款人核對.<br />
+    若不帶入此參數, 則付款頁面將不顯示代收項目資訊.
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">cname</td>
+  <td class="paramsymbol">varchar(255)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">消費者姓名</span>.</td>
+</tr>
+<tr>
+  <td class="paramsymbol">caddress</td>
+  <td class="paramsymbol">varchar(255)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">消費者地址</span>.</td>
+</tr>
+<tr>
+  <td class="paramsymbol">ctel</td>
+  <td class="paramsymbol">varchar(255)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">消費者電話</span>.</td>
+</tr>
+
+<tr align="center">
+  <td colspan="5" class="section">回傳參數說明</td>
+</tr>
+<tr>
+  <td style="white-space: nowrap; vertical-align: middle; text-align: center;">
+    運作<br />
+    方式</td>
+  <td colspan="4" style="vertical-align: middle;">
+    回傳參數以 CGI / GET 編碼方式, 回應執行結果至 HTTP Response body 中.<br />
+    ( 例: status=1&txid=200908071001&... )
+  </td>
+</tr>
+<tr>
+  <td rowspan="13" style="white-space: nowrap; vertical-align: middle; text-align: center;">參數</td>
+  <td style="background-color: rgb(204, 204, 204); text-align: center; vertical-align: middle;">參數名稱</td>
+  <td style="background-color: rgb(192, 192, 192); text-align: center; vertical-align: middle;">格式</td>
+  <td style="background-color: rgb(192, 192, 192); text-align: center; vertical-align: middle;">必要性</td>
+  <td style="background-color: rgb(192, 192, 192); text-align: center; vertical-align: middle;">參數說明</td>
+</tr>
+<tr>
+  <td class="paramsymbol">status</td>
+  <td class="paramsymbol">integer</td>
+  <td class="paramsymbol">是</td>
+  <td class="paramdesc">
+    <span class="desc_head">回傳狀態</span><br />
+    付款要求的執行結果回傳結果狀態 <a href="#svr2svr.status_table">(狀態定義表)</a>.<br />
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">tid</td>
+  <td class="paramsymbol">varchar(15)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">付款交易單號</span><br />
+    本次付款的交易單號.
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">txid</td>
+  <td class="paramsymbol">varchar(31)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">商家訂單編號</span><br />
+    傳入 OpenPay 時的商家訂單編號(txid), 或 OpenPay 自動指定之 txid.
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">amount</td>
+  <td class="paramsymbol">integer</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">付款金額</span><br />
+    傳入 OpenPay 時的付款金額參數(amount).<br />
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">expire_date</td>
+  <td class="paramsymbol">varchar(10)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc"><span class="desc_head">繳款截止日</span><br /></td>
+</tr>
+<tr>
+  <td class="paramsymbol">ibon_tid</td>
+  <td class="paramsymbol">varchar(15)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc"><span class="desc_head">7-11 ibon 付款用的繳費單號</span></td>
+</tr>
+<tr>
+  <td class="paramsymbol">fami_bill_no</td>
+  <td class="paramsymbol">varchar(14)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc"><span class="desc_head">全家 FamiPort 付款用的繳費單號</span></td>
+</tr>
+<tr>
+  <td class="paramsymbol">vaccount_bank_code</td>
+  <td class="paramsymbol">varchar(3)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc"><span class="desc_head">虛擬帳號收款銀行碼</span></td>
+</tr>
+<tr>
+  <td class="paramsymbol">vaccount_account_no</td>
+  <td class="paramsymbol">varchar(16)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc"><span class="desc_head">虛擬帳號收款帳號</span></td>
+</tr>
+<tr>
+  <td class="paramsymbol">cstore_barcode1</td>
+  <td class="paramsymbol">varchar(9)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc"><span class="desc_head">超商繳費條碼1</span></td>
+</tr>
+<tr>
+  <td class="paramsymbol">cstore_barcode2</td>
+  <td class="paramsymbol">varchar(16)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc"><span class="desc_head">超商繳費條碼2</span></td>
+</tr>
+<tr>
+  <td class="paramsymbol">cstore_barcode3</td>
+  <td class="paramsymbol">varchar(15)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc"><span class="desc_head">超商繳費條碼3</span></td>
+</tr>
+</tbody>
+</table>
+<br />
+<br />
+
+<a name="svr2svr.status_table"></a>
+<table class="param_table">
+<tbody>
+<tr>
+  <td colspan="2" class="section">回傳付款結果表</td>
+</tr>
+<tr>
+  <td class="paramhead">回傳值</td>
+  <td class="paramhead">說明</td>
+</tr>
+<tr>
+  <td class="paramsymbol">1</td>
+  <td class="paramsymbol">操作成功</td>
+</tr>
+<tr>
+  <td class="paramsymbol">11</td>
+  <td class="paramsymbol">系統內部錯誤</td>
+</tr>
+<tr>
+  <td class="paramsymbol">12</td>
+  <td class="paramsymbol">拒絕存取此功能操作</td>
+</tr>
+<tr>
+  <td class="paramsymbol">13</td>
+  <td class="paramsymbol">存取密碼錯誤</td>
+</tr>
+<tr>
+  <td class="paramsymbol">101</td>
+  <td class="paramsymbol">超過金額大小限制錯誤</td>
+</tr>
+<tr>
+  <td class="paramsymbol">102</td>
+  <td class="paramsymbol">選擇付款方式不支援</td>
+</tr>
+<tr>
+  <td class="paramsymbol">103</td>
+  <td class="paramsymbol">商家訂單編號重覆</td>
+</tr>
+<tr>
+  <td class="paramsymbol">104</td>
+  <td class="paramsymbol">繳費期限格式有誤</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+<br />
+
+<a name="success_notify"></a><br />
+2.4. 付款成功通知<br />
+
+<a name="success_notify.1"></a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.4.1. 說明<br />
+<div style="margin-left: 40px; text-align: justify;">
+若商家於後台有提供付款成功通知網址,
+當用戶使用線上付款或離線付款付款成功時,
+台灣里系統會即時通知商家提供的付款成功通知網址.<br />
+<br />
+請注意, OSC, TWE-Commerce, ECSHOP, XTC, Zen Cart 等 OpenSource 購物車因架構關係,
+無法支援付款成功通知功能.
+</span>
+</div>
+
+<br />
+
+<a name="success_notify.2"></a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.4.2. 介面及參數<br />
+<br />
+
+<div style="text-align: center;">
+
+<table class="param_table">
+<tbody>
+<tr>
+  <td colspan="5" class="section">
+    付款介面
+  </td>
+</tr>
+<tr>
+  <td class="fieldname">名稱</td>
+  <td colspan="4">付款成功通知</td>
+</tr>
+<tr>
+  <td class="fieldname">位址</td>
+  <td colspan="4">商家於系統後台定義的 [付款成功通知網址] 或 [離線付款成功通知網址].</td>
+</tr>
+<tr>
+  <td class="fieldname">說明</td>
+  <td colspan="4">
+  若商家有在後台定義相關付款成功通知網址,
+  消費者付款入帳之後, 由台灣里付款伺服器,
+  以 HTTP/GET 方式直接對付款成功通知網址發送付款成功通知.
+
+  若商家端 [付款成功通知網址] 程式無法連線或不正常回應時,
+  台灣里端系統會在指定重試次數內自動重送通知.
+  </td>
+</tr>
+<tr align="center">
+  <td colspan="5" class="section">傳入參數說明</td>
+</tr>
+<tr>
+  <td class="fieldname">運作<br />方式</td>
+  <td colspan="4">
+    台灣里系統直接以 HTTP/POST 方式, 將參數傳至商家交易系統端執行付款成功通知功能.
+  </td>
+</tr>
+<tr>
+  <td rowspan="14" class="fieldname">參數 </td>
+  <td class="paramhead">參數名稱</td>
+  <td class="paramhead">格式</td>
+  <td class="paramhead">必要性</td>
+  <td class="paramhead">參數說明</td>
+</tr>
+<tr>
+  <td class="paramsymbol">access_key</td>
+  <td class="paramsymbol">varchar(15)</td>
+  <td class="paramsymbol">是</td>
+  <td class="paramdesc">
+    <span class="desc_head">存取通行碼</span><br />
+    台灣里給定的網路程式存取通行碼.<br />
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">txid</td>
+  <td class="paramsymbol">varchar(31)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">商家訂單編號</span><br />
+    商家端產生的交易序號, 或空值時台灣里即時指定的訂單編號.<br />
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">amount</td>
+  <td class="paramsymbol">integer</td>
+  <td class="paramsymbol">是</td>
+  <td class="paramdesc">
+    <span class="desc_head">付款金額</span><br />
+    付款入帳金額.<br />
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">pay_type</td>
+  <td class="paramsymbol">integer</td>
+  <td class="paramsymbol">是</td>
+  <td class="paramdesc">
+    <span class="desc_head">付款種類代碼</span><br />
+    消費者選擇的付款種類.
+    (請參考<a href="#pay_result">回傳付款結果表</a>)</td>
+</tr>
+<tr>
+  <td class="paramsymbol">status</td>
+  <td class="paramsymbol">integer</td>
+  <td class="paramsymbol">是</td>
+  <td class="paramdesc">
+    <span class="desc_head">付款狀態</span><br />
+    消費者執行付款後的狀態.
+    (請參考<a href="#pay_result">回傳付款結果表</a>)</td>
+</tr>
+<tr>
+  <td class="paramsymbol">tid</td>
+  <td class="paramsymbol">varchar(15)</td>
+  <td class="paramsymbol">是</td>
+  <td class="paramdesc">
+    <span class="desc_head">付款交易單號</span><br />
+    本次付款的交易單號.</td>
+</tr>
+<tr>
+  <td class="paramsymbol">verify</td>
+  <td class="paramsymbol">varchar(32)</td>
+  <td class="paramsymbol">是 </td>
+  <td class="paramdesc">
+    <span class="desc_head">回傳參數檢查碼</span><br />
+    依回傳參數檢查碼運算公式所計算出的回傳參數檢查碼.<br />
+    用來驗証 OpenPay 回傳商家參數的正確性.<br />
+    <span class="desc_head"></span>
+    (請參考<a href="#param_verify">傳遞參數檢查機制說明</a>)</td>
+</tr>
+<tr>
+  <td class="paramsymbol">cname</td>
+  <td class="paramsymbol">varchar(255)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">消費者姓名</span>.</td>
+</tr>
+<tr>
+  <td class="paramsymbol">caddress</td>
+  <td class="paramsymbol">varchar(255)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">消費者地址</span>.</td>
+</tr>
+<tr>
+  <td class="paramsymbol">ctel</td>
+  <td class="paramsymbol">varchar(255)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">消費者電話</span>.</td>
+</tr>
+<tr>
+  <td class="paramsymbol">xname</td>
+  <td class="paramsymbol">varchar(255)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">收貨人姓名</span>.</td>
+</tr>
+<tr>
+  <td class="paramsymbol">xaddress</td>
+  <td class="paramsymbol">varchar(255)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">收貨人地址</span>.</td>
+</tr>
+<tr>
+  <td class="paramsymbol">xtel</td>
+  <td class="paramsymbol">varchar(255)</td>
+  <td class="paramsymbol">否</td>
+  <td class="paramdesc">
+    <span class="desc_head">收貨人電話</span>.</td>
+</tr>
+
+<tr align="center">
+  <td colspan="5" class="section">回傳說明</td>
+</tr>
+<tr>
+  <td style="white-space: nowrap; vertical-align: middle; text-align: center;">
+    運作<br />
+    方式</td>
+  <td colspan="4" style="vertical-align: middle;">
+    成功收到通知者, 請於 HTTP Response Content 中輸出 OK 兩字元.
+    連線失敗或回應不包含 OK 兩字元均視為通知失敗, 依需要進行重試程序.
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">接收成功</td>
+  <td class="paramdesc" colspan="5">
+<pre>
+HTTP/1.1 200 OK
+Date: Thu, 24 Sep 2009 04:22:10 GMT
+Server: Apache
+Content-Type: text/html
+
+OK
+</pre>
+  </td>
+</tr>
+<tr>
+  <td class="paramsymbol">接收失敗</td>
+  <td class="paramdesc" colspan="5">
+<pre>
+HTTP/1.1 200 OK
+Date: Thu, 24 Sep 2009 04:22:10 GMT
+Server: Apache
+Content-Type: text/html
+
+INTERNAL ERROR
+</pre>
+  </td>
+</tr>
+</tbody>
+</table>
+<br />
+
+</div>
+
+
+<br />
+
+<div style="margin: 5%; text-align: left;"><a name="3"></a>
+<br />
+3. 付款範例<br />
+<div style="margin-left: 40px;">
+本節將以下列的設定來示範 OpenPay 付款功能<br />
+<table>
+<tr><td>付款界面版本:</td><td>2.1</td></tr>
+<tr><td>台灣里商家編號:</td><td>TEST</td></tr>
+<tr><td>付款分期數:</td><td>0 (一次付清)</td></tr>
+<tr><td>交易序號:</td><td>222222</td></tr>
+<tr><td>付款金額:</td><td>3</td></tr>
+<tr><td>傳入參數檢查碼:</td><td>2724e27fa576dcff1ef047018c6f2ccd</td></tr>
+<tr><td>付款界面語系:</td><td>tchinese</td></tr>
+<tr><td>瀏覽器回傳位址:</td><td>http://www.merchant.com/payback.php</td></tr>
+</table>
+
+
+</div>
+
+
+<a name="3.1"></a><br />
+<br />
+3.1. 簡易機動付款範例<br />
+<div style="margin: 5%; text-align: left;">
+簡易機動付款: 一般模式範例<br />
+<table style="text-align: left;" border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(204, 204, 204); text-align: center;">
+        簡易機動付款: 一般模式付款要求範例1, 由消費者輸入付款金額及付款人資訊.<br />
+      </td>
+    </tr>
+    <tr>
+      <td>
+<pre>
+&lt;html&gt;
+&lt;body&gt;
+&lt;form name="pay" method="post" action="https://www.twv.com.tw/openpay/pay_direct.php"&gt;
+ &lt;input type="hidden" name="mid" value="TEST"&gt;
+ &lt;input type="hidden" name="txid" value="222222"&gt;
+ &lt;input type="hidden" name="mode" value="1"&gt;
+ &lt;input type="hidden" name="language" value="tchinese"&gt;
+&lt;/form&gt;
+&lt;script language="JavaScript"&gt;&lt;!--
+  document.pay.submit();
+// --&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(204, 204, 204); text-align: center;">
+        簡易機動付款: 一般模式付款要求範例2, 由消費者輸入付款人資訊.
+      </td>
+    </tr>
+    <tr>
+      <td>
+<pre>
+&lt;html&gt;
+&lt;body&gt;
+&lt;form name="pay" method="post" action="https://www.twv.com.tw/openpay/pay_direct.php"&gt;
+ &lt;input type="hidden" name="mid" value="TEST"&gt;
+ &lt;input type="hidden" name="txid" value="222222"&gt;
+ &lt;input type="hidden" name="amount" value="3"&gt;
+ &lt;input type="hidden" name="mode" value="1"&gt;
+ &lt;input type="hidden" name="language" value="tchinese"&gt;
+&lt;/form&gt;
+&lt;script language="JavaScript"&gt;&lt;!--
+  document.pay.submit();
+// --&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br /><br />
+
+簡易機動付款: 簡易模式範例<br />
+<table style="text-align: left;" border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(204, 204, 204); text-align: center;">
+        簡易機動付款: 簡易模式付款要求範例1, 由消費者輸入付款金額後即產生 7-11 ibon 繳費說明.
+      </td>
+    </tr>
+    <tr>
+      <td>
+<pre>
+&lt;html&gt;
+&lt;body&gt;
+&lt;form name="pay" method="post" action="https://www.twv.com.tw/openpay/pay_direct.php"&gt;
+ &lt;input type="hidden" name="mid" value="TEST"&gt;
+ &lt;input type="hidden" name="txid" value="222222"&gt;
+ &lt;input type="hidden" name="mode" value="2"&gt;
+ &lt;input type="hidden" name="select_paymethod" value="9"&gt;
+ &lt;input type="hidden" name="charset" value="UTF-8"&gt;
+ &lt;input type="hidden" name="language" value="tchinese"&gt;
+ &lt;input type="hidden" name="cname" value="王大明"&gt;
+ &lt;input type="hidden" name="caddress" value="台北市士林區中正路100001號"&gt;
+ &lt;input type="hidden" name="ctel" value="0900123456"&gt;
+ &lt;input type="hidden" name="cemail" value="test@customer.com"&gt;
+&lt;/form&gt;
+&lt;script language="JavaScript"&gt;&lt;!--
+  document.pay.submit();
+// --&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(204, 204, 204); text-align: center;">
+        簡易模式付款: 簡易模式付款要求範例2, 傳入後即產生 7-11 ibon 繳費說明.
+      </td>
+    </tr>
+    <tr>
+      <td>
+<pre>
+&lt;html&gt;
+&lt;body&gt;
+&lt;form name="pay" method="post" action="https://www.twv.com.tw/openpay/pay_direct.php"&gt;
+ &lt;input type="hidden" name="mid" value="TEST"&gt;
+ &lt;input type="hidden" name="txid" value="222222"&gt;
+ &lt;input type="hidden" name="amount" value="100"&gt;
+ &lt;input type="hidden" name="mode" value="2"&gt;
+ &lt;input type="hidden" name="select_paymethod" value="9"&gt;
+ &lt;input type="hidden" name="charset" value="UTF-8"&gt;
+ &lt;input type="hidden" name="language" value="tchinese"&gt;
+ &lt;input type="hidden" name="cname" value="王大明"&gt;
+ &lt;input type="hidden" name="caddress" value="台北市士林區中正路100001號"&gt;
+ &lt;input type="hidden" name="ctel" value="0900123456"&gt;
+ &lt;input type="hidden" name="cemail" value="test@customer.com"&gt;
+&lt;/form&gt;
+&lt;script language="JavaScript"&gt;&lt;!--
+  document.pay.submit();
+// --&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+<a name="3.2"></a><br />
+<br />
+3.2. 系統整合付款範例<br />
+<div style="margin: 5%; text-align: left;">
+<table style="text-align: left;" border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(204, 204, 204); text-align: center;">
+        商家網站傳入付款需求往 OpanPay
+      </td>
+    </tr>
+    <tr>
+      <td>
+<pre>
+&lt;html&gt;
+&lt;body&gt;
+&lt;form name="pay" method="post" action="https://www.twv.com.tw/openpay/pay.php"&gt;
+ &lt;input type="hidden" name="version" value="2.1"&gt;
+ &lt;input type="hidden" name="mid" value="TEST"&gt;
+ &lt;input type="hidden" name="iid" value="0"&gt;
+ &lt;input type="hidden" name="txid" value="222222"&gt;
+ &lt;input type="hidden" name="amount" value="3"&gt;
+ &lt;input type="hidden" name="verify" value="2724e27fa576dcff1ef047018c6f2ccd"&gt;
+ &lt;input type="hidden" name="return_url" value="http://www.merchant.com/payback.php"&gt;
+ &lt;input type="hidden" name="language" value="tchinese"&gt;
+&lt;/form&gt;
+&lt;script language="JavaScript"&gt;&lt;!--
+  document.pay.submit();
+// --&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div style="margin: 5%; text-align: left;">
+<table style="text-align: left;" border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(204, 204, 204); text-align: center;">
+        OpanPay回傳商家網站範例 1. 信用卡付款成功
+      </td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap;">
+<pre>
+&lt;html&gt;
+&lt;body&gt;
+&lt;form name="return" method="post" action="http://www.merchant.com/payback.php"&gt;
+ &lt;input type="hidden" name="txid" value="222222"&gt;
+ &lt;input type="hidden" name="amount" value="3"&gt;
+ &lt;input type="hidden" name="pay_type" value="1"&gt;
+ &lt;input type="hidden" name="status" value="1"&gt;
+ &lt;input type="hidden" name="tid" value="200501011234"&gt;
+ &lt;input type="hidden" name="verify" value="0e2965539eedf17e058594eae141b50c"&gt;
+ &lt;input type="hidden" name="cname" value="王大明"&gt;
+ &lt;input type="hidden" name="caddress" value="台北市中山北路100001號"&gt;
+ &lt;input type="hidden" name="ctel" value="0900123456"&gt;
+ &lt;input type="hidden" name="cemail" value="twe@twe.com.tw"&gt;
+ &lt;input type="hidden" name="xname" value="王大明"&gt;
+ &lt;input type="hidden" name="xaddress" value="台北市中山北路100001號"&gt;
+ &lt;input type="hidden" name="xemail" value="twe@twe.com.tw"&gt;
+ &lt;input type="hidden" name="error_code" value=""&gt;
+ &lt;input type="hidden" name="error_desc" value=""&gt;
+ &lt;input type="hidden" name="auth_code" value="123456"&gt;
+ &lt;input type="hidden" name="xid" value=""&gt;
+ &lt;input type="hidden" name="ref_no" value=""&gt;
+ &lt;input type="hidden" name="account_no" value=""&gt;
+ <span>&lt;input type="hidden" name="bill_no" value=""&gt;</span>
+ &lt;input type="image" name="ImageButton" src="http://www.twv.com.tw/images/com.gif"&gt;
+ 本網頁將使用 javascript 自動導向商家網站, 若您的瀏灠器導向時間過長無回應, 請直接點選
+ &lt;input type="submit" value="此處"&gt; 完成導向動作
+&lt;/form&gt;
+&lt;script language="JavaScript"&gt;&lt;!--
+  document.return.submit();
+// --&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(204, 204, 204); text-align: center;">
+        OpanPay回傳商家網站範例 2. 信用卡付款失敗
+      </td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap;">
+<pre>
+&lt;html&gt;
+&lt;body&gt;
+&lt;form name="return" method="post" action="http://www.merchant.com/payback.php"&gt;
+ &lt;input type="hidden" name="txid" value="222222"&gt;
+ &lt;input type="hidden" name="amount" value="3"&gt;
+ &lt;input type="hidden" name="pay_type" value="1"&gt;
+ &lt;input type="hidden" name="status" value="2"&gt;
+ &lt;input type="hidden" name="tid" value="200501011234"&gt;
+ &lt;input type="hidden" name="verify" value="69da8c399384ae8d27346251498fc453"&gt;
+ &lt;input type="hidden" name="cname" value="王大明"&gt;
+ &lt;input type="hidden" name="caddress" value="台北市中山北路100001號"&gt;
+ &lt;input type="hidden" name="ctel" value="0900123456"&gt;
+ &lt;input type="hidden" name="cemail" value="twe@twe.com.tw"&gt;
+ &lt;input type="hidden" name="xname" value="王大明"&gt;
+ &lt;input type="hidden" name="xaddress" value="台北市中山北路100001號"&gt;
+ &lt;input type="hidden" name="xemail" value="twe@twe.com.tw"&gt;
+ &lt;input type="hidden" name="error_code" value=""&gt;
+ &lt;input type="hidden" name="error_desc" value="過期卡"&gt;
+ &lt;input type="hidden" name="auth_code" value=""&gt;
+ &lt;input type="hidden" name="xid" value=""&gt;
+ &lt;input type="hidden" name="ref_no" value=""&gt;
+ &lt;input type="hidden" name="account_no" value=""&gt;
+ <span>&lt;input type="hidden" name="bill_no" value=""&gt;</span>
+ &lt;input type="image" name="ImageButton" src="http://www.twv.com.tw/images/com.gif"&gt;
+ 本網頁將使用 javascript 自動導向商家網站, 若您的瀏灠器導向時間過長無回應, 請直接點選
+ &lt;input type="submit" value="此處"&gt; 完成導向動作
+&lt;/form&gt;
+&lt;script language="JavaScript"&gt;&lt;!--
+  document.return.submit();
+// --&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(204, 204, 204); text-align: center;">
+        OpanPay回傳商家網站範例 3. 虛擬帳號轉帳等待付款
+      </td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap;">
+<pre>
+&lt;html&gt;
+&lt;body&gt;
+&lt;form name="return" method="post" action="http://www.merchant.com/payback.php"&gt;
+ &lt;input type="hidden" name="txid" value="222222"&gt;
+ &lt;input type="hidden" name="amount" value="3"&gt;
+ &lt;input type="hidden" name="paytype" value="2"&gt;
+ &lt;input type="hidden" name="status" value="3"&gt;
+ &lt;input type="hidden" name="tid" value="200501011234"&gt;
+ &lt;input type="hidden" name="verify" value="f333e40b5c8d67affa80b437b5d62a06"&gt;
+ &lt;input type="hidden" name="cname" value="王大明"&gt;
+ &lt;input type="hidden" name="caddress" value="台北市中山北路100001號"&gt;
+ &lt;input type="hidden" name="ctel" value="0900123456"&gt;
+ &lt;input type="hidden" name="cemail" value="twe@twe.com.tw"&gt;
+ &lt;input type="hidden" name="xname" value="王大明"&gt;
+ &lt;input type="hidden" name="xaddress" value="台北市中山北路100001號"&gt;
+ &lt;input type="hidden" name="xemail" value="twe@twe.com.tw"&gt;
+ &lt;input type="hidden" name="error_code" value=""&gt;
+ &lt;input type="hidden" name="error_desc" value=""&gt;
+ &lt;input type="hidden" name="auth_code" value=""&gt;
+ &lt;input type="hidden" name="xid" value=""&gt;
+ &lt;input type="hidden" name="ref_no" value=""&gt;
+ &lt;input type="hidden" name="account_no" value="005-12345678901234"&gt;
+ <span>&lt;input type="hidden" name="bill_no" value=""&gt;</span>
+ &lt;input type="image" name="ImageButton" src="http://www.twv.com.tw/images/com.gif"&gt;
+ 本網頁將使用 javascript 自動導向商家網站, 若您的瀏灠器導向時間過長無回應, 請直接點選
+ &lt;input type="submit" value="此處"&gt; 完成導向動作
+&lt;/form&gt;
+&lt;script language="JavaScript"&gt;&lt;!--
+  document.return.submit();
+// --&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+<hr>
+
+<div style="margin: 5%; text-align: left;">
+<a name="A"></a><a name="appendix_md5"></a>
+附錄A: MD5 範例程式<br />
+<div style="margin: 5%; text-align: left;">
+以下範例將示範將被摘要訊息是 "ABCD" 長度為 4
+字元的字串, 經 MD5 處理後應得到摘要值 "cb08ca4a7bb5f9683c19133a84872ca7" 長度為 32 個字元的字串.<br />
+(其他程式語言範例請參考<a
+ href="http://userpages.umbc.edu/%7Emabzug1/cs/md5/md5.html">此處</a>,
+或與台灣里聯絡) <br />
+<br />
+<table style="text-align: left; margin-left: auto; margin-right: auto;"
+ border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(204, 204, 204); text-align: center;">PHP 範例程式 </td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap;">
+<pre>
+&lt;?php
+$message = "ABCD";
+$verify = md5($message);
+?&gt;
+</pre>
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(204, 204, 204); text-align: center;">Perl 範例程式 </td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap;">
+<pre>
+# Functional style
+use Digest::MD5 qw(md5_hex);
+
+$message = "ABCD";
+$verify = md5_hex($message);
+
+# OO style
+use Digest::MD5;
+
+$message = "ABCD";
+$ctx = Digest::MD5-&gt;new;
+$ctx-&gt;add($message);
+$verify = $ctx-&gt;hexdigest;
+</pre>
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(204, 204, 204); text-align: center;">Java 範例程式 </td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap;">
+<pre>
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
+public class Md5Library {
+  public static String md5( String message ) throws NoSuchAlgorithmException {
+    MessageDigest md = MessageDigest.getInstance("MD5");
+    md.update(message.getBytes());
+    BigInteger hash = new BigInteger(1, md.digest());
+    return hash.toString(16);
+  }
+
+  public static void main( String [] argv ) throws NoSuchAlgorithmException {
+    String message = "ABCD";
+    String verify = Md5Library.md5( message );
+  }
+}
+</pre>
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(204, 204, 204); text-align: center;">ASP 範例程式 </td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap;">
+      <div>
+<pre>
+'ASP 不內建 MD5 HASH 運算,
+'請取得 http://userpages.umbc.edu/~mabzug1/cs/md5/md5.asp 程式後,
+'以下列方式取得 message 之 md5.
+message = "ABCD";
+verify = MD5(message);
+</pre>
+      </div>
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(204, 204, 204); text-align: center;">ASP.NET 範例程式 </td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap;">
+      <div>
+<pre>
+<%@ Page Language="C#" ContentType="text/html"%>
+<%@ Import Namespace="System"%>
+&lt;script language="C#" runat="server"&gt;
+message = "ABCD";
+verify = System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(message,"md5");
+&lt;/script&gt;
+</pre>
+      </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+<div style="margin: 5%; text-align: left;">
+<a name="B"></a><a name="appendix_custom_vars"></a>
+附錄B: 自訂回傳商家網站參數範例程式<br />
+<div style="margin: 5%; text-align: left;">
+以下將示範 return_url 中夾帶商家自訂參數的範例做法.
+假設商家回傳的 url 為 http://www.merchant.com/payback.php,
+需帶入自訂參數 "postcode=123456" 和 "附註=請於7日內送達" 為例.<br />
+<br />
+<table style="text-align: left;"
+ border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="background-color: rgb(204, 204, 204); text-align: center;">PHP 範例程式 </td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap;">
+<pre>
+&lt;?php
+$return_url = "http://www.merchant.com/payback.php"
+  ."?".rawurlencode("postcode")."=".rawurlencode("123456")
+  ."&".rawurlencode("附註")."=".rawurlencode("請於7日內送達");
+?&gt;
+</pre>
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(204, 204, 204); text-align: center;">ASP 範例程式 </td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap;">
+<pre>
+return_url = "http://www.merchant.com/payback.php"
+  & "?" & Server.URLEncode("postcode") & "=" & Server.URLEncode("123456")
+  & "&" & Server.URLEncode("附註") & "=" & Server.URLEncode("請於7日內送達");
+</pre>
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(204, 204, 204); text-align: center;">ASP.NET 範例程式 </td>
+    </tr>
+    <tr>
+      <td style="white-space: nowrap;">
+<pre>
+return_url = "http://www.merchant.com/payback.php"
+  & "?" & HttpUtility.UrlEncode("postcode",Encoding.Default) & "=" & HttpUtility.UrlEncode("123456",Encoding.Default)
+  & "&" & HttpUtility.UrlEncode("附註",Encoding.Default) & "=" & HttpUtility.UrlEncode("請於7日內送達",Encoding.Default);
+</pre>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</body>
+</html>

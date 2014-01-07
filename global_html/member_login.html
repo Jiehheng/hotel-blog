@@ -1,0 +1,22 @@
+	<h2>》會員登入</h2>
+	<div class="login_box">
+		<form name = "frm" action = "funcs.php" method = "post">
+		<input type = "hidden" name = "act" value = "login">
+		<input type = "hidden" name = "refurl" value = "{refurl}">
+        <div class="login_box1">
+          <div class="title2">一般登入</div>
+            帳號<br />
+            <input name="account" type="text" id="account" />
+            <br />
+            密碼<br />
+            <input name="password" type="password" id="password" />
+            <a href="">忘記密碼</a><br /><br />
+            <input type="submit" name="loginbutton" id="loginbutton" value="登入" />
+            或申請&nbsp;<a href="">加入會員</a><br />
+        </div>
+		</form>
+        <div class="login_box1">
+          <div class="title2">或者，使用 Facebook 登入</div>
+            　<fb:login-button></fb:login-button>
+        </div>
+    </div>

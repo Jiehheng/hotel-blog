@@ -1,0 +1,283 @@
+<!-- BEGIN: main -->{HTML.header}
+<script src="./imageCheck_zz/tools/ajax_zz.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/JavaScript">
+<!--
+
+
+
+
+function Validate()		// 檢驗輸入是否符合規定
+{
+	var cForm = document.frmMessage;
+	if(cForm.edtMessage.value=="")
+	{
+		alert("請輸入欲留言內容");
+		cForm.edtMessage.focus();
+		return false;
+	}
+	return check();
+}
+
+function ResetForm()
+{
+	document.frmMessage.reset();
+}
+
+function check()
+{
+	var cForm = document.frmMessage;	//form的名稱
+	var alertStr="";
+	var ajax_url ='./imageCheck_zz/tools/chucksum_xml.php';				//ajax網址
+	var ajax_data='&checksum='+ cForm.checksum.value;	//ajax參數
+	
+	var is_checksum = sendRequest(AjaxResult,ajax_data,"GET",ajax_url,false);
+	//callback
+	function AjaxResult(oj){
+		var xmldoc = oj.responseXML;
+		var root_node = xmldoc.getElementsByTagName('root').item(0);
+		switch(root_node.firstChild.data){
+			case "0":
+				alertStr +="認證碼錯誤!";
+				break;
+			case "1":
+				break;
+			case "2":
+				//IE可自動更新認證碼
+				if(navigator.appName == "Microsoft Internet Explorer"){	
+					//imgRoll('chucksumImg','./imageCheck_zz/tools/chucksum.php');
+					window.frames["captcha"].location.reload();
+					alertStr +="已超出輸入時間，認證碼已更新，請輸入新的認證碼!";
+				}else{
+					alertStr +="已超出輸入時間，請重新載入頁面以更換新的認證碼!";
+				}
+				break;		
+		}
+	}
+	
+	if( alertStr != '' ){
+		alert( alertStr );
+		return false;
+	}else{
+		cForm.action = 'funcs.php';
+		cForm.act.value = 'Replymsg';
+		cForm.submit();
+		return true;
+	}
+	return false;
+}
+//-->
+</script>
+<style>
+.link1{
+	font-size: 12px;
+	color: #666666;
+	font-family: Arial, Helvetica, sans-serif;
+	letter-spacing: 1.4pt;
+	text-decoration:none;
+	font-weight: normal;
+}
+.link1:hover {
+	font-size: 12px;
+	color: #0099FF;
+	font-family: Arial, Helvetica, sans-serif;
+	letter-spacing: 1.4pt;
+	text-decoration:none;
+	font-weight: normal;
+}	
+.link2{
+	font-size: 12px;
+	color: #FF3333;
+	font-family: Arial, Helvetica, sans-serif;
+	letter-spacing: 1.4pt;
+	text-decoration:none;
+	font-weight: normal;
+}
+.style1 {
+	font-size: 15px;
+	color: #3F829D;
+	font-family: 微軟正黑體, 新細明體, Arial, Helvetica, sans-serif;
+	letter-spacing: 1.4pt;
+	line-height:150%;
+	cursor:pointer;
+}
+.style2 {
+	font-size: 12px;
+	color: #666666;
+	line-height: 175%;
+	letter-spacing: 1.4pt;
+	font-family: Arial, Helvetica, sans-serif;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.style12 {
+	font-size: 9.5pt;
+	color: #7366E0;
+	font-family: 新細明體, Arial, Helvetica, sans-serif;
+	line-height:180%;
+}
+a.style12:hover {
+	font-size: 9.5pt;
+	color: #CE3F2B;
+	text-decoration: none;
+	line-height:180%;
+}
+</style>
+  <div id="top" class="grid_12">
+    {HTML.banner}
+  </div>
+  <div class="grid_3">
+	{HTML.menu}
+  </div>
+  <div class="grid_9">
+	<div class="right_box">
+	  <div class="right_top">留言</div>
+      <div style="padding:10px;">
+		<!-- BEGIN: msg_list -->
+		<table id="___2" width="680" height="140" border="0" cellpadding="0" cellspacing="0" align="center">
+		  <tr>
+		  <td align="left" valign="top">
+			<table width="680" border="0" cellspacing="0" cellpadding="0">
+			  <tr>
+				<td colspan="5"><img src="images/mtop.gif" width="680" height="38"></td>
+			  </tr>
+			  {content_list.area1}
+			  <tr>
+				<td colspan="5" height="4"></td>
+			  </tr>
+			  <tr>
+				<td colspan="5" height="5" bgcolor="#CCCCCC"></td>
+			  </tr>
+			  <tr>
+				<td colspan="5" height="3"></td>
+			  </tr>
+			  <tr>
+				<td colspan="5">
+				
+				<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+				<tr>
+				  <td width="60"></td>
+				  <td width="150" align="right">&nbsp;
+					<a href="{content_list.area2_url}"><img src="images/up_ten.gif" width="58" height="14" border="0" align="absmiddle" {content_list.area2} /></a>&nbsp;
+					<a href="{content_list.area3_url}"><img src="images/up.gif" width="58" height="14" border="0" align="absmiddle" {content_list.area3} /></a>
+				  </td>
+				  <td align="center"><span class="style12">
+					{content_list.area4}
+				  </span></td>
+				  <td width="150" align="left">&nbsp;
+					<a href="{content_list.area5_url}"><img src="images/down.gif" width="58" height="14" border="0" align="absmiddle" {content_list.area5} /></a>&nbsp;
+					<a href="{content_list.area6_url}"><img src="images/down_ten.gif" width="58" height="14" border="0" align="absmiddle" {content_list.area6} /></a>
+				  </td>
+				  <td width="60" align="right">
+					<span style="cursor:pointer;" onClick="javascript:window.open('./?{cUrl}&forums&message=new','_self')" />
+					<img name="ImageA" id="ImageA" width="59" height="15" align="baseline" border="0" src="images/wantmess.gif" />
+					</span>
+				  </td>
+				 </tr>
+				</table>
+				</td>
+			  </tr>
+			  <tr>
+				<td colspan="5" height="36"><table width="677" border="0" cellspacing="0" cellpadding="0">
+				  <tr>
+					<td width="677" height="33" background="images/mdown.gif">
+					<table width="100%" cellspacing="0" cellpadding="0" border="0">
+					  <tr>
+						<td width="100" height="30">&nbsp;</td>
+						<td width="60" class="style2">文章搜尋</td>
+						<td width="160">
+						<form enctype="multipart/form-data" action="" name="frmMsg" method="get">
+						<input type="hidden" name="forums" value="1">
+						<input id="seach_kword" style="BORDER-RIGHT: #83bdf1 1px solid; BORDER-TOP: #83bdf1 1px solid; FONT-SIZE: 8pt; BORDER-LEFT: #83bdf1 1px solid; WIDTH: 150px; COLOR: #666666; BORDER-BOTTOM: #83bdf1 1px solid; HEIGHT: 16px; BACKGROUND-COLOR: #ffffff" name="seach_kword">
+						</form></td>
+						<td width="150"><input type="image" width="37" height="16" align="baseline" border="0" src="images/serch.gif" name="submit" value="submit" onClick="frmMsg.submit();" /></td>
+						<td width="60" class="style2">直接跳頁</td>
+						<td><select name="seach_chk" id="seach_chk" style="BORDER-RIGHT: #83bdf1 1px solid; BORDER-TOP: #83bdf1 1px solid; FONT-SIZE: 8pt; BORDER-LEFT: #83bdf1 1px solid; WIDTH: 75px; COLOR: #666666; BORDER-BOTTOM: #83bdf1 1px solid; HEIGHT: 20px; BACKGROUND-COLOR: #ffffff" onChange="window.open(this.options[this.selectedIndex].value,'_self')">
+							<option value="0">請選擇</option>
+							{content_list.area7}
+							</select>
+						</td>
+					  </tr>
+					</table></td>
+				  </tr>
+				</table></td>
+			  </tr>
+			</table></td>
+		  </tr>
+		</table>
+		<!-- END: msg_list -->
+		
+		<!-- BEGIN: message -->
+		<div style="background:url(images/messageintop.gif); background-repeat:no-repeat; width:680px; height:38px;">
+		  <div style="padding:12px;">
+		  主題：{content_msg.title}
+		  <span style="float:right;">發表人：{content_msg.ac_name}</span>
+		  </div>
+		</div>
+		
+		<div style="padding:10px; margin:2px; background-color:#fefefe">
+		  <span class="style1">話題內容</span><br>
+			<span class="style2" style="letter-spacing: 1.5pt;line-height:180%">{content_msg.ac_question}</span><br>
+			<div align="right" class="style2">留言時間：{content_msg.msgdate}&nbsp;</div>
+		</div>
+		
+		<div style="float:left;background:url(images/messagein1.gif);width:28px; height:34px;"></div>
+		<div style="float:left;background:url(images/messagein1-1.gif);width:624px; height:34px;"></div>
+		<div style="float:left;background:url(images/messagein1-2.gif);width:28px; height:34px;"></div>
+		
+		<div style="float:left;background:url(images/messagein1-9.gif) repeat-y;width:680px;background-position:left top; padding:0 20px 0 20px;">
+			
+			<div style="float:left;width:640px;">
+				<div style="float:left;background:url(images/messagein1-8.gif);width:28px; height:34px;"></div>
+				<div style="float:left;background:url(images/messagein1-1.gif);width:584px; height:34px;">
+					<div style="padding:10px;">回應話題：</div>
+				</div>
+				<div style="float:left;background:url(images/messagein1-2.gif);width:28px; height:34px;"></div>
+			</div>
+		  
+			<div style="float:left;background:url(images/messagein1-10.gif);width:640px;background-position:left top; border-top:#000033 dotted 1px;">
+				<div style="float:left;width:584px; margin:3px 20px 3px 20px;">{content_msg.ac_answer}
+				<!-- BEGIN: reMsg -->
+				<form name="frmMessage" method="post">
+				<input type="hidden" name="act" id="act" />
+				<input type="hidden" name="txt_id" id="txt_id" value="{content_msg.txt_id}" />
+				<div style="float:left;background:url(images/messagetitle2.gif);width:584px; height:30px;"></div>
+				<table cellSpacing="2" cellPadding="2" bgColor="#ffffff" border="0" id="table8" style="float:left; width:100%;">
+					<tr bgColor="#f6f6f6">
+					  <td class="style2" style="vertical-align:top; text-align:left;"><br/>&nbsp;<img height="8" src="images/icon_02.gif" width="8">&nbsp;內容</td>
+					  <td colspan="2"><textarea name="edtMessage" cols="50" rows="6" style="BORDER-RIGHT: #83bdf1 1px solid; BORDER-TOP: #83bdf1 1px solid; FONT-SIZE: 8pt; BORDER-LEFT: #83bdf1 1px solid; BORDER-BOTTOM: #83bdf1 1px solid;" ></textarea></td>
+					</tr>
+					<tr bgColor="#f6f6f6">
+					  <td class="style2">&nbsp;<img height="8" src="images/icon_02.gif" width="8">&nbsp;驗證碼</td>
+					  <td><input type="text" name="checksum" id="frmMessage" size="6" maxlength="6" style="font-size: 22pt; font-family: Arial; color: #0000FF" onKeyPress="if((event.keyCode>96)&&(event.keyCode<123))event.keyCode-=32;" /></td>
+					  <td><iframe name=captcha align=middle src="./imageCheck_zz/tools/getpng.htm" frameborder="no" width="180" height="50" scrolling="no"></iframe></td>
+					</tr>
+					<tr bgColor="#f6f6f6">
+					  <td class="style2">&nbsp;</td>
+					  <td height="25" colspan="2" valign="middle">
+					  <span style="cursor:pointer;" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('ImageA','','images/send.gif',1)" onClick="return Validate();" /><img name="ImageA" id="ImageA" width="59" height="19" align="middle" border="0" src="images/send.gif" /></span>
+					  <span style="cursor:pointer;" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('ImageB','','images/clean.gif',1)" onClick="ResetForm();" /><img name="ImageB" id="ImageB" width="59" height="19" align="middle" border="0" src="images/clean.gif" /></span></td>
+					</tr>
+				</table>
+				</form>
+				<!-- END: reMsg -->
+				</div>
+			</div>
+			
+			<div style="float:left;width:640px;">
+				<div style="float:left;background:url(images/messagein1-5.gif);width:28px; height:15px;"></div>
+				<div style="float:left;background:url(images/messagein1-6.gif);width:584px; height:15px;"></div>
+				<div style="float:left;background:url(images/messagein1-7.gif);width:28px; height:15px;"></div>
+			</div>
+		</div>
+		
+		<div style="float:left;background:url(images/messagein1-5.gif);width:28px; height:15px;"></div>
+		<div style="float:left;background:url(images/messagein1-6.gif);width:624px; height:15px;"></div>
+		<div style="float:left;background:url(images/messagein1-7.gif);width:28px; height:15px;"></div>
+		<br />&nbsp;
+		<!-- END: message -->
+		
+      </div>
+    </div>
+  </div>   
+{HTML.footer}
+<!-- END: main -->

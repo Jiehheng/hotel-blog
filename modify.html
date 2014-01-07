@@ -1,0 +1,114 @@
+<!-- BEGIN: main -->{HTML.header}
+<script type="text/JavaScript">
+<!--
+function check(){
+	fm = document.frm;
+	err_msg = "";
+	
+	if(fm.name.value==""){
+		err_msg += "姓名　未填寫!!\n";
+	}
+	
+	if(fm.bir_y.value == "" || fm.bir_m.value == "00" || fm.bir_d.value == "00"){
+		err_msg += "出生日期　未填寫!!\n";
+	}
+	
+	if(fm.tel.value==""){
+		err_msg += "連絡電話　未填寫!!\n";
+	}
+
+	if(fm.mobile.value==""){
+		err_msg += "行動電話　未填寫!!\n";
+	}
+
+	if(fm.email.value==""){
+		err_msg += "E-Mail　未填寫!!\n";
+	}
+
+	if(fm.address.value==""){
+		err_msg += "聯絡地址 : 地址 未填寫!!\n";
+	}
+
+	if(err_msg!=""){
+		alert(err_msg);
+		return false;
+	}else{
+		fm.action = "funcs.php";
+		fm.submit();
+		return true;
+	}
+}
+//-->
+</script>
+<div id="top" class="grid_12">
+	{HTML.banner}
+</div>
+<div class="grid_3">
+	{HTML.menu_member}
+</div>
+<div class="grid_9">
+<a href="?{cUrl}&amp;index">首頁</a> > <a href="?{cUrl}&amp;member">會員中心</a> > 修改會員資料
+  <div class="title1">會員中心</div>
+<h2>》修改會員資料</h2>
+<form name="frm" method="post" onsubmit="return check();">
+<input type="hidden" name="act" id="act" value="member_edit">
+<input type="hidden" name="refurl" id="refurl" value="{refurl}">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>帳　　號：</td>
+    <td>{content_list.account}</td>
+  </tr>
+  <tr>
+    <td>姓　　名：</td>
+    <td><input name="name" id="name" type="text" value="{content_list.name}" />
+      <label for="select"></label>
+      <select name="sex" id="sex">
+        {content_list.sex}
+      </select></td>
+  </tr>
+  <tr>
+    <td>出生日期：</td>
+    <td>西元
+      <select name="bir_y" id="bir_y">
+        {content_list.birthday_Year}
+      </select>
+      年
+      <label for="select3"></label>
+      <select name="bir_m" id="bir_m">
+       {content_list.birthday_Month}
+      </select>
+      月
+      <select name="bir_d" id="bir_d">
+        {content_list.birthday_Day}
+      </select>
+      日</td>
+  </tr>
+  <tr>
+    <td>聯絡電話：</td>
+    <td><input name="tel" id="tel" type="text" value="{content_list.telephone}" /></td>
+  </tr>
+  <tr>
+    <td>行動電話：</td>
+    <td><input name="mobile" id="mobile" type="text" value="{content_list.cellphone}" /></td>
+  </tr>
+  <tr>
+    <td>E m a i l ：</td>
+    <td><input name="email" id="email" type="text" size="45" value="{content_list.email}" /></td>
+  </tr>
+  <tr>
+    <td>聯絡地址：</td>
+    <td><label for="select2"></label>
+      <input name="address" id="address" type="text" size="45" value="{content_list.com_address}" /></td>
+  </tr>
+  <tr>
+    <td colspan="2"><div style="border-top:1px #999999 dotted;">
+	<input name="SendEdit" id="SendEdit" type="submit" value="確認修改" /><span style="float:right; color:#999999">建立時間:{content_list.create_time}</span>
+	</div></td>
+  </tr>
+</table>
+</form>
+<br />
+<div class="login_box1"></div>
+</div>
+{HTML.footer}
+<!-- END: main -->

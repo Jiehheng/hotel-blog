@@ -1,0 +1,37 @@
+<!-- BEGIN: main -->{HTML.header}
+  <div id="top" class="grid_12">
+    {HTML.banner}
+  </div>
+  <div class="grid_3">
+	{HTML.menu}
+  </div>
+<div class="grid_9">
+<h2><span class="style1"><a href="?{cUrl}&amp;index">首頁</a></span> >沐戀商旅 的相簿</h2>
+<div class="right_box2">
+    {content_list.list}
+	{content_list.page}
+  <hr width="100%" size="1" noshade="noshade" color="#dFdFDF"/>
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+	<td align="right">&nbsp;</td>
+	<td align="right">
+	  <table align="center" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+		  <td width="220" align="left"><input type="image" width="60" height="22" align="baseline" border="0" src="./images/p9_banner6.jpg" name="submit2" value="submit" onclick="javascript:window.open('./?{cUrl}&album&id=new','_self')" /></td>
+		  <td width="65" align="right">&nbsp;
+			<a href="{content_list.btn_1}"><img src="images/p3_back.jpg" width="20" height="15" border="0" align="absmiddle" {content_list.btn_2} /></a>&nbsp;
+			<a href="{content_list.btn_3}"><img src="images/p3_back2.jpg" width="15" height="15" border="0" align="absmiddle" {content_list.btn_4} /></a>			  </td>
+		  <td width="170" align="center">{content_list.btn_5}</td>
+		  <td width="65" align="left">&nbsp;
+			<a href="{content_list.btn_6}"><img src="images/p3_next2.jpg" width="15" height="15" border="0" align="absmiddle" {content_list.btn_7} /></a>&nbsp;
+			<a href="{content_list.btn_8}"><img src="images/p3_next.jpg" width="20" height="15" border="0" align="absmiddle" {content_list.btn_9} /></a>			  </td>
+		 </tr>
+	  </table>
+	</td>
+	<td align="right"><span class="style12"><img src="images/p3_s.gif" width="8" height="18" align="absmiddle" /></span><span class="style4">目前相簿  / 共 {content_list.btn_10} 相簿<img src="images/p3_s.gif" width="8" height="18" align="absmiddle" /></span></td>
+	</tr>
+  </table>
+</div>
+</div>
+{HTML.footer}
+<!-- END: main -->

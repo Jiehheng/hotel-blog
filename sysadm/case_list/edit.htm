@@ -1,0 +1,207 @@
+<!-- BEGIN: table -->
+<link rel="stylesheet" type="text/css" media="all" href="../jscalendar/skins/aqua/theme.css" title="aqua skins" />
+<script type="text/javascript" src="../jscalendar/calendar.js"></script>
+<script type="text/javascript" src="../jscalendar/lang/calendar-big5.js"></script>
+<script type="text/javascript" src="../jscalendar/calendar-setup.js"></script>
+<script type="text/javascript">
+<!--
+var $ = function(i){return document.getElementById(i)}
+function trim(s) {
+  return s.replace(/^\s*|\s*$/g,"");
+}
+
+function check_data()
+{
+	/* 物件名稱  */
+	if (trim($("ob_name").value)=="")
+	{
+		$("ob_name").focus();
+		alert('請填入物件名稱');
+		return false;
+	}
+	/* 求購區域  */
+	if (trim($("ob_District").value)=="")
+	{
+		$("ob_District").focus();
+		alert('請填入求購區域');
+		return false;
+	}
+	/* 物件類別  */
+	if (trim($("ob_Categories").value)=="")
+	{
+		$("ob_Categories").focus();
+		alert("請輸入物件類別");
+		return false;
+	}
+	/* 行動電話檢測  */
+	if (trim($("contacter_mphone").value)=="")
+	{
+		$("contacter_mphone").focus();
+		alert('請填入行動電話');
+		return false;
+	}else{
+		re=/^09(\d{2})(\d{6})/;
+		if (!re.test($("contacter_mphone").value))
+		{
+			alert('請檢查行動電話格式');
+			$("contacter_mphone").focus();
+			return false;
+		}
+	}
+
+	/* 電子信箱檢測  */
+	if (trim($("contacter_email").value)=="")
+	{
+		alert('請填入電子信箱');
+		$("contacter_email").focus();
+		return false;
+	}else{
+		re=/([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+		if (!re.test(trim($("email").value)))
+		{
+			alert("請檢查電子信箱格式");
+			$("email").focus();
+			return false;
+		}
+	}
+}
+-->
+</script>
+<table border="0" cellspacing="0" cellpadding="3" width="100%">
+	<tr>
+		<td align="left" >
+			<table border="0" cellspacing="0" cellpadding="0" width="100%">
+				<tr>
+					<td style="width:95px" >
+						<img border="0" src="../images/title_11.gif" width="95" height="80">
+					</td>
+					<td  nowrap background="../images/title01.gif" align="left"style=";background-repeat:repeat-x" >
+						<a href="index.php"><span class="blueword">案件管理</span></a>
+						<span class="blueword">＞ 修改案件</span>
+					</td>
+					<td style="width:100%;background-repeat:repeat-x" background="../images/title01.gif">&nbsp;
+						
+					</td>
+					<td style="width:78px;background-repeat:repeat-x" background="../images/title01.gif">
+						<input type="image" src="../images/botton_return.gif" width="70" height="27" onClick="window.location.href='index.php'">
+					</td>
+					<td style=";background-repeat:repeat-x" background="../images/title01.gif" width="36" align="right" valign="top">
+						<img border="0" src="../images/title02.gif" width="36" height="80">
+					</td>
+				</tr>
+				<tr>
+					<td align="center" colspan="5" style="padding:5px">
+						<form action="edit_proc.php" method="post" onsubmit="return check_data();">
+							<input type="hidden" value="{DATA.serial_id}" id="serial_id" name="serial_id">
+							<table border="0" cellspacing="1" cellpadding="3" width="100%" class="lvt small">
+								<tr>
+									<td class="lvtCol" align="right" width="20%"><span style="color:#FF0000">*</span>物件編號</td>
+								    <td class="lvtCol" align="left" width="80%">{DATA.ob_name}</td>
+								</tr>
+								<tr>
+								  <td class="lvtCol" align="right" width="20%"><span style="color:#FF0000">*</span>求購區域</td>
+								  <td class="lvtCol" align="left" width="80%">
+								    <table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-size:9.5pt;">
+									  <tr>
+										<td valign="top" width="100%" style="border:1px dashed #CCCCCC">{DATA.ob_District}</td>
+									  </tr>
+									</table>
+								  </td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="20%"><span style="color:#FF0000">*</span>物件類別</td>
+									<td class="lvtCol" align="left" width="80%">{DATA.ob_Categories}</td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="20%">預售屋求購</td>
+								  <td class="lvtCol" align="left" width="80%">
+								  {DATA.presale}
+								  </td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="20%">房屋格局</td>
+									<td class="lvtCol" align="left" width="80%" style="font-weight:normal;">{DATA.house_patterns}</td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="20%">座向</td>
+									<td class="lvtCol" align="left" width="80%" style="font-weight:normal;">{DATA.house_Blockto}</td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="20%">求購預算</td>
+								  <td class="lvtCol" align="left" width="80%">{DATA.budget}</td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="20%">地段要求</td>
+									<td class="lvtCol" align="left" width="80%" style="font-weight:normal;">{DATA.lot_requirements}</td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="20%">其他要求</td>
+									<td class="lvtCol" align="left" width="80%" style="font-weight:normal;">{DATA.other_equirements}</td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="20%">購屋目的</td>
+									<td class="lvtCol" align="left" width="80%" style="font-weight:normal;">{DATA.purpose}</td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="20%">屋齡</td>
+								  <td class="lvtCol" align="left" width="80%" style="font-weight:normal;">{DATA.building_age}</td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="20%">入住時間</td>
+									<td class="lvtCol" align="left" width="80%" style="font-weight:normal;">{DATA.move_in_date}</td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="20%">求購建物坪數</td>
+									<td class="lvtCol" align="left" width="80%" style="font-weight:normal;">{DATA.building_evel_round}</td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="20%">求購土地坪數</td>
+									<td class="lvtCol" align="left" width="80%" style="font-weight:normal;">{DATA.land_level_round}</td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="20%">聯絡人</td>
+								  <td class="lvtCol" align="left" width="80%"><input type="text" value="{DATA.contacter}" id="contacter" name="contacter" class="detailedViewTextBox" onFocus="this.className='detailedViewTextBoxOn'" onBlur="this.className='detailedViewTextBox'" ></td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="20%"><span style="color:#FF0000">*</span>聯絡人行動電話</td>
+								  <td class="lvtCol" align="left" width="80%"><input type="text" value="{DATA.contacter_mphone}" id="contacter_mphone" name="contacter_mphone" class="detailedViewTextBox" onFocus="this.className='detailedViewTextBoxOn'" onBlur="this.className='detailedViewTextBox'" ></td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="20%"><span style="color:#FF0000">*</span>聯絡人住家電話</td>
+								  <td class="lvtCol" align="left" width="80%"><input type="text" value="{DATA.contacter_fphone}" id="contacter_fphone" name="contacter_fphone" class="detailedViewTextBox" onFocus="this.className='detailedViewTextBoxOn'" onBlur="this.className='detailedViewTextBox'" ></td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="20%"><span style="color:#FF0000">*</span>聯絡人電子信箱</td>
+								  <td class="lvtCol" align="left" width="80%"><input type="text" value="{DATA.contacter_email}" id="contacter_email" name="contacter_email" class="detailedViewTextBox" onFocus="this.className='detailedViewTextBoxOn'" onBlur="this.className='detailedViewTextBox'" ></td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="20%">聯絡時間</td>
+								  <td class="lvtCol" align="left" width="80%">{DATA.contact_time}</td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="20%">備註補充說明</td>
+								  <td class="lvtCol" align="left" width="80%"><input type="text" value="{DATA.ps}" id="ps" name="ps" class="detailedViewTextBox" onFocus="this.className='detailedViewTextBoxOn'" onBlur="this.className='detailedViewTextBox'" ></td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="20%">案件狀況</td>
+								  <td class="lvtCol" align="left" width="80%"><input type="text" value="{DATA.status}" id="status" name="status" class="detailedViewTextBox" onFocus="this.className='detailedViewTextBoxOn'" onBlur="this.className='detailedViewTextBox'" ></td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="right" width="20%">被配對的仲介人員</td>
+								  <td class="lvtCol" align="left" width="80%">{DATA.service_bywho}</td>
+								</tr>
+								<tr>
+									<td class="lvtCol" align="center" colspan="2">
+										<input type="submit" value="送出" style="padding-top:2px">&nbsp;
+										<input type="reset" value="清除" style="padding-top:2px">
+								  </td>
+								</tr>
+							</table>
+						</form>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+<!-- END: table -->

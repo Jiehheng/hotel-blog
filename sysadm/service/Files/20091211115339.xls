@@ -1,0 +1,468 @@
+				<html xmlns:o="urn:schemas-microsoft-com:office:office"
+				xmlns:x="urn:schemas-microsoft-com:office:excel"
+				xmlns="http://www.w3.org/TR/REC-html40">
+
+				<head>
+				<meta http-equiv=Content-Type content="text/html; charset=big5">
+				<meta name=ProgId content=Excel.Sheet>
+				<!--[if gte mso 9]><xml>
+				 <o:DocumentProperties>
+				  <o:LastAuthor>Sriram</o:LastAuthor>
+				  <o:LastSaved>2005-01-02T07:46:23Z</o:LastSaved>
+				  <o:Version>10.2625</o:Version>
+				 </o:DocumentProperties>
+				 <o:OfficeDocumentSettings>
+				  <o:DownloadComponents/>
+				 </o:OfficeDocumentSettings>
+				</xml><![endif]-->
+				<style>
+				<!--table
+					{mso-displayed-decimal-separator:"\.";
+					mso-displayed-thousand-separator:"\,";}
+				@page
+					{margin:1.0in .75in 1.0in .75in;
+					mso-header-margin:.5in;
+					mso-footer-margin:.5in;}
+				tr
+					{mso-height-source:auto;}
+				col
+					{mso-width-source:auto;}
+				br
+					{mso-data-placement:same-cell;}
+				.style0
+					{mso-number-format:General;
+					text-align:general;
+					vertical-align:bottom;
+					white-space:nowrap;
+					mso-rotate:0;
+					mso-background-source:auto;
+					mso-pattern:auto;
+					color:windowtext;
+					font-size:10.0pt;
+					font-weight:400;
+					font-style:normal;
+					text-decoration:none;
+					font-family:Arial;
+					mso-generic-font-family:auto;
+					mso-font-charset:0;
+					border:none;
+					mso-protection:locked visible;
+					mso-style-name:Normal;
+					mso-style-id:0;}
+				td
+					{mso-style-parent:style0;
+					padding-top:1px;
+					padding-right:1px;
+					padding-left:1px;
+					mso-ignore:padding;
+					color:windowtext;
+					font-size:10.0pt;
+					font-weight:400;
+					font-style:normal;
+					text-decoration:none;
+					font-family:Arial;
+					mso-generic-font-family:auto;
+					mso-font-charset:0;
+					mso-number-format:General;
+					text-align:general;
+					vertical-align:bottom;
+					border:none;
+					mso-background-source:auto;
+					mso-pattern:auto;
+					mso-protection:locked visible;
+					white-space:nowrap;
+					mso-rotate:0;}
+				.xl24
+					{mso-style-parent:style0;
+					white-space:normal;}
+				-->
+				</style>
+				<!--[if gte mso 9]><xml>
+				 <x:ExcelWorkbook>
+				  <x:ExcelWorksheets>
+				   <x:ExcelWorksheet>
+					<x:Name>srirmam</x:Name>
+					<x:WorksheetOptions>
+					 <x:Selected/>
+					 <x:ProtectContents>False</x:ProtectContents>
+					 <x:ProtectObjects>False</x:ProtectObjects>
+					 <x:ProtectScenarios>False</x:ProtectScenarios>
+					</x:WorksheetOptions>
+				   </x:ExcelWorksheet>
+				  </x:ExcelWorksheets>
+				  <x:WindowHeight>10005</x:WindowHeight>
+				  <x:WindowWidth>10005</x:WindowWidth>
+				  <x:WindowTopX>120</x:WindowTopX>
+				  <x:WindowTopY>135</x:WindowTopY>
+				  <x:ProtectStructure>False</x:ProtectStructure>
+				  <x:ProtectWindows>False</x:ProtectWindows>
+				 </x:ExcelWorkbook>
+				</xml><![endif]-->
+				</head>
+
+				<body link=blue vlink=purple>
+				<table x:str border=0 cellpadding=0 cellspacing=0 style='border-collapse: collapse;table-layout:fixed;'><tr><td class=xl24 width=64 >系統檢測報告</td></tr><tr><td class=xl24 width=64 >案件名稱：</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >日期：</td><td class=xl24 width=64 >2009-12-27 11:53:39</td></tr><tr><td class=xl24 width=64 >編號</td><td class=xl24 width=64 >問題分類</td><td class=xl24 width=64 >問題內容</td><td class=xl24 width=64 >發問時間</td><td class=xl24 width=64 >回覆內容</td><td class=xl24 width=64 >回覆時間</td><td class=xl24 width=64 >回覆人員</td><td class=xl24 width=64 >回覆狀況</td><td class=xl24 width=64 >備註</td></tr><tr><td class=xl24 width=64 >1</td><td class=xl24 width=64 >業務問題</td><td class=xl24 width=64 >請傳送如何利用本委員會後台之功能製作新網頁之操作流程至minka@kcg.gov.tw</td><td class=xl24 width=64 >2009-06-22 17:05:06</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >2</td><td class=xl24 width=64 >業務問題</td><td class=xl24 width=64 >敬啟者,您好!<br />
+       我是南方客觀的承辦人,我在操作時遇到一些問題,敘述如下,煩請協助解決:<br />
+<br />
+       我把每一版的jpg檔上傳至&quot;圖示&quot;的地方(有8版所以有8的檔),之後我又把每的版面的pdf檔上傳至&quot;附加檔案&quot;的地方,但只能上傳2個不夠,若只上傳2個版面的pdf,也無法上傳,煩請儘速協助解決,謝謝!<br />
+<br />
+客委會<br />
+陳桂平</td><td class=xl24 width=64 >2009-06-26 14:03:43</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >3</td><td class=xl24 width=64 >頁面問題</td><td class=xl24 width=64 >本會同仁更新 Internet Explorer 瀏覽器後,本會網頁首頁之最新消息等四個圖示失真,請修正</td><td class=xl24 width=64 >2009-07-01 09:30:24</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >4</td><td class=xl24 width=64 >業務問題</td><td class=xl24 width=64 >公所網頁靜態網頁的內容若要修改，要怎麼修改<br />
+麻煩將操作步驟媚兒給我，謝謝~<br />
+因為我每個月都要修改--認識小港--小港簡介--人文面積的人口數<br />
+<br />
+雅卿</td><td class=xl24 width=64 >2009-07-10 09:16:10</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >5</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >日文版首頁最新消息應該是與英文版同步，但是現在看起來卻是有問題的，請修復！</td><td class=xl24 width=64 >2009-08-21 10:12:17</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >6</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >在http://www.mirdc.org.tw/RssOrder.aspx?sty=13所提供的RSS資料, 利用RSS Reader是無法讀取的<br />
+會發生錯誤(產生的RSS XML資料有問題), </td><td class=xl24 width=64 >2009-08-28 12:27:59</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >7</td><td class=xl24 width=64 >業務問題</td><td class=xl24 width=64 >合約快到期了修改進度可否快一些謝謝.</td><td class=xl24 width=64 >2009-10-12 14:41:48</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >8</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >敬啟者您好：<br />
+請將通訊主要發送人直接抓營建署的通訊錄的資料<br />
+因為營建署人員異動時會更新資料...所以程式要能夠自行更新資料<br />
+<br />
+另有部分訂閱人之資料未登錄於網站上<br />
+請協助將資料轉入----請速處理(連同上封信的問題)<br />
+本處預定於10月底前將使用本電子報系統發送通訊<br />
+經測試--驗收後再行付款結案<br />
+  解說教育課 王君如</td><td class=xl24 width=64 >2009-10-23 10:36:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >9</td><td class=xl24 width=64 >頁面問題</td><td class=xl24 width=64 >後台 → 預約申辦 → 「場地名稱管理」<br />
+1.場所無法刪除成功<br />
+2.後台的場地名稱 及 前台的場地租借的場地下拉選單<br />
+排序好像是以數字再注音符號<br />
+因需在場地部份新增「榕園」和「其它」<br />
+可否「其它」放在最下面<br />
+以目前的排序法，「其它」在「榕園」的上面</td><td class=xl24 width=64 >2009-10-26 14:57:19</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >10</td><td class=xl24 width=64 >頁面問題</td><td class=xl24 width=64 >後台 → 預約申辦<br />
+新增的預約申辦其內容部份<br />
+可否加入工具列(粗體.底線.超連結.HTML語法等)<br />
+謝謝</td><td class=xl24 width=64 >2009-10-27 11:35:21</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >11</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >登入後台,有時進入網站生成管理,左邊英文版的選項點入後都會出現頁面錯誤(403權限問題)<br />
+<br />
+請盡速協助解決</td><td class=xl24 width=64 >2009-10-29 09:51:02</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >12</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >通訊網站待修正事項：98.11.04<br />
+1.請將3個海洋國家公園通訊整合成一個子項，經整合後第四期須重新上稿-目前無法閱讀。<br />
+2.各期通訊應按刊登之先後順序排列，以方便民眾快速閱覽到最新一期的通訊(並有可選擇排序的功能)。另增加統計閱覽人數的欄位。<br />
+3.訂閱通訊或取消通訊在完成或錯誤時應會有對話框的出現，例如：您已完成訂閱或您的訂閱已取消等等的訊息。另請在訂閱與取消通訊的位置，再增加一個閱讀通訊的連結。<br />
+4.通訊上稿內容如遇網址，應有自動連結的功能。<br />
+5.通訊後台上稿系統在作業時如遇操作錯誤，應出現對話框顯示錯誤訊息，且避免直接退出系統，造成需要再重新登入，影響使用之便利性。<br />
+<br />
+以上如有不清楚的地方，請逕洽解說教育課   王君如3601891<br />
+</td><td class=xl24 width=64 >2009-11-04 16:12:54</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >13</td><td class=xl24 width=64 >業務問題</td><td class=xl24 width=64 >為何「線上客服系統專區」，無法插入圖片、檔案，<br />
+這樣一來，無法將問題描述更清楚，<br />
+可否改善該問題？以利日後報修問題，謝謝。</td><td class=xl24 width=64 >2009-11-24 17:30:41</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >14</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 > 11/25網頁有問題，請貴工程師修正後，頁面資料全是97年的舊資料<br />
+  請速修正為98年資料，謝謝<br />
+  11/30前要結案，會有很多官員進來看<br />
+   謝謝</td><td class=xl24 width=64 >2009-11-26 20:30:56</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >15</td><td class=xl24 width=64 >頁面問題</td><td class=xl24 width=64 >您好：<br />
+本所網站首頁最左邊「便民服務」下的「常見問題」又發生無法連結的問題，<br />
+麻煩請貴公司協助將它連結至以下網址：<br />
+http://cabu.kcg.gov.tw/QA/QAMain.aspx?1=1&amp;menuid=118<br />
+謝謝！</td><td class=xl24 width=64 >2009-12-04 15:20:25</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >16</td><td class=xl24 width=64 >業務問題</td><td class=xl24 width=64 >空大(鄭原平)，請問何時要安排「網頁生成管理」之教育訓練？謝謝。</td><td class=xl24 width=64 >2009-12-07 12:18:15</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >17</td><td class=xl24 width=64 >業務問題</td><td class=xl24 width=64 >有關網頁生成管理之教育訓練，煩請 淑卿確認上課日期、時間，並請準備上課講義50份(含系辦工讀生)，謝謝。<br />
+<br />
+網頁生成管理之教育訓練，<br />
+第一梯次：擬訂於98年12月21日(星期一) 9點30分至11點30分。<br />
+第二梯次：擬訂於98年12月22日(星期二) 9點30分至11點30分。<br />
+地點：A504電腦教室<br />
+對象：不限(不分學術單位、行政單位)<br />
+</td><td class=xl24 width=64 >2009-12-08 15:16:38</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >18</td><td class=xl24 width=64 >業務問題</td><td class=xl24 width=64 >修改後：<br />
+有關網頁生成管理之教育訓練，煩請 淑卿確認上課日期、時間，並請準備上課講義22份(含系辦工讀生)，謝謝。<br />
+<br />
+網頁生成管理之教育訓練，<br />
+第一梯次：擬訂於98年12月14日(星期一) 9點30分至11點30分。<br />
+第二梯次：擬訂於98年12月15日(星期二) 9點30分至11點30分。<br />
+地點：A504電腦教室<br />
+對象：不限(不分學術單位、行政單位)<br />
+</td><td class=xl24 width=64 >2009-12-08 17:03:29</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >19</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >在學術單位之討論區，目前無「置頂」功能，<br />
+在本校舊版討論區有「置頂」功能(如下圖)，<br />
+煩請增加，謝謝。<br />
+<br />
+http://class.ouk.edu.tw/CUForum/<br />
+</td><td class=xl24 width=64 >2009-12-09 16:54:46</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >20</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >在學術單位之討論區(例如：文藝系)，列表請修改以「最後更新時間」排序(「置頂」訊息除外)，<br />
+目前沒有以「最後更新時間」排序(如下圖)，煩請修改，謝謝。<br />
+<br />
+在本校舊版討論區，列表有以「最後更新時間」排序(「置頂」訊息除外)，<br />
+http://class.ouk.edu.tw/CUForum/<br />
+</td><td class=xl24 width=64 >2009-12-09 17:22:30</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >21</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >在學術單位之討論區，「設定暱稱」目前只能設定1組暱稱，<br />
+煩請修改為可設定多組暱稱，謝謝。<br />
+</td><td class=xl24 width=64 >2009-12-09 17:35:18</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >22</td><td class=xl24 width=64 >頁面問題</td><td class=xl24 width=64 >您好：<br />
+請問，本所網站首頁上方主功能列中的「戶政業務」欲設置下拉式選單(含『戶籍登記須知』及『異地受理服務』2項連結)是否需報價？價位為何？<br />
+其中，『戶籍登記須知』所連結內容為目前「戶政業務」連結之畫面(部分內容尚需新增與修改，檔案已寄至潘亞君小姐email信箱)，『異地受理服務』所連結之內容為一word檔表格(直式A4一頁大小，檔案已寄至潘亞君小姐email信箱)。<br />
+<br />
+敬請回覆，謝謝！<br />
+<br />
+</td><td class=xl24 width=64 >2009-12-10 16:37:51</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >23</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >目前「網頁生成權限」只能設定1個單位之權限，無法設定多個單位之之權限。<br />
+1個人之「網頁生成權限」可設定多個單位之之權限，煩請修改，謝謝。<br />
+</td><td class=xl24 width=64 >2009-12-10 19:06:32</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >24</td><td class=xl24 width=64 >頁面問題</td><td class=xl24 width=64 >圖書館網站，煩請 淑卿再將圖書館遺漏之網頁(如附)製作，謝謝。<br />
+<br />
+煩請 淑卿再將圖書館遺漏之網頁(如下)製作，謝謝。<br />
+<br />
+From: 洪明孝 [mailto:david@ms2.ouk.edu.tw] <br />
+Sent: Thursday, December 10, 2009 5:32 PM<br />
+To: 鄭 原平<br />
+Subject: 圖書館網站<br />
+<br />
+ <br />
+1.舊空大圖書館網站內，電子資料庫選項內試用電子資料庫<br />
+相關網址如下:<br />
+2.請將試用電子資料庫置於新網站圖書館項下電子資料庫內.<br />
+<br />
+<br />
+<br />
+<br />
+試用電子資料庫 <br />
+ Periodicals Archive Online Collection 6(簡稱PAO6) 資料庫內容連結網址: http://pao.chadwyck.co.uk/<br />
+ The Economist Historical Archive 1843-2003(簡稱EHA) 資料庫內容連結網址：http://infotrac.galegroup.com/itweb/twnsc142?db=ECON<br />
+ The Making of Modern Law(簡稱MOML)資料庫內容連結網址：<br />
+1、http://infotrac.galegroup.com/itweb/twnsc142?db=MOML<br />
+2、http://infotrac.galegroup.com/itweb/twnsc142?db=MMLT<br />
+3、http://infotrac.galegroup.com/itweb/twnsc142?db=SCRB<br />
+　<br />
+ Times Literary Supplement Centenary Archive(簡稱TLS) 資料庫內容連結網址：http://infotrac.galegroup.com/itweb/twnsc142?db=TLS <br />
+<br />
+<br />
+ 牛津大學電子期刊過刊(OJDA) <br />
+連結網址：http://www.chiuru.com.tw/ojdatw/index.php 進入後請點選「牛津期刊回溯資料庫」<br />
+試用期限：2008-2010年 <br />
+ SpringerLink<br />
+連結網址：http://www.springerlink.com <br />
+試用期限：2008-2010年 <br />
+　<br />
+  Grolier Online (http://go.grolier.com)<br />
+    葛羅里線上百科全書包括:大美百科全書、葛羅里多媒體百科全書、新知識百科全書、西班牙文百科全書、科學新知百科全書、國土與民情、美哉‧阿美利堅、美國研究百科全書等八種<br />
+     線上版百科全書知百科全書、國土與民情、美哉‧阿美利堅、美國研究百科全書等八種線上版百科全書<br />
+    試用期間)1/1– 12/31/2007<br />
+       Username: field<br />
+       Password: trip<br />
+     中文簡介．檢索指引‧EEBO http://eebo.chadwyck.com/<br />
+試用期間)1/1– 12/31/2007<br />
+       Username: field<br />
+       Password: trip<br />
+     中文簡介．檢索指引‧PAO http://pao.chadwyck.co.uk/<br />
+      (試用期間) 8/1– 8/31/2004<br />
+       Username: field<br />
+       Password: trip<br />
+       中文簡介．檢索指引‧http://www.stic.gov.tw/fdb/grolier/index.html<br />
+ OUP Online (Oxford University Press) (http://www.oup.com/online/) 牛津大學出版社提供七種線上版資料庫<br />
+    ．Oxford English Dictionary Online (OED Online)《線上牛津英語大辭典》http://www.oed.com/ <br />
+        (試用期間) 8/1– 9/30/2004 <br />
+       Username: chiuru<br />
+       Password: knowledge<br />
+       中文簡介．http://www.grebook.com.tw/oup/oeddemo.htm  檢索指引‧http://www.grebook.com.tw/oup/OEDdemo.ppt<br />
+     ．Oxford Reference Online (ORO)《牛津線上大辭書》http://www.oxfordreference.com/ <br />
+        (試用期間) 8/1– 9/30/2004 <br />
+       Username: chiuru<br />
+       Password: knowledge<br />
+       中文簡介．http://www.grebook.com.tw/oup/orodemo.htm  檢索指引‧http://www.grebook.com.tw/oup/OROdemo.ppt    <br />
+     ．The Grove Art Online (GA Online)《葛洛夫藝術百科全書》http://www.groveart.com/ <br />
+        (試用期間) 8/1– 9/30/2004 <br />
+       Username: chiuru<br />
+       Password: knowledge<br />
+     ．The Grove Music Online (GM Online)《葛洛夫音樂百科全書》http://www.grovemusic.com/ <br />
+        (試用期間) 8/1– 9/30/2004 <br />
+       Username: chiuru<br />
+       Password: knowledge<br />
+     ．Oxford Scholarship Online (OSO)《牛津學術線上電子書》http://www.oxfordscholarship.com/ <br />
+        (試用期間) 8/1– 9/30/2004 <br />
+       Username: chiuru<br />
+       Password: knowledge<br />
+     .<br />
+  Palgrave Macmillan Journals  (http://www.palgrave-journals.com/) <br />
+     24種知名國際學術期刊包括:荷蘭Acta政治學、亞洲商業管理、比較經濟研究、歐洲比較政治學、當代政治理論、社會政策發展、歐洲資訊系統、歐洲管理評論、女性主義評<br />
+      論、法國政治學、高等教育政策、資訊視覺化、國際作業研究摘要、國際政治、資訊科技、國際商學研究、國際關係與發展、英國運籌學「作業研究」學會、知識管理研究<br />
+      與實務、拉丁美洲研究、國際海事經濟及物流管理學、社會文化與精神分析學、公共衛生社會理論、國際都市設計等24種學術期刊。<br />
+     (試用期間) 8/1– 10/31/2004 ※免用帳號密碼※<br />
+      ※ 請 Click → □Online sample issue Or View tables of contents 所有 24種期刊之「現刊全文」及、「過刊索摘(Abstract)」皆開放試用，免用帳號密碼.<br />
+ Berkeley Electronic Press (http://www.bepress.com/alljournals.html) <br />
+      25種柏克萊財經法政期刊全文線上版包含柏克萊大學「遺傳與分子生物學之統計應用期刊」、「總體經濟學期刊」、「經濟分析與政策期刊」、「理論經濟學期刊」、「農<br />
+      業經濟與食品工業期刊期刊」、「市場營銷學評論期刊 」、「 非線性動力學及計量經濟學期刊」、「化學反應(堆)工程學期刊」、「全球法學論述期刊」、「柏克萊法律學<br />
+      術期刊」、「柏克萊政治論壇」、「國家安全與危機處理期刊」、「國際政商關係期刊」、「國際護理學術教育期刊」等14 種柏克萊大學知名國際學術期刊。<br />
+     (試用期間) 8/1– 9/30/2004 <br />
+     User email: chiang@demo.bepress.com<br />
+     Password:  BEPsearch<br />
+<br />
+  The Berkeley Working Papers ( http://www.bepress.com/workingpapers.html) <br />
+  「柏克萊學術研討論文」包含Biostatistics, Business &amp; Economics, Legal Studies, Think Tanks &amp; Policy Centers,<br />
+    The University of California eScholarship Digital Repository Working Paper Sites。<br />
+    (試用期間) 8/1– 12/31/2004 ※免用帳號密碼※<br />
+   Xreferplus電子參考書(http://www.xreferplus.com/) .<br />
+  (試用期間) 8/1– 8/31/2004 <br />
+  Username: july<br />
+  Password: master<br />
+  中文簡介．http://www.grebook.com.tw/xreferplus/xreferplusdemo.htm  檢索指引‧http://www.grebook.com.tw/xreferplus/userguide.ppt<br />
+　<br />
+   Mergent Online (http://www.mergentonline.com/)  <br />
+        Mergent Online (Mergent全球企業與金融證券資料庫‧106國 - 35,000 家)<br />
+      URL: http://www.mergentonline.com/ <br />
+      (試用期間) 8/1– 8/31/2004<br />
+      Username: civicdb     Password: demo<br />
+      Mergent's Events Data - Real Time Market Intelligence (Mergent即時企業情報資料庫)<br />
+      URL: http://www.eventsdata.com/ <br />
+      (試用期間) 8/1– 8/31/2004<br />
+      Username: civic   Password: demo<br />
+      Mergent Equity Portraits (Mergent公司證券資料庫 - 10,000家)<br />
+      URL: http://portraits1.fisonline.com/ <br />
+      (試用期間) 8/1– 8/31/2004<br />
+      Username: civice    Password: demo<br />
+      Mergent Corporate Bond Portraits (Mergent公司債卷資料庫 - 15,000家)<br />
+      URL: http://portraits1.fisonline.com/ <br />
+      (試用期間) 8/1– 8/31/2004<br />
+      Username: civicb    Password: demo<br />
+      Mergent WebReports (Mergent全球產業報告暨公司年報資料庫‧106國 - 35,000 家)<br />
+      URL: http://webreports.mergent.com/ <br />
+      (試用期間) 8/1– 8/31/2004<br />
+      Username: civic    Password: demo<br />
+      中文簡介．http://www.grebook.com.tw/mergent/Mergent_Online.htm ．http://www.grebook.com.tw/mergent/mergent_online_introduce.doc <br />
+<br />
+        檢索指引‧http://www.grebook.com.tw/mergent/mergent_online_userguide(B).ppt <br />
+   Scientific American Archive Online (http://search.epnet.com/) 科學美國人線上全文資料庫<br />
+     (試用期間) 8/1– 8/31/2004 <br />
+     Username: saao<br />
+     Password: summer<br />
+　<br />
+   BioMed Central The Open Access Publisher (http://www.biomedcentral.com/) 提供與生物、醫學相關的112種 -『公開存取』免費學術期刊 ..... 免費使用<br />
+      ．BMC | Open Access journals 所有 112種期刊之「現刊全文」及、「過刊全文」皆開放免費使用。<br />
+     (使用期間) 8/1– 12/31/2005 ※免用帳號密碼※<br />
+       中文簡介．http://www.lib.pu.edu.tw/database/online/BMC/BMC-OAJ.htm   檢索指引‧ http://www.lib.pu.edu.tw/database/online/BMC/guide.htm <br />
+<br />
+　<br />
+   The VOD-DigitalCurriculum (http://www.digitalcurriculum.com/)   <br />
+       線上數位課程(教學影片)資料庫為美國最大的教學影片公司AIMS Multimedia (艾姆思多媒體)所架設之隨選視訊VOD- (Video-On-Demand)教學影片資料庫,含1,850部教<br />
+       學影片,提供老師教學及學生學習所需。收錄程度由K-12至成人,教師可指定個別課程參考影片、指派學生作業、學生觀看後也可於線上接受測驗。<br />
+     (試用期間) 8/1– 8/30/2004 <br />
+     Username: Summer-T<br />
+     Password: North7777<br />
+     中文簡介．http://www.grebook.com.tw/digital_curriculum/index.html <br />
+   AIMS Multimedia Special Offers http://www.aimsmultimedia.com/special_offers/dvd_special.htm<br />
+       艾姆思多媒體目前正提供8,500titles(部)得獎之教學影片CD-ROM and DVD之特惠價. (歡迎試看．preview) ..... 免費試看<br />
+      ． special price of just $49.95 per title, plus shipping and handling.   <br />
+      ．Special Offer valid through October 31, 2004 .....   <br />
+ 中國經濟信息網(CEInet) <br />
+ 連結網址：http://cei.igroupnet.com.tw/<br />
+試用期限：2004/10/5-2004/11/5 <br />
+  <br />
+ 中國商情網(CIB) <br />
+連結網址：http://www.chinainfobank.com/ <br />
+試用期限：2004/10/5-2004/11/5 <br />
+  <br />
+ 超星中文電子書 <br />
+連結網址：http://ebk.chi.ascc.net <br />
+試用期限：2004/10/05-2004/11/05 <br />
+注意事項：1) 使用本系統, 必須安裝超星閱覽器及註冊器, 才能閱讀書本內容 及下載與列印,請您參閱網站首頁的使用說明. <br />
+                     2) 本次試用只提供閱讀功能,不便之處尚請見諒. <br />
+                     3) 欲查閱所有的書目清單, 請點選首頁第二項&quot;數字圖書館介紹&quot;; 請勿直接開啟 (格式紊亂), 必須按右鍵&quot;另存目標&quot;, 存檔後方可開啟. </td><td class=xl24 width=64 >2009-12-11 11:07:37</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >25</td><td class=xl24 width=64 >頁面問題</td><td class=xl24 width=64 >外文系「歷屆課程，補充舊網站資料」，煩請廠商再編輯補充，謝謝。<br />
+<br />
+問題一：目前外文系網站之「首頁 &gt; 課程規劃 &gt; 歷屆課程」只列出「英文組課程」6科，舊網站之英文組有20科，煩請廠商再編輯補充14科。<br />
+<br />
+問題二：目前外文系網站之「首頁 &gt; 課程規劃 &gt; 歷屆課程」未列出「日文組課程」，舊網站之英文組約有6科，煩請廠商再編輯補充6科。<br />
+<br />
+問題三：已完成更新。<br />
+</td><td class=xl24 width=64 >2009-12-11 11:08:29</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >26</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >中文版首頁之最上一行之右上角「分類檢索」，點選後卻無反應，煩請修改，謝謝。</td><td class=xl24 width=64 >2009-12-14 20:25:58</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >27</td><td class=xl24 width=64 >頁面問題</td><td class=xl24 width=64 >更換的橫幅中，員工園地的那張圖已經過曝了，可否更換一張？<br />
+<br />
+另外，主任專區的橫幅使用廟宇圖案不太恰當，線上公告與線上查詢的圖片也有些類似，可否協助更換？<br />
+<br />
+PDA版本之前也因圖片不足，可否協助更換圖片？<br />
+<br />
+謝謝</td><td class=xl24 width=64 >2009-12-15 16:45:55</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >28</td><td class=xl24 width=64 >頁面問題</td><td class=xl24 width=64 >最新消息中的自訂的發佈日期與首頁-最新消息顯示的日期不符,如:12月19日之東沙海洋環境保育研討會發佈日期為98/12/15,首頁顯示98/12/16日,請配合修改程,並修改此筆資料發佈日期為12/15</td><td class=xl24 width=64 >2009-12-16 09:59:26</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >29</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >消耗品申請，不論是前台、後台，排序欄位請增加「物品編號」排序，謝謝。</td><td class=xl24 width=64 >2009-12-21 10:38:42</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >30</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >消耗品預約管理系統 &gt; 歷史領用記錄，排序欄位請增加「物品編號」排序，謝謝。</td><td class=xl24 width=64 >2009-12-21 11:03:12</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >31</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >後台管理系統<br />
+輔導處 &gt; 線上報名管理 &gt; 報名活動管理 &gt; 新增，<br />
+「活動時間」請更改為: 「報名時間」，謝謝。<br />
+</td><td class=xl24 width=64 >2009-12-23 09:25:17</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >32</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >::: 輔導處首頁 &gt; 業務服務 &gt; 線上報名<br />
+<br />
+生日「西元出生年」請更改為:「民國01-99年」，煩請修改，謝謝。<br />
+<br />
+建議：不要用選單式，可用輸入數字，<br />
+並標示「民國？？？年？？月？？日」，(可輸入100年，3位數)<br />
+但須判斷輸入生日是否無效(例如：02月31日，則無效)<br />
+</td><td class=xl24 width=64 >2009-12-23 10:19:39</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >33</td><td class=xl24 width=64 >頁面問題</td><td class=xl24 width=64 >問題一：請修改「城市智庫電子報」之頁尾<br />
+問題二：「城市智庫電子報」之頁尾內容，是否可以由本校自行編輯？謝謝。<br />
+<br />
+目前：(校刊資料，非「城市智庫電子報」)<br />
+．發刊日：2008/11/26 ．發行單位：高雄市立空中大學 ．主編：李燕峰 ．編輯 人：郭英勝、何妤蓁、宗靜萍<br />
+．編輯：本校校刊編輯委員會 ．TEL：07-8012008#1303 ．Fax：07-8034211 ．地址：81249 高雄市小港區大業北路436號　<br />
+．承印者：新裕豐文化事業有限公司 ．TEL：07-2352468 ．Fax：07-2351930  ．網址：www.syf.com.tw<br />
+　．國際標期刊編號ISSN1029-3787 ．行政院新聞局出版事業登記證 ．局版高市誌第183號<br />
+ ．中華郵政南台字第1058號 ．執照登記為雜誌交寄 ．&amp;copy;2009 The Open University Of Kaohsiung City Think Tank. All rights reserved.<br />
+<br />
+改為：<br />
+<br />
+新版：<br />
+．創  刊  日：2008/09/19<br />
+．發行單位：高雄市立空中大學研究處 <br />
+．主       編：許文英 <br />
+．執行編輯：殷婉茹 <br />
+．TEL:07-8012008 ext.1417<br />
+．Fax:07-8012649 <br />
+．國際標準期刊號 ISSN 0000-0000<br />
+．地址：81249 高雄市小港區大業北路436號　<br />
+．&amp;copy;2009 The Open University Of Kaohsiung . All rights reserved.<br />
+</td><td class=xl24 width=64 >2009-12-23 14:28:29</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >34</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >問題二：「城市智庫電子報」之頁尾內容，是否可以由本校自行編輯？謝謝。<br />
+<br />
+目前：(校刊資料，非「城市智庫電子報」)<br />
+．發刊日：2008/11/26 ．發行單位：高雄市立空中大學 ．主編：李燕峰 ．編輯 人：郭英勝、何妤蓁、宗靜萍<br />
+．編輯：本校校刊編輯委員會 ．TEL：07-8012008#1303 ．Fax：07-8034211 ．地址：81249 高雄市小港區大業北路436號　<br />
+．承印者：新裕豐文化事業有限公司 ．TEL：07-2352468 ．Fax：07-2351930  ．網址：www.syf.com.tw<br />
+　．國際標期刊編號ISSN1029-3787 ．行政院新聞局出版事業登記證 ．局版高市誌第183號<br />
+ ．中華郵政南台字第1058號 ．執照登記為雜誌交寄 ．&amp;copy;2009 The Open University Of Kaohsiung City Think Tank. All rights reserved.<br />
+<br />
+改為：<br />
+<br />
+新版：<br />
+．創  刊  日：2008/09/19<br />
+．發行單位：高雄市立空中大學研究處 <br />
+．主       編：許文英 <br />
+．執行編輯：殷婉茹 <br />
+．TEL:07-8012008 ext.1417<br />
+．Fax:07-8012649 <br />
+．國際標準期刊號 ISSN 0000-0000<br />
+．地址：81249 高雄市小港區大業北路436號　<br />
+．&amp;copy;2009 The Open University Of Kaohsiung . All rights reserved.<br />
+</td><td class=xl24 width=64 >2009-12-23 14:29:04</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >35</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >中文版 &gt; 電子報管理 &gt; 電子報訂閱管理<br />
+<br />
+煩請增加「&amp;#28377;入匯出mail清單的功能」（如：匯入／出.CSV檔）。<br />
+</td><td class=xl24 width=64 >2009-12-23 17:13:10</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >36</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >中文版 &gt; 電子報管理 &gt; 電子報訂閱管理<br />
+<br />
+煩請增加：可選擇多個mail信箱帳號(例如：3個e-mail帳號)，發送測試用的電子報到實際上的多個mail信箱，先行瀏覽電子報內容，並確認是否有誤？<br />
+確定無誤後再發電子報。<br />
+</td><td class=xl24 width=64 >2009-12-23 17:31:01</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >37</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >中文版 &gt; 電子報管理 &gt; 電子報訂閱管理<br />
+<br />
+煩請增加：「e-mail查詢」功能，謝謝。<br />
+目前只提供「姓名查詢」，無「e-mail查詢」。<br />
+</td><td class=xl24 width=64 >2009-12-23 17:41:59</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >38</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >中文版 &gt; 電子報管理 &gt; 電子報訂閱管理<br />
+<br />
+點選「新增」，出現錯誤訊息(如下)，煩請修改，謝謝。<br />
+</td><td class=xl24 width=64 >2009-12-23 17:46:19</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >39</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >中文版 &gt; 電子報管理 &gt; 城市智庫電子報發行管理 &gt; 編輯<br />
+<br />
+兩旁超鏈結的功能(設定高市府最新頭條(最多 6 筆)，目前已設定3筆)，但在預覽時卻沒有看見兩旁超鏈結的部份(目前已設定3筆)，煩請修改，謝謝。<br />
+</td><td class=xl24 width=64 >2009-12-23 18:02:23</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >40</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >中文版 &gt; 電子報管理 &gt; 城市智庫電子報發行管理 &gt; 編輯<br />
+<br />
+煩請增加可顯示或關閉「兩旁超鏈結的功能(設定高市府最新頭條(最多 6 筆)，目前已設定3筆) 」，謝謝。<br />
+</td><td class=xl24 width=64 >2009-12-24 16:07:23</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >41</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >請新增本院網站門診查詢年度2010年<br />
+http://www.sinlau.org.tw/homestyle.php?styl=08&amp;strlink=SearchDetail&amp;uni_id=46&amp;inf_id=1</td><td class=xl24 width=64 >2009-12-24 17:42:04</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >42</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >[急件]<br />
+<br />
+訊息活動公告的部分<br />
+<br />
+「高雄市新客家文化園區招商說明會」<br />
+<br />
+因刪除多次仍無法刪除，請協助刪除。<br />
+<br />
+另外南方客觀的部分已由後台完成上資料的動作，但前台卻看不到，請協助處理。<br />
+<br />
+前台的部分21期及23期皆無法點擊<br />
+<br />
+請查看問題為何，不然每一次都無法自行上稿而需麻煩貴公司協助處理<br />
+<br />
+就請詳細查看問題<br />
+<br />
+謝謝<br />
+<br />
+<br />
+</td><td class=xl24 width=64 >2009-12-25 13:35:45</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr><tr><td class=xl24 width=64 >43</td><td class=xl24 width=64 >程式問題</td><td class=xl24 width=64 >[急件]<br />
+<br />
+訊息活動公告的部分<br />
+<br />
+「高雄市新客家文化園區招商說明會」<br />
+<br />
+因刪除多次仍無法刪除，請協助刪除。<br />
+<br />
+另外南方客觀的部分已由後台完成上資料的動作，但前台卻看不到，請協助處理。<br />
+<br />
+前台的部分21期及23期皆無法點擊<br />
+<br />
+請查看問題為何，不然每一次都無法自行上稿而需麻煩貴公司協助處理<br />
+<br />
+就請詳細查看問題<br />
+<br />
+謝謝<br />
+<br />
+<br />
+</td><td class=xl24 width=64 >2009-12-25 13:35:47</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >0000-00-00 00:00:00</td><td class=xl24 width=64 ></td><td class=xl24 width=64 >未處理</td><td class=xl24 width=64 ></td></tr></table></body></html>
